@@ -8,7 +8,7 @@ import { createStore } from "redux"
 //reducerを呼び出す
 import rootReducer from "./reducers"
 
-import "./css/index.css"
+import "./index.css"
 import App from "./components/App"
 import registerServiceWorker from "./registerServiceWorker"
 
