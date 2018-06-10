@@ -4,13 +4,21 @@ import "./App.css"
 import TopPage from "./TopPage/TopPage"
 import Header from "./Header/Header"
 
+import { Route, BrowserRouter } from 'react-router-dom';
+import { C_Welcome, C_To, C_React } from './welcometoreact';
+
 class App extends Component {
 	render() {
 		return (
-			<div className="App">
-				<Header/>
-				<TopPage/>
-			</div>
+			<BrowserRouter>
+				<div className="App">
+					<Route path="/" component={Header}/>
+					<Route path="/" component={TopPage}/>
+					<Route path="/welcome" component={C_Welcome}/>
+					<Route path="/to" component={C_To}/>
+					<Route path="/react" component={C_React}/>
+				</div>
+			</BrowserRouter>
 		)
 	}
 }
