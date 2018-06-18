@@ -1,6 +1,12 @@
 // Actionの定義を書きます
 
-//  Example
+export const SUBMITINFORMATION  = "SUBMITINFORMATION"
+export function submitInformation(info) {
+	return {
+		type: SUBMITINFORMATION,
+		info
+	}
+}
 
 /*
 let nextTodoId = 0
