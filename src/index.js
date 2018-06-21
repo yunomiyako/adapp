@@ -15,8 +15,13 @@ import "./index.css"
 import App from "./components/App"
 import registerServiceWorker from "./registerServiceWorker"
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(logger)))
+//const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+// Be sure to ONLY add this middleware in development!
+const middleware = process.env.NODE_ENV !== "production" ?
+	[require("redux-immutable-state-invariant").default(), logger] :
+	[logger]
+
+const store = createStore(rootReducer, applyMiddleware(...middleware))
 
 ReactDOM.render(
 	<Provider store = {store}>

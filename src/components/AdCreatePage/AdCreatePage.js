@@ -4,7 +4,7 @@ import "./AdCreatePage.css"
 import { submitInformation } from "../../actions";
 
 class AdCreatePage extends Component {
-	static defaultProps = { title : "" , text : ""};
+	static defaultProps =  {info : { title : "" , text : "あああ"}};
 
 	handleSubmit = (event) => {
 		event.preventDefault();
@@ -13,7 +13,12 @@ class AdCreatePage extends Component {
 	}
 
 	renderConfirm() {
-		return (<div>タイトル : {this.props.title}</div>);
+		let title = this.props.title
+		if(title) {
+			return (<div>タイトル : {this.props.title}</div>);
+		} else {
+			return
+		}
 	}
 
 
@@ -35,12 +40,11 @@ class AdCreatePage extends Component {
 }
 
 function mapStateToProps(state) {
-	console.log("mapStateToProps")
 	console.log(state)
   return {
-    title: state.AdInformation.title,
-    text: state.AdInformation.text
+    title: state.AdInformation.info.title,
+    text: state.AdInformation.info.text
   };
 }
 
-export default connect(mapStateToProps)(AdCreatePage)
+export default connect(mapStateToProps , null)(AdCreatePage)

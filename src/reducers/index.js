@@ -1,13 +1,16 @@
 // Reducerを結合します
 import {combineReducers} from "redux"
-
 import {
 	SUBMITINFORMATION
 } from "../actions/index.js"
 
-export function AdInformation(state = [], action) {
+// immutable state change helper
+var dotProp = require("dot-prop-immutable")
+
+export function AdInformation(state = {info : {}}, action) {
 	if (action.type === SUBMITINFORMATION) {
-		return Object.assign(state , {title: action.info.title, text: action.info.text})
+		//return Object.assign({} ,  state , {title: action.info.title, text: action.info.text})
+		return dotProp.set(state , "info" ,  {title:  action.info.title, text: action.info.text} )
 	} else {
 		return state
 	}
