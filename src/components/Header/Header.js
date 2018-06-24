@@ -4,39 +4,36 @@ import logo from "../../images/logo.svg"
 
 import { Link } from "react-router-dom"
 
+class ContentLink {
+	constructor(title, link) {
+		this.title = title
+		this.link = link
+	}
+}
+
+const link1 = new ContentLink("アド表示画面" , "/ad_page")
+const link2 = new ContentLink("アド作成" , "/ad_create")
+const contentLink = [link1 , link2]
+
 class Header extends Component {
+	renderLink() {
+		return (contentLink.map(link => {
+			return <Link key={link.title} to={link.link} className="item">{link.title}</Link>
+		}))
+	}
+
 	render() {
 		return (
 			<div className="App">
 				<header className="Header-header">
 					<div className="ui fixed inverted menu">
 						<div className="ui container">
+
 							<Link to="/" className="header item">
-								<img className="logo" src={logo}/>
+								<img className="logo" src={logo} alt="LOGO"/>
 								Ad App
 							</Link>
-							<Link to="/ad_page" className="item">アド</Link>
-							<Link to="/ad_create" className="item">アド作成</Link>
-
-
-							<div className="ui simple dropdown item">
-								Dropdown <i className="dropdown icon"></i>
-								<div className="menu">
-									<a className="item" href="#">Link Item</a>
-									<a className="item" href="#">Link Item</a>
-									<div className="divider"></div>
-									<div className="header">Header Item</div>
-									<div className="item">
-										<i className="dropdown icon"></i>
-										Sub Menu
-										<div className="menu">
-											<a className="item" href="#">Link Item</a>
-											<a className="item" href="#">Link Item</a>
-										</div>
-									</div>
-									<a className="item" href="#">Link Item</a>
-								</div>
-							</div>
+							{this.renderLink()}
 						</div>
 					</div>
 				</header>

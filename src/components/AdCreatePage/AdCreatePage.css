@@ -2,3 +2,54 @@
   text-align: center;
   padding: 100px;
 }
+
+.AdCreatePage-TitleCreateComponent-frame {
+  text-align: center;
+}
+
+.AdCreatePage-TitleCreateComponent {
+  text-align: center;
+  margin: 0 auto;
+  width : 30em;
+}
+
+.AdCreatePage-TitleCreateComponent-textfield-frame {
+  text-align: center;
+}
+
+.AdCreatePage-TitleCreateComponent-select-frame {
+
+}
+
+.AdCreatePage-ImageSelectSlider-ImageFrame {
+  width:300px;
+  height: 150px;
+  padding: 10px;
+}
+
+.AdCreatePage-ImageSelectSlider-Image {
+  width:auto;
+  height:auto;
+  max-width:100%;
+  max-height:100%;
+}
+
+.AdCreatePage-DecorateImageComponent {
+  text-align: center;
+}
+
+.AdCreatePage-DecorateImageComponent-ImageFrame {
+  width:500px;
+  height: 300px;
+  padding: 30px;
+  text-align: center;
+  margin: auto;
+}
+
+.AdCreatePage-DecorateImageComponent-Image {
+  width:auto;
+  height:auto;
+  margin: 0 auto;
+  max-width:100%;
+  max-height:100%;
+}

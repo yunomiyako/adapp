@@ -5,19 +5,23 @@
   "dependencies": {
     "dot-prop-immutable": "^1.4.0",
     "react-dom": "^16.4.0",
+    "react-images-upload": "^1.1.99",
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
+    "react-slick": "^0.23.1",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
-    "semantic-ui-react": "^0.80.2"
+    "semantic-ui-react": "^0.80.2",
+    "slick-carousel": "^1.8.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "aws s3 sync build/ s3://adapp2018"
   },
   "devDependencies": {
     "eslint": "^4.19.1",

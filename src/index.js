@@ -3,9 +3,9 @@ import ReactDOM from "react-dom"
 
 //install redux
 import { Provider } from "react-redux"
-import { createStore, applyMiddleware, compose } from "redux"
+import { createStore, applyMiddleware } from "redux"
 import logger from "./middleware/logger"
-
+import thunk from "redux-thunk"
 
 //reducerを呼び出す
 import rootReducer from "./reducers"
@@ -15,11 +15,10 @@ import "./index.css"
 import App from "./components/App"
 import registerServiceWorker from "./registerServiceWorker"
 
-//const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 // Be sure to ONLY add this middleware in development!
 const middleware = process.env.NODE_ENV !== "production" ?
-	[require("redux-immutable-state-invariant").default(), logger] :
-	[logger]
+	[require("redux-immutable-state-invariant").default(), logger , thunk] :
+	[logger , thunk]
 
 const store = createStore(rootReducer, applyMiddleware(...middleware))
 
