@@ -3,6 +3,8 @@ import { connect } from "react-redux"
 
 //css
 import "./AdCreatePage.css"
+import "./DecorateImageComponent.css"
+
 
 //actions
 import { onSetImage } from "../../actions/AdCreate"
@@ -61,7 +63,7 @@ class DecorateImageComponent extends Component {
 		//propsの初期化をします
 		this.props.dispatch(onSetImage(frameImages[0]))
 	}
-	
+
 	setImage(imageName) {
 		let imageInfo = imageNameToPath(imageName)
 		this.props.dispatch(onSetImage(imageInfo))
@@ -71,7 +73,11 @@ class DecorateImageComponent extends Component {
 		return (
 			<div className="AdCreatePage-DecorateImageComponent">
 				<div className="AdCreatePage-DecorateImageComponent-ImageFrame">
-					<img alt="画像" src={this.props.image.img} className="AdCreatePage-DecorateImageComponent-Image"></img>
+					<div className="AdCreatePage-DecorateImageComponent-ImageFrame-WithText">
+						<p className="AdCreatePage-DecorateImageComponent-title">{this.props.title}</p>
+						<p className="AdCreatePage-DecorateImageComponent-description">{this.props.description}</p>
+						<img alt="画像" src={this.props.image.img} className="AdCreatePage-DecorateImageComponent-Image"></img>
+					</div>
 				</div>
 				<SimpleSlider onClickImage={imageName => this.setImage(imageName)} />
 			</div>
@@ -81,7 +87,9 @@ class DecorateImageComponent extends Component {
 
 function mapStateToProps(state) {
 	return {
-		image : state.AdCreateInfo.image
+		image : state.AdCreateInfo.image ,
+		title : state.AdCreateInfo.title ,
+		description: state.AdCreateInfo.description
 	}
 }
 
