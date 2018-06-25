@@ -1,5 +1,6 @@
 import {
 	ONCHANGETITLE,
+	ONCHANGEDESCRIPTION,
 	ONSETIMAGE
 } from "../actions/AdCreate"
 
@@ -15,16 +16,16 @@ var dotProp = require("dot-prop-immutable")
 // 	}
 // }
 
-const AdCreateInfoStructure = {title: "" , text : "" , image : ""}
+const AdCreateInfoStructure = {title: "" , description : "" , image : ""}
 
 export default function AdCreateInfo(state = AdCreateInfoStructure, action) {
-	console.log("AdCreateInfo reducer")
 	if (action.type === ONCHANGETITLE) {
 		//return Object.assign({} ,  state , {title: action.info.title, text: action.info.text})
 		return dotProp.set(state , "title" ,  action.title )
 	} else if(action.type === ONSETIMAGE){
-		console.log("reducer")
 		return dotProp.set(state, "image" , action.image)
+	}else if(action.type === ONCHANGEDESCRIPTION){
+		return dotProp.set(state , "description" ,  action.description )
 	}else{
 		return state
 	}

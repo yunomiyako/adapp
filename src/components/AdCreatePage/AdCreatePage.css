@@ -1,6 +1,17 @@
+.AdCreatePage h1 {
+  color:white
+}
+
+.AdCreatePage > div {
+  margin-bottom: 50px;
+}
+
+
 .AdCreatePage {
   text-align: center;
   padding: 100px;
+  margin : 100px;
+  background:#008080;;
 }
 
 .AdCreatePage-TitleCreateComponent-frame {
@@ -25,6 +36,7 @@
   width:300px;
   height: 150px;
   padding: 10px;
+  background:white;
 }
 
 .AdCreatePage-ImageSelectSlider-Image {
@@ -52,4 +64,5 @@
   margin: 0 auto;
   max-width:100%;
   max-height:100%;
+  background: white;
 }

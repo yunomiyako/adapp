@@ -16,6 +16,14 @@ export function onSetImage(image) {
 	}
 }
 
+export const ONCHANGEDESCRIPTION = "ONCHANGEDESCRIPTION"
+export function onChangeDescription(description) {
+	return {
+		type : ONCHANGEDESCRIPTION ,
+		description
+	}
+}
+
 /*
 let nextTodoId = 0
 export const addTodo = text => ({
