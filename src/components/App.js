@@ -2,7 +2,7 @@ import React , {Component}  from "react"
 import "./App.css"
 
 import TopPage from "./TopPage/TopPage"
-import AdPage from "./AdPage/AdPage"
+import AdPage from "../containers/AdPage/AdPage"
 import AdCreatePage from "./AdCreatePage/AdCreatePage"
 import Header from "./Header/Header"
 
