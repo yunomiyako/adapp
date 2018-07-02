@@ -18,7 +18,9 @@ class AdCreatePage extends Component {
 			<div className="AdCreatePage">
 				<div className="AdCreatePage-TitleCreateComponent-frame">
 					<h1>タイトル</h1>
-					<TitleCreateComponent onChangeTitle= {(title)=>this.onChangeTitle(title)}/>
+					<TitleCreateComponent
+						onChangeTitle= {(title)=>this.onChangeTitle(title)}
+						title = {this.props.title}/>
 				</div>
 
 				<div className="AdCreatePage-DecorateImageComponent-frame">

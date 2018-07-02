@@ -1,13 +1,17 @@
 import { call, put, takeEvery } from "redux-saga/effects"
 
+//import Action
 import {FETCH_EXAMPLE_DATA, EXAMPLE_FETCH_FAILED , EXAMPLE_FETCH_SUCCEEDED} from "../actions/AdPage"
 import {ONCHANGETITLE} from "../actions/AdCreate"
 
-import {fetchTest} from "../api/fetchTest"
+//import API
+import {Api} from "../api/Api"
+
+
 // ワーカー Saga: FETCH_EXAMPLE_DATA Action によって起動する
 function *fetchExample() {
 	try {
-		const data = yield call(fetchTest)
+		const data = yield call(Api.fetchTest)
 		//yield put({type: EXAMPLE_FETCH_SUCCEEDED, data: data})
 		yield put({type : ONCHANGETITLE, title : data.title})
 	} catch (e) {
