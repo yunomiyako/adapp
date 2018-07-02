@@ -16,6 +16,7 @@
         "react"
     ],
     "rules": {
+	"no-process-env" : [0],
         "indent": [
             "error",
             "tab"

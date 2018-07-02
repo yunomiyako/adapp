@@ -1,11 +1,11 @@
 const logger = store => next => action => {
-	console.group(action.type)
-	console.info("dispatching", action)
+	window.console.group(action.type)
+	window.console.info("dispatching", action)
 
 	let result = next(action)
 
-	console.log("next state", store.getState())
-	console.groupEnd(action.type)
+	window.console.log("next state", store.getState())
+	window.console.groupEnd(action.type)
 
 	return result
 }

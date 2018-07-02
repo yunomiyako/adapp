@@ -32,7 +32,7 @@ class TitleCreateComponent extends Component {
 	}
 
 	DropdownExampleSelection() {
-  	return (<Dropdown text='他の例に変えてみる'
+		return (<Dropdown text='他の例に変えてみる'
 			selectOnBlur = {false}
 			onChange = {(event, data) => this.selectExample(data.value)}
 			fluid selection options={options} />)
