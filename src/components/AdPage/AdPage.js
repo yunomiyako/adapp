@@ -10,8 +10,8 @@ class AdPage extends Component {
 					<h1>{this.props.title}</h1>
 					<h1>{this.props.description}</h1>
 					<button onClick={() => this.props.handleClick()}>fetch</button>
+					<button onClick={() => this.props.handleClickU()}>fetchDB</button>
 				</div>
-
 			</div>
 		)
 	}
