@@ -1,13 +1,8 @@
 import React , {Component}  from "react"
-import { connect } from "react-redux"
 
 //css
 import "./AdCreatePage.css"
 import "./DecorateImageComponent.css"
-
-
-//actions
-import { onSetImage } from "../../actions/AdCreate"
 
 //semantic UI
 //import { Input } from 'semantic-ui-react'
@@ -61,12 +56,12 @@ class DecorateImageComponent extends Component {
 
 	componentWillMount() {
 		//propsの初期化をします
-		this.props.dispatch(onSetImage(frameImages[0]))
+		this.props.onSetImage(frameImages[0])
 	}
 
 	setImage(imageName) {
 		let imageInfo = imageNameToPath(imageName)
-		this.props.dispatch(onSetImage(imageInfo))
+		this.props.onSetImage(imageInfo)
 	}
 
 	render() {
@@ -85,12 +80,4 @@ class DecorateImageComponent extends Component {
 	}
 }
 
-function mapStateToProps(state) {
-	return {
-		image : state.AdCreateInfo.image ,
-		title : state.AdCreateInfo.title ,
-		description: state.AdCreateInfo.description
-	}
-}
-
-export default connect(mapStateToProps )(DecorateImageComponent)
+export default DecorateImageComponent

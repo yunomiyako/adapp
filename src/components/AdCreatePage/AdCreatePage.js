@@ -1,5 +1,4 @@
 import React , {Component}  from "react"
-import { connect } from "react-redux"
 import "./AdCreatePage.css"
 
 // Components
@@ -9,22 +8,35 @@ import AdImageUploader from "./AdImageUploader"
 import DescriptionCreateComponent from "./DescriptionCreateComponent"
 
 class AdCreatePage extends Component {
+	onChangeTitle(value) {
+		this.props.onChangeTitle(value)
+	}
+
+
 	render() {
 		return (
 			<div className="AdCreatePage">
 				<div className="AdCreatePage-TitleCreateComponent-frame">
 					<h1>タイトル</h1>
-					<TitleCreateComponent/>
+					<TitleCreateComponent onChangeTitle= {(title)=>this.onChangeTitle(title)}/>
 				</div>
 
 				<div className="AdCreatePage-DecorateImageComponent-frame">
 					<h1>枠の画像</h1>
-					<DecorateImageComponent/>
+					<DecorateImageComponent
+						onSetImage={(image) => this.props.onSetImage(image)}
+						title = {this.props.title}
+						description = {this.props.description}
+						image = {this.props.image}
+					/>
 				</div>
 
 				<div className="AdCreatePage-DecorateImageComponent-frame">
 					<h1>説明</h1>
-					<DescriptionCreateComponent/>
+					<DescriptionCreateComponent
+						onChangeDescription={(text) => this.props.onChangeDescription(text)}
+						description = {this.props.description}
+					/>
 				</div>
 
 				<div className="AdCreatePage-AdImageUploader-frame">
@@ -37,8 +49,4 @@ class AdCreatePage extends Component {
 	}
 }
 
-function mapStateToProps(state) {
-	return state
-}
-
-export default connect(mapStateToProps , null)(AdCreatePage)
+export default AdCreatePage

@@ -3,7 +3,7 @@ import "./App.css"
 
 import TopPage from "./TopPage/TopPage"
 import AdPage from "../containers/AdPage/AdPage"
-import AdCreatePage from "./AdCreatePage/AdCreatePage"
+import AdCreatePage from "../containers/AdCreatePage/AdCreatePage"
 import Header from "./Header/Header"
 
 import { Route, BrowserRouter } from "react-router-dom"

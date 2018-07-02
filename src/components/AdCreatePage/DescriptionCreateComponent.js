@@ -1,15 +1,10 @@
 import React , {Component}  from "react"
-import { connect } from "react-redux"
 
 //css
 import "./AdCreatePage.css"
 
-//actions
-import { onChangeDescription } from "../../actions/AdCreate"
-
 //semantic UI
 import { Form, TextArea } from "semantic-ui-react"
-
 
 class DescriptionCreateComponent extends Component {
 	componentWillMount() {
@@ -29,7 +24,7 @@ class DescriptionCreateComponent extends Component {
 	}
 
 	onInputCharacter(value) {
-		this.props.dispatch(onChangeDescription(value))
+		this.props.onChangeDescription(value)
 	}
 
 	render() {
@@ -41,10 +36,4 @@ class DescriptionCreateComponent extends Component {
 	}
 }
 
-function mapStateToProps(state) {
-	return {
-		description: state.AdCreateInfo.description
-	}
-}
-
-export default connect(mapStateToProps , null)(DescriptionCreateComponent)
+export default DescriptionCreateComponent

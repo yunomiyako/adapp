@@ -1,11 +1,7 @@
 import React , {Component}  from "react"
-import { connect } from "react-redux"
 
 //css
 import "./AdCreatePage.css"
-
-//actions
-import { onChangeTitle } from "../../actions/AdCreate"
 
 //semantic UI
 import { Input } from "semantic-ui-react"
@@ -50,11 +46,11 @@ class TitleCreateComponent extends Component {
 	}
 
 	onInputCharacter(value) {
-		this.props.dispatch(onChangeTitle(value))
+		this.props.onChangeTitle(value)
 	}
 
 	selectExample(text) {
-		this.props.dispatch(onChangeTitle(text))
+		this.props.onChangeTitle(text)
 	}
 
 	render() {
@@ -71,10 +67,4 @@ class TitleCreateComponent extends Component {
 	}
 }
 
-function mapStateToProps(state) {
-	return {
-		title: state.AdCreateInfo.title
-	}
-}
-
-export default connect(mapStateToProps , null)(TitleCreateComponent)
+export default TitleCreateComponent
