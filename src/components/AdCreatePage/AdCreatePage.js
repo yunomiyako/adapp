@@ -6,20 +6,17 @@ import TitleCreateComponent from "./TitleCreateComponent"
 import DecorateImageComponent from "./DecorateImageComponent"
 import AdImageUploader from "./AdImageUploader"
 import DescriptionCreateComponent from "./DescriptionCreateComponent"
+import ReturnSelection from "./ReturnSelectionComponent"
+import ReturnCreate from "./ReturnCreateComponent"
 
 class AdCreatePage extends Component {
-	onChangeTitle(value) {
-		this.props.onChangeTitle(value)
-	}
-
-
 	render() {
 		return (
 			<div className="AdCreatePage">
 				<div className="AdCreatePage-TitleCreateComponent-frame">
 					<h1>タイトル</h1>
 					<TitleCreateComponent
-						onChangeTitle= {(title)=>this.onChangeTitle(title)}
+						onChangeTitle= {(title)=>this.props.onChangeTitle(title)}
 						title = {this.props.title}/>
 				</div>
 
@@ -44,6 +41,16 @@ class AdCreatePage extends Component {
 				<div className="AdCreatePage-AdImageUploader-frame">
 					<h1>見せたい画像(任意)</h1>
 					<AdImageUploader/>
+				</div>
+
+				<div className="AdCreatePage-ReturnSelection-frame">
+					<h1>お返しの種類</h1>
+					<ReturnSelection onClick={ (id) => this.props.onSetReturnType(id) }/>
+				</div>
+
+				<div className="AdCreatePage-ReturnCreate-frame">
+					<h1>お返しの作成</h1>
+					<ReturnCreate/>
 				</div>
 
 			</div>

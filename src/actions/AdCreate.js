@@ -24,6 +24,14 @@ export function onChangeDescription(description) {
 	}
 }
 
+export const ONSETRETURNTYPE = "ONSETRETURNTYPE"
+export function onSetReturnType(id) {
+	return {
+		type:ONSETRETURNTYPE,
+		id
+	}
+}
+
 /*
 let nextTodoId = 0
 export const addTodo = text => ({

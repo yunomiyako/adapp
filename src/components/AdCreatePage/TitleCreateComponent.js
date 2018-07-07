@@ -21,6 +21,7 @@ class TitleCreateComponent extends Component {
 	componentWillMount() {
 		//propsの初期化をします
 		//TODO : ランダムにしてみる
+		//TODO : そもそもここに書くとページ遷移するたびに変わってよくない
 		this.selectExample(options[0].value)
 	}
 

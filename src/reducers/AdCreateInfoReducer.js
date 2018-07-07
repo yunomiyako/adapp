@@ -1,7 +1,8 @@
 import {
 	ONCHANGETITLE,
 	ONCHANGEDESCRIPTION,
-	ONSETIMAGE
+	ONSETIMAGE,
+	ONSETRETURNTYPE
 } from "../actions/AdCreate"
 
 // immutable state change helper
@@ -16,17 +17,19 @@ var dotProp = require("dot-prop-immutable")
 // 	}
 // }
 
-const AdCreateInfoStructure = {title: "" , description : "" , image : ""}
+const AdCreateInfoStructure = {title: "" , description : "" , image : "" , returnType:0}
 
 export default function AdCreateInfo(state = AdCreateInfoStructure, action) {
-	if (action.type === ONCHANGETITLE) {
-		//return Object.assign({} ,  state , {title: action.info.title, text: action.info.text})
+	switch (action.type) {
+	case ONCHANGETITLE:
 		return dotProp.set(state , "title" ,  action.title )
-	} else if(action.type === ONSETIMAGE){
+	case ONSETIMAGE :
 		return dotProp.set(state, "image" , action.image)
-	}else if(action.type === ONCHANGEDESCRIPTION){
+	case ONCHANGEDESCRIPTION :
 		return dotProp.set(state , "description" ,  action.description )
-	}else{
+	case ONSETRETURNTYPE :
+		return dotProp.set(state , "returnType" , action.id)
+	default :
 		return state
 	}
 }

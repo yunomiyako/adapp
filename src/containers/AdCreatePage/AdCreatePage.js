@@ -4,6 +4,7 @@ import {
 	onChangeTitle,
 	onChangeDescription,
 	onSetImage,
+	onSetReturnType
 } from "../../actions/AdCreate"
 
 function mapStateToProps(state){
@@ -12,14 +13,16 @@ function mapStateToProps(state){
 		title: state.AdCreateInfo.title,
 		description: state.AdCreateInfo.description,
 		image: state.AdCreateInfo.image,
+		returnType:state.AdCreateInfo.returnType
 	}
 }
 function mapDispatchToProps(dispatch) {
- 	return {
+	return {
 		onChangeTitle : (value) => dispatch(onChangeTitle(value)) ,
 		onChangeDescription : (value) => dispatch(onChangeDescription(value)),
 		onSetImage : (image) => dispatch(onSetImage(image)),
- 	}
+		onSetReturnType: (id) => dispatch(onSetReturnType(id))
+	}
 }
 
 export default connect(
