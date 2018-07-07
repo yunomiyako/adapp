@@ -17,7 +17,7 @@ var dotProp = require("dot-prop-immutable")
 // 	}
 // }
 
-const AdCreateInfoStructure = {title: "" , description : "" , image : "" , returnType:0}
+const AdCreateInfoStructure = {title: "" , description : "" , image : "" , returnType:1}
 
 export default function AdCreateInfo(state = AdCreateInfoStructure, action) {
 	switch (action.type) {

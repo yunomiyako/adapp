@@ -6,9 +6,6 @@ import "./AdCreatePage.css"
 //semantic UI
 import { Button } from "semantic-ui-react"
 
-//TODO : これってクラスの外に書くものなのか・・・？
-const buttons = [{id:1 , text:"画像とテキスト"} , {id:2 , text:"画像のみ"} , {id:3 , text:"テキストのみ"}]
-
 class ReturnSelectionComponent extends Component {
 	//TODO : <Button.Or>をつけたいけどやり方がわからない
 	ButtonCreator(id , text) {
@@ -36,7 +33,7 @@ class ReturnSelectionComponent extends Component {
 	}
 
 	render() {
-		const buttonGroup = this.ButtonGroupCreator(buttons)
+		const buttonGroup = this.ButtonGroupCreator(this.props.buttons)
 		return (
 			<div className="AdCreatePage-ReturnSelectionComponent">
 				{buttonGroup}

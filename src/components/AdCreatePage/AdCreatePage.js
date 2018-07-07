@@ -9,7 +9,10 @@ import DescriptionCreateComponent from "./DescriptionCreateComponent"
 import ReturnSelection from "./ReturnSelectionComponent"
 import ReturnCreate from "./ReturnCreateComponent"
 
+//TODO : これってクラスの外に書くものなのか・・・？
+const buttons = [{id:1 , text:"画像とテキスト"} , {id:2 , text:"画像のみ"} , {id:3 , text:"テキストのみ"}]
 class AdCreatePage extends Component {
+
 	render() {
 		return (
 			<div className="AdCreatePage">
@@ -45,12 +48,17 @@ class AdCreatePage extends Component {
 
 				<div className="AdCreatePage-ReturnSelection-frame">
 					<h1>お返しの種類</h1>
-					<ReturnSelection onClick={ (id) => this.props.onSetReturnType(id) }/>
+					<ReturnSelection
+						onClick={ (id) => this.props.onSetReturnType(id) }
+						buttons={buttons}
+					/>
 				</div>
 
 				<div className="AdCreatePage-ReturnCreate-frame">
 					<h1>お返しの作成</h1>
-					<ReturnCreate/>
+					<ReturnCreate 
+						returnType={this.props.returnType}
+					/>
 				</div>
 
 			</div>
