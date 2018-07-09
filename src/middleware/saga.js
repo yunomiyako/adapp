@@ -2,6 +2,7 @@ import { call, put, takeEvery } from "redux-saga/effects"
 
 //import Action
 import {FETCH_EXAMPLE_DATA, EXAMPLE_FETCH_FAILED , EXAMPLE_FETCH_SUCCEEDED} from "../actions/AdPage"
+import {POST_EXAMPLE_DATA} from "../actions/AdCreate"
 import {ONCHANGETITLE} from "../actions/AdCreate"
 
 //import API
@@ -18,12 +19,24 @@ function *fetchExample() {
 	}
 }
 
+function *postExample() {
+	try {
+		const data = yield call(Api.postTest)
+		//yield put({type: EXAMPLE_FETCH_SUCCEEDED, data: data})
+		yield put({type : ONCHANGETITLE, title : data.test2})
+	} catch (e) {
+		yield put({type: EXAMPLE_FETCH_FAILED, message: e.message})
+	}
+}
+
+
 /*
   FETCH_EXAMPLE_DATA Action が送出されるたびに fetchUser を起動します。
   ユーザ情報の並列取得にも対応しています。
 */
 function* mySaga() {
-	yield takeEvery(FETCH_EXAMPLE_DATA, fetchExample)
+	yield takeEvery(FETCH_EXAMPLE_DATA, fetchExample),
+	yield takeEvery(POST_EXAMPLE_DATA, postExample)
 }
 
 /*

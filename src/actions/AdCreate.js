@@ -63,6 +63,13 @@ export function onClickSubmit() {
 	}
 }
 
+export const POST_EXAMPLE_DATA = "POST_EXAMPLE_DATA"
+export function postTest() {
+	return {
+		type : POST_EXAMPLE_DATA
+	}
+}
+
 /*
 let nextTodoId = 0
 export const addTodo = text => ({

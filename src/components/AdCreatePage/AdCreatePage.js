@@ -69,7 +69,7 @@ class AdCreatePage extends Component {
 					/>
 				</div>
 
-				<Button onClick={() => this.props.onClickSubmit()}>送信</Button>
+				<Button onClick={() => this.props.postTest()}>送信</Button>
 			</div>
 		)
 	}

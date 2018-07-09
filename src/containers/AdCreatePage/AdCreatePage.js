@@ -8,7 +8,8 @@ import {
 	onChangeReturnText,
 	onChangePictures,
 	onChangeReturnPictures,
-	onClickSubmit
+	onClickSubmit,
+	postTest
 } from "../../actions/AdCreate"
 
 function mapStateToProps(state){
@@ -31,7 +32,8 @@ function mapDispatchToProps(dispatch) {
 		onChangeReturnText : (text) => dispatch(onChangeReturnText(text)),
 		onChangePictures : (pictures) => dispatch(onChangePictures(pictures)),
 		onChangeReturnPictures : (pictures) => dispatch(onChangeReturnPictures(pictures)),
-		onClickSubmit : () => dispatch(onClickSubmit())
+		onClickSubmit : () => dispatch(onClickSubmit()),
+		postTest : () => dispatch(postTest()),
 	}
 }
 
