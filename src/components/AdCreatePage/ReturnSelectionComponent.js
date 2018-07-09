@@ -9,7 +9,7 @@ import { Button } from "semantic-ui-react"
 class ReturnSelectionComponent extends Component {
 	//TODO : <Button.Or>をつけたいけどやり方がわからない
 	ButtonCreator(id , text) {
-		if(id == 1) {
+		if(id === 1) {
 			return <Button key={id} onClick={()=>this.onClickButton(id)}>{text}</Button>
 		} else {
 			return (

@@ -32,6 +32,37 @@ export function onSetReturnType(id) {
 	}
 }
 
+export const ONCHANGERETURNTEXT = "ONCHANGERETURNTEXT"
+export function onChangeReturnText(text) {
+	return {
+		type : ONCHANGERETURNTEXT,
+		text
+	}
+}
+
+export const ONCHANGEPICTURES = "ONCHANGEPICTURES"
+export function onChangePictures(pictures) {
+	return {
+		type : ONCHANGEPICTURES,
+		pictures
+	}
+}
+
+export const ONCHANGERETURNPICTURES = "ONCHANGERETURNPICTURES"
+export function onChangeReturnPictures(pictures) {
+	return {
+		type : ONCHANGERETURNPICTURES,
+		pictures
+	}
+}
+
+export const ONCLICKSUBMIT = "ONCLICKSUBMIT"
+export function onClickSubmit() {
+	return {
+		type : ONCLICKSUBMIT
+	}
+}
+
 /*
 let nextTodoId = 0
 export const addTodo = text => ({

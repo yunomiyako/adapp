@@ -24,8 +24,10 @@ import registerServiceWorker from "./registerServiceWorker"
 const sagaMiddleware = createSagaMiddleware()
 // Be sure to ONLY add this middleware in development
 const middleware = process.env.NODE_ENV !== "production" ?
-	[require("redux-immutable-state-invariant").default(), logger , sagaMiddleware] :
+	[ logger , sagaMiddleware] :
 	[ sagaMiddleware ]
+//require("redux-immutable-state-invariant").default()を消しました
+
 const store = createStore(rootReducer, applyMiddleware(...middleware))
 
 //register saga

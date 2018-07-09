@@ -7,7 +7,6 @@ import {ONCHANGETITLE} from "../actions/AdCreate"
 //import API
 import {Api} from "../api/Api"
 
-
 // ワーカー Saga: FETCH_EXAMPLE_DATA Action によって起動する
 function *fetchExample() {
 	try {

@@ -19,6 +19,8 @@ class ReturnCreateComponent extends Component {
 			return this.imageOnly()
 		case 3 :
 			return this.textOnly()
+		default :
+			return "おや？"
 		}
 	}
 
@@ -26,6 +28,7 @@ class ReturnCreateComponent extends Component {
 		return (
 			<Form>
 				<TextArea autoHeight placeholder='説明を書いてね' rows={3}
+					onChange={(event) => this.props.onChangeText(event.target.value)}
 				/>
 			</Form>
 		)
@@ -34,7 +37,9 @@ class ReturnCreateComponent extends Component {
 	imageAndText() {
 		return (
 			<div>
-				<AdImageUploader/>
+				<AdImageUploader
+					onChangePictures={(pictures) => this.props.onChangePictures(pictures)}
+				/>
 				{this.renderTextField()}
 			</div>
 		)

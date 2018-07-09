@@ -1,6 +1,9 @@
 import React , {Component}  from "react"
 import "./AdCreatePage.css"
 
+//Semantic UI
+import { Button } from "semantic-ui-react"
+
 // Components
 import TitleCreateComponent from "./TitleCreateComponent"
 import DecorateImageComponent from "./DecorateImageComponent"
@@ -29,7 +32,7 @@ class AdCreatePage extends Component {
 						onSetImage={(image) => this.props.onSetImage(image)}
 						title = {this.props.title}
 						description = {this.props.description}
-						image = {this.props.image}
+						decorationImage = {this.props.image}
 					/>
 				</div>
 
@@ -43,7 +46,10 @@ class AdCreatePage extends Component {
 
 				<div className="AdCreatePage-AdImageUploader-frame">
 					<h1>見せたい画像(任意)</h1>
-					<AdImageUploader/>
+					<AdImageUploader
+						pictures = {this.props.adImages}
+						onChangePictures = {(pictures) => this.props.onChangePictures(pictures)}
+					/>
 				</div>
 
 				<div className="AdCreatePage-ReturnSelection-frame">
@@ -56,11 +62,14 @@ class AdCreatePage extends Component {
 
 				<div className="AdCreatePage-ReturnCreate-frame">
 					<h1>お返しの作成</h1>
-					<ReturnCreate 
+					<ReturnCreate
+						onChangeText={(text) => this.props.onChangeReturnText(text)}
 						returnType={this.props.returnType}
+						onChangePictures = {(pictures) => this.props.onChangeReturnPictures(pictures)}
 					/>
 				</div>
 
+				<Button onClick={() => this.props.onClickSubmit()}>送信</Button>
 			</div>
 		)
 	}

@@ -4,7 +4,11 @@ import {
 	onChangeTitle,
 	onChangeDescription,
 	onSetImage,
-	onSetReturnType
+	onSetReturnType ,
+	onChangeReturnText,
+	onChangePictures,
+	onChangeReturnPictures,
+	onClickSubmit
 } from "../../actions/AdCreate"
 
 function mapStateToProps(state){
@@ -13,7 +17,9 @@ function mapStateToProps(state){
 		title: state.AdCreateInfo.title,
 		description: state.AdCreateInfo.description,
 		image: state.AdCreateInfo.image,
-		returnType:state.AdCreateInfo.returnType
+		returnType:state.AdCreateInfo.returnType,
+		adImages : state.AdCreateInfo.adImages,
+		returnImages : state.AdCreateInfo.adImages,
 	}
 }
 function mapDispatchToProps(dispatch) {
@@ -21,7 +27,11 @@ function mapDispatchToProps(dispatch) {
 		onChangeTitle : (value) => dispatch(onChangeTitle(value)) ,
 		onChangeDescription : (value) => dispatch(onChangeDescription(value)),
 		onSetImage : (image) => dispatch(onSetImage(image)),
-		onSetReturnType: (id) => dispatch(onSetReturnType(id))
+		onSetReturnType: (id) => dispatch(onSetReturnType(id)),
+		onChangeReturnText : (text) => dispatch(onChangeReturnText(text)),
+		onChangePictures : (pictures) => dispatch(onChangePictures(pictures)),
+		onChangeReturnPictures : (pictures) => dispatch(onChangeReturnPictures(pictures)),
+		onClickSubmit : () => dispatch(onClickSubmit())
 	}
 }
 

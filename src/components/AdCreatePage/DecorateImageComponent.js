@@ -71,7 +71,7 @@ class DecorateImageComponent extends Component {
 					<div className="AdCreatePage-DecorateImageComponent-ImageFrame-WithText">
 						<p className="AdCreatePage-DecorateImageComponent-title">{this.props.title}</p>
 						<p className="AdCreatePage-DecorateImageComponent-description">{this.props.description}</p>
-						<img alt="画像" src={this.props.image.img} className="AdCreatePage-DecorateImageComponent-Image"></img>
+						<img alt="画像" src={this.props.decorationImage.img} className="AdCreatePage-DecorateImageComponent-Image"></img>
 					</div>
 				</div>
 				<SimpleSlider onClickImage={imageName => this.setImage(imageName)} />

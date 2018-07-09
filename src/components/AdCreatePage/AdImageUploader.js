@@ -5,14 +5,12 @@ class AdImageUploader extends React.Component {
 	constructor(props) {
 		//TODO : redux化
 		super(props)
-		this.state = { pictures: [] }
+		//this.state = {pictures : this.props.pictures}
 		this.onDrop = this.onDrop.bind(this)
 	}
 
 	onDrop(pictureFiles) {
-		this.setState({
-			pictures: this.state.pictures.concat(pictureFiles),
-		})
+		this.props.onChangePictures(pictureFiles)
 	}
 
 	render() {
