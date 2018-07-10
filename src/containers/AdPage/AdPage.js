@@ -17,8 +17,7 @@ const handleClickU = (dispatch) => {
 	fetch(url, {
 		method:"GET"
 	})
-		.then((response) => response.json())
-		.then((json) => {
+		.then((response) => response.json()).then((json) => {
 			dispatch(onChangeTitle("id:" + json[0][0]))
 			dispatch(onChangeDescription("name:" + json[0][1]))
 		})
