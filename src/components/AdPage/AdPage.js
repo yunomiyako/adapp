@@ -3,6 +3,19 @@ import {  } from "semantic-ui-react"
 import "./AdPage.css"
 
 class AdPage extends Component {
+	componentWillMount() {
+		this.setItemIfNot();
+	}
+
+	componentWillUpdate() {
+		this.setItemIfNot();
+	}
+	setItemIfNot() {
+		if (localStorage.getItem('sessionId') == null) {
+			localStorage.setItem('sessionId', 1)
+		}
+	}
+
 	render() {
 		return (
 			<div className="AdPage">
