@@ -2,7 +2,7 @@
 
 .AdCreatePage-DecorateImageComponent-ImageFrame {
   width:500px;
-  height: 300px;
+  height: 350px;
   padding: 30px;
   text-align: center;
   margin: auto;
@@ -21,7 +21,7 @@
 
 .AdCreatePage-DecorateImageComponent-ImageFrame-WithText .AdCreatePage-DecorateImageComponent-title{
   position: absolute;/*絶対配置*/
-  top: 20%;
+  top: 0%;
   left: 50%;
   -ms-transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);

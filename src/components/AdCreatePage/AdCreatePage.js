@@ -1,5 +1,5 @@
 import React , {Component}  from "react"
-import "./AdCreatePage.css"
+import "./AdCreatePage2.css"
 
 //Semantic UI
 import { Button } from "semantic-ui-react"
@@ -11,6 +11,13 @@ import AdImageUploader from "./AdImageUploader"
 import DescriptionCreateComponent from "./DescriptionCreateComponent"
 import ReturnSelection from "./ReturnSelectionComponent"
 import ReturnCreate from "./ReturnCreateComponent"
+
+import { PureComponent } from 'react';
+import NodeGroup from 'react-move/NodeGroup';
+//import Surface from 'docs/src/components/Surface';
+import { scaleBand } from 'd3-scale';
+import { shuffle } from 'd3-array';
+import { easeExpInOut } from 'd3-ease';
 
 //TODO : これってクラスの外に書くものなのか・・・？
 const buttons = [{id:1 , text:"画像とテキスト"} , {id:2 , text:"画像のみ"} , {id:3 , text:"テキストのみ"}]
@@ -26,9 +33,9 @@ class AdCreatePage extends Component {
 						title = {this.props.title}/>
 				</div>
 
-				<div className="AdCreatePage-DecorateImageComponent-frame">
+				<div className="AdCreatePage-DecorateImageComponent-frame1">
 					<h1>枠の画像</h1>
-					<DecorateImageComponent
+					<DecorateImageComponent 
 						onSetImage={(image) => this.props.onSetImage(image)}
 						title = {this.props.title}
 						description = {this.props.description}
@@ -36,7 +43,7 @@ class AdCreatePage extends Component {
 					/>
 				</div>
 
-				<div className="AdCreatePage-DecorateImageComponent-frame">
+				<div className="AdCreatePage-DecorateImageComponent-frame2">
 					<h1>説明</h1>
 					<DescriptionCreateComponent
 						onChangeDescription={(text) => this.props.onChangeDescription(text)}
@@ -69,7 +76,9 @@ class AdCreatePage extends Component {
 					/>
 				</div>
 
-				<Button onClick={() => this.props.postTest()}>送信</Button>
+				<div className="send">
+					<Button onClick={() => this.props.postTest()}>送信</Button>
+				</div>
 			</div>
 		)
 	}
