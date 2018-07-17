@@ -3,7 +3,6 @@ import ImageUploader from "react-images-upload"
 
 class AdImageUploader extends React.Component {
 	constructor(props) {
-		//TODO : redux化
 		super(props)
 		//this.state = {pictures : this.props.pictures}
 		this.onDrop = this.onDrop.bind(this)

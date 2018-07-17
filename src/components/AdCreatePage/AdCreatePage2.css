@@ -5,7 +5,7 @@
   display: grid;
   padding: 30px 0px;
   grid-template-columns: [col1] 50% [col2] 50%;
-  grid-template-rows: [row1] 50% [row2] 50%;
+  grid-template-rows: [row1] 20% [row2] 20% [row3] 20% [row4] 20% [row5] 20% ;
   text-align: center;
   color: #fcfcfc;
 }
@@ -28,7 +28,7 @@
 }
 
 .AdCreatePage-DecorateImageComponent-frame2 {
-  
+
   background-color: rgb(30, 128, 120);
   padding: 30px;
   border-radius: 6px;

@@ -12,12 +12,12 @@ import DescriptionCreateComponent from "./DescriptionCreateComponent"
 import ReturnSelection from "./ReturnSelectionComponent"
 import ReturnCreate from "./ReturnCreateComponent"
 
-import { PureComponent } from 'react';
-import NodeGroup from 'react-move/NodeGroup';
+import { PureComponent } from "react"
+import NodeGroup from "react-move/NodeGroup"
 //import Surface from 'docs/src/components/Surface';
-import { scaleBand } from 'd3-scale';
-import { shuffle } from 'd3-array';
-import { easeExpInOut } from 'd3-ease';
+import { scaleBand } from "d3-scale"
+import { shuffle } from "d3-array"
+import { easeExpInOut } from "d3-ease"
 
 //TODO : これってクラスの外に書くものなのか・・・？
 const buttons = [{id:1 , text:"画像とテキスト"} , {id:2 , text:"画像のみ"} , {id:3 , text:"テキストのみ"}]
@@ -35,14 +35,14 @@ class AdCreatePage extends Component {
 
 				<div className="AdCreatePage-DecorateImageComponent-frame1">
 					<h1>枠の画像</h1>
-					<DecorateImageComponent 
+					<DecorateImageComponent
 						onSetImage={(image) => this.props.onSetImage(image)}
 						title = {this.props.title}
 						description = {this.props.description}
 						decorationImage = {this.props.image}
 					/>
 				</div>
-
+				
 				<div className="AdCreatePage-DecorateImageComponent-frame2">
 					<h1>説明</h1>
 					<DescriptionCreateComponent
