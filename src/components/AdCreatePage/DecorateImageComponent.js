@@ -2,7 +2,7 @@ import React , {Component}  from "react"
 
 //css
 import "./AdCreatePage.css"
-import "./DecorateImageComponent.css"
+import "./DecorateImageComponent2.css"
 
 //semantic UI
 //import { Input } from 'semantic-ui-react'

@@ -1,0 +1,21 @@
+{
+  "name": "React-Move | Draggable List",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "react",
+    "animation",
+    "draggable",
+    "list",
+    "react-move"
+  ],
+  "homepage": "https://codesandbox.io/s/j2povnz8ly",
+  "main": "index.js",
+  "dependencies": {
+    "react-move": "2.6.0",
+    "react-dom": "16.0.0",
+    "react": "16.0.0",
+    "d3-ease": "1.0.3",
+    "d3-array": "1.2.1"
+  }
+}
