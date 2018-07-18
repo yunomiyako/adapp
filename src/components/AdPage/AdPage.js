@@ -2,41 +2,41 @@ import React , {Component}  from "react"
 import {  } from "semantic-ui-react"
 import "./AdPage.css"
 
-import Amplify from 'aws-amplify';
-import { Auth, API } from 'aws-amplify';
+import Amplify from "aws-amplify"
+import { Auth, API } from "aws-amplify"
 
 Amplify.configure({
 	Auth: {
 	// REQUIRED only for Federated Authentication - Amazon Cognito Identity Pool ID
-	identityPoolId: 'ap-northeast-1:5183ad74-c3f0-4c8c-8e32-933f1facc1a4',
+		identityPoolId: "ap-northeast-1:5183ad74-c3f0-4c8c-8e32-933f1facc1a4",
 
-	// REQUIRED - Amazon Cognito Region
-	region: 'ap-northeast-1',
+		// REQUIRED - Amazon Cognito Region
+		region: "ap-northeast-1",
 
-	// OPTIONAL - Amazon Cognito User Pool ID
-	userPoolId: 'ap-northeast-1_izJ2ZYlI4',
+		// OPTIONAL - Amazon Cognito User Pool ID
+		userPoolId: "ap-northeast-1_izJ2ZYlI4",
 
-	// OPTIONAL - Amazon Cognito Web Client ID (26-char alphanumeric string)
-	userPoolWebClientId: '66e23f4d85bqerqpf2134hi0qm',
+		// OPTIONAL - Amazon Cognito Web Client ID (26-char alphanumeric string)
+		userPoolWebClientId: "66e23f4d85bqerqpf2134hi0qm",
 
 	// OPTIONAL - Manually set the authentication flow type. Default is 'USER_SRP_AUTH'
 	// authenticationFlowType: 'USER_PASSWORD_AUTH'
-	}, 
+	},
 	API: {
 		endpoints: [
 			{
-			name: "select3",
-			endpoint: "https://z98adm64i2.execute-api.ap-northeast-1.amazonaws.com/adApp",
-			region: "ap-northeast-1"
+				name: "select3",
+				endpoint: "https://z98adm64i2.execute-api.ap-northeast-1.amazonaws.com/adApp",
+				region: "ap-northeast-1"
 			}
-			]
+		]
 	}
-});
+})
 
 const api1 = () => {
 	Auth.currentAuthenticatedUser().then((user => {
-		let jwtToken = user.signInUserSession.idToken.jwtToken;
-		console.log(jwtToken);
+		let jwtToken = user.signInUserSession.idToken.jwtToken
+		console.log(jwtToken)
 		const options = {
 			headers: {
 				Authorization: jwtToken
@@ -44,26 +44,26 @@ const api1 = () => {
 		}
 		API.get("select3", "/select3", options)
 			.then(response => {
-				console.log(response);
+				console.log(response)
 			})
 			.catch(err => {
-				console.log(err);
+				console.log(err)
 			})
 	}))
-	
+
 }
 
 export function currentUserToken() {
 	return Auth.currentAuthenticatedUser().then((user) => {
 		console.log(user.signInUserSession.idToken.jwtToken)
-	});
+	})
 }
 
 
 class AdPage extends Component {
 	componentWillMount() {
-		this.setItemIfNot();
-	
+		this.setItemIfNot()
+
 		const username="testuser2"
 		const password="Testuser2"
 		// Sign up
@@ -79,17 +79,17 @@ class AdPage extends Component {
 		 //    .catch(err => console.log(err));
 
 	 Auth.signIn(username, password)
-		.then(user => console.log(user))
-		.catch(err => console.log(err));
+			.then(user => console.log(user))
+			.catch(err => console.log(err))
 
 	}
 
 	componentWillUpdate() {
-		this.setItemIfNot();
+		this.setItemIfNot()
 	}
 	setItemIfNot() {
-		if (localStorage.getItem('sessionId') == null) {
-			localStorage.setItem('sessionId', 1)
+		if (localStorage.getItem("sessionId") == null) {
+			localStorage.setItem("sessionId", 1)
 		}
 	}
 
