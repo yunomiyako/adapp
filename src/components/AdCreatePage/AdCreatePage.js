@@ -12,6 +12,7 @@ import DescriptionCreateComponent from "./DescriptionCreateComponent"
 import ReturnSelection from "./ReturnSelectionComponent"
 import ReturnCreate from "./ReturnCreateComponent"
 
+
 import { PureComponent } from 'react';
 import NodeGroup from 'react-move/NodeGroup';
 //import Surface from 'docs/src/components/Surface';
@@ -28,6 +29,7 @@ class AdCreatePage extends Component {
 			<div className="AdCreatePage">
 				<div className="AdCreatePage-TitleCreateComponent-frame">
 					<h1>タイトル</h1>
+					
 					<TitleCreateComponent
 						onChangeTitle= {(title)=>this.props.onChangeTitle(title)}
 						title = {this.props.title}/>

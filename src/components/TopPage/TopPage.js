@@ -104,7 +104,7 @@ render(<Example />, document.getElementById("root"));
 
 
 
-/*
+
 function updateOrder(arr, beg, end) {
 	const copy = arr.slice(0);
 	const val = copy[beg];
@@ -249,7 +249,7 @@ function clamp(n, min, max) {
   }
   
   render(<Demo />, document.getElementById("root"));
-	*/
+	
 
 
 
@@ -293,5 +293,6 @@ class TopPage extends Component {
 
 
 
-export default Example
+export default Demo
+
 
