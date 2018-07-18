@@ -2,6 +2,7 @@ import React , {Component}  from "react"
 import "./App.css"
 
 import TopPage from "./TopPage/TopPage"
+import Toppage2 from "./TopPage/Toppage2"
 import AdPage from "../containers/AdPage/AdPage"
 import AdCreatePage from "../containers/AdCreatePage/AdCreatePage"
 import TestPage from "./TestPage/TestPage"
@@ -16,6 +17,7 @@ class App extends Component {
 				<div className="App">
 					<Route path="/" component={Header}/>
 					<Route exact={true} path="/" component={TopPage}/>
+					<Route exact={true} path="/" component={Toppage2}/>
 					<Route path="/ad_page" component={AdPage}/>
 					<Route path="/ad_create" component={AdCreatePage}/>
 					<Route path="/test" component = {TestPage}/>

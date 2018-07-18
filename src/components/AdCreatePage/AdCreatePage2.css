@@ -9,7 +9,7 @@
 
 .AdCreatePage {
   display: grid;
-  padding: 30px 0px;
+  padding: 30px;
   grid-template-columns: [col1] 50% [col2] 50%;
   grid-template-rows: [row1] 50% [row2] 50%;
   text-align: center;
@@ -23,8 +23,7 @@
   background-color:  rgba(36, 224, 114, 0.849);
   padding: 50px 50px;
   border-radius: 100px ;
-  margin: 0 auto;
-  width : 100em;
+  
 }
 
 .AdCreatePage-DecorateImageComponent-frame1 {
@@ -44,8 +43,7 @@
 }
 
 .AdCreatePage-ImageSelectSlider-Image {
-  width:auto;
-  height:auto;
+ 
   padding: 30px 0px;
   max-width:100%;
   max-height:100%;
