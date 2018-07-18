@@ -1,4 +1,18 @@
-  .demo-container {
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+html, body, #root {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.demo-container {
     position: absolute;
     width: 100%;
     height: 100%;
