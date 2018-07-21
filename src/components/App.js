@@ -14,11 +14,17 @@ class App extends Component {
 		return (
 			<BrowserRouter>
 				<div className="App">
-					<Route path="/" component={Header}/>
-					<Route exact={true} path="/" component={TopPage}/>
-					<Route path="/ad_page" component={AdPage}/>
-					<Route path="/ad_create" component={AdCreatePage}/>
-					<Route path="/test" component = {TestPage}/>
+					<div className="App-Header">
+						<Route path="/" component={Header}/>
+					</div>
+
+					<div className="App-Component">
+						<Route exact={true} path="/" component={TopPage}/>
+						<Route path="/ad_page" component={AdPage}/>
+						<Route path="/ad_create" component={AdCreatePage}/>
+						<Route path="/test" component = {TestPage}/>
+					</div>
+
 				</div>
 			</BrowserRouter>
 		)

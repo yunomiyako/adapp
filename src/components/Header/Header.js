@@ -24,11 +24,10 @@ class Header extends Component {
 
 	render() {
 		return (
-			<div className="App">
+			<div className="Header">
 				<header className="Header-header">
 					<div className="ui fixed inverted menu">
 						<div className="ui container">
-
 							<Link to="/" className="header item">
 								<img className="logo" src={logo} alt="LOGO"/>
 								Ad App

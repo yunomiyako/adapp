@@ -81,12 +81,12 @@ class AdPage extends Component {
 	 Auth.signIn(username, password)
 			.then(user => console.log(user))
 			.catch(err => console.log(err))
-
 	}
 
 	componentWillUpdate() {
 		this.setItemIfNot()
 	}
+
 	setItemIfNot() {
 		if (localStorage.getItem("sessionId") == null) {
 			localStorage.setItem("sessionId", 1)

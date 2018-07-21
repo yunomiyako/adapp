@@ -2,6 +2,7 @@ import React , {Component}  from "react"
 import { Button } from "semantic-ui-react"
 import "./TestPage.css"
 
+
 class TestIconComponent extends Component {
 	constructor(props) {
 		super(props)
