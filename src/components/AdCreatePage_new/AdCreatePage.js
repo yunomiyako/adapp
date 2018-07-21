@@ -14,13 +14,22 @@ import ReturnCreate from "./ReturnCreateComponent"
 
 import TypeSelectionComponent from "./TypeSelectionComponent"
 
+
+//TODO : 説明もっとわかりやすく
+const adTypeButtons = [{id : 0 , btnText : "ツイート\nしてもらう" , description : "あなたが宣伝してほしいことをツイートしてもらいます。"} ,
+	{id : 1 , btnText : "リツイート\nしてもらう" , description : "宣伝してほしいツイートをリツイートしてもらいます。"} ,
+	{id : 2 , btnText : "見てもらう\n　" , description : "ただ見てほしい文章と画像を設定します。"}  ]
 class AdCreatePage extends Component {
+
+	onClickOk() {
+		window.console.log("次へ")
+	}
 
 	render() {
 		const frameStyle = {
 			height : "auto" ,
 			width  : "auto" ,
-			"max-width" : "500px"
+			maxWidth : "500px"
 		}
 
 		return (
@@ -29,7 +38,9 @@ class AdCreatePage extends Component {
 					<h1 className="AdCreatePage-Title">してもらいたいことを選んでください</h1>
 					<TypeSelectionComponent
 						onClick={(id) => this.props.onChangeAdType(id)}
-						adType = {this.props.adType}
+						onClickOk = {() => this.onClickOk()}
+						type = {this.props.adType}
+						buttons = {adTypeButtons}
 					/>
 				</div>
 

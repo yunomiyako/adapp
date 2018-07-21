@@ -63,7 +63,7 @@ const api1 = () => {
 		}
 		API.get("select3", "/select3", options)
 			.then(response => {
-				console.log(response)
+				console.log("成功: " + response)
 			})
 			.catch(err => {
 				console.log(err)

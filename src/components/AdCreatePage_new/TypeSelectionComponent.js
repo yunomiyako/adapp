@@ -11,23 +11,33 @@ function renderNewLine(text) {
 	return text.split("\n").map(m => (<p key={m}>{m}</p>))
 }
 
-//TODO : 説明もっとわかりやすく
-const buttons = [{id : 0 , btnText : "ツイート\nしてもらう" , description : "あなたが宣伝してほしいことをツイートしてもらいます。"} ,
-	{id : 1 , btnText : "リツイート\nしてもらう" , description : "宣伝してほしいツイートをリツイートしてもらいます。"} ,
-	{id : 2 , btnText : "見てもらう\n　" , description : "ただ見てほしい文章と画像を設定します。"}  ]
+
 class TypeSelectionComponent extends Component {
 
 	renderButtons(buttons) {
-		return buttons.map(btn =>
-			<div key={btn.id} className={"button" + (btn.id+1)}>
-				<Button key={btn.id}  onClick={() => this.props.onClick(btn.id)}>{renderNewLine(btn.btnText)}</Button>
-			</div>
+		return buttons.map(btn => {
+			if(this.props.type === btn.id) {
+				return (<div key={btn.id} className={"button" + (btn.id+1)}>
+					<Button disabled key={btn.id}  onClick={() => this.props.onClick(btn.id)}>{renderNewLine(btn.btnText)}</Button>
+				</div>)
+			} else {
+				return (<div key={btn.id} className={"button" + (btn.id+1)}>
+					<Button key={btn.id}  onClick={() => this.props.onClick(btn.id)}>{renderNewLine(btn.btnText)}</Button>
+				</div>)
+			}
+		}
 		)
 	}
 
 	renderDescription(buttons) {
-		if(this.props.adType !== -1) {
-			return buttons[this.props.adType].description
+		if(this.props.type !== -1) {
+			return buttons[this.props.type].description
+		}
+	}
+
+	renderOkButton() {
+		if(this.props.type !== -1) {
+			return <Button onClick={() => this.props.onClickOk()}>OK</Button>
 		}
 	}
 
@@ -36,15 +46,15 @@ class TypeSelectionComponent extends Component {
 			<div className="TypeSelectionComponent">
 				<div className="grid-container">
 
-					{this.renderButtons(buttons)}
+					{this.renderButtons(this.props.buttons)}
 
 					<div className="description">
-						<p className="description-text">{this.renderDescription(buttons)}</p>
+						<p className="description-text">{this.renderDescription(this.props.buttons)}</p>
 					</div>
 
 					<div className="okButtonArea">
 						<div className="okButton">
-							<Button>OK</Button>
+							{this.renderOkButton()}
 						</div>
 					</div>
 
