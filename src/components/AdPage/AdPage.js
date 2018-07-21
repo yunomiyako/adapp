@@ -5,32 +5,51 @@ import "./AdPage.css"
 import Amplify from "aws-amplify"
 import { Auth, API } from "aws-amplify"
 
+// Amplify.configure({
+// 	Auth: {
+// 	// REQUIRED only for Federated Authentication - Amazon Cognito Identity Pool ID
+// 	identityPoolId: 'ap-northeast-1:5183ad74-c3f0-4c8c-8e32-933f1facc1a4',
+
+// 	// REQUIRED - Amazon Cognito Region
+// 	region: 'ap-northeast-1',
+
+// 	// OPTIONAL - Amazon Cognito User Pool ID
+// 	userPoolId: 'ap-northeast-1_izJ2ZYlI4',
+
+// 	// OPTIONAL - Amazon Cognito Web Client ID (26-char alphanumeric string)
+// 	userPoolWebClientId: '66e23f4d85bqerqpf2134hi0qm',
+
+// 	// OPTIONAL - Manually set the authentication flow type. Default is 'USER_SRP_AUTH'
+// 	// authenticationFlowType: 'USER_PASSWORD_AUTH'
+// 	},
+// 	API: {
+// 		endpoints: [
+// 			{
+// 			name: "select3",
+// 			endpoint: "https://z98adm64i2.execute-api.ap-northeast-1.amazonaws.com/adApp",
+// 			region: "ap-northeast-1"
+// 			}
+// 			]
+// 	}
+// });
+
 Amplify.configure({
 	Auth: {
 	// REQUIRED only for Federated Authentication - Amazon Cognito Identity Pool ID
-		identityPoolId: "ap-northeast-1:5183ad74-c3f0-4c8c-8e32-933f1facc1a4",
+		identityPoolId: "ap-northeast-1:62e8666f-2e39-4600-912c-a7c9332e2450",
 
 		// REQUIRED - Amazon Cognito Region
 		region: "ap-northeast-1",
 
 		// OPTIONAL - Amazon Cognito User Pool ID
-		userPoolId: "ap-northeast-1_izJ2ZYlI4",
+		userPoolId: "ap-northeast-1_SHqZXcVuV",
 
 		// OPTIONAL - Amazon Cognito Web Client ID (26-char alphanumeric string)
-		userPoolWebClientId: "66e23f4d85bqerqpf2134hi0qm",
+		userPoolWebClientId: "5khuql00f2mviggho5ligs92db",
 
 	// OPTIONAL - Manually set the authentication flow type. Default is 'USER_SRP_AUTH'
 	// authenticationFlowType: 'USER_PASSWORD_AUTH'
 	},
-	API: {
-		endpoints: [
-			{
-				name: "select3",
-				endpoint: "https://z98adm64i2.execute-api.ap-northeast-1.amazonaws.com/adApp",
-				region: "ap-northeast-1"
-			}
-		]
-	}
 })
 
 const api1 = () => {
@@ -71,16 +90,17 @@ class AdPage extends Component {
 		// Auth.signUp({
 		// username,
 		// password,
-		// attributes: {
-		// 	email,
-		// }
-		 //    })
-		 //    .then(data => console.log(data))
-		 //    .catch(err => console.log(err));
+		// // attributes: {
+		// // 	email,
+		// // }
+		// 	})
+		// 	.then(data => console.log(data))
+		// 	.catch(err => console.log(err));
 
-	 Auth.signIn(username, password)
-			.then(user => console.log(user))
-			.catch(err => console.log(err))
+	//  Auth.signIn(username, password)
+	// 	.then(user => console.log(user))
+	// 	.catch(err => console.log(err));
+
 	}
 
 	componentWillUpdate() {
