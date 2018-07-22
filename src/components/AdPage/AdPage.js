@@ -1,6 +1,6 @@
 import React , {Component}  from "react"
 import {  } from "semantic-ui-react"
-import "./AdPage.css"
+import style from "./AdPage.css"
 
 import Amplify from "aws-amplify"
 import { Auth, API } from "aws-amplify"

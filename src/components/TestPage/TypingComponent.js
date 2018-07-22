@@ -12,8 +12,12 @@ const questions = [
 		eng : "2monmedayo-"
 	} ,
 	{
-		sentence : "明日は晴れますように",
-		eng : "ashitahaharemasuyouni"
+		sentence : "これは寿司打です",
+		eng : "korehasushidadesu"
+	},
+	{
+		sentence : "次、落ちます",
+		eng : "tugi,ochimasu"
 	}
 ]
 class TypingComponent extends Component {
@@ -35,42 +39,46 @@ class TypingComponent extends Component {
 	}
 
 	onKeyPressed(e) {
+		//ロジックがゴミ
 		if(this.state.eng[this.state.index] === e.key) {
 			this.setState({index : this.state.index + 1})
 			this.setState({count : this.state.count + 1})
 		}
 
-
-		if(this.state.index === this.state.eng.length) {
+		if(this.state.index === this.state.eng.length - 1) {
 			this.setState({question : this.state.question + 1})
 			this.setState({index : 0})
-			this.setState({sentence : questions[this.state.question ].sentence})
-			this.setState({eng : questions[this.state.question ].eng})
-		}
+			this.setState({sentence : questions[this.state.question + 1].sentence})
+			this.setState({eng : questions[this.state.question + 1 ].eng})
 
-		if(this.state.question === questions.length  ) {
-			this.setState({question : 0})
-			this.setState({index : 0})
-			this.setState({sentence : questions[0].sentence})
-			this.setState({eng : questions[0].eng})
+			if(this.state.question === questions.length - 1 ) {
+				this.setState({question : 0})
+				this.setState({index : 0})
+				this.setState({sentence : questions[0].sentence})
+				this.setState({eng : questions[0].eng})
+			}
 		}
 	}
 
 	addSushi() {
-		return "🍣".repeat(this.state.count + 1)
+		return "🍣".repeat(this.state.question + 1)
 	}
 
 	render() {
 		return (
-			<div className="TypingComponent"
-				onKeyDown={(e) => this.onKeyPressed(e)}
-				tabIndex="0">
+			<div className="TypingComponent">
+				<h1>寿司打</h1>
 				<h1>{this.addSushi()}</h1>
-				<h1>{this.state.sentence}</h1>
-				<h1>{this.renderText()}</h1>
+				<div
+					className="TypingComponent-Frame"
+					onKeyDown={(e) => this.onKeyPressed(e)}
+					tabIndex="0">
+					<h1>{this.state.sentence}</h1>
+					<h1>{this.renderText()}</h1>
+				</div>
 
 				<style jsx>{`
-					.TypingComponent {
+					.TypingComponent-Frame {
 						background:white;
 					}
 					.correctString {

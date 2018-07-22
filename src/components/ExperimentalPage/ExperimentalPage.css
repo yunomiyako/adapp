@@ -1,0 +1,27 @@
+.testCase1 {
+  color: red;
+}
+
+:local .testCase2 {
+  color : blue ;
+}
+
+.goAwayAnimation-enter {
+  opacity: 0.01;
+  transform: scale(0.8) ;
+}
+.goAwayAnimation-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 500ms ease-in;
+}
+
+.goAwayAnimation-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+.goAwayAnimation-exit-active {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 500ms ease-out ;
+}

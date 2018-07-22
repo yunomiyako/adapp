@@ -9,6 +9,7 @@ class TestPage extends Component {
 		return (
 			<div className="TestPage">
 				<div className="TestPage-icon-wrapper">
+					<div/>
 					<TypingComponent/>
 				</div>
 			</div>

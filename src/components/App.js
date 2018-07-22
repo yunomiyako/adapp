@@ -5,6 +5,7 @@ import TopPage from "./TopPage/TopPage"
 import AdPage from "../containers/AdPage/AdPage"
 import AdCreatePage from "../containers/AdCreatePage/AdCreatePage"
 import TestPage from "./TestPage/TestPage"
+import ExperimentalPage from "./ExperimentalPage/ExperimentalPage"
 import Header from "./Header/Header"
 
 import { Route, BrowserRouter } from "react-router-dom"
@@ -23,6 +24,7 @@ class App extends Component {
 						<Route path="/ad_page" component={AdPage}/>
 						<Route path="/ad_create" component={AdCreatePage}/>
 						<Route path="/test" component = {TestPage}/>
+						<Route path="/test2" component = {ExperimentalPage}/>
 					</div>
 
 				</div>
