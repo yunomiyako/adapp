@@ -50,12 +50,13 @@ class TitleCreateComponent extends Component {
 			<div className="AdCreatePage-TitleCreateComponent">
 				<div>
 					<h3 style={{color : "white"}}>宣伝タイトル</h3>
-					<div className="AdCreatePage-TitleCreateComponent-textfield-frame">
-						{this.renderTitleInput()}
-					</div>
 					<div className="AdCreatePage-TitleCreateComponent-select-frame">
 						{this.DropdownExampleSelection()}
 					</div>
+					<div className="AdCreatePage-TitleCreateComponent-textfield-frame">
+						{this.renderTitleInput()}
+					</div>
+
 				</div>
 
 				<div style = {{margin : "20px 0px"}}>

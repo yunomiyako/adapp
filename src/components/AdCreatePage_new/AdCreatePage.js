@@ -9,7 +9,7 @@ import { CSSTransition } from "react-transition-group"
 
 // Components
 import TitleCreateComponent from "./TitleCreateComponent"
-import TwitterLikeComponent from "./TwitterLikeComponent"
+import TwitterLikeContainerComponent from "./TwitterLikeContainerComponent"
 import DecorateImageComponent from "./DecorateImageComponent"
 import AdImageUploader from "./AdImageUploader"
 import DescriptionCreateComponent from "./DescriptionCreateComponent"
@@ -19,7 +19,7 @@ import ReturnCreate from "./ReturnCreateComponent"
 import TypeSelectionComponent from "./TypeSelectionComponent"
 
 //いちいちアニメーション出すのがだるいため
-const debugMode = true
+const debugMode = false
 //TODO : 説明もっとわかりやすく
 const adTypeButtons = [{id : 0 , btnText : "ツイート\nしてもらう" , description : "あなたが宣伝してほしいことをツイートしてもらいます。"} ,
 	{id : 1 , btnText : "リツイート\nしてもらう" , description : "宣伝してほしいツイートをリツイートしてもらいます。"} ,
@@ -97,13 +97,17 @@ class AdCreatePage extends Component {
 			>
 				<div className="AdCreatePage-ComponentFrame" style = {frameStyle}>
 					<h1 className="AdCreatePage-Title">どんなツイートをしてもらいたいですか？</h1>
-					<TwitterLikeComponent
+					<TwitterLikeContainerComponent
 						adObject = {this.props.adObject}
 						onClickOk = {() => this.onClickOk(NO)}
 						onChangeAdObject = {(obj) => this.props.onChangeAdObject(obj)}
 					/>
 				</div>
 			</CSSTransition>)
+	}
+
+	renderReturnTypeSelectionComponent(NO) {
+
 	}
 
 	render() {
@@ -115,6 +119,8 @@ class AdCreatePage extends Component {
 				{this.renderTitleCreateComponent(2)}
 
 				{this.renderCreateAd(3)}
+
+				{this.renderReturnTypeSelectionComponent(4)}
 
 			</div>
 		)

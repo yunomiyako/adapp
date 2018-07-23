@@ -80,6 +80,14 @@
   padding : 10px;
 }
 
+.TwitterLikeContainerComponent {
+}
+
+:local .OkButtonFrame {
+  position:relative;
+  height : 60px;
+}
+
 :local .image {
 }
 
