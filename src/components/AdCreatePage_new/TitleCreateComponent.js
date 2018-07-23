@@ -44,11 +44,12 @@ class TitleCreateComponent extends Component {
 		}
 	}
 
+	//TODO :styleは外から渡す方がいいかもしれない。必要になったら
 	render() {
 		return (
 			<div className="AdCreatePage-TitleCreateComponent">
 				<div>
-					<h3>宣伝タイトル</h3>
+					<h3 style={{color : "white"}}>宣伝タイトル</h3>
 					<div className="AdCreatePage-TitleCreateComponent-textfield-frame">
 						{this.renderTitleInput()}
 					</div>
@@ -58,7 +59,7 @@ class TitleCreateComponent extends Component {
 				</div>
 
 				<div style = {{margin : "20px 0px"}}>
-					<span>あげるお返しは :</span>
+					<span style={{color : "white"}}>あげるお返しは :</span>
 					<span style = {{margin : "0px 10px"}}>{this.renderReturnDescriptionInput()}</span>
 				</div>
 

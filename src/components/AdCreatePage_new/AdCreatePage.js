@@ -19,7 +19,7 @@ import ReturnCreate from "./ReturnCreateComponent"
 import TypeSelectionComponent from "./TypeSelectionComponent"
 
 //いちいちアニメーション出すのがだるいため
-const debugMode = false
+const debugMode = true
 //TODO : 説明もっとわかりやすく
 const adTypeButtons = [{id : 0 , btnText : "ツイート\nしてもらう" , description : "あなたが宣伝してほしいことをツイートしてもらいます。"} ,
 	{id : 1 , btnText : "リツイート\nしてもらう" , description : "宣伝してほしいツイートをリツイートしてもらいます。"} ,
@@ -87,7 +87,7 @@ class AdCreatePage extends Component {
 	}
 
 	renderCreateAd(NO) {
-		const frameStyle = {background:"#74b9ff"}
+		const frameStyle = {background:"#fd79a8"}
 		return (
 			<CSSTransition
 				in = {this.state.index >= NO}

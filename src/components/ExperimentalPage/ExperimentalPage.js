@@ -5,7 +5,7 @@ import style from "./ExperimentalPage.css"
 import { CSSTransition , TransitionGroup , Transition } from "react-transition-group"
 
 //semantic UI
-import { Button } from "semantic-ui-react"
+import { Button , Image} from "semantic-ui-react"
 
 
 class ExperimentalPage extends Component {
@@ -13,7 +13,9 @@ class ExperimentalPage extends Component {
 		super(props)
 		this.state = {
 			fire : false ,
-			index : 0
+			index : 0,
+			files : [],
+			imagePreviewUrl:""
 		}
 	}
 
@@ -41,6 +43,21 @@ class ExperimentalPage extends Component {
 		return (<React.Fragment>{list}</React.Fragment>)
 	}
 
+	fileSelectedHandler(e) {
+		e.preventDefault()
+
+		let reader = new FileReader()
+		let files = e.target.files
+
+		reader.onloadend = () => {
+			this.setState({
+				files: files,
+				imagePreviewUrl: reader.result
+			})
+		}
+
+		reader.readAsDataURL(files[0])
+	}
 
 	render() {
 		const styledComponetns = {
@@ -94,7 +111,13 @@ class ExperimentalPage extends Component {
 				>
 					<div style={{height : "200px" , width: "300px" , background:"white" , margin:"30px auto"}}>新しく登場してくるDIV</div>
 				</CSSTransition>
-
+				<br/>
+				<br/>
+				<input style={{display : "none"}} type="file"
+					onChange={(event) => this.fileSelectedHandler(event)}
+					ref={fileInput => this.fileInput = fileInput}/>
+				<Button onClick={() => this.fileInput.click()}>pick file</Button>
+				<Image src={this.state.imagePreviewUrl}/>
 
 				<style>{
 					`
