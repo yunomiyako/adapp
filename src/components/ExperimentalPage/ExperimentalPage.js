@@ -71,6 +71,7 @@ class ExperimentalPage extends Component {
 				<CSSTransition
 					in = {this.state.index > 0}
 					classNames="goAwayAnimation"
+					timeout={1000}
 					unmountOnExit
 				>
 					<div style={{height : "200px" , width: "300px" , background:"white" , margin:"30px auto"}}>新しく登場してくるDIV</div>
@@ -79,6 +80,7 @@ class ExperimentalPage extends Component {
 				<CSSTransition
 					in = {this.state.index > 1}
 					classNames="goAwayAnimation"
+					timeout={1000}
 					unmountOnExit
 				>
 					<div style={{height : "200px" , width: "300px" , background:"white" , margin:"30px auto"}}>新しく登場してくるDIV</div>
@@ -87,6 +89,7 @@ class ExperimentalPage extends Component {
 				<CSSTransition
 					in = {this.state.index > 2}
 					classNames="goAwayAnimation"
+					timeout={1000}
 					unmountOnExit
 				>
 					<div style={{height : "200px" , width: "300px" , background:"white" , margin:"30px auto"}}>新しく登場してくるDIV</div>

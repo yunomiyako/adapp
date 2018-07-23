@@ -1,7 +1,7 @@
 import React , {Component}  from "react"
 
 //css
-import "./AdCreatePage.css"
+import style from "./AdCreatePage.css"
 
 //semantic UI
 import { Button,Input } from "semantic-ui-react"
@@ -9,7 +9,7 @@ import { Dropdown } from "semantic-ui-react"
 
 
 //とりあえず適当な値をここでセット
-//TODO : いい感じに外から注入する
+//TODO : いい感じに外から注入する(typeによって例も変える)
 const options = [
 	{text : "私の作った「　　」を見て！" , value : "私の作った「」を見て！" , key : 1} ,
 	{text : "みんなで作った「　　」を見て！" , value : "みんなで作った「」を見て！" , key : 2} ,

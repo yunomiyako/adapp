@@ -7,6 +7,7 @@
 }
 
 .AdCreatePage-ComponentFrame {
+
   position: relative; /*OKボタン用*/
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
@@ -69,4 +70,19 @@
 .AdCreatePage-TitleCreateComponent {
   text-align: left;
   margin : 0px 10px;
+}
+
+.TwitterLikeComponent {
+  text-align: left;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: white;
+  padding : 10px;
+}
+
+:local .image {
+}
+
+:local .imageFrame {
+  padding:10px 0px 0px 0px;
 }

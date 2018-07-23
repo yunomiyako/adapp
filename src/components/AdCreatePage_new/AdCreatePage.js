@@ -9,6 +9,7 @@ import { CSSTransition } from "react-transition-group"
 
 // Components
 import TitleCreateComponent from "./TitleCreateComponent"
+import TwitterLikeComponent from "./TwitterLikeComponent"
 import DecorateImageComponent from "./DecorateImageComponent"
 import AdImageUploader from "./AdImageUploader"
 import DescriptionCreateComponent from "./DescriptionCreateComponent"
@@ -32,17 +33,25 @@ class AdCreatePage extends Component {
 	}
 
 	onClickOk(NO) {
-		//TODO : もっと賢く
-		if (this.state.index < 3) {
-			this.setState({index : NO + 1})
+		//TODO:いずれ消す
+		if(debugMode) {
+			if (this.state.index < 100) {
+				this.setState({index : NO + 1})
+			} else {
+				this.setState({index : 0})
+			}
+		}
+
+		if (this.state.index < 100) {
+			this.setState({index : Math.max(this.state.index , NO + 1)})
 		} else {
 			this.setState({index : 0})
 		}
+
 	}
 
-	renderTypeSelectionComponent() {
+	renderTypeSelectionComponent(NO) {
 		const frameStyle = {background:"#00b894"}
-		const NO = 1
 		return (
 			<div className="AdCreatePage-ComponentFrame" style = {frameStyle}>
 				<h1 className="AdCreatePage-Title">してもらいたいことを選んでください</h1>
@@ -55,13 +64,13 @@ class AdCreatePage extends Component {
 			</div>)
 	}
 
-	renderTitleCreateComponent() {
+	renderTitleCreateComponent(NO) {
 		const frameStyle = {background:"#74b9ff"}
-		const NO = 2
 		return (
 			<CSSTransition
 				in = {this.state.index >= NO}
 				classNames="AdCreateAnimation"
+				timeout = {1000}
 				unmountOnExit
 			>
 				<div className="AdCreatePage-ComponentFrame" style = {frameStyle}>
@@ -74,7 +83,26 @@ class AdCreatePage extends Component {
 						onChangeReturnDescription = {(text) => this.props.onChangeReturnDescription(text)}
 					></TitleCreateComponent>
 				</div>
+			</CSSTransition>)
+	}
 
+	renderCreateAd(NO) {
+		const frameStyle = {background:"#74b9ff"}
+		return (
+			<CSSTransition
+				in = {this.state.index >= NO}
+				classNames="AdCreateAnimation"
+				timeout = {1000}
+				unmountOnExit
+			>
+				<div className="AdCreatePage-ComponentFrame" style = {frameStyle}>
+					<h1 className="AdCreatePage-Title">どんなツイートをしてもらいたいですか？</h1>
+					<TwitterLikeComponent
+						adObject = {this.props.adObject}
+						onClickOk = {() => this.onClickOk(NO)}
+						onChangeAdObject = {(obj) => this.props.onChangeAdObject(obj)}
+					/>
+				</div>
 			</CSSTransition>)
 	}
 
@@ -82,11 +110,11 @@ class AdCreatePage extends Component {
 		return (
 			<div className="AdCreatePage">
 
+				{this.renderTypeSelectionComponent(1)}
 
+				{this.renderTitleCreateComponent(2)}
 
-				{this.renderTypeSelectionComponent()}
-
-				{this.renderTitleCreateComponent()}
+				{this.renderCreateAd(3)}
 
 			</div>
 		)
