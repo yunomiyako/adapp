@@ -81,36 +81,36 @@ export function currentUserToken() {
 
 class AdPage extends Component {
 	componentWillMount() {
-		this.setItemIfNot()
-
-		const username="testuser2"
-		const password="Testuser2"
-		// Sign up
-		// const email = "p1500232@nwytg.com"
-		// Auth.signUp({
-		// username,
-		// password,
-		// // attributes: {
-		// // 	email,
-		// // }
-		// 	})
-		// 	.then(data => console.log(data))
-		// 	.catch(err => console.log(err));
-
-	//  Auth.signIn(username, password)
-	// 	.then(user => console.log(user))
-	// 	.catch(err => console.log(err));
-
+		this.tmpAuth();
 	}
 
 	componentWillUpdate() {
-		this.setItemIfNot()
+		this.tmpAuth();
 	}
 
-	setItemIfNot() {
-		if (localStorage.getItem("sessionId") == null) {
-			localStorage.setItem("sessionId", 1)
-		}
+	tmpAuth() {
+		const username = btoa(crypto.getRandomValues(new Uint8Array(16)));
+		const password = username;
+
+		Auth.currentAuthenticatedUser().then(user => {
+			console.log("signed in");
+			console.log(user);
+		})
+			.catch(err => {
+				Auth.signUp({
+					username,
+					password,
+				})
+					.then(data => {
+						Auth.signIn(username, password)
+							.then(user => {
+								console.log("signed up");
+								console.log(user);
+							})
+							.catch(err => console.log(err))
+					})
+					.catch(err => console.log(err))
+				})
 	}
 
 	render() {
