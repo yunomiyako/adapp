@@ -76,14 +76,13 @@ class TwitterLikeComponent extends Component {
 
 
 	shapeList(list) {
-		console.log("shapeList executed")
 		const distance = 4 - list.length
 		if(distance > 0) {
 			for(var i = 0; i < distance; i++) {
 				list.push("")
 			}
 		} else if (distance < 0) {
-			for(var i = 0 ; i < -distance ; i++) {
+			for(i = 0 ; i < -distance ; i++) {
 				list.pop()
 			}
 		}

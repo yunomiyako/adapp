@@ -4,7 +4,7 @@ const data =
 	title: "" ,
 	returnDescription:""  ,
 	adObject : { text:"" , images:[] , tweetUrl : "" , isNewlyCreated:true}  ,
-	returnType: 1  ,
+	returnType: -1  ,
 	returnObject : {text: "", images:[] , html : ""}
 }
 

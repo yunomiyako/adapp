@@ -10,20 +10,17 @@ import { CSSTransition } from "react-transition-group"
 // Components
 import TitleCreateComponent from "./TitleCreateComponent"
 import TwitterLikeContainerComponent from "./TwitterLikeContainerComponent"
-import DecorateImageComponent from "./DecorateImageComponent"
-import AdImageUploader from "./AdImageUploader"
-import DescriptionCreateComponent from "./DescriptionCreateComponent"
-import ReturnSelection from "./ReturnSelectionComponent"
-import ReturnCreate from "./ReturnCreateComponent"
-
+import OnlyLookAdCreate from "./OnlyLookAdCreate"
 import TypeSelectionComponent from "./TypeSelectionComponent"
+
+//data
+import adTypeButtons from "../../domain/adTypeButtons"
+import returnTypeButtons from "../../domain/returnTypeButtons"
+
 
 //いちいちアニメーション出すのがだるいため
 const debugMode = false
-//TODO : 説明もっとわかりやすく
-const adTypeButtons = [{id : 0 , btnText : "ツイート\nしてもらう" , description : "あなたが宣伝してほしいことをツイートしてもらいます。"} ,
-	{id : 1 , btnText : "リツイート\nしてもらう" , description : "宣伝してほしいツイートをリツイートしてもらいます。"} ,
-	{id : 2 , btnText : "見てもらう\n　" , description : "ただ見てほしい文章と画像を設定します。"}  ]
+
 class AdCreatePage extends Component {
 	constructor(props) {
 		super(props)
@@ -88,6 +85,48 @@ class AdCreatePage extends Component {
 
 	renderCreateAd(NO) {
 		const frameStyle = {background:"#fd79a8"}
+
+		if(this.props.adType == 0) {
+			return (
+				<CSSTransition
+					in = {this.state.index >= NO}
+					classNames="AdCreateAnimation"
+					timeout = {1000}
+					unmountOnExit
+				>
+					<div className="AdCreatePage-ComponentFrame" style = {frameStyle}>
+						<h1 className="AdCreatePage-Title">どんなツイートをしてもらいたいですか？</h1>
+						<TwitterLikeContainerComponent
+							adObject = {this.props.adObject}
+							onClickOk = {() => this.onClickOk(NO)}
+							onChangeAdObject = {(obj) => this.props.onChangeAdObject(obj)}
+						/>
+					</div>
+				</CSSTransition>)
+		} else if(this.props.adType == 2) {
+			return (
+				<CSSTransition
+					in = {this.state.index >= NO}
+					classNames="AdCreateAnimation"
+					timeout = {1000}
+					unmountOnExit
+				>
+					<div className="AdCreatePage-ComponentFrame" style = {frameStyle}>
+						<h1 className="AdCreatePage-Title">何を見て欲しいですか？</h1>
+						<OnlyLookAdCreate
+							adObject = {this.props.adObject}
+							title = {this.props.title}
+							returnDescription = {this.props.returnDescription}
+							onClickOk = {() => this.onClickOk(NO)}
+							onChangeAdObject = {(obj) => this.props.onChangeAdObject(obj)}
+						/>
+					</div>
+				</CSSTransition>)
+		}
+	}
+
+	renderReturnTypeSelectionComponent(NO) {
+		const frameStyle = {background:"#2d3436"}
 		return (
 			<CSSTransition
 				in = {this.state.index >= NO}
@@ -96,32 +135,35 @@ class AdCreatePage extends Component {
 				unmountOnExit
 			>
 				<div className="AdCreatePage-ComponentFrame" style = {frameStyle}>
-					<h1 className="AdCreatePage-Title">どんなツイートをしてもらいたいですか？</h1>
-					<TwitterLikeContainerComponent
-						adObject = {this.props.adObject}
+					<h1 className="AdCreatePage-Title">お返しはどのタイプですか？</h1>
+					<TypeSelectionComponent
+						onClick={(id) => this.props.onChangeReturnType(id)}
 						onClickOk = {() => this.onClickOk(NO)}
-						onChangeAdObject = {(obj) => this.props.onChangeAdObject(obj)}
+						type = {this.props.returnType}
+						buttons = {returnTypeButtons}
 					/>
 				</div>
 			</CSSTransition>)
 	}
 
-	renderReturnTypeSelectionComponent(NO) {
-
-	}
-
 	render() {
 		return (
 			<div className="AdCreatePage">
+				<div className="AdCreatePageForPaddingFrame">
+					{this.renderTypeSelectionComponent(1)}
+				</div>
 
-				{this.renderTypeSelectionComponent(1)}
+				<div className="AdCreatePageForPaddingFrame">
+					{this.renderTitleCreateComponent(2)}
+				</div>
 
-				{this.renderTitleCreateComponent(2)}
+				<div className="AdCreatePageForPaddingFrame">
+					{this.renderCreateAd(3)}
+				</div>
 
-				{this.renderCreateAd(3)}
-
-				{this.renderReturnTypeSelectionComponent(4)}
-
+				<div className="AdCreatePageForPaddingFrame">
+					{this.renderReturnTypeSelectionComponent(4)}
+				</div>
 			</div>
 		)
 	}

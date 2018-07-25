@@ -5,7 +5,7 @@ import style from "./ExperimentalPage.css"
 import { CSSTransition , TransitionGroup , Transition } from "react-transition-group"
 
 //semantic UI
-import { Button , Image} from "semantic-ui-react"
+import { Button , Image , Grid} from "semantic-ui-react"
 
 
 class ExperimentalPage extends Component {

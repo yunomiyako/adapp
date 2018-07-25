@@ -6,8 +6,11 @@
   color : white ;
 }
 
-.AdCreatePage-ComponentFrame {
+.AdCreatePageForPaddingFrame {
+  padding : 0px 20px;
+}
 
+.AdCreatePage-ComponentFrame {
   position: relative; /*OKボタン用*/
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
@@ -17,54 +20,25 @@
   width  : auto ;
   max-width : 500px;
   filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
+}
 
+:local .description {
+  margin : 20px 10px 0px 10px ;
 }
 
 :local .descriptionText {
   color: white;
 }
 
-:local .gridContainer {
-  display: grid;
-  height: 100%;
-  gap: 20px 3px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas: "TypeButton1 TypeButton1 TypeButton1 TypeButton2 TypeButton2 TypeButton2 TypeButton3 TypeButton3 TypeButton3" ". description description description description description description description okButtonArea";
-}
-
-.TypeButton1 {
-  grid-area: TypeButton1;
-}
-
-.TypeButton2 {
-  grid-area: TypeButton2;
-}
-
-.TypeButton3 {
-  grid-area: TypeButton3;
-}
-
-:local .description {
-  grid-area: description;
-}
-
-:local .okButtonArea {
-  display: grid;
-  grid-area: okButtonArea;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas: ". ." ". okButton";
-}
-
-:local .okButton {
-  grid-area: okButton;
-}
-
 .OkButtonCorner {
   position: absolute;
   right:8px;
   bottom:8px;
+}
+
+:local .OkButtonFrame {
+  position:relative;
+  height : 50px;
 }
 
 .AdCreatePage-TitleCreateComponent {
@@ -80,13 +54,6 @@
   padding : 10px;
 }
 
-.TwitterLikeContainerComponent {
-}
-
-:local .OkButtonFrame {
-  position:relative;
-  height : 60px;
-}
 
 :local .image {
 }

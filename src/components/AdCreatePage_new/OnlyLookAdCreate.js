@@ -6,23 +6,24 @@ import style from "./AdCreatePage.css"
 //semantic UI
 import {Button} from "semantic-ui-react"
 
-import TwitterLikeComponent from "./TwitterLikeComponent"
-
-class TwitterLikeContainerComponent extends Component {
+class OnlyLookAdCreate extends Component {
 	renderOkButton() {
 		if(this.props.adObject.text !== "") {
 			return <Button onClick={() => this.props.onClickOk()}>OK</Button>
 		}
 	}
 
+	//TODO : 実際の広告画面と全く同じものをだす
 	render() {
 		return (
-			<div className="TwitterLikeContainerComponent">
-				<TwitterLikeComponent
-					adObject = {this.props.adObject}
-					onChangeAdObject = {(obj) => this.props.onChangeAdObject(obj)}
-				/>
-
+			<div className="OnlyLookAdCreate">
+				<div>
+					タイトル : {this.props.title}
+					<br/>
+					テキスト : {this.props.adObject.text}
+					<br/>
+					もらえる見返りは=> :  {this.props.returnDescription}
+				</div>
 				<div className={style.OkButtonFrame}>
 					<div className="OkButtonCorner">{this.renderOkButton()}</div>
 				</div>
@@ -32,4 +33,4 @@ class TwitterLikeContainerComponent extends Component {
 	}
 }
 
-export default TwitterLikeContainerComponent
+export default OnlyLookAdCreate

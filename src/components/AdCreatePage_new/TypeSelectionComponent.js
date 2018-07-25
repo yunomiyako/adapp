@@ -4,7 +4,7 @@ import React , {Component}  from "react"
 import style from "./AdCreatePage.css"
 
 //semantic UI
-import { Button } from "semantic-ui-react"
+import { Button , Grid , Image} from "semantic-ui-react"
 
 //TODO : なんか違うんだよなあ・・・
 function renderNewLine(text) {
@@ -14,17 +14,19 @@ function renderNewLine(text) {
 
 class TypeSelectionComponent extends Component {
 
-	//TODO: 拡張性がなさすぎる
 	renderButtons(buttons) {
 		return buttons.map(btn => {
 			if(this.props.type === btn.id) {
-				return (<div key={btn.id} className={"TypeButton" + (btn.id+1)}>
-					<Button disabled key={btn.id}  onClick={() => this.props.onClick(btn.id)}>{renderNewLine(btn.btnText)}</Button>
-				</div>)
+				return (
+					<Grid.Column key={btn.id} style={{textAlign : "center"}}>
+						<Button disabled size="mini" key={btn.id}  onClick={() => this.props.onClick(btn.id)}>{renderNewLine(btn.btnText)}</Button>
+					</Grid.Column>
+				)
 			} else {
-				return (<div key={btn.id} className={"TypeButton" + (btn.id+1)}>
-					<Button key={btn.id}  onClick={() => this.props.onClick(btn.id)}>{renderNewLine(btn.btnText)}</Button>
-				</div>)
+				return (
+					<Grid.Column key={btn.id} style={{textAlign : "center"}}>
+						<Button size="mini" key={btn.id}  onClick={() => this.props.onClick(btn.id)}>{renderNewLine(btn.btnText)}</Button>
+					</Grid.Column>)
 			}
 		}
 		)
@@ -45,21 +47,21 @@ class TypeSelectionComponent extends Component {
 	render() {
 		return (
 			<div className="TypeSelectionComponent">
-				<div className={style.gridContainer}>
+				<Grid>
+					<Grid.Row centered columns={this.props.buttons.length}>
+						{this.renderButtons(this.props.buttons)}
+					</Grid.Row>
+				</Grid>
 
-					{this.renderButtons(this.props.buttons)}
-
-					<div className={style.description}>
-						<p className={style.descriptionText}>{this.renderDescription(this.props.buttons)}</p>
-					</div>
-
-					<div className={style.okButtonArea}>
-						<div className={style.okButton}>
-							{this.renderOkButton()}
-						</div>
-					</div>
-
+				<div className={style.description}>
+					<p className={style.descriptionText}>{this.renderDescription(this.props.buttons)}</p>
 				</div>
+
+
+				<div className={style.OkButtonFrame}>
+					<div className="OkButtonCorner">{this.renderOkButton()}</div>
+				</div>
+
 			</div>
 		)
 	}

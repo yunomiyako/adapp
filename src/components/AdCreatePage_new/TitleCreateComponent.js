@@ -56,7 +56,6 @@ class TitleCreateComponent extends Component {
 					<div className="AdCreatePage-TitleCreateComponent-textfield-frame">
 						{this.renderTitleInput()}
 					</div>
-
 				</div>
 
 				<div style = {{margin : "20px 0px"}}>
@@ -64,8 +63,9 @@ class TitleCreateComponent extends Component {
 					<span style = {{margin : "0px 10px"}}>{this.renderReturnDescriptionInput()}</span>
 				</div>
 
-				<div className="OkButtonCorner">{this.renderOkButton()}</div>
-
+				<div className={style.OkButtonFrame}>
+					<div className="OkButtonCorner">{this.renderOkButton()}</div>
+				</div>
 			</div>
 		)
 	}
