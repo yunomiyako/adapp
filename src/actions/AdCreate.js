@@ -61,3 +61,18 @@ export function onChangeReturnObject(returnObject) {
 		returnObject
 	}
 }
+
+export const ON_CHANGE_INDEX  = "ON_CHANGE_INDEX"
+export function onChangeIndex(index) {
+	return {
+		type: ON_CHANGE_INDEX ,
+		index
+	}
+}
+
+export const CLEAR_STATE = "CLEAR_STATE"
+export function clearState() {
+	return {
+		type: CLEAR_STATE
+	}
+}

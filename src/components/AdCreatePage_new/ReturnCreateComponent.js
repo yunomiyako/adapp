@@ -13,22 +13,29 @@ class ReturnCreateComponent extends Component {
 	renderAdCreate(){
 		const returnType = this.props.returnType
 		switch(returnType){
-		case 1 :
+		case 0 :
 			return this.imageAndText()
+		case 1 :
+			return this.textOnly()
 		case 2 :
 			return this.imageOnly()
-		case 3 :
-			return this.textOnly()
 		default :
 			return "おや？"
 		}
+	}
+
+	onChangeText(text) {
+		console.log(text)
+	}
+	onChangePictures(picture) {
+		console.log(picture)
 	}
 
 	renderTextField() {
 		return (
 			<Form>
 				<TextArea autoHeight placeholder='説明を書いてね' rows={3}
-					onChange={(event) => this.props.onChangeText(event.target.value)}
+					onChange={(event) => this.onChangeText(event.target.value)}
 				/>
 			</Form>
 		)
@@ -38,7 +45,7 @@ class ReturnCreateComponent extends Component {
 		return (
 			<div>
 				<AdImageUploader
-					onChangePictures={(pictures) => this.props.onChangePictures(pictures)}
+					onChangePictures={(pictures) => this.onChangePictures(pictures)}
 				/>
 				{this.renderTextField()}
 			</div>

@@ -1,5 +1,15 @@
 .AdCreatePage {
+  position: relative;
   padding: 20px 0px;
+}
+
+:local .StickyRightSideBar {
+  position: -webkit-sticky;
+  position: sticky;
+  width:60px;
+  top: 50px;
+  right: 0px;
+  z-index: 100;
 }
 
 .AdCreatePage-Title {
@@ -54,6 +64,9 @@
   padding : 10px;
 }
 
+.RetweetAdCreate {
+  text-align: left;
+}
 
 :local .image {
 }

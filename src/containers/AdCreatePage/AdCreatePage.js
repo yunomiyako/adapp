@@ -7,6 +7,8 @@ import {
 	onChangeAdObject ,
 	onChangeReturnType ,
 	onChangeReturnObject ,
+	onChangeIndex ,
+	clearState,
 } from "../../actions/AdCreate"
 
 function mapStateToProps(state){
@@ -17,6 +19,7 @@ function mapStateToProps(state){
 		adObject: state.AdCreateInfo.adObject,
 		returnType: state.AdCreateInfo.returnType,
 		returnObject: state.AdCreateInfo.returnObject,
+		index: state.AdCreateInfo.index,
 	}
 }
 
@@ -28,6 +31,8 @@ function mapDispatchToProps(dispatch) {
 		onChangeAdObject: (adObject) => dispatch(onChangeAdObject(adObject)),
 		onChangeReturnType: (returnType) => dispatch(onChangeReturnType(returnType)),
 		onChangeReturnObject: (returnObject) => dispatch(onChangeReturnObject(returnObject)),
+		onChangeIndex: (index) => dispatch(onChangeIndex(index)),
+		clearState : () => dispatch(clearState()) , 
 	}
 }
 

@@ -5,6 +5,8 @@ import {
 	ON_CHANGE_AD_OBJECT ,
 	ON_CHANGE_RETURN_TYPE ,
 	ON_CHANGE_RETURN_OBJECT ,
+	ON_CHANGE_INDEX ,
+	CLEAR_STATE,
 } from "../actions/AdCreate"
 
 //データ構造
@@ -12,7 +14,6 @@ import AdCreateInfoStructure from "../domain/AdCreateInfoDataStructure"
 
 // immutable state change helper
 var dotProp = require("dot-prop-immutable")
-
 
 export default function AdCreateInfo(state = AdCreateInfoStructure, action) {
 	switch (action.type) {
@@ -38,6 +39,12 @@ export default function AdCreateInfo(state = AdCreateInfoStructure, action) {
 
 	case ON_CHANGE_RETURN_OBJECT:
 		return dotProp.set(state , "returnObject" ,  action.returnObject )
+
+	case ON_CHANGE_INDEX:
+		return dotProp.set(state , "index" ,  action.index )
+
+	case CLEAR_STATE :
+		return AdCreateInfoStructure
 
 	default :
 		return state

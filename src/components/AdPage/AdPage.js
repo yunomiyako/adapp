@@ -81,20 +81,20 @@ export function currentUserToken() {
 
 class AdPage extends Component {
 	componentWillMount() {
-		this.tmpAuth();
+		this.tmpAuth()
 	}
 
 	componentWillUpdate() {
-		this.tmpAuth();
+		this.tmpAuth()
 	}
 
 	tmpAuth() {
-		const username = btoa(crypto.getRandomValues(new Uint8Array(16)));
-		const password = username;
+		const username = btoa(crypto.getRandomValues(new Uint8Array(16)))
+		const password = username
 
 		Auth.currentAuthenticatedUser().then(user => {
-			console.log("signed in");
-			console.log(user);
+			console.log("signed in")
+			console.log(user)
 		})
 			.catch(err => {
 				Auth.signUp({
@@ -104,13 +104,13 @@ class AdPage extends Component {
 					.then(data => {
 						Auth.signIn(username, password)
 							.then(user => {
-								console.log("signed up");
-								console.log(user);
+								console.log("signed up")
+								console.log(user)
 							})
 							.catch(err => console.log(err))
 					})
 					.catch(err => console.log(err))
-				})
+			})
 	}
 
 	render() {
