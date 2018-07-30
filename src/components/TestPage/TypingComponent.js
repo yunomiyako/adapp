@@ -77,7 +77,7 @@ class TypingComponent extends Component {
 					<h1>{this.renderText()}</h1>
 				</div>
 
-				<style jsx>{`
+				<style>{`
 					.TypingComponent-Frame {
 						background:white;
 					}

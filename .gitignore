@@ -16,3 +16,12 @@ build/*
 # .gitignore ファイル自体は管理したい
 #       ! は、無視の打ち消し、すなわち無視しない
 !.gitignore
+
+#awsmobilejs
+appsync-info.json
+aws-info.json
+project-info.json
+aws-exports.*
+awsmobilejs/.awsmobile/backend-build
+awsmobilejs/\#current-backend-info
+~awsmobilejs-*/

@@ -33,24 +33,24 @@ import { Auth, API } from "aws-amplify"
 // 	}
 // });
 
-Amplify.configure({
-	Auth: {
-	// REQUIRED only for Federated Authentication - Amazon Cognito Identity Pool ID
-		identityPoolId: "ap-northeast-1:62e8666f-2e39-4600-912c-a7c9332e2450",
-
-		// REQUIRED - Amazon Cognito Region
-		region: "ap-northeast-1",
-
-		// OPTIONAL - Amazon Cognito User Pool ID
-		userPoolId: "ap-northeast-1_SHqZXcVuV",
-
-		// OPTIONAL - Amazon Cognito Web Client ID (26-char alphanumeric string)
-		userPoolWebClientId: "5khuql00f2mviggho5ligs92db",
-
-	// OPTIONAL - Manually set the authentication flow type. Default is 'USER_SRP_AUTH'
-	// authenticationFlowType: 'USER_PASSWORD_AUTH'
-	},
-})
+// Amplify.configure({
+// 	Auth: {
+// 	// REQUIRED only for Federated Authentication - Amazon Cognito Identity Pool ID
+// 		identityPoolId: "ap-northeast-1:62e8666f-2e39-4600-912c-a7c9332e2450",
+//
+// 		// REQUIRED - Amazon Cognito Region
+// 		region: "ap-northeast-1",
+//
+// 		// OPTIONAL - Amazon Cognito User Pool ID
+// 		userPoolId: "ap-northeast-1_SHqZXcVuV",
+//
+// 		// OPTIONAL - Amazon Cognito Web Client ID (26-char alphanumeric string)
+// 		userPoolWebClientId: "5khuql00f2mviggho5ligs92db",
+//
+// 	// OPTIONAL - Manually set the authentication flow type. Default is 'USER_SRP_AUTH'
+// 	// authenticationFlowType: 'USER_PASSWORD_AUTH'
+// 	},
+// })
 
 const api1 = () => {
 	Auth.currentAuthenticatedUser().then((user => {

@@ -2,8 +2,9 @@ import { call, put, takeEvery } from "redux-saga/effects"
 
 //import Action
 import {} from "../actions/AdPage"
-import {} from "../actions/AdCreate"
-import {} from "../actions/AdCreate"
+import {FETCH_DB_DATA} from "../actions/Test"
+import {ON_CHANGE_USERINFO} from "../actions/Test"
+
 
 //import API
 import {Api} from "../api/Api"
@@ -29,6 +30,16 @@ function *postExample() {
 	}
 }
 
+function *fetchDynamoTest() {
+	try {
+		const data = yield call(Api.fetchDynamoTest)
+		//yield put({type: EXAMPLE_FETCH_SUCCEEDED, data: data})
+		yield put({type : ON_CHANGE_USERINFO, title : data.username})
+	} catch (e) {
+		yield put({type: "EXAMPLE_FETCH_FAILED", message: e.message})
+	}
+}
+
 
 /*
   FETCH_EXAMPLE_DATA Action が送出されるたびに fetchUser を起動します。
@@ -36,7 +47,8 @@ function *postExample() {
 */
 function* mySaga() {
 	yield takeEvery("FETCH_EXAMPLE_DATA", fetchExample),
-	yield takeEvery("POST_EXAMPLE_DATA", postExample)
+	yield takeEvery("POST_EXAMPLE_DATA", postExample) ,
+	yield takeEvery(FETCH_DB_DATA , fetchDynamoTest)
 }
 
 /*

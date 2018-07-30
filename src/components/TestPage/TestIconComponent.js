@@ -19,6 +19,10 @@ class TestIconComponent extends Component {
 		}
 	}
 
+	fetchDbData() {
+		
+	}
+
 	render() {
 		return (
 			<div className="TestIconComponent">
