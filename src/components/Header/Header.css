@@ -14,6 +14,6 @@
 }
 
 @keyframes Header-logo-spin {
-  from { transform: translateX(-360px) rotate(0deg);}
-  to { transform: translateX(360px) rotate(360deg);}
+  from { transform: rotate(0deg);}
+  to { transform: rotate(360deg);}
 }

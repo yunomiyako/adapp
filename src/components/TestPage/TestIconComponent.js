@@ -2,6 +2,7 @@ import React , {Component}  from "react"
 import { Button } from "semantic-ui-react"
 import "./TestPage.css"
 
+
 class TestIconComponent extends Component {
 	constructor(props) {
 		super(props)
@@ -16,6 +17,10 @@ class TestIconComponent extends Component {
 		} else {
 			this.setState({index : this.state.index + 1})
 		}
+	}
+
+	fetchDbData() {
+		
 	}
 
 	render() {

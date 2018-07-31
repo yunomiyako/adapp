@@ -1,9 +1,10 @@
 import { call, put, takeEvery } from "redux-saga/effects"
 
 //import Action
-import {FETCH_EXAMPLE_DATA, EXAMPLE_FETCH_FAILED , EXAMPLE_FETCH_SUCCEEDED} from "../actions/AdPage"
-import {POST_EXAMPLE_DATA} from "../actions/AdCreate"
-import {ONCHANGETITLE} from "../actions/AdCreate"
+import {} from "../actions/AdPage"
+import {FETCH_DB_DATA} from "../actions/Test"
+import {ON_CHANGE_USERINFO} from "../actions/Test"
+
 
 //import API
 import {Api} from "../api/Api"
@@ -13,9 +14,9 @@ function *fetchExample() {
 	try {
 		const data = yield call(Api.fetchTest)
 		//yield put({type: EXAMPLE_FETCH_SUCCEEDED, data: data})
-		yield put({type : ONCHANGETITLE, title : data.title})
+		yield put({type : "ONCHANGETITLE", title : data.title})
 	} catch (e) {
-		yield put({type: EXAMPLE_FETCH_FAILED, message: e.message})
+		yield put({type: "EXAMPLE_FETCH_FAILED", message: e.message})
 	}
 }
 
@@ -23,9 +24,19 @@ function *postExample() {
 	try {
 		const data = yield call(Api.postTest)
 		//yield put({type: EXAMPLE_FETCH_SUCCEEDED, data: data})
-		yield put({type : ONCHANGETITLE, title : data.test2})
+		yield put({type : "ONCHANGETITLE", title : data.test2})
 	} catch (e) {
-		yield put({type: EXAMPLE_FETCH_FAILED, message: e.message})
+		yield put({type: "EXAMPLE_FETCH_FAILED", message: e.message})
+	}
+}
+
+function *fetchDynamoTest() {
+	try {
+		const data = yield call(Api.fetchDynamoTest)
+		//yield put({type: EXAMPLE_FETCH_SUCCEEDED, data: data})
+		yield put({type : ON_CHANGE_USERINFO, title : data.username})
+	} catch (e) {
+		yield put({type: "EXAMPLE_FETCH_FAILED", message: e.message})
 	}
 }
 
@@ -35,8 +46,9 @@ function *postExample() {
   ユーザ情報の並列取得にも対応しています。
 */
 function* mySaga() {
-	yield takeEvery(FETCH_EXAMPLE_DATA, fetchExample),
-	yield takeEvery(POST_EXAMPLE_DATA, postExample)
+	yield takeEvery("FETCH_EXAMPLE_DATA", fetchExample),
+	yield takeEvery("POST_EXAMPLE_DATA", postExample) ,
+	yield takeEvery(FETCH_DB_DATA , fetchDynamoTest)
 }
 
 /*

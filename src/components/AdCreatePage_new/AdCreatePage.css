@@ -1,0 +1,76 @@
+.AdCreatePage {
+  position: relative;
+  padding: 20px 0px;
+}
+
+:local .StickyRightSideBar {
+  position: -webkit-sticky;
+  position: sticky;
+  width:60px;
+  top: 50px;
+  right: 0px;
+  z-index: 100;
+}
+
+.AdCreatePage-Title {
+  color : white ;
+}
+
+.AdCreatePageForPaddingFrame {
+  padding : 0px 20px;
+}
+
+.AdCreatePage-ComponentFrame {
+  position: relative; /*OKボタン用*/
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  padding:10px;
+  margin: 30px auto;
+  height : auto ;
+  width  : auto ;
+  max-width : 500px;
+  filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
+}
+
+:local .description {
+  margin : 20px 10px 0px 10px ;
+}
+
+:local .descriptionText {
+  color: white;
+}
+
+.OkButtonCorner {
+  position: absolute;
+  right:8px;
+  bottom:8px;
+}
+
+:local .OkButtonFrame {
+  position:relative;
+  height : 50px;
+}
+
+.AdCreatePage-TitleCreateComponent {
+  text-align: left;
+  margin : 0px 10px;
+}
+
+.TwitterLikeComponent {
+  text-align: left;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: white;
+  padding : 10px;
+}
+
+.RetweetAdCreate {
+  text-align: left;
+}
+
+:local .image {
+}
+
+:local .imageFrame {
+  padding:10px 0px 0px 0px;
+}
