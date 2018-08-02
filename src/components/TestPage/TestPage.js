@@ -45,7 +45,10 @@ class TestPage extends Component {
 	}
 
 	onClickSubmit() {
-		Api.postDynamoTest(this.state.text).then(() => this.onClickButton())
+		Api.postDynamoTest(this.state.text).then((text) => {
+			console.log(text)
+			this.onClickButton()
+		})
 	}
 
 	render() {

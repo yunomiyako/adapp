@@ -11,13 +11,14 @@ export const Api = {
 					"Content-Type": "application/json",
 				} ,
 				body: JSON.stringify(params)
-			}).then( (response) => response.json() ).then((response) => response.body) } ,
+			}).then( (response) => response.json() ).then((response) => response) } ,
 	fetchTest : () => {
 		const url = "https://z98adm64i2.execute-api.ap-northeast-1.amazonaws.com/adApp/justReturnAdData"
 		return Api.fetchJson(url)
 	},
 	postTest : () => {
-		const url = "https://z98adm64i2.execute-api.ap-northeast-1.amazonaws.com/adApp/testpost"
+		//const url = "https://z98adm64i2.execute-api.ap-northeast-1.amazonaws.com/adApp/testpost"
+		const url = "https://g3hcvlr082.execute-api.us-east-1.amazonaws.com/dev/test-re"
 		const params = {"test1" : "こんにちは〜〜" , "test2" : "こんばんは〜"}
 		return Api.postJson(url, params)
 	} ,
@@ -26,7 +27,6 @@ export const Api = {
 		return Api.fetchJson(url)
 	},
 	postDynamoTest : (username) => {
-		console.log(username)
 		const url = "https://j4xg10jyb5.execute-api.us-east-2.amazonaws.com/Stage/user"
 		const params = {"username" : username}
 		return Api.postJson(url , params)
