@@ -5,6 +5,7 @@ import TypingComponent from "./TypingComponent"
 import {Api} from "../../api/Api"
 import { Button , Form , Image , List } from "semantic-ui-react"
 
+
 class TestPage extends Component {
 	constructor(props) {
 		super(props)
@@ -45,10 +46,12 @@ class TestPage extends Component {
 	}
 
 	onClickSubmit() {
-		Api.postDynamoTest(this.state.text).then((text) => {
-			console.log(text)
-			this.onClickButton()
-		})
+		Api.postDynamoTest(this.state.text).then(() => this.onClickButton())
+
+	}
+
+	onClicktest() {
+		Api.testtm(this.state.text).then(() => this.onClickButton())
 	}
 
 	render() {
@@ -65,6 +68,7 @@ class TestPage extends Component {
 							<input placeholder='User Name' onChange={(e) => this.onChangeText(e.target.value)}/>
 						</Form.Field>
 						<Button onClick={()=>this.onClickSubmit()}>Submit</Button>
+						<Button onClick={()=>this.onClicktest()}>ttttttt</Button>
 					</Form>
 
 					{this.renderList()}
