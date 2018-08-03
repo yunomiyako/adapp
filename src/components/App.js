@@ -10,7 +10,46 @@ import Header from "./Header/Header"
 
 import { Route, BrowserRouter } from "react-router-dom"
 
+import Amplify from "aws-amplify"
+import { Auth, API } from "aws-amplify"
+import conf from "../aws-exports"
+Amplify.configure(conf);
+
+
 class App extends Component {
+	componentWillMount() {
+		this.tmpAuth()
+	}
+
+	componentWillUpdate() {
+		this.tmpAuth()
+	}
+
+	tmpAuth() {
+		const username = btoa(crypto.getRandomValues(new Uint8Array(16)))
+		const password = username
+
+		Auth.currentAuthenticatedUser().then(user => {
+			console.log("signed in")
+			console.log(user)
+		})
+			.catch(err => {
+				Auth.signUp({
+					username,
+					password,
+				})
+					.then(data => {
+						Auth.signIn(username, password)
+							.then(user => {
+								console.log("signed up")
+								console.log(user)
+							})
+							.catch(err => console.log(err))
+					})
+					.catch(err => console.log(err))
+			})
+	}
+	
 	render() {
 		return (
 			<BrowserRouter>
