@@ -13,7 +13,7 @@ import { Route, BrowserRouter } from "react-router-dom"
 import Amplify from "aws-amplify"
 import { Auth, API } from "aws-amplify"
 import conf from "../aws-exports"
-Amplify.configure(conf);
+Amplify.configure(conf)
 
 
 class App extends Component {
@@ -49,7 +49,7 @@ class App extends Component {
 					.catch(err => console.log(err))
 			})
 	}
-	
+
 	render() {
 		return (
 			<BrowserRouter>
