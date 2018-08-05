@@ -1,96 +1,78 @@
 // Actionの定義を書きます
+/*
+{adType : "" ,
+	title: "" ,
+	returnDescription:""  ,
+	adObject : { text:"" , images:[] , tweetUrl : "" , isNewlyCreated:true}  ,
+	returnType: 1  ,
+	returnObject : {text: "", images:[] , html : ""}
+}
+*/
 
-export const ONCHANGETITLE  = "ONCHANGETITLE"
+export const ON_CHANGE_AD_TYPE  = "ON_CHANGE_AD_TYPE"
+export function onChangeAdType(adType) {
+	return {
+		type: ON_CHANGE_AD_TYPE ,
+		adType
+	}
+}
+
+
+export const ON_CHANGE_TITLE  = "ON_CHANGE_TITLE"
 export function onChangeTitle(title) {
 	return {
-		type: ONCHANGETITLE,
+		type: ON_CHANGE_TITLE ,
 		title
 	}
 }
 
-export const ONSETIMAGE = "ONSETIMAGE"
-export function onSetImage(image) {
+
+export const ON_CHANGE_RETURN_DESCRIPTION  = "ON_CHANGE_RETURN_DESCRIPTION"
+export function onChangeReturnDescription(returnDescription) {
 	return {
-		type : ONSETIMAGE,
-		image
+		type: ON_CHANGE_RETURN_DESCRIPTION ,
+		returnDescription
 	}
 }
 
-export const ONCHANGEDESCRIPTION = "ONCHANGEDESCRIPTION"
-export function onChangeDescription(description) {
+
+export const ON_CHANGE_AD_OBJECT  = "ON_CHANGE_AD_OBJECT"
+export function onChangeAdObject(adObject) {
 	return {
-		type : ONCHANGEDESCRIPTION ,
-		description
+		type: ON_CHANGE_AD_OBJECT ,
+		adObject
 	}
 }
 
-export const ONSETRETURNTYPE = "ONSETRETURNTYPE"
-export function onSetReturnType(id) {
+
+export const ON_CHANGE_RETURN_TYPE  = "ON_CHANGE_RETURN_TYPE"
+export function onChangeReturnType(returnType) {
 	return {
-		type:ONSETRETURNTYPE,
-		id
+		type: ON_CHANGE_RETURN_TYPE ,
+		returnType
 	}
 }
 
-export const ONCHANGERETURNTEXT = "ONCHANGERETURNTEXT"
-export function onChangeReturnText(text) {
+
+export const ON_CHANGE_RETURN_OBJECT  = "ON_CHANGE_RETURN_OBJECT"
+export function onChangeReturnObject(returnObject) {
 	return {
-		type : ONCHANGERETURNTEXT,
-		text
+		type: ON_CHANGE_RETURN_OBJECT ,
+		returnObject
 	}
 }
 
-export const ONCHANGEPICTURES = "ONCHANGEPICTURES"
-export function onChangePictures(pictures) {
+export const ON_CHANGE_INDEX  = "ON_CHANGE_INDEX"
+export function onChangeIndex(index) {
 	return {
-		type : ONCHANGEPICTURES,
-		pictures
+		type: ON_CHANGE_INDEX ,
+		index
 	}
 }
 
-export const ONCHANGERETURNPICTURES = "ONCHANGERETURNPICTURES"
-export function onChangeReturnPictures(pictures) {
+export const CLEAR_STATE = "CLEAR_STATE"
+export function clearState() {
 	return {
-		type : ONCHANGERETURNPICTURES,
-		pictures
+		type: CLEAR_STATE
 	}
 }
-
-export const ONCLICKSUBMIT = "ONCLICKSUBMIT"
-export function onClickSubmit() {
-	return {
-		type : ONCLICKSUBMIT
-	}
-}
-
-export const POST_EXAMPLE_DATA = "POST_EXAMPLE_DATA"
-export function postTest() {
-	return {
-		type : POST_EXAMPLE_DATA
-	}
-}
-
-/*
-let nextTodoId = 0
-export const addTodo = text => ({
-  type: 'ADD_TODO',
-  id: nextTodoId++,
-  text
-})
-
-export const setVisibilityFilter = filter => ({
-  type: 'SET_VISIBILITY_FILTER',
-  filter
-})
-
-export const toggleTodo = id => ({
-  type: 'TOGGLE_TODO',
-  id
-})
-
-export const VisibilityFilters = {
-  SHOW_ALL: 'SHOW_ALL',
-  SHOW_COMPLETED: 'SHOW_COMPLETED',
-  SHOW_ACTIVE: 'SHOW_ACTIVE'
-}
-*/

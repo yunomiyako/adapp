@@ -2,7 +2,6 @@ import { connect } from "react-redux"
 import AdPage from "../../components/AdPage/AdPage"
 import {
 	onChangeTitle,
-	onChangeDescription,
 } from "../../actions/AdCreate"
 import {
 	fetchExampleData
@@ -19,7 +18,6 @@ const handleClickU = (dispatch) => {
 	})
 		.then((response) => response.json()).then((json) => {
 			dispatch(onChangeTitle("id:" + json[0][0]))
-			dispatch(onChangeDescription("name:" + json[0][1]))
 		})
 		.catch((error) => {
 			window.console.log(error)
@@ -31,7 +29,6 @@ function mapStateToProps(state){
 	return {
 		title: state.AdCreateInfo.title,
 		description: state.AdCreateInfo.description,
-		image: state.AdCreateInfo.image,
 	}
 }
 function mapDispatchToProps(dispatch) {

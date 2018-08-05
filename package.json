@@ -19,24 +19,36 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "react-slick": "^0.23.1",
+    "react-transition-group": "^2.4.0",
     "redux": "^4.0.0",
+    "redux-localstorage": "^0.4.1",
     "redux-saga": "^0.16.0",
     "semantic-ui-react": "^0.80.2",
     "slick-carousel": "^1.8.1",
+    "styled-jsx": "^2.2.7",
     "webfontloader": "^1.6.28"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "buildByBabel": "babel src -d lib",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy": "aws s3 sync build/ s3://adapp2018"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "eslint": "^4.19.1",
     "eslint-config-google": "^0.9.1",
     "eslint-plugin-react": "^7.9.1",
     "react": "^16.4.0",
     "redux-immutable-state-invariant": "^2.1.0"
-  }
+  },
+  "presets": [
+    "env"
+  ]
 }

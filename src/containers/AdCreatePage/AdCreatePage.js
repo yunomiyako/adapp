@@ -1,39 +1,38 @@
 import { connect } from "react-redux"
-import AdCreatePage from "../../components/AdCreatePage/AdCreatePage"
+import AdCreatePage from "../../components/AdCreatePage_new/AdCreatePage"
 import {
-	onChangeTitle,
-	onChangeDescription,
-	onSetImage,
-	onSetReturnType ,
-	onChangeReturnText,
-	onChangePictures,
-	onChangeReturnPictures,
-	onClickSubmit,
-	postTest
+	onChangeAdType ,
+	onChangeTitle ,
+	onChangeReturnDescription ,
+	onChangeAdObject ,
+	onChangeReturnType ,
+	onChangeReturnObject ,
+	onChangeIndex ,
+	clearState,
 } from "../../actions/AdCreate"
 
 function mapStateToProps(state){
-	window.console.log(state.AdCreateInfo.title)
 	return {
+		adType: state.AdCreateInfo.adType,
 		title: state.AdCreateInfo.title,
-		description: state.AdCreateInfo.description,
-		image: state.AdCreateInfo.image,
-		returnType:state.AdCreateInfo.returnType,
-		adImages : state.AdCreateInfo.adImages,
-		returnImages : state.AdCreateInfo.adImages,
+		returnDescription: state.AdCreateInfo.returnDescription,
+		adObject: state.AdCreateInfo.adObject,
+		returnType: state.AdCreateInfo.returnType,
+		returnObject: state.AdCreateInfo.returnObject,
+		index: state.AdCreateInfo.index,
 	}
 }
+
 function mapDispatchToProps(dispatch) {
 	return {
-		onChangeTitle : (value) => dispatch(onChangeTitle(value)) ,
-		onChangeDescription : (value) => dispatch(onChangeDescription(value)),
-		onSetImage : (image) => dispatch(onSetImage(image)),
-		onSetReturnType: (id) => dispatch(onSetReturnType(id)),
-		onChangeReturnText : (text) => dispatch(onChangeReturnText(text)),
-		onChangePictures : (pictures) => dispatch(onChangePictures(pictures)),
-		onChangeReturnPictures : (pictures) => dispatch(onChangeReturnPictures(pictures)),
-		onClickSubmit : () => dispatch(onClickSubmit()),
-		postTest : () => dispatch(postTest()),
+		onChangeAdType: (adType) => dispatch(onChangeAdType(adType)),
+		onChangeTitle: (title) => dispatch(onChangeTitle(title)),
+		onChangeReturnDescription: (returnDescription) => dispatch(onChangeReturnDescription(returnDescription)),
+		onChangeAdObject: (adObject) => dispatch(onChangeAdObject(adObject)),
+		onChangeReturnType: (returnType) => dispatch(onChangeReturnType(returnType)),
+		onChangeReturnObject: (returnObject) => dispatch(onChangeReturnObject(returnObject)),
+		onChangeIndex: (index) => dispatch(onChangeIndex(index)),
+		clearState : () => dispatch(clearState()) , 
 	}
 }
 
