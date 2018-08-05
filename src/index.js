@@ -16,6 +16,12 @@ import "./index.css"
 import MyApp from "./components/App"
 import registerServiceWorker from "./registerServiceWorker"
 
+//aws
+// import Amplify, { Storage } from "aws-amplify"
+// import aws_exports from "./aws-exports"
+// Amplify.configure(aws_exports)
+
+
 const sagaMiddleware = createSagaMiddleware()
 // Be sure to ONLY add this middleware in development
 const middleware = process.env.NODE_ENV !== "production" ?

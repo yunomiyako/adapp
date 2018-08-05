@@ -12,6 +12,28 @@ export const Api = {
 				} ,
 				body: JSON.stringify(params)
 			}).then( (response) => response.json() ).then((response) => response.body) } ,
+	
+	
+	tmJson: (url , params) => {
+		  fetch(url, {
+			mode: "cors",
+			method: 'POST',
+			headers: {
+				"Content-Type": "application/json",
+			} ,
+			body: JSON.stringify(params)
+		  }).then( (response) => response.json() ).then(response => {
+			
+			var url = response.body
+			window.open(url, '_blank');
+
+			
+
+		})
+
+		  
+	},
+
 	fetchTest : () => {
 		const url = "https://z98adm64i2.execute-api.ap-northeast-1.amazonaws.com/adApp/justReturnAdData"
 		return Api.fetchJson(url)
@@ -20,5 +42,24 @@ export const Api = {
 		const url = "https://z98adm64i2.execute-api.ap-northeast-1.amazonaws.com/adApp/testpost"
 		const params = {"test1" : "こんにちは〜〜" , "test2" : "こんばんは〜"}
 		return Api.postJson(url, params)
+	} ,
+	fetchDynamoTest : () => {
+		const url = "https://m7naq149mk.execute-api.us-east-2.amazonaws.com/Stage/user"
+		return Api.fetchJson(url)
+	},
+	postDynamoTest : (username) => {
+		console.log(username)
+		const url = "https://j4xg10jyb5.execute-api.us-east-2.amazonaws.com/Stage/user"
+		const params = {"username" : username}
+		return Api.postJson(url , params)
+	},
+
+	testtm : () => {
+		
+		const url =  "https://wxpi68iaul.execute-api.us-east-1.amazonaws.com/dev/testoauth-re"
+		const params = {"tttttttttt":1}
+		return Api.tmJson(url , params)
 	}
+
+
 }

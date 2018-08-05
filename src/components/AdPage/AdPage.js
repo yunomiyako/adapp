@@ -4,6 +4,7 @@ import style from "./AdPage.css"
 
 import Amplify from "aws-amplify"
 import { Auth, API } from "aws-amplify"
+//import conf from "../../aws-exports"
 
 // Amplify.configure({
 // 	Auth: {
@@ -33,24 +34,26 @@ import { Auth, API } from "aws-amplify"
 // 	}
 // });
 
-Amplify.configure({
-	Auth: {
-	// REQUIRED only for Federated Authentication - Amazon Cognito Identity Pool ID
-		identityPoolId: "ap-northeast-1:62e8666f-2e39-4600-912c-a7c9332e2450",
+// Amplify.configure({
+// 	Auth: {
+// 	// REQUIRED only for Federated Authentication - Amazon Cognito Identity Pool ID
+// 		identityPoolId: "ap-northeast-1:62e8666f-2e39-4600-912c-a7c9332e2450",
+//
+// 		// REQUIRED - Amazon Cognito Region
+// 		region: "ap-northeast-1",
+//
+// 		// OPTIONAL - Amazon Cognito User Pool ID
+// 		userPoolId: "ap-northeast-1_SHqZXcVuV",
+//
+// 		// OPTIONAL - Amazon Cognito Web Client ID (26-char alphanumeric string)
+// 		userPoolWebClientId: "5khuql00f2mviggho5ligs92db",
+//
+// 	// OPTIONAL - Manually set the authentication flow type. Default is 'USER_SRP_AUTH'
+// 	// authenticationFlowType: 'USER_PASSWORD_AUTH'
+// 	},
+// })
 
-		// REQUIRED - Amazon Cognito Region
-		region: "ap-northeast-1",
-
-		// OPTIONAL - Amazon Cognito User Pool ID
-		userPoolId: "ap-northeast-1_SHqZXcVuV",
-
-		// OPTIONAL - Amazon Cognito Web Client ID (26-char alphanumeric string)
-		userPoolWebClientId: "5khuql00f2mviggho5ligs92db",
-
-	// OPTIONAL - Manually set the authentication flow type. Default is 'USER_SRP_AUTH'
-	// authenticationFlowType: 'USER_PASSWORD_AUTH'
-	},
-})
+//Amplify.configure(conf);
 
 const api1 = () => {
 	Auth.currentAuthenticatedUser().then((user => {
@@ -80,39 +83,6 @@ export function currentUserToken() {
 
 
 class AdPage extends Component {
-	componentWillMount() {
-		this.tmpAuth()
-	}
-
-	componentWillUpdate() {
-		this.tmpAuth()
-	}
-
-	tmpAuth() {
-		const username = btoa(crypto.getRandomValues(new Uint8Array(16)))
-		const password = username
-
-		Auth.currentAuthenticatedUser().then(user => {
-			console.log("signed in")
-			console.log(user)
-		})
-			.catch(err => {
-				Auth.signUp({
-					username,
-					password,
-				})
-					.then(data => {
-						Auth.signIn(username, password)
-							.then(user => {
-								console.log("signed up")
-								console.log(user)
-							})
-							.catch(err => console.log(err))
-					})
-					.catch(err => console.log(err))
-			})
-	}
-
 	render() {
 		return (
 			<div className="AdPage">

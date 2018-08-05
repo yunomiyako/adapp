@@ -7,7 +7,7 @@ import { CSSTransition , TransitionGroup , Transition } from "react-transition-g
 //semantic UI
 import { Button , Image , Grid} from "semantic-ui-react"
 
-
+import { Storage } from "aws-amplify"
 class ExperimentalPage extends Component {
 	constructor(props) {
 		super(props)
@@ -44,6 +44,7 @@ class ExperimentalPage extends Component {
 	}
 
 	fileSelectedHandler(e) {
+		this.upload(e)
 		e.preventDefault()
 
 		let reader = new FileReader()
@@ -57,6 +58,15 @@ class ExperimentalPage extends Component {
 		}
 
 		reader.readAsDataURL(files[0])
+	}
+
+	upload(e) {
+		const file = e.target.files[0]
+		Storage.put("test/test/example.png", file, {
+			contentType: "image/png"
+		})
+			.then (result => console.log(result))
+			.catch(err => console.log(err))
 	}
 
 	render() {
@@ -74,6 +84,7 @@ class ExperimentalPage extends Component {
 				<h3 style={styledComponetns}>これはstyledComponetnsです。紫にします。頻繁な計算があるスタイル以外では非推奨らしい</h3>
 				<h3 style={style.dummyCSS}>これは存在しないlocal CSSです。</h3>
 				<Button onClick={() => this.onClickButton()}>アニメーションボタン</Button>
+
 				{/*
 				 <CSSTransition
 				 	in = {this.state.fire}
@@ -118,6 +129,7 @@ class ExperimentalPage extends Component {
 					ref={fileInput => this.fileInput = fileInput}/>
 				<Button onClick={() => this.fileInput.click()}>pick file</Button>
 				<Image src={this.state.imagePreviewUrl}/>
+
 
 				<style>{
 					`
