@@ -24,8 +24,9 @@ export const Api = {
 			body: JSON.stringify(params)
 		  }).then( (response) => response.json() ).then(response => {
 			
-			var url = response.body
-			window.open(url, '_blank');
+			console.log(response.body)
+			//console.log(typeof response.body);
+			window.open(response.body, '_blank');
 
 			
 
