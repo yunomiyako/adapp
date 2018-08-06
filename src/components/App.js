@@ -12,8 +12,8 @@ import { Route, BrowserRouter } from "react-router-dom"
 
 import Amplify from "aws-amplify"
 import { Auth, API } from "aws-amplify"
-import conf from "../aws-exports"
-Amplify.configure(conf)
+//import conf from "../aws-exports"
+//Amplify.configure(conf);
 
 
 class App extends Component {

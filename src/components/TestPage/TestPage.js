@@ -51,8 +51,11 @@ class TestPage extends Component {
 	}
 
 	onClicktest() {
-		Api.testtm(this.state.text).then(() => this.onClickButton())
+		Api.testtm()
+		//console.log(Api.testtm())
 	}
+
+
 
 	render() {
 		return (

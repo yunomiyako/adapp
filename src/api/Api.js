@@ -15,15 +15,14 @@ export const Api = {
 
 
 	tmJson: (url , params) => {
-		return fetch(url, {
+		  return fetch(url, {
 			mode: "cors",
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
 			} ,
 			body: JSON.stringify(params)
-		}).then((response) => response.json()).then((response) => console.log(response))
-
+		}).then( (response) => response.json() ).then(response => response.body).then(body => JSON.parse(body))
 	},
 
 	fetchTest : () => {
@@ -47,9 +46,16 @@ export const Api = {
 	},
 
 	testtm : () => {
-		const url =  "https://g3hcvlr082.execute-api.us-east-1.amazonaws.com/dev/test-re"
+
+		const url =  "https://wxpi68iaul.execute-api.us-east-1.amazonaws.com/dev/testoauth-re"
 		const params = {"tttttttttt":1}
-		return Api.tmJson(url , params)
+		var body =  Api.tmJson(url , params)
+		body.then(
+			body => {
+				window.location.href = body.url
+			}
+		)
+
 	}
 
 

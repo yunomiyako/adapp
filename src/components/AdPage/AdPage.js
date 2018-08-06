@@ -4,7 +4,7 @@ import style from "./AdPage.css"
 
 import Amplify from "aws-amplify"
 import { Auth, API } from "aws-amplify"
-import conf from "../../aws-exports"
+//import conf from "../../aws-exports"
 
 // Amplify.configure({
 // 	Auth: {
@@ -53,7 +53,7 @@ import conf from "../../aws-exports"
 // 	},
 // })
 
-Amplify.configure(conf);
+//Amplify.configure(conf);
 
 const api1 = () => {
 	Auth.currentAuthenticatedUser().then((user => {
