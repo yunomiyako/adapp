@@ -49,7 +49,7 @@ class App extends Component {
 					.catch(err => console.log(err))
 			})
 	}
-	
+
 	render() {
 		return (
 			<BrowserRouter>
