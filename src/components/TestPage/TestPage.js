@@ -52,7 +52,7 @@ class TestPage extends Component {
 
 	onClicktest() {
 		
-		Api.testtm(this.state.text).then(() => this.onClickButton())
+		Api.testtm()
 	}
 
 	render() {

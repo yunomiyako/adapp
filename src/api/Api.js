@@ -22,7 +22,7 @@ export const Api = {
 				"Content-Type": "application/json",
 			} ,
 			body: JSON.stringify(params)
-		  })
+		  }).then( (response) => console.log(response.json()) )
 
 	},
 
@@ -48,7 +48,7 @@ export const Api = {
 
 	testtm : () => {
 		
-		const url =  "https://g3hcvlr082.execute-api.us-east-1.amazonaws.com/dev"
+		const url =  "https://g3hcvlr082.execute-api.us-east-1.amazonaws.com/dev/test-re"
 		const params = {"tttttttttt":1}
 		return Api.tmJson(url , params)
 	}
