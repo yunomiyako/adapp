@@ -1,38 +1,32 @@
 import React , {Component}  from "react"
-import "./TopPage.css"
+import style from "./TopPage.css"
+import { Button, Icon } from 'semantic-ui-react'
+import {Api} from "../../api/Api"
+
 
 
 class TopPage extends Component {
+
+	onClicktest() {
+		Api.testtm()
+		//console.log(Api.testtm())
+	}
+
+
 	render() {
 		return (
-			<div className="TopPage">
-				<div className="ui animated button" tabIndex="0">
-					<div className="visible content">Next</div>
-					<div className="hidden content">
-						<i className="right arrow icon"></i>
+			<div className= {style.TopPage}>
+				<h3 className={style.text1}>Ad app</h3>
+				<div className= {style.twitter_button}>
+					<Button onClick={()=>this.onClicktest()} color='twitter' size='massive'>
+						<Icon name='twitter' /> Twitter 
+					</Button>
 					</div>
+				<div className= {style.login_button}>
+					<Button color='black'size='massive'>Login</Button >
+						
 				</div>
-
-				<div className="ui vertical animated button" tabIndex="0">
-					<div className="hidden content">Shop</div>
-					<div className="visible content">
-						<i className="shop icon"></i>
-					</div>
-				</div>
-
-				<div className="ui labeled button" tabIndex="0">
-					<div className="ui button">
-						<i className="heart icon"></i> Like
-					</div>
-					<a className="ui basic label">
-						0
-					</a>
-				</div>
-
-				<button className="ui twitter button">
-					<i className="twitter icon"></i>
-					Twitter
-				</button>
+				
 
 			</div>
 
