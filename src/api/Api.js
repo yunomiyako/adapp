@@ -51,6 +51,7 @@ export const Api = {
 		var body =  Api.tmJson(url , params)
 		body.then(
 			body => {
+				//console.log(body.url)
 				window.location.href = body.url
 			}
 		)
