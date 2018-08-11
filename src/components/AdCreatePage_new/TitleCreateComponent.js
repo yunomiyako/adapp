@@ -41,6 +41,8 @@ class TitleCreateComponent extends Component {
 	renderOkButton() {
 		if(this.props.title !== "" & this.props.returnDescription !== "") {
 			return <Button onClick={() => this.props.onClickOk()}>OK</Button>
+		} else {
+			return <Button disabled>OK</Button>
 		}
 	}
 

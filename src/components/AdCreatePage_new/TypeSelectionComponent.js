@@ -8,7 +8,7 @@ import { Button , Grid , Image} from "semantic-ui-react"
 
 //TODO : なんか違うんだよなあ・・・
 function renderNewLine(text) {
-	return text.split("\n").map(m => (<p key={m}>{m}</p>))
+	return text.split("\n").map(m => (<p className={style.p_line} key={m}>{m}</p>))
 }
 
 
@@ -16,16 +16,17 @@ class TypeSelectionComponent extends Component {
 
 	renderButtons(buttons) {
 		return buttons.map(btn => {
+			console.log(btn.id)
 			if(this.props.type === btn.id) {
 				return (
-					<Grid.Column key={btn.id} style={{textAlign : "center"}}>
-						<Button disabled size="mini" key={btn.id}  onClick={() => this.props.onClick(btn.id)}>{renderNewLine(btn.btnText)}</Button>
+					<Grid.Column key={btn.id + "grid"} style={{textAlign : "center"}}>
+						<Button key={btn.id} color='blue' disabled={btn.disabled} size="small"  onClick={() => this.props.onClick(btn.id)}>{renderNewLine(btn.btnText)}</Button>
 					</Grid.Column>
 				)
 			} else {
 				return (
-					<Grid.Column key={btn.id} style={{textAlign : "center"}}>
-						<Button size="mini" key={btn.id}  onClick={() => this.props.onClick(btn.id)}>{renderNewLine(btn.btnText)}</Button>
+					<Grid.Column key={btn.id + "grid"} style={{textAlign : "center"}}>
+						<Button key={btn.id}  size="small" disabled={btn.disabled} onClick={() => this.props.onClick(btn.id)}>{renderNewLine(btn.btnText)}</Button>
 					</Grid.Column>)
 			}
 		}
@@ -33,13 +34,17 @@ class TypeSelectionComponent extends Component {
 	}
 
 	renderDescription(buttons) {
-		if(this.props.type !== -1) {
-			return buttons[this.props.type].description
+		if(this.props.type !== "") {
+			for(var i in buttons) {
+				if(buttons[i].id == this.props.type) {
+					return buttons[i].description
+				}
+			}
 		}
 	}
 
 	renderOkButton() {
-		if(this.props.type !== -1) {
+		if(this.props.type !== "") {
 			return <Button onClick={() => this.props.onClickOk()}>OK</Button>
 		}
 	}
