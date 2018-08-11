@@ -17,13 +17,15 @@ class TopPage extends Component {
 		return (
 			<div className= {style.TopPage}>
 				<h3 className={style.text1}>Ad app</h3>
+				<h2 className={style.text2}>バズってるツイートと一緒に宣伝してもらおう！</h2>
+				<h2 className={style.text3}>あなたのツイートで宣伝&報酬GET!</h2>
 				<div className= {style.twitter_button}>
 					<Button onClick={()=>this.onClicktest()} color='twitter' size='massive'>
-						<Icon name='twitter' /> Twitter 
+						<Icon name='twitter' /> Twitterで登録
 					</Button>
 					</div>
 				<div className= {style.login_button}>
-					<Button color='black'size='massive'>Login</Button >
+					<Button color='black'size='massive'>登録せずに使う</Button >
 						
 				</div>
 				
