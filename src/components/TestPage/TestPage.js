@@ -47,13 +47,15 @@ class TestPage extends Component {
 
 	onClickSubmit() {
 		Api.postDynamoTest(this.state.text).then(() => this.onClickButton())
-		
+
 	}
 
 	onClicktest() {
-		
 		Api.testtm()
+		//console.log(Api.testtm())
 	}
+
+
 
 	render() {
 		return (
