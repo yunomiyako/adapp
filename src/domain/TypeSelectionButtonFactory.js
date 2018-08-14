@@ -2,12 +2,10 @@
 class TypeSelectionButtonFactory {
 	constructor(){
 		this.buttons = []
-		this.id = 0
 	}
 
-	addButton(text , description) {
-		this.buttons.push({id: this.id , btnText : text , description : description} )
-		this.id += 1
+	addButton(id, text , description , disabled) {
+		this.buttons.push({id: id , btnText : text , description : description , disabled:disabled} )
 	}
 }
 

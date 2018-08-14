@@ -1,6 +1,6 @@
 import React , {Component}  from "react"
 import style from "./TopPage.css"
-import { Button, Icon } from 'semantic-ui-react'
+import { Button, Icon } from "semantic-ui-react"
 import {Api} from "../../api/Api"
 
 
@@ -23,12 +23,12 @@ class TopPage extends Component {
 					<Button onClick={()=>this.onClicktest()} color='twitter' size='massive'>
 						<Icon name='twitter' /> Twitterで登録
 					</Button>
-					</div>
+				</div>
 				<div className= {style.login_button}>
 					<Button color='black'size='massive'>登録せずに使う</Button >
-						
+
 				</div>
-				
+
 
 			</div>
 

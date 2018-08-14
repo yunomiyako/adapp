@@ -17,6 +17,8 @@ class RetweetAdCreate extends Component {
 	renderOkButton() {
 		if(true) {
 			return <Button onClick={() => this.props.onClickOk()}>OK</Button>
+		} else {
+			return <Button disabled>OK</Button>
 		}
 	}
 

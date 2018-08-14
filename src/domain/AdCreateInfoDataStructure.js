@@ -1,10 +1,10 @@
 
 const data =
-{adType : -1 ,
+{adType : "" ,
 	title: "" ,
 	returnDescription:""  ,
 	adObject : { text:"" , images:[] , tweetUrl : "" , isNewlyCreated:false}  ,
-	returnType: -1  ,
+	returnType: ""  ,
 	returnObject : {text: "", images:[] , html : ""} ,
 	index : 1
 }

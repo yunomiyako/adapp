@@ -10,6 +10,8 @@ class OnlyLookAdCreate extends Component {
 	renderOkButton() {
 		if(this.props.adObject.text !== "") {
 			return <Button onClick={() => this.props.onClickOk()}>OK</Button>
+		} else {
+			return <Button disabled>OK</Button>
 		}
 	}
 
