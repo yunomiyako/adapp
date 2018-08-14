@@ -8,10 +8,7 @@ class ContentComponent extends Component {
 			<div>
 				<div>
 					<h4 className={style.content}>
-					こんな星を作っています。まだまだ未完成ですが、どんどん進化をしていて作っていて楽しいです。
-					文字数にあまりがあるのでちょっと叫びます。
-					ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-					(140字)
+					{this.props.content}
 					</h4>
 				</div>
 			</div>

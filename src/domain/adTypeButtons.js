@@ -1,8 +1,10 @@
 import TypeSelectionButtonFactory from "./TypeSelectionButtonFactory"
 
 var adTypeButtons = new TypeSelectionButtonFactory()
-adTypeButtons.addButton("tweet" , "ツイート\nしてもらう"  ,  "あなたが宣伝してほしいことをツイートしてもらいます。" , false)
-adTypeButtons.addButton("retweet" , "リツイート\nしてもらう"  , "宣伝してほしいツイートをリツイートしてもらいます。" , false)
-adTypeButtons.addButton("lookMe" , "見てもらう\n　"  , "ただ見てほしい文章と画像を設定します。" , false)
+adTypeButtons.addButton("tweet" , "ツイートしてもらう"  ,  "あなたが宣伝してほしいことをツイートしてもらえます。"  , "share" ,"Twitterのログインが必要です" , false)
+adTypeButtons.addButton("retweet" , "リツイートしてもらう"  , "宣伝してほしいツイートをリツイートしてもらえます。" , "retweet" , "Twitterのログインが必要です" , false)
+adTypeButtons.addButton("follow" , "フォローしてもらう"  , "あなたのアカウントをフォローしてもらえます。" , "child" , "準備中" , true)
+adTypeButtons.addButton("fav" , "いいねしてもらう"  , "あなたのツイートをいいねしてもらって、盛り上がっているように見えます！"  , "heart" , "準備中" , true)
+adTypeButtons.addButton("lookMe" , "見てもらう"  , "ただ見てほしいことを文章と画像で表現しよう"  ,"eye" , "" , false)
 
 export default adTypeButtons.buttons

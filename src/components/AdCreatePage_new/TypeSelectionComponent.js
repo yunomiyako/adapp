@@ -4,31 +4,27 @@ import React , {Component}  from "react"
 import style from "./AdCreatePage.css"
 
 //semantic UI
-import { Button , Grid , Image} from "semantic-ui-react"
+import { Button , Icon , Popup} from "semantic-ui-react"
 
-//TODO : なんか違うんだよなあ・・・
-function renderNewLine(text) {
-	return text.split("\n").map(m => (<p className={style.p_line} key={m}>{m}</p>))
-}
-
+// function renderNewLine(text) {
+// 	return text.split("\n").map(m => (<p className={style.p_line} key={m}>{m}</p>))
+// }
 
 class TypeSelectionComponent extends Component {
-
 	renderButtons(buttons) {
 		return buttons.map(btn => {
-			console.log(btn.id)
-			if(this.props.type === btn.id) {
-				return (
-					<Grid.Column key={btn.id + "grid"} style={{textAlign : "center"}}>
-						<Button key={btn.id} color='blue' disabled={btn.disabled} size="small"  onClick={() => this.props.onClick(btn.id)}>{renderNewLine(btn.btnText)}</Button>
-					</Grid.Column>
-				)
-			} else {
-				return (
-					<Grid.Column key={btn.id + "grid"} style={{textAlign : "center"}}>
-						<Button key={btn.id}  size="small" disabled={btn.disabled} onClick={() => this.props.onClick(btn.id)}>{renderNewLine(btn.btnText)}</Button>
-					</Grid.Column>)
-			}
+			return (
+				<Button key={btn.id}
+					color={this.props.type === btn.id ? "blue" : "grey"}
+					disabled={btn.disabled}
+					size="medium"
+					onClick={() => this.props.onClick(btn.id)}>
+
+					{btn.icon ? <Icon name={btn.icon}/> : null}
+					{btn.btnText}
+
+				</Button>
+			)
 		}
 		)
 	}
@@ -46,22 +42,18 @@ class TypeSelectionComponent extends Component {
 	renderOkButton() {
 		if(this.props.type !== "") {
 			return <Button onClick={() => this.props.onClickOk()}>OK</Button>
+		} else {
+			return <Button disabled>OK</Button>
 		}
 	}
 
 	render() {
 		return (
 			<div className="TypeSelectionComponent">
-				<Grid>
-					<Grid.Row centered columns={2}>
-						{this.renderButtons(this.props.buttons)}
-					</Grid.Row>
-				</Grid>
-
+				{this.renderButtons(this.props.buttons)}
 				<div className={style.description}>
 					<p className={style.descriptionText}>{this.renderDescription(this.props.buttons)}</p>
 				</div>
-
 
 				<div className={style.OkButtonFrame}>
 					<div className="OkButtonCorner">{this.renderOkButton()}</div>

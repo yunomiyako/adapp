@@ -4,7 +4,13 @@ import React , {Component}  from "react"
 import style from "./AdCreatePage.css"
 
 //semantic UI
-import {Button} from "semantic-ui-react"
+import {Button , Form , TextArea} from "semantic-ui-react"
+
+import FeedComponent from "../AdPage_new/FeedComponent"
+import AdImageUploader from "./AdImageUploader"
+
+// immutable state change helper
+var dotProp = require("dot-prop-immutable")
 
 class OnlyLookAdCreate extends Component {
 	renderOkButton() {
@@ -15,17 +21,39 @@ class OnlyLookAdCreate extends Component {
 		}
 	}
 
-	//TODO : 実際の広告画面と全く同じものをだす
+	renderAdContent() {
+		return <FeedComponent
+			title={this.props.title}
+			username=""
+			content={this.props.adObject.text}
+		/>
+	}
+
+	onChangeText(text) {
+		const newObj = dotProp.set(this.props.adObject , "text" , text)
+		this.props.onChangeAdObject(newObj)
+	}
+
+	onChangePictures(pictures) {
+		console.log(pictures)
+	}
+
 	render() {
 		return (
 			<div className="OnlyLookAdCreate">
-				<div>
-					タイトル : {this.props.title}
-					<br/>
-					テキスト : {this.props.adObject.text}
-					<br/>
-					もらえる見返りは=> :  {this.props.returnDescription}
-				</div>
+
+				{this.renderAdContent()}
+
+				<Form>
+					<TextArea
+						onChange = {(event) => this.onChangeText(event.target.value)}
+						placeholder='もっと詳しい内容' style={{ minHeight: 100 }} />
+				</Form>
+
+				<AdImageUploader
+					onChangePictures={(pictures) => this.onChangePictures(pictures)}
+				/>
+
 				<div className={style.OkButtonFrame}>
 					<div className="OkButtonCorner">{this.renderOkButton()}</div>
 				</div>
