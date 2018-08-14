@@ -13,11 +13,11 @@ class ReturnCreateComponent extends Component {
 	renderAdCreate(){
 		const returnType = this.props.returnType
 		switch(returnType){
-		case 0 :
+		case "textAndImage" :
 			return this.imageAndText()
-		case 1 :
+		case "textOnly" :
 			return this.textOnly()
-		case 2 :
+		case "imageOnly" :
 			return this.imageOnly()
 		default :
 			return "おや？"

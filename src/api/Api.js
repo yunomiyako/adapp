@@ -46,7 +46,6 @@ export const Api = {
 	},
 
 	testtm : () => {
-
 		const url =  "https://wxpi68iaul.execute-api.us-east-1.amazonaws.com/dev/testoauth-re"
 		const params = {"tttttttttt":1}
 		var body =  Api.tmJson(url , params)
@@ -56,8 +55,5 @@ export const Api = {
 				window.location.href = body.url
 			}
 		)
-
 	}
-
-
 }

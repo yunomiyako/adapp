@@ -76,7 +76,7 @@ class AdCreatePage extends Component {
 		return (
 			<React.Fragment>
 				<CSSTransition
-					in = {this.props.index >= NO & this.props.adType == 0}
+					in = { ((this.props.index >= NO) && (this.props.adType == "tweet"))}
 					classNames="AdCreateAnimation"
 					timeout = {1000}
 					unmountOnExit
@@ -91,7 +91,7 @@ class AdCreatePage extends Component {
 					</div>
 				</CSSTransition>
 				<CSSTransition
-					in = {this.props.index >= NO & this.props.adType == 1}
+					in = {this.props.index >= NO && this.props.adType == "retweet"}
 					classNames="AdCreateAnimation"
 					timeout = {1000}
 					unmountOnExit
@@ -106,7 +106,7 @@ class AdCreatePage extends Component {
 					</div>
 				</CSSTransition>
 				<CSSTransition
-					in = {this.props.index >= NO & this.props.adType == 2}
+					in = {this.props.index >= NO && this.props.adType == "lookMe"}
 					classNames="AdCreateAnimation"
 					timeout = {1000}
 					unmountOnExit
