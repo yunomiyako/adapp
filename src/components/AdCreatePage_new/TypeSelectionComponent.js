@@ -53,7 +53,7 @@ class TypeSelectionComponent extends Component {
 		return (
 			<div className="TypeSelectionComponent">
 				<Grid>
-					<Grid.Row centered columns={this.props.buttons.length}>
+					<Grid.Row centered columns={2}>
 						{this.renderButtons(this.props.buttons)}
 					</Grid.Row>
 				</Grid>

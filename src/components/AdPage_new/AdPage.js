@@ -6,6 +6,7 @@ import FourImageComponent from "./FourImageComponent"
 import TitleComponent from "./TitleComponent"
 import ContentComponent from "./ContentComponent"
 import ActionComponent from "./ActionComponent"
+import RatingComponent from "./RatingComponent"
 
 class AdPage extends Component {
 	render() {
@@ -15,23 +16,33 @@ class AdPage extends Component {
 					<FourImageComponent/>
 				</div>
 
-				<div>
-					<TitleComponent/>
+				<div className = {style.marginFrame}>
+					<div className={style.titleAndContentFrame}>
+						<div className={style.TitleComponent}>
+							<TitleComponent/>
+						</div>
+
+						<div className={style.ContentComponent}>
+							<ContentComponent/>
+						</div>
+					</div>
 				</div>
 
 				<div>
-					<ContentComponent/>
+					<RatingComponent/>
 				</div>
 
 				<div>
 					<ActionComponent/>
 				</div>
 
+
+
+
 				<br/>
 				<br/><br/>
 				<br/><br/><br/>
 				<br/><br/><br/><br/>
-
 			</div>
 		)
 	}

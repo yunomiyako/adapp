@@ -4,12 +4,38 @@
     margin: auto;
     left : 0;
     right : 0;
-    background: white
+}
+
+:local .marginFrame {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+:local .titleAndContentFrame {
+  background: white;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  padding:10px;
+  margin: 30px auto;
+  height : auto ;
+  width  : auto ;
+  max-width : 500px;
+  filter: drop-shadow(0px 0px 8px rgba(0,0,0,0.3));
+}
+
+:local .TitleComponent {
+  margin-top: 20px;
+}
+
+:local .ContentComponent {
+  margin : 40px 10px 50px 10px;
 }
 
 :local .stickyBottom {
   position: fixed;
-  bottom: 0px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  bottom: 10px;
   height : 70px;
   width : 100%;
   max-width: 600px;
@@ -49,9 +75,54 @@
 }
 
 :local .actionButton {
-  margin : 17px;
+  margin : 15px;
 }
 
 :local .return {
   color : #0984e3;
+}
+
+:local .title {
+}
+
+:local .username_frame {
+  width : 100%;
+  text-align: right;
+  padding-right: 10px;
+}
+
+:local .username {
+  color : #636e72;
+}
+
+:local .content {
+}
+
+:local .mainImage {
+  max-width :100%;
+	max-height: 100%;
+	object-fit: cover;
+}
+
+:local .wrapper {
+  width: auto;
+  height: 50vw;
+  font-size: 0;
+  line-height: 0;
+  text-align: center;
+}
+
+:local .justSpace {
+  height : 100px;
+}
+
+:local .RatingComponent {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.image-gallery-slide img {
+  width: auto;
+  height: 400px;
+	object-fit: cover;
 }
