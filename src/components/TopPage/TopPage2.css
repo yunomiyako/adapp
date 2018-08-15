@@ -1,0 +1,39 @@
+:local .TopPage {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+  grid-gap: undefined;
+  background-color: rgba(87, 84, 84, 0.931);
+  grid-template-areas: ". . . . . . ." ". . . . . . ." ". . . . . . ." ". . Title Title Title . ." ". . Text Text Text . ." ". . Text Text Text . ."  ". Button Button . Button2 Button2 ." ". . . . . . ." ". . . . . . ."". . . . . . ." ". . . . . . ." ". . . . . . ."". . . . . . ." ". . . . . . ." ;
+}
+
+.Title { grid-area: Title; }
+:local .text1 {
+  
+    font-size: 100px;
+    font-family: "Ravi Prakash", cursive;
+    
+    color: rgba(255, 255, 255, 0.931);
+  
+  }
+
+.Text { grid-area: Text; }
+
+:local .text2 {
+
+    font-size: 30px;
+    font-family: "Ravi Prakash", cursive;
+    
+    color: rgba(255, 255, 255, 0.931);
+}
+
+:local .text3 {
+    font-size: 30px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.931);
+  }
+
+.Button { grid-area: Button; }
+
+.Button2 { grid-area: Button2; }
