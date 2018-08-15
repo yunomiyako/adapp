@@ -2,10 +2,10 @@
   display: grid;
   height: 100%;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
   grid-gap: undefined;
   background-color: rgba(87, 84, 84, 0.931);
-  grid-template-areas: ". . . . . . ." ". . . . . . ." ". . . . . . ." ". . Title Title Title . ." ". . Text Text Text . ." ". . Text Text Text . ."  ". Button Button . Button2 Button2 ." ". . . . . . ." ". . . . . . .";
+  grid-template-areas: ". . . . . . ." ". . . . . . ." ". . . . . . ." ". . Title Title Title . ." ". . Text Text Text . ." ". . Text Text Text . ."  ". Button Button . Button2 Button2 ." ". . . . . . ." ". . . . . . ."". . . . . . ." ". . . . . . ." ". . . . . . ."". . . . . . ." ". . . . . . ." ;
 }
 
 .Title { grid-area: Title; }
