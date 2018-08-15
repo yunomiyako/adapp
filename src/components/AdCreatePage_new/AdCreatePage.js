@@ -19,9 +19,15 @@ import RetweetAdCreate from "./RetweetAdCreate"
 import adTypeButtons from "../../domain/adTypeButtons"
 import returnTypeButtons from "../../domain/returnTypeButtons"
 
+// immutable state change helper
+var dotProp = require("dot-prop-immutable")
+
 class AdCreatePage extends Component {
 	constructor(props) {
 		super(props)
+		//画像は初期化
+		this.props.onChangeAdObject(dotProp.set(this.props.adObject , "images" , []))
+		this.props.onChangeReturnObject(dotProp.set(this.props.returnObject , "images" , []))
 	}
 
 	onClickOk(NO) {
@@ -170,9 +176,9 @@ class AdCreatePage extends Component {
 	}
 
 	render() {
-		return (
-			<div className="AdCreatePage">
 
+		return (
+			<div className="AdCreatePage" ref={(elem) => this.container = elem}>
 				<span className={style.StickyRightSideBar}>
 					<Button onClick={() => this.props.clearState()}>全削除</Button>
 				</span>

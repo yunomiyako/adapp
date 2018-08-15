@@ -6,9 +6,6 @@ import style from "./AdCreatePage.css"
 //semantic UI
 import { Button , Icon , Popup} from "semantic-ui-react"
 
-// function renderNewLine(text) {
-// 	return text.split("\n").map(m => (<p className={style.p_line} key={m}>{m}</p>))
-// }
 
 class TypeSelectionComponent extends Component {
 	renderButtons(buttons) {

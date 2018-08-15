@@ -36,18 +36,20 @@ class OnlyLookAdCreate extends Component {
 
 	onChangePictures(pictures) {
 		console.log(pictures)
+		const newObj = dotProp.set(this.props.adObject , "images" , pictures)
+		this.props.onChangeAdObject(newObj)
 	}
 
 	render() {
 		return (
 			<div className="OnlyLookAdCreate">
-
 				{this.renderAdContent()}
-
 				<Form>
 					<TextArea
+						value={this.props.adObject.text}
 						onChange = {(event) => this.onChangeText(event.target.value)}
-						placeholder='もっと詳しい内容' style={{ minHeight: 100 }} />
+						placeholder='もっと詳しい内容' style={{ minHeight: 100 }}>
+					</TextArea>
 				</Form>
 
 				<AdImageUploader
