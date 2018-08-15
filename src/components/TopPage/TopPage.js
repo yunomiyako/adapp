@@ -2,14 +2,33 @@ import React , {Component}  from "react"
 import style from "./TopPage2.css"
 import { Button, Icon } from "semantic-ui-react"
 import {Api} from "../../api/Api"
+import QueryString from "../Utils/QueryString"
 
+
+var oauth_verifier = QueryString.oauth_verifier;
+
+
+
+if (oauth_verifier) {
+	console.log(oauth_verifier)
+	//console.log(oauth_token_secret)
+}
 
 
 class TopPage extends Component {
 
+	
+
 	onClicktest() {
-		Api.testtm()
-		//console.log(Api.testtm())
+		var body = Api.testtm()
+		body.then(
+			body => {
+				//console.log(body.oauth_token)	
+				
+			}
+		)
+
+		
 	}
 
 

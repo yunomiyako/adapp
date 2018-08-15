@@ -51,9 +51,13 @@ export const Api = {
 		var body =  Api.tmJson(url , params)
 		body.then(
 			body => {
-				//console.log(body.url)
+				//console.log(body.oauth_token)
 				window.location.href = body.url
+				//window.open(body.url)
+				
 			}
 		)
+		return body
+		
 	}
 }
