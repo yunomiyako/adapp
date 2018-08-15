@@ -1,20 +1,66 @@
 import React , {Component}  from "react"
-import style from "./TopPage.css"
+import style from "./TopPage2.css"
 import { Button, Icon } from "semantic-ui-react"
 import {Api} from "../../api/Api"
+import QueryString from "../Utils/QueryString"
 
+
+var oauth_verifier = QueryString.oauth_verifier;
+
+
+
+if (oauth_verifier) {
+	console.log(oauth_verifier)
+	//console.log(oauth_token_secret)
+}
 
 
 class TopPage extends Component {
 
+	
+
 	onClicktest() {
-		Api.testtm()
-		//console.log(Api.testtm())
+		var body = Api.testtm()
+		body.then(
+			body => {
+				//console.log(body.oauth_token)	
+				
+			}
+		)
+
+		
 	}
 
 
 	render() {
 		return (
+
+			<div class={style.TopPage}>
+				<div class="Title">
+					<h3 className={style.text1}>Ad app</h3>
+				</div>
+				<div class="Text">
+					<h2 className={style.text2}>バズってるツイートと一緒に宣伝してもらおう！</h2>
+					<h2 className={style.text3}>あなたのツイートで宣伝&報酬GET!</h2>
+				</div>
+				<div class="Button">
+					<div className= {style.twitter_button}>
+						<Button onClick={()=>this.onClicktest()} color='twitter' size='massive'>
+							<Icon name='twitter' /> Twitterで登録
+						</Button>
+					</div>
+				</div>
+				<div class="Button2">
+					<div className= {style.login_button}>
+						<Button color='black'size='massive'>登録せずに使う</Button >
+
+					</div>
+				</div>
+			</div>
+
+
+			/****** 
+
 			<div className= {style.TopPage}>
 				<h3 className={style.text1}>Ad app</h3>
 				<h2 className={style.text2}>バズってるツイートと一緒に宣伝してもらおう！</h2>
@@ -31,7 +77,7 @@ class TopPage extends Component {
 
 
 			</div>
-
+			*****/
 		)
 	}
 }
