@@ -10,12 +10,10 @@
 
 .Title { grid-area: Title; }
 :local .text1 {
-  
     font-size: 100px;
     font-family: "Ravi Prakash", cursive;
-    
     color: rgba(255, 255, 255, 0.931);
-  
+
   }
 
 .Text { grid-area: Text; }
@@ -24,7 +22,7 @@
 
     font-size: 30px;
     font-family: "Ravi Prakash", cursive;
-    
+
     color: rgba(255, 255, 255, 0.931);
 }
 

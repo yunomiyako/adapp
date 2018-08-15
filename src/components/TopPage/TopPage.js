@@ -7,8 +7,6 @@ import QueryString from "../Utils/QueryString"
 
 var oauth_verifier = QueryString.oauth_verifier;
 
-
-
 if (oauth_verifier) {
 	console.log(oauth_verifier)
 	//console.log(oauth_token_secret)
@@ -17,18 +15,18 @@ if (oauth_verifier) {
 
 class TopPage extends Component {
 
-	
+
 
 	onClicktest() {
 		var body = Api.testtm()
 		body.then(
 			body => {
-				//console.log(body.oauth_token)	
-				
+				//console.log(body.oauth_token)
+
 			}
 		)
 
-		
+
 	}
 
 
@@ -59,7 +57,7 @@ class TopPage extends Component {
 			</div>
 
 
-			/****** 
+			/******
 
 			<div className= {style.TopPage}>
 				<h3 className={style.text1}>Ad app</h3>
