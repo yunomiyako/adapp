@@ -15,6 +15,7 @@ class AdImageUploader extends React.Component {
 	render() {
 		return (
 			<ImageUploader
+				label = "４枚まで画像を追加できます"
 				withPreview = {true}
 				withIcon={true}
 				buttonText='Choose images'

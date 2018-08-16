@@ -1,6 +1,7 @@
 import React , {Component}  from "react"
 import { } from "semantic-ui-react"
 import style from "./AdPage.css"
+import renderNewLine from "../../Utils/renderNewLine"
 
 class ContentComponent extends Component {
 	render() {
@@ -8,10 +9,7 @@ class ContentComponent extends Component {
 			<div>
 				<div>
 					<h4 className={style.content}>
-					こんな星を作っています。まだまだ未完成ですが、どんどん進化をしていて作っていて楽しいです。
-					文字数にあまりがあるのでちょっと叫びます。
-					ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-					(140字)
+						{renderNewLine(this.props.content , style.p_line)}
 					</h4>
 				</div>
 			</div>

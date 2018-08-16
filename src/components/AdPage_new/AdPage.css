@@ -126,3 +126,7 @@
   height: 400px;
 	object-fit: cover;
 }
+
+:local .p_line {
+  line-height: 1
+}

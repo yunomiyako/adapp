@@ -19,9 +19,15 @@ import RetweetAdCreate from "./RetweetAdCreate"
 import adTypeButtons from "../../domain/adTypeButtons"
 import returnTypeButtons from "../../domain/returnTypeButtons"
 
+// immutable state change helper
+var dotProp = require("dot-prop-immutable")
+
 class AdCreatePage extends Component {
 	constructor(props) {
 		super(props)
+		//画像は初期化
+		this.props.onChangeAdObject(dotProp.set(this.props.adObject , "images" , []))
+		this.props.onChangeReturnObject(dotProp.set(this.props.returnObject , "images" , []))
 	}
 
 	onClickOk(NO) {
@@ -31,7 +37,6 @@ class AdCreatePage extends Component {
 		} else {
 			this.props.onChangeIndex(0)
 		}
-
 	}
 
 	renderTypeSelectionComponent(NO) {
@@ -62,6 +67,7 @@ class AdCreatePage extends Component {
 					<TitleCreateComponent
 						onClickOk = {() => this.onClickOk(NO)}
 						title = {this.props.title}
+						adType = {this.props.adType}
 						returnDescription = {this.props.returnDescription}
 						onChangeTitle = {(title) => this.props.onChangeTitle(title)}
 						onChangeReturnDescription = {(text) => this.props.onChangeReturnDescription(text)}
@@ -71,16 +77,11 @@ class AdCreatePage extends Component {
 	}
 
 	renderCreateAd(NO) {
-		const frameStyle = {background:"#fd79a8"}
+		const returnChild = (adType) => {
 
-		return (
-			<React.Fragment>
-				<CSSTransition
-					in = { ((this.props.index >= NO) && (this.props.adType == "tweet"))}
-					classNames="AdCreateAnimation"
-					timeout = {1000}
-					unmountOnExit
-				>
+			switch(adType) {
+			case "tweet" :
+				return (
 					<div className="AdCreatePage-ComponentFrame" style = {frameStyle}>
 						<h1 className="AdCreatePage-Title">どんなツイートをしてもらいたいですか？</h1>
 						<TwitterLikeContainerComponent
@@ -88,29 +89,20 @@ class AdCreatePage extends Component {
 							onClickOk = {() => this.onClickOk(NO)}
 							onChangeAdObject = {(obj) => this.props.onChangeAdObject(obj)}
 						/>
-					</div>
-				</CSSTransition>
-				<CSSTransition
-					in = {this.props.index >= NO && this.props.adType == "retweet"}
-					classNames="AdCreateAnimation"
-					timeout = {1000}
-					unmountOnExit
-				>
+					</div>)
+			case "retweet" :
+				return (
 					<div className="AdCreatePage-ComponentFrame" style = {frameStyle}>
-						<h1 className="AdCreatePage-Title">何を見て欲しいですか？</h1>
+						<h1 className="AdCreatePage-Title">リツイートして欲しいツイートを選択or作成</h1>
 						<RetweetAdCreate
 							adObject = {this.props.adObject}
 							onClickOk = {() => this.onClickOk(NO)}
 							onChangeAdObject = {(obj) => this.props.onChangeAdObject(obj)}
 						/>
 					</div>
-				</CSSTransition>
-				<CSSTransition
-					in = {this.props.index >= NO && this.props.adType == "lookMe"}
-					classNames="AdCreateAnimation"
-					timeout = {1000}
-					unmountOnExit
-				>
+				)
+			case "lookMe" :
+				return (
 					<div className="AdCreatePage-ComponentFrame" style = {frameStyle}>
 						<h1 className="AdCreatePage-Title">何を見て欲しいですか？</h1>
 						<OnlyLookAdCreate
@@ -120,7 +112,23 @@ class AdCreatePage extends Component {
 							onClickOk = {() => this.onClickOk(NO)}
 							onChangeAdObject = {(obj) => this.props.onChangeAdObject(obj)}
 						/>
-					</div>
+					</div>)
+			case "fav" :	return <div/>
+			case "follow" :	return <div/>
+			default : return <div/>
+			}
+		}
+
+		const frameStyle = {background:"#fd79a8"}
+		return (
+			<React.Fragment>
+				<CSSTransition
+					in = {this.props.index >= NO}
+					classNames="AdCreateAnimation"
+					timeout = {1000}
+					unmountOnExit
+				>
+					{returnChild(this.props.adType)}
 				</CSSTransition>
 			</React.Fragment>
 		)
@@ -168,11 +176,13 @@ class AdCreatePage extends Component {
 	}
 
 	render() {
+
 		return (
-			<div className="AdCreatePage">
+			<div className="AdCreatePage" ref={(elem) => this.container = elem}>
 				<span className={style.StickyRightSideBar}>
 					<Button onClick={() => this.props.clearState()}>全削除</Button>
 				</span>
+
 				<div className="AdCreatePageForPaddingFrame">
 					{this.renderTypeSelectionComponent(1)}
 				</div>

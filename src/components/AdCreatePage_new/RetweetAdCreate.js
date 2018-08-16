@@ -47,7 +47,6 @@ class RetweetAdCreate extends Component {
 		}
 	}
 
-	//TODO : 実際の広告画面と全く同じものをだす
 	render() {
 		return (
 			<div className="RetweetAdCreate">

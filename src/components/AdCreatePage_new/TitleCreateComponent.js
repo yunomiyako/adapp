@@ -7,16 +7,18 @@ import style from "./AdCreatePage.css"
 import { Button,Input } from "semantic-ui-react"
 import { Dropdown } from "semantic-ui-react"
 
+import titleCreator from "../../domain/TitleExampleCreator"
 
 //とりあえず適当な値をここでセット
-//TODO : いい感じに外から注入する(typeによって例も変える)
-const options = [
-	{text : "私の作った「　　」を見て！" , value : "私の作った「」を見て！" , key : 1} ,
-	{text : "みんなで作った「　　」を見て！" , value : "みんなで作った「」を見て！" , key : 2} ,
-	{text : "僕の描いた「　　」をツイートしてください" , value : "僕の描いた「」をツイートしてください", key : 3}
-]
+
 
 class TitleCreateComponent extends Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+			options : []
+		}
+	}
 
 	//フィールドの長さはAdCreatePage-TitleCreateComponentで定義
 	renderTitleInput(){
@@ -32,6 +34,7 @@ class TitleCreateComponent extends Component {
 	}
 
 	DropdownExampleSelection() {
+		const options = titleCreator(this.props.adType)
 		return (<Dropdown text='他の例を参考にする'
 			selectOnBlur = {false}
 			onChange = {(event, data) => this.props.onChangeTitle(data.value)}

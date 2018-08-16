@@ -1,12 +1,12 @@
 import React , {Component}  from "react"
-import { Image } from "semantic-ui-react"
+import {  } from "semantic-ui-react"
 import style from "./AdPage.css"
 
 import FourImageComponent from "./FourImageComponent"
-import TitleComponent from "./TitleComponent"
-import ContentComponent from "./ContentComponent"
+
 import ActionComponent from "./ActionComponent"
 import RatingComponent from "./RatingComponent"
+import FeedComponent from "./FeedComponent"
 
 class AdPage extends Component {
 	render() {
@@ -17,15 +17,11 @@ class AdPage extends Component {
 				</div>
 
 				<div className = {style.marginFrame}>
-					<div className={style.titleAndContentFrame}>
-						<div className={style.TitleComponent}>
-							<TitleComponent/>
-						</div>
-
-						<div className={style.ContentComponent}>
-							<ContentComponent/>
-						</div>
-					</div>
+					<FeedComponent
+						title="僕の作った星をみんなにみて欲しい"
+						username="iamgod"
+						content="こんな星を作っています。まだまだ未完成ですが、どんどん進化をしていて作っていて楽しいです。文字数にあまりがあるのでちょっと叫びます。ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ(140字)"
+					/>
 				</div>
 
 				<div>
@@ -35,9 +31,6 @@ class AdPage extends Component {
 				<div>
 					<ActionComponent/>
 				</div>
-
-
-
 
 				<br/>
 				<br/><br/>
