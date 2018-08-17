@@ -8,6 +8,7 @@ import TestPage from "./TestPage/TestPage"
 import ExperimentalPage from "./ExperimentalPage/ExperimentalPage"
 import Header from "./Header/Header"
 
+
 import { Route, BrowserRouter } from "react-router-dom"
 
 import Amplify from "aws-amplify"
@@ -66,6 +67,7 @@ class App extends Component {
 						<Route path="/test2" component = {ExperimentalPage}/>
 					</div>
 
+					
 				</div>
 			</BrowserRouter>
 		)
