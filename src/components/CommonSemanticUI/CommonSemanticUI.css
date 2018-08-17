@@ -1,0 +1,9 @@
+:local .TwitterLikeView {
+  text-align: left;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: white;
+  padding : 10px;
+  background: white;
+  margin: 10px;
+}

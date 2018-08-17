@@ -83,6 +83,10 @@
 }
 
 /*semantic ui 上書き*/
-.ui.button {
+#typeselect.ui.button {
   margin: 0 .5em .5em 0;
+}
+
+.invalidImage {
+  opacity: 0.3;
 }

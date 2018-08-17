@@ -10,7 +10,7 @@ import TabletBreakpoint from "../responsive_utilities/tablet_breakpoint"
 import PhoneBreakpoint from "../responsive_utilities/phone_breakpoint"
 
 
-var oauth_verifier = QueryString.oauth_verifier;
+var oauth_verifier = QueryString.oauth_verifier
 
 if (oauth_verifier) {
 	console.log(oauth_verifier)

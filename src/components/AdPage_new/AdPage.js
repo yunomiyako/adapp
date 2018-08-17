@@ -12,30 +12,32 @@ class AdPage extends Component {
 	render() {
 		return (
 			<div className={style.AdPage}>
-				<div>
-					<FourImageComponent/>
-				</div>
+				<div className={style.AdPageContainer}>
+					<div>
+						<FourImageComponent/>
+					</div>
 
-				<div className = {style.marginFrame}>
-					<FeedComponent
-						title="僕の作った星をみんなにみて欲しい"
-						username="iamgod"
-						content="こんな星を作っています。まだまだ未完成ですが、どんどん進化をしていて作っていて楽しいです。文字数にあまりがあるのでちょっと叫びます。ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ(140字)"
-					/>
-				</div>
+					<div className = {style.marginFrame}>
+						<FeedComponent
+							title="僕の作った星をみんなにみて欲しい"
+							username="iamgod"
+							content={"こんな星を作っています。\nまだまだ未完成ですが、どんどん進化をしていて作っていて楽しいです。文字数にあまりがあるのでちょっと叫びます。\nああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ(140字)"}
+						/>
+					</div>
 
-				<div>
-					<RatingComponent/>
-				</div>
+					<div>
+						<RatingComponent/>
+					</div>
 
-				<div>
-					<ActionComponent/>
-				</div>
+					<div>
+						<ActionComponent/>
+					</div>
 
-				<br/>
-				<br/><br/>
-				<br/><br/><br/>
-				<br/><br/><br/><br/>
+					<br/>
+					<br/><br/>
+					<br/><br/><br/>
+					<br/><br/><br/><br/>
+				</div>
 			</div>
 		)
 	}

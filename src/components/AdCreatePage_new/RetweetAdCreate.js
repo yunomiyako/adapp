@@ -8,6 +8,7 @@ import {Button , Checkbox , Form} from "semantic-ui-react"
 
 //component
 import TwitterLikeComponent from "./TwitterLikeComponent"
+import TwitterLikeView from "../CommonSemanticUI/TwitterLikeView"
 
 // immutable state change helper
 var dotProp = require("dot-prop-immutable")
@@ -36,13 +37,17 @@ class RetweetAdCreate extends Component {
 			/>)
 		} else {
 			return (
-				<Form>
-					<Form.Field>
-						<label>リツイートしてもらいたいツイートのURL</label>
-						<input placeholder='https://twitter.com/hashimoto_lo/status/340640143058825216' />
-					</Form.Field>
-					<Button type='決定'>Submit</Button>
-				</Form>
+				<React.Fragment>
+					<Form>
+						<Form.Field>
+							<label>リツイートしてもらいたいツイートのURL</label>
+							<input placeholder='https://twitter.com/hashimoto_lo/status/340640143058825216' />
+						</Form.Field>
+					</Form>
+
+					<TwitterLikeView/>
+
+				</React.Fragment>
 			)
 		}
 	}
