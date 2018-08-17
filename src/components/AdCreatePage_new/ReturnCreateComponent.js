@@ -45,6 +45,7 @@ class ReturnCreateComponent extends Component {
 		return (
 			<div>
 				<AdImageUploader
+					id="returncreate"
 					onChangePictures={(pictures) => this.onChangePictures(pictures)}
 				/>
 				{this.renderTextField()}

@@ -12,6 +12,7 @@ class TypeSelectionComponent extends Component {
 		return buttons.map(btn => {
 			return (
 				<Button key={btn.id}
+					id="typeselect"
 					color={this.props.type === btn.id ? "blue" : "grey"}
 					disabled={btn.disabled}
 					size="medium"

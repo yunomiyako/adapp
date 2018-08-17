@@ -53,6 +53,7 @@ class OnlyLookAdCreate extends Component {
 				</Form>
 
 				<AdImageUploader
+					id="onlyLook"
 					onChangePictures={(pictures) => this.onChangePictures(pictures)}
 				/>
 

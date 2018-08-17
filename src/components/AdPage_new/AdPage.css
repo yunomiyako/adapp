@@ -1,4 +1,17 @@
 :local .AdPage {
+  /*background: url("../../images/cool-background-1.png");*/
+  background: linear-gradient(177.36150817458883deg, rgba(250, 247, 245,1) 7.132627646326276%,rgba(226, 210, 196,1) 88.2036114570361%);
+  background-size: cover;
+  position: relative;
+  height: auto;
+  min-height: 100vh;
+  margin : 30px 0px 0px 0px;
+  padding: 20px 0px;
+}
+
+
+
+:local .AdPageContainer {
     text-align: center;
     max-width: 600px;
     margin: auto;

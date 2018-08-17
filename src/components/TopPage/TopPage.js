@@ -2,10 +2,10 @@ import React , {Component}  from "react"
 import style from "./TopPage2.css"
 import { Button, Icon } from "semantic-ui-react"
 import {Api} from "../../api/Api"
-import QueryString from "../Utils/QueryString"
+import QueryString from "../../Utils/QueryString"
 
 
-var oauth_verifier = QueryString.oauth_verifier;
+var oauth_verifier = QueryString.oauth_verifier
 
 if (oauth_verifier) {
 	console.log(oauth_verifier)

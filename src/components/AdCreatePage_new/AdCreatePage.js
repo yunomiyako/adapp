@@ -113,8 +113,26 @@ class AdCreatePage extends Component {
 							onChangeAdObject = {(obj) => this.props.onChangeAdObject(obj)}
 						/>
 					</div>)
-			case "fav" :	return <div/>
-			case "follow" :	return <div/>
+			case "fav" :	return (
+				<div className="AdCreatePage-ComponentFrame" style = {frameStyle}>
+					<h1 className="AdCreatePage-Title">いいねして欲しいツイートを選択or作成</h1>
+					<RetweetAdCreate
+						adObject = {this.props.adObject}
+						onClickOk = {() => this.onClickOk(NO)}
+						onChangeAdObject = {(obj) => this.props.onChangeAdObject(obj)}
+					/>
+				</div>)
+			case "follow" :	return (
+				<div className="AdCreatePage-ComponentFrame" style = {frameStyle}>
+					<h1 className="AdCreatePage-Title">フォローしてもらいたい旨を書こう！</h1>
+					<OnlyLookAdCreate
+						adObject = {this.props.adObject}
+						title = {this.props.title}
+						returnDescription = {this.props.returnDescription}
+						onClickOk = {() => this.onClickOk(NO)}
+						onChangeAdObject = {(obj) => this.props.onChangeAdObject(obj)}
+					/>
+				</div>)
 			default : return <div/>
 			}
 		}
@@ -165,7 +183,7 @@ class AdCreatePage extends Component {
 				unmountOnExit
 			>
 				<div className="AdCreatePage-ComponentFrame" style = {frameStyle}>
-					<h1 className="AdCreatePage-Title">お返しはどのタイプですか？</h1>
+					<h1 className="AdCreatePage-Title">お返しを作成</h1>
 					<ReturnCreateComponent
 						returnType = {this.props.returnType}
 						returnObject = {this.props.returnObject}
