@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import AdCreatePage from "../../components/AdCreatePage_new/AdCreatePage0"
+import AdCreationComponent from "../../components/AdCreatePage_new/AdCreationComponent"
 import {
 	onChangeAdType ,
 	onChangeTitle ,
@@ -47,4 +47,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(AdCreatePage)
+)(AdCreationComponent)

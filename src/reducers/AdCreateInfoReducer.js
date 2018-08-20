@@ -7,6 +7,8 @@ import {
 	ON_CHANGE_RETURN_OBJECT ,
 	ON_CHANGE_INDEX ,
 	CLEAR_STATE,
+	ON_CHANGE_AD_CREATE_COMPLETED ,
+	ON_CHANGE_RETURN_CREATE_COMPLETED ,
 } from "../actions/AdCreate"
 
 //データ構造
@@ -45,6 +47,14 @@ export default function AdCreateInfo(state = AdCreateInfoStructure, action) {
 
 	case CLEAR_STATE :
 		return AdCreateInfoStructure
+
+
+	case ON_CHANGE_AD_CREATE_COMPLETED:
+		return dotProp.set(state , "adCreateCompleted" ,  action.adCreateCompleted )
+
+
+	case ON_CHANGE_RETURN_CREATE_COMPLETED:
+		return dotProp.set(state , "returnCreateCompleted" ,  action.returnCreateCompleted )
 
 	default :
 		return state

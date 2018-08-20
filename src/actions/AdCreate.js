@@ -76,3 +76,20 @@ export function clearState() {
 		type: CLEAR_STATE
 	}
 }
+
+export const ON_CHANGE_AD_CREATE_COMPLETED  = "ON_CHANGE_AD_CREATE_COMPLETED"
+export function onChangeAdCreateCompleted(adCreateCompleted) {
+	return {
+		type: ON_CHANGE_AD_CREATE_COMPLETED ,
+		adCreateCompleted
+	}
+}
+
+
+export const ON_CHANGE_RETURN_CREATE_COMPLETED  = "ON_CHANGE_RETURN_CREATE_COMPLETED"
+export function onChangeReturnCreateCompleted(returnCreateCompleted) {
+	return {
+		type: ON_CHANGE_RETURN_CREATE_COMPLETED ,
+		returnCreateCompleted
+	}
+}

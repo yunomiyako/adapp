@@ -6,7 +6,9 @@ const data =
 	adObject : { text:"" , images:[] , tweetUrl : "" , isNewlyCreated:false}  ,
 	returnType: ""  ,
 	returnObject : {text: "", images:[] , html : ""} ,
-	index : 1
+	index : 1 ,
+	adCreateCompleted : false,
+	returnCreateCompleted: false
 }
 
 export default data
