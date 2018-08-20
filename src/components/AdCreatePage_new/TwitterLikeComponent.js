@@ -108,6 +108,7 @@ class TwitterLikeComponent extends Component {
 					<AdImageUploaderModal
 						id="twitterlike"
 						onChangePictures={(pictures) => this.onChangePictures(pictures)}
+						picNum={this.props.adObject.images.length}
 					/>
 				</div>
 			</div>

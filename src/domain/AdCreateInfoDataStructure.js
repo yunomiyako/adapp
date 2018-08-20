@@ -5,8 +5,8 @@ const data =
 	returnDescription:""  ,
 	adObject : { text:"" , images:[] , tweetUrl : "" , isNewlyCreated:false}  ,
 	returnType: ""  ,
-	returnObject : {text: "", images:[] , html : ""} ,
-	index : 1 ,
+	returnObject : {text: "", images:[]} ,
+	index : 0 ,
 	adCreateCompleted : false,
 	returnCreateCompleted: false
 }

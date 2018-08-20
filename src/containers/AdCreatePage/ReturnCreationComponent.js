@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import AdCreationComponent from "../../components/AdCreatePage_new/AdCreationComponent"
+import ReturnCreationComponent from "../../components/AdCreatePage_new/ReturnCreationComponent"
 import {
 	onChangeAdType ,
 	onChangeTitle ,
@@ -13,6 +13,8 @@ import {
 	onChangeReturnCreateCompleted ,
 } from "../../actions/AdCreate"
 
+
+//TODO : もうちょっと情報を絞る
 function mapStateToProps(state){
 	return {
 		adType: state.AdCreateInfo.adType,
@@ -47,4 +49,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(AdCreationComponent)
+)(ReturnCreationComponent)

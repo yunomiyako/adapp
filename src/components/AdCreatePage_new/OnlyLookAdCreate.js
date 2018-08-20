@@ -55,6 +55,7 @@ class OnlyLookAdCreate extends Component {
 				<AdImageUploaderModal
 					id="onlyLook"
 					onChangePictures={(pictures) => this.onChangePictures(pictures)}
+					picNum={this.props.adObject.images.length}
 				/>
 
 				<div className={style.OkButtonFrame}>

@@ -10,14 +10,12 @@ class AdImageUploaderModal extends React.Component {
 		this.onDrop = this.onDrop.bind(this)
 		this.state = {
 			modalOpen: false ,
-			picNum : 0 ,
 			okIsDisabled : false
 		}
 	}
 
 	onDrop(pictureFiles) {
 		this.props.onChangePictures(pictureFiles)
-		this.setState({picNum : pictureFiles.length})
 		this.onResetDom()
 		this.setState({okIsDisabled:false})
 		if(pictureFiles.length > 4) {
@@ -42,7 +40,6 @@ class AdImageUploaderModal extends React.Component {
 		var containers = uploader.getElementsByClassName("uploadPicture")
 		console.log(containers.length)
 		for(var i = 0 ; i < containers.length ; i++) {
-			//containers[i].style.background = (i >= 4) ? "red" : "#edf2f6"
 			if(i >= 4) {
 				containers[i].classList.add("invalidImage")
 			}
@@ -58,7 +55,7 @@ class AdImageUploaderModal extends React.Component {
 
 
 	render() {
-		const buttonText = "画像を追加(" + this.state.picNum  +  "/4)"
+		const buttonText = "画像を追加(" + this.props.picNum  +  "/4)"
 		return (
 			<Modal
 				open={this.state.modalOpen}

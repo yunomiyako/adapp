@@ -6,12 +6,13 @@ class AdImageUploader extends React.Component {
 		super(props)
 		//this.state = {pictures : this.props.pictures}
 		this.onDrop = this.onDrop.bind(this)
+		this.maxNum = this.props.maxNum || 4
 	}
 
 	onDrop(pictureFiles) {
 		this.props.onChangePictures(pictureFiles)
 		this.onResetDom()
-		if(pictureFiles.length > 4) {
+		if(pictureFiles.length > this.maxNum) {
 			this.onChangeDom()
 		}
 	}
@@ -26,14 +27,14 @@ class AdImageUploader extends React.Component {
 	onChangeDom() {
 		var uploader = document.getElementById(this.props.id)
 		var info = uploader.getElementsByClassName("errorsContainer")[0]
-		info.insertAdjacentHTML("beforebegin","<div id='errorMessage' class='ui red message'>画像は４枚までです！</div>")
+		info.insertAdjacentHTML("beforebegin","<div id='errorMessage' class='ui red message'>画像が上限を超えています！</div>")
 
 		//超過したもののみを変化
 		var containers = uploader.getElementsByClassName("uploadPicture")
 		console.log(containers.length)
 		for(var i = 0 ; i < containers.length ; i++) {
 			//containers[i].style.background = (i >= 4) ? "red" : "#edf2f6"
-			if(i >= 4) {
+			if(i >= this.maxNum) {
 				containers[i].classList.add("invalidImage")
 			}
 		}
@@ -44,7 +45,7 @@ class AdImageUploader extends React.Component {
 		return (
 			<div id={this.props.id}>
 				<ImageUploader
-					label = "４枚まで画像を追加できます"
+					label = {this.maxNum + "枚まで画像を追加できます"}
 					withPreview = {true}
 					withIcon={true}
 					buttonText='Choose images'

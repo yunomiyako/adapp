@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import AdCreatePage from "../../components/AdCreatePage_new/AdCreatePage0"
+import AdCreatePage from "../../components/AdCreatePage_new/AdCreatePage"
 import {
 	onChangeAdType ,
 	onChangeTitle ,

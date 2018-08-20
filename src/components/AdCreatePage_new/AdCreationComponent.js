@@ -14,15 +14,20 @@ import RetweetAdCreate from "./RetweetAdCreate"
 import adTypeButtons from "../../domain/adTypeButtons"
 
 class AdCreationComponent extends Component {
+	constructor(props) {
+		super(props)
+		this.HeadIcon = <Icon name="angle right"/>
+	}
 	onClickOk() {
 		//validate
 		this.props.onChangeAdCreateCompleted(true)
+		this.props.onChangeIndex(1)
 	}
 
 	renderTypeSelectionComponent() {
 		return (
 			<div>
-				<h3 className="AdCreatePage-Title">してもらいたいことを選んでください</h3>
+				<h3 className="AdCreatePage-Title">{this.HeadIcon}してもらいたいことを選んでください</h3>
 				<TypeSelectionComponent
 					onClick={(id) => this.props.onChangeAdType(id)}
 					type = {this.props.adType}
@@ -34,14 +39,17 @@ class AdCreationComponent extends Component {
 	renderTitleCreateComponent() {
 		if(this.props.adType !== "") {
 			return(
-				<TitleCreateComponent
-					onClickOk = {() => this.onClickOk()}
-					title = {this.props.title}
-					adType = {this.props.adType}
-					returnDescription = {this.props.returnDescription}
-					onChangeTitle = {(title) => this.props.onChangeTitle(title)}
-					onChangeReturnDescription = {(text) => this.props.onChangeReturnDescription(text)}
-				></TitleCreateComponent>)
+				<React.Fragment>
+			  <h3 className="AdCreatePage-Title">{this.HeadIcon}宣伝タイトル</h3>
+					<TitleCreateComponent
+						onClickOk = {() => this.onClickOk()}
+						title = {this.props.title}
+						adType = {this.props.adType}
+						returnDescription = {this.props.returnDescription}
+						onChangeTitle = {(title) => this.props.onChangeTitle(title)}
+						onChangeReturnDescription = {(text) => this.props.onChangeReturnDescription(text)}
+					></TitleCreateComponent>
+				</React.Fragment>)
 		}
 	}
 
@@ -50,7 +58,7 @@ class AdCreationComponent extends Component {
 		case "tweet" :
 			return (
 				<div>
-					<h3 className="AdCreatePage-Title">どんなツイートをしてもらいたいですか？</h3>
+					<h3 className="AdCreatePage-Title">{this.HeadIcon}どんなツイートをしてもらいたいですか？</h3>
 					<TwitterLikeContainerComponent
 						adObject = {this.props.adObject}
 						onClickOk = {() => this.onClickOk()}
@@ -60,7 +68,7 @@ class AdCreationComponent extends Component {
 		case "retweet" :
 			return (
 				<div>
-					<h3 className="AdCreatePage-Title">リツイートして欲しいツイートを選択or作成</h3>
+					<h3 className="AdCreatePage-Title">{this.HeadIcon}リツイートして欲しいツイートを選択or作成</h3>
 					<RetweetAdCreate
 						adObject = {this.props.adObject}
 						onClickOk = {() => this.onClickOk()}
@@ -71,7 +79,7 @@ class AdCreationComponent extends Component {
 		case "lookMe" :
 			return (
 				<div>
-					<h3 className="AdCreatePage-Title">何を見て欲しいですか？</h3>
+					<h3 className="AdCreatePage-Title">{this.HeadIcon}何を見て欲しいですか？</h3>
 					<OnlyLookAdCreate
 						adObject = {this.props.adObject}
 						title = {this.props.title}
@@ -82,7 +90,7 @@ class AdCreationComponent extends Component {
 				</div>)
 		case "fav" :	return (
 			<div>
-				<h3 className="AdCreatePage-Title">いいねして欲しいツイートを選択or作成</h3>
+				<h3 className="AdCreatePage-Title">{this.HeadIcon}いいねして欲しいツイートを選択or作成</h3>
 				<RetweetAdCreate
 					adObject = {this.props.adObject}
 					onClickOk = {() => this.onClickOk()}
@@ -91,7 +99,7 @@ class AdCreationComponent extends Component {
 			</div>)
 		case "follow" :	return (
 			<div>
-				<h3 className="AdCreatePage-Title">フォローしてもらいたい旨を書こう！</h3>
+				<h3 className="AdCreatePage-Title">{this.HeadIcon}フォローしてもらいたい旨を書こう！</h3>
 				<OnlyLookAdCreate
 					adObject = {this.props.adObject}
 					title = {this.props.title}
