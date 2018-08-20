@@ -2,10 +2,30 @@
   display: grid;
   height: 100%;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+  grid-template-rows:  1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
   grid-gap: undefined;
   background-color: rgba(87, 84, 84, 0.931);
-  grid-template-areas: ". . . . . . ." ". . . . . . ." ". . . . . . ." ". . Title Title Title . ." ". . Text Text Text . ." ". . Text Text Text . ."  ". Button Button . Button2 Button2 ." ". . . . . . ." ". . . . . . ."". . . . . . ." ". . . . . . ." ". . . . . . ."". . . . . . ." ". . . . . . ." ;
+  grid-template-areas: ". . . . . . ." ". . . . . . ." ". . Title Title Title . ." ". . Text Text Text . ." ". . Text Text Text . ."  ". Button Button . Button2 Button2 ." ". . . . . . ." ". . . . . . ."". icon . icon2 . icon3 ." ". . . . . . ." ". . . . . . ."". . . . . . ." ". . . . . . ." ;
+}
+
+:local .TopPage2 {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+  grid-gap: undefined;
+  background-color: rgba(87, 84, 84, 0.931);
+  grid-template-areas:  ". . . . . . ."". . . . . . ." ". . Title Title Title . ." ". Text Text Text Text Text ." ". Text Text Text Text Text ."  ". Button Button . Button2 Button2 ." ". . . . . . ." ". . icon icon icon . ." ". . icon2 icon2 icon2 . ." ". . icon3  icon3 icon3 . ."". . . . . . ." ". . . . . . ." ". . . . . . ." ;
+}
+
+:local .TopPage3 {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: undefined;
+  background-color: rgba(87, 84, 84, 0.931);
+  grid-template-areas:  ". . . . . . ." ". . Title Title Title . ." ". . Text Text Text . ." ". . Text Text Text . ."  ". Button Button . Button2 Button2 ." ". . . . . . ." ". . . icon . . ." ". . . icon2 . . ." ". . . icon3 . . ."". . . . . . ." ". . . . . . ." ". . . . . . .";
 }
 
 :local .title { grid-area: Title; }
@@ -51,6 +71,7 @@
 :local .Footer {
 
   position: fixed;
+  
   bottom: 0;
   width: 100%;
   height: 100px;
@@ -72,3 +93,28 @@
 :local .Button { grid-area: Button; }
 
 :local .Button2 { grid-area: Button2; }
+
+
+:local .icon {
+  grid-area: icon;
+}
+:local .icon2 {
+  grid-area: icon2;
+}
+
+:local .icon3 {
+  grid-area: icon3;
+}
+
+
+:local .icon_text {
+  font-size: 30px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.931);
+}
+
+:local .icon_text2 {
+  font-size: 15px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.931);
+}
