@@ -28,6 +28,18 @@ class RetweetAdCreate extends Component {
 		this.props.onChangeAdObject(newObj)
 	}
 
+	onChangeUrl(url) {
+		const newObj = dotProp.set(this.props.adObject , "tweetUrl" , url)
+		this.props.onChangeAdObject(newObj)
+	}
+
+
+	renderTwitterLikeView() {
+		if(this.props.adObject.tweetUrl){
+			return <TwitterLikeView/>
+		}
+	}
+
 	renderCreate() {
 		const isNewly = this.props.adObject.isNewlyCreated
 		if(isNewly) {
@@ -37,26 +49,29 @@ class RetweetAdCreate extends Component {
 			/>)
 		} else {
 			return (
-				<React.Fragment>
+				<div className={style.RetweetAdCreateCheckBox}>
 					<Form>
 						<Form.Field>
 							<label>リツイートしてもらいたいツイートのURL</label>
-							<input placeholder='https://twitter.com/hashimoto_lo/status/340640143058825216' />
+							<input
+								onChange = {(event) => this.onChangeUrl(event.target.value)}
+								placeholder='https://twitter.com/hashimoto_lo/status/340640143058825216' />
 						</Form.Field>
 					</Form>
 
-					<TwitterLikeView/>
+					{this.renderTwitterLikeView()}
 
-				</React.Fragment>
+				</div>
 			)
 		}
 	}
 
 	render() {
 		return (
-			<div className="RetweetAdCreate">
-				<Checkbox label='新規にツイートを作る' checked={this.props.adObject.isNewlyCreated} onChange={() => this.onToggled()} />
-
+			<div className={style.RetweetAdCreate}>
+				<div className={style.RetweetAdCreateCheckBox}>
+					<Checkbox label='新規にツイートを作る' checked={this.props.adObject.isNewlyCreated} onChange={() => this.onToggled()} />
+				</div>
 				{this.renderCreate()}
 
 				<div className={style.OkButtonFrame}>

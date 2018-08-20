@@ -1,6 +1,6 @@
 import React , {Component}  from "react"
 import style from "./AdCreatePage.css"
-import "./Animation.css"
+import style2 from "./Animation.css"
 
 //Semantic UI
 import { Button } from "semantic-ui-react"
@@ -14,6 +14,9 @@ import OnlyLookAdCreate from "./OnlyLookAdCreate"
 import TypeSelectionComponent from "./TypeSelectionComponent"
 import ReturnCreateComponent from "./ReturnCreateComponent"
 import RetweetAdCreate from "./RetweetAdCreate"
+import StepComponent from "./StepComponent"
+
+import AdImageUploader from "./AdImageUploader"
 
 //data
 import adTypeButtons from "../../domain/adTypeButtons"
@@ -30,6 +33,12 @@ class AdCreatePage extends Component {
 		this.props.onChangeReturnObject(dotProp.set(this.props.returnObject , "images" , []))
 	}
 
+	onChangePictures(pictures) {
+		console.log(pictures)
+		const newObj = dotProp.set(this.props.adObject , "images" , pictures)
+		this.props.onChangeAdObject(newObj)
+	}
+
 	onClickOk(NO) {
 		console.log("NO : " + NO)
 		if (this.props.index < 100) {
@@ -40,9 +49,8 @@ class AdCreatePage extends Component {
 	}
 
 	renderTypeSelectionComponent(NO) {
-		const frameStyle = {background:"#00b894"}
 		return (
-			<div className="AdCreatePage-ComponentFrame" style = {frameStyle}>
+			<div className="AdCreatePage-ComponentFrame">
 				<h1 className="AdCreatePage-Title">してもらいたいことを選んでください</h1>
 				<TypeSelectionComponent
 					onClick={(id) => this.props.onChangeAdType(id)}
@@ -54,7 +62,6 @@ class AdCreatePage extends Component {
 	}
 
 	renderTitleCreateComponent(NO) {
-		const frameStyle = {background:"#74b9ff"}
 		return (
 			<CSSTransition
 				in = {this.props.index >= NO}
@@ -62,7 +69,7 @@ class AdCreatePage extends Component {
 				timeout = {1000}
 				unmountOnExit
 			>
-				<div className="AdCreatePage-ComponentFrame" style = {frameStyle}>
+				<div className="AdCreatePage-ComponentFrame">
 					<h1 className="AdCreatePage-Title">タイトルをつけよう</h1>
 					<TitleCreateComponent
 						onClickOk = {() => this.onClickOk(NO)}
@@ -77,13 +84,14 @@ class AdCreatePage extends Component {
 	}
 
 	renderCreateAd(NO) {
-		const returnChild = (adType) => {
+		const returnChild = (adType , children) => {
 
 			switch(adType) {
 			case "tweet" :
 				return (
-					<div className="AdCreatePage-ComponentFrame" style = {frameStyle}>
-						<h1 className="AdCreatePage-Title">どんなツイートをしてもらいたいですか？</h1>
+					<div className="AdCreatePage-ComponentFrame">
+						{children}
+						<h3 className="AdCreatePage-Title">どんなツイートをしてもらいたいですか？</h3>
 						<TwitterLikeContainerComponent
 							adObject = {this.props.adObject}
 							onClickOk = {() => this.onClickOk(NO)}
@@ -92,8 +100,9 @@ class AdCreatePage extends Component {
 					</div>)
 			case "retweet" :
 				return (
-					<div className="AdCreatePage-ComponentFrame" style = {frameStyle}>
-						<h1 className="AdCreatePage-Title">リツイートして欲しいツイートを選択or作成</h1>
+					<div className="AdCreatePage-ComponentFrame">
+						{children}
+						<h3 className="AdCreatePage-Title">リツイートして欲しいツイートを選択or作成</h3>
 						<RetweetAdCreate
 							adObject = {this.props.adObject}
 							onClickOk = {() => this.onClickOk(NO)}
@@ -103,8 +112,11 @@ class AdCreatePage extends Component {
 				)
 			case "lookMe" :
 				return (
-					<div className="AdCreatePage-ComponentFrame" style = {frameStyle}>
-						<h1 className="AdCreatePage-Title">何を見て欲しいですか？</h1>
+					<div className="AdCreatePage-ComponentFrame">
+						{children}
+						<h3 className="AdCreatePage-Title">何を見て欲しいですか？</h3>
+
+
 						<OnlyLookAdCreate
 							adObject = {this.props.adObject}
 							title = {this.props.title}
@@ -114,8 +126,9 @@ class AdCreatePage extends Component {
 						/>
 					</div>)
 			case "fav" :	return (
-				<div className="AdCreatePage-ComponentFrame" style = {frameStyle}>
-					<h1 className="AdCreatePage-Title">いいねして欲しいツイートを選択or作成</h1>
+				<div className="AdCreatePage-ComponentFrame">
+					{children}
+					<h3 className="AdCreatePage-Title">いいねして欲しいツイートを選択or作成</h3>
 					<RetweetAdCreate
 						adObject = {this.props.adObject}
 						onClickOk = {() => this.onClickOk(NO)}
@@ -123,8 +136,9 @@ class AdCreatePage extends Component {
 					/>
 				</div>)
 			case "follow" :	return (
-				<div className="AdCreatePage-ComponentFrame" style = {frameStyle}>
-					<h1 className="AdCreatePage-Title">フォローしてもらいたい旨を書こう！</h1>
+				<div className="AdCreatePage-ComponentFrame">
+					{children}
+					<h3 className="AdCreatePage-Title">フォローしてもらいたい旨を書こう！</h3>
 					<OnlyLookAdCreate
 						adObject = {this.props.adObject}
 						title = {this.props.title}
@@ -137,23 +151,29 @@ class AdCreatePage extends Component {
 			}
 		}
 
-		const frameStyle = {background:"#fd79a8"}
+		const title = <TitleCreateComponent
+			onClickOk = {() => this.onClickOk(NO)}
+			title = {this.props.title}
+			adType = {this.props.adType}
+			returnDescription = {this.props.returnDescription}
+			onChangeTitle = {(title) => this.props.onChangeTitle(title)}
+			onChangeReturnDescription = {(text) => this.props.onChangeReturnDescription(text)}
+		></TitleCreateComponent>
 		return (
 			<React.Fragment>
 				<CSSTransition
 					in = {this.props.index >= NO}
-					classNames="AdCreateAnimation"
+					classNames="AdCreateAnimation "
 					timeout = {1000}
 					unmountOnExit
 				>
-					{returnChild(this.props.adType)}
+					{returnChild(this.props.adType , title)}
 				</CSSTransition>
 			</React.Fragment>
 		)
 	}
 
 	renderReturnTypeSelectionComponent(NO) {
-		const frameStyle = {background:"#2d3436"}
 		return (
 			<CSSTransition
 				in = {this.props.index >= NO}
@@ -161,7 +181,7 @@ class AdCreatePage extends Component {
 				timeout = {1000}
 				unmountOnExit
 			>
-				<div className="AdCreatePage-ComponentFrame" style = {frameStyle}>
+				<div className="AdCreatePage-ComponentFrame">
 					<h1 className="AdCreatePage-Title">お返しはどのタイプですか？</h1>
 					<TypeSelectionComponent
 						onClick={(id) => this.props.onChangeReturnType(id)}
@@ -174,7 +194,6 @@ class AdCreatePage extends Component {
 	}
 
 	renderReturnCreateComponent(NO) {
-		const frameStyle = {background:"#fdcb6e"}
 		return (
 			<CSSTransition
 				in = {this.props.index >= NO}
@@ -182,7 +201,7 @@ class AdCreatePage extends Component {
 				timeout = {1000}
 				unmountOnExit
 			>
-				<div className="AdCreatePage-ComponentFrame" style = {frameStyle}>
+				<div className="AdCreatePage-ComponentFrame">
 					<h1 className="AdCreatePage-Title">お返しを作成</h1>
 					<ReturnCreateComponent
 						returnType = {this.props.returnType}
@@ -196,29 +215,24 @@ class AdCreatePage extends Component {
 	render() {
 
 		return (
-			<div className="AdCreatePage" ref={(elem) => this.container = elem}>
-				<span className={style.StickyRightSideBar}>
-					<Button onClick={() => this.props.clearState()}>全削除</Button>
-				</span>
+			<div className="AdCreatePage" >
+
+				<StepComponent/>
 
 				<div className="AdCreatePageForPaddingFrame">
 					{this.renderTypeSelectionComponent(1)}
 				</div>
 
 				<div className="AdCreatePageForPaddingFrame">
-					{this.renderTitleCreateComponent(2)}
+					{this.renderCreateAd(2)}
 				</div>
 
 				<div className="AdCreatePageForPaddingFrame">
-					{this.renderCreateAd(3)}
+					{this.renderReturnTypeSelectionComponent(3)}
 				</div>
 
 				<div className="AdCreatePageForPaddingFrame">
-					{this.renderReturnTypeSelectionComponent(4)}
-				</div>
-
-				<div className="AdCreatePageForPaddingFrame">
-					{this.renderReturnCreateComponent(5)}
+					{this.renderReturnCreateComponent(4)}
 				</div>
 			</div>
 		)

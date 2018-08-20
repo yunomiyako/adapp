@@ -30,6 +30,8 @@ const middleware = process.env.NODE_ENV !== "production" ?
 //require("redux-immutable-state-invariant").default()を消しました
 
 const store = createStore(rootReducer, compose(applyMiddleware(...middleware) , persistState("AdCreateInfo")))
+//const store = createStore(rootReducer, compose(applyMiddleware(...middleware) ))
+
 
 //register saga
 sagaMiddleware.run(mySaga)

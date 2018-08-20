@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import AdCreatePage from "../../components/AdCreatePage_new/AdCreatePage"
+import AdCreatePage from "../../components/AdCreatePage_new/AdCreatePage0"
 import {
 	onChangeAdType ,
 	onChangeTitle ,
@@ -32,7 +32,7 @@ function mapDispatchToProps(dispatch) {
 		onChangeReturnType: (returnType) => dispatch(onChangeReturnType(returnType)),
 		onChangeReturnObject: (returnObject) => dispatch(onChangeReturnObject(returnObject)),
 		onChangeIndex: (index) => dispatch(onChangeIndex(index)),
-		clearState : () => dispatch(clearState()) , 
+		clearState : () => dispatch(clearState()) ,
 	}
 }
 

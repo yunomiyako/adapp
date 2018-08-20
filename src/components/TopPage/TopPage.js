@@ -1,10 +1,10 @@
 import React , {Component}  from "react"
-import ReactDom from 'react-dom';
+import ReactDom from "react-dom"
 import style from "./TopPage2.css"
 import { Button, Icon ,Responsive } from "semantic-ui-react"
 import {Api} from "../../api/Api"
 import QueryString from "../../Utils/QueryString"
-import { Col, Container, Row, Footer } from 'mdbreact'
+import { Col, Container, Row, Footer } from "mdbreact"
 import DesktopBreakpoint from "../responsive_utilities/desktop_breakpoint"
 import TabletBreakpoint from "../responsive_utilities/tablet_breakpoint"
 import PhoneBreakpoint from "../responsive_utilities/phone_breakpoint"
@@ -19,9 +19,6 @@ if (oauth_verifier) {
 
 
 class TopPage extends Component {
-
-
-	
 	onClicktest() {
 		var body = Api.testtm()
 		body.then(
@@ -30,8 +27,6 @@ class TopPage extends Component {
 
 			}
 		)
-
-
 	}
 
 
@@ -39,11 +34,11 @@ class TopPage extends Component {
 		return (
 
 			<div className={style.TopPage}>
-			
+
 				<div className={style.title}>
 					<DesktopBreakpoint>
 					 <h3 className={style.text1}>Ad app</h3>
-					</DesktopBreakpoint>	
+					</DesktopBreakpoint>
 
 					<PhoneBreakpoint>
 					 <h3 className={style.text1_2}>Ad app</h3>
@@ -59,12 +54,12 @@ class TopPage extends Component {
 
 				<div className={style.Text}>
 
-					<DesktopBreakpoint>	
-					<h2 className={style.text2}>バズってるツイートと一緒に宣伝してもらおう！</h2>
+					<DesktopBreakpoint>
+						<h2 className={style.text2}>バズってるツイートと一緒に宣伝してもらおう！</h2>
 					</DesktopBreakpoint>
 
-					<TabletBreakpoint>	
-					<h2 className={style.text2}>バズってるツイートと一緒に宣伝してもらおう！</h2>
+					<TabletBreakpoint>
+						<h2 className={style.text2}>バズってるツイートと一緒に宣伝してもらおう！</h2>
 					</TabletBreakpoint>
 
 					<PhoneBreakpoint>
@@ -89,27 +84,27 @@ class TopPage extends Component {
 				</div>
 				<div className={style.Button}>
 					<div className= {style.twitter_button}>
-						
 
 
 
-					<PhoneBreakpoint>
-						<Button onClick={()=>this.onClicktest()} color='twitter' size='mini'>
-							<Icon name='twitter' /> Twitterで登録
-						</Button>
-					</PhoneBreakpoint>
 
-					<TabletBreakpoint>
-						<Button onClick={()=>this.onClicktest()} color='twitter' size='huge'>
-							<Icon name='twitter' /> Twitterで登録
-						</Button>
-					</TabletBreakpoint>
+						<PhoneBreakpoint>
+							<Button onClick={()=>this.onClicktest()} color='twitter' size='mini'>
+								<Icon name='twitter' /> Twitterで登録
+							</Button>
+						</PhoneBreakpoint>
 
-					<DesktopBreakpoint>
-						<Button onClick={()=>this.onClicktest()} color='twitter' size='massive'>
-							<Icon name='twitter' /> Twitterで登録
-						</Button>
-					</DesktopBreakpoint>
+						<TabletBreakpoint>
+							<Button onClick={()=>this.onClicktest()} color='twitter' size='huge'>
+								<Icon name='twitter' /> Twitterで登録
+							</Button>
+						</TabletBreakpoint>
+
+						<DesktopBreakpoint>
+							<Button onClick={()=>this.onClicktest()} color='twitter' size='massive'>
+								<Icon name='twitter' /> Twitterで登録
+							</Button>
+						</DesktopBreakpoint>
 
 
 
@@ -117,45 +112,45 @@ class TopPage extends Component {
 				</div>
 				<div className={style.Button2}>
 					<div className= {style.login_button}>
-					<PhoneBreakpoint>
-						<Button color='black'size='mini'>登録せずに使う</Button >
-					</PhoneBreakpoint>
+						<PhoneBreakpoint>
+							<Button color='black'size='mini'>登録せずに使う</Button >
+						</PhoneBreakpoint>
 
-					<TabletBreakpoint>
-						<Button color='black'size='huge'>登録せずに使う</Button >
-					</TabletBreakpoint>
+						<TabletBreakpoint>
+							<Button color='black'size='huge'>登録せずに使う</Button >
+						</TabletBreakpoint>
 
-					<DesktopBreakpoint>
-						<Button color='black'size='massive'>登録せずに使う</Button >
-					</DesktopBreakpoint>
+						<DesktopBreakpoint>
+							<Button color='black'size='massive'>登録せずに使う</Button >
+						</DesktopBreakpoint>
 
 
 
 					</div>
 				</div>
-				
-				<div className={style.Footer}>			
+
+				<div className={style.Footer}>
 					<ul>
-					<p className="list-unstyled"><a href="https://www.google.co.jp/webhp?hl=ja&sa=X&ved=0ahUKEwiwtObcw_DcAhWFTrwKHSptBA4QPAgD">お問い合わせ</a></p>
-					<p className="list-unstyled"><a href="https://www.google.co.jp/webhp?hl=ja&sa=X&ved=0ahUKEwiwtObcw_DcAhWFTrwKHSptBA4QPAgD">利用規約</a></p>
-					<p className="list-unstyled"><a href="https://www.google.co.jp/webhp?hl=ja&sa=X&ved=0ahUKEwiwtObcw_DcAhWFTrwKHSptBA4QPAgD">プライバシーポリシー</a></p>
-					</ul>		
+						<p className="list-unstyled"><a href="https://www.google.co.jp/webhp?hl=ja&sa=X&ved=0ahUKEwiwtObcw_DcAhWFTrwKHSptBA4QPAgD">お問い合わせ</a></p>
+						<p className="list-unstyled"><a href="https://www.google.co.jp/webhp?hl=ja&sa=X&ved=0ahUKEwiwtObcw_DcAhWFTrwKHSptBA4QPAgD">利用規約</a></p>
+						<p className="list-unstyled"><a href="https://www.google.co.jp/webhp?hl=ja&sa=X&ved=0ahUKEwiwtObcw_DcAhWFTrwKHSptBA4QPAgD">プライバシーポリシー</a></p>
+					</ul>
 				</div>
-				
+
 			</div>
 
-            
 
-			
-			
-			
-		
+
+
+
+
+
 
 		)
 
 
-		
-			/******
+
+		/******
 
 			<div className= {style.TopPage}>
 				<h3 className={style.text1}>Ad app</h3>
@@ -174,10 +169,10 @@ class TopPage extends Component {
 
 			</div>
 			*****/
-		
+
 	}
 
-	
+
 }
 
 

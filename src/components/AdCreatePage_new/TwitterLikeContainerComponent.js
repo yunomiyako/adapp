@@ -23,6 +23,7 @@ class TwitterLikeContainerComponent extends Component {
 				<TwitterLikeComponent
 					adObject = {this.props.adObject}
 					onChangeAdObject = {(obj) => this.props.onChangeAdObject(obj)}
+					insertDefaultMessage = {true}
 				/>
 
 				<div className={style.OkButtonFrame}>
