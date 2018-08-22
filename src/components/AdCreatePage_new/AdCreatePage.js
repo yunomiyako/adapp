@@ -11,6 +11,7 @@ import {  } from "react-transition-group"
 import StepComponent from "./StepComponent"
 import AdCreationComponentContainer from "../../containers/AdCreatePage/AdCreationComponent"
 import ReturnCreationComponentContainer from "../../containers/AdCreatePage/ReturnCreationComponent"
+import ConfirmComponentContainer from "../../containers/AdCreatePage/ConfirmComponent"
 
 // immutable state change helper
 var dotProp = require("dot-prop-immutable")
@@ -30,6 +31,7 @@ class AdCreatePage extends Component {
 
 	onChangeIndex(NO) {
 		this.props.onChangeIndex(NO)
+		
 	}
 
 	renderContent() {
@@ -37,6 +39,10 @@ class AdCreatePage extends Component {
 			return (<AdCreationComponentContainer/>)
 		} else if (this.props.index == 1) {
 			return (<ReturnCreationComponentContainer/>)
+		} else if (this.props.index == 2) {
+			return (<ConfirmComponentContainer/>)
+		} else {
+			return <div>おや？</div>
 		}
 	}
 
@@ -51,7 +57,7 @@ class AdCreatePage extends Component {
 					adCreateCompleted = {this.props.adCreateCompleted}
 					returnCreateCompleted = {this.props.returnCreateCompleted}
 				/>
-
+				
 				<div className="AdCreatePageForPaddingFrame">
 					{this.renderContent()}
 				</div>

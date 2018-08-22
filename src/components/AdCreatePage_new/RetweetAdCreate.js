@@ -16,7 +16,9 @@ var dotProp = require("dot-prop-immutable")
 
 class RetweetAdCreate extends Component {
 	renderOkButton() {
-		if(true) {
+		const flag_1 = !this.props.adObject.isNewlyCreated && this.props.adObject.tweetUrl
+		const flag_2 = this.props.adObject.isNewlyCreated && this.props.adObject.text
+		if(flag_1 || flag_2) {
 			return <Button onClick={() => this.props.onClickOk()}>OK</Button>
 		} else {
 			return <Button disabled>OK</Button>
@@ -58,9 +60,7 @@ class RetweetAdCreate extends Component {
 								placeholder='https://twitter.com/hashimoto_lo/status/340640143058825216' />
 						</Form.Field>
 					</Form>
-
 					{this.renderTwitterLikeView()}
-
 				</div>
 			)
 		}

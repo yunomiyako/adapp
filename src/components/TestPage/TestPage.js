@@ -1,28 +1,34 @@
 import React , {Component}  from "react"
 import "./TestPage.css"
-import AdImageUploader from "../AdCreatePage_new/AdImageUploader"
-
-import {Api} from "../../api/Api"
-import { } from "semantic-ui-react"
+import { Button  } from "semantic-ui-react"
+import { Link } from "react-router-dom"
 
 
 class TestPage extends Component {
 	constructor(props) {
 		super(props)
-		this.state = {
-		}
 	}
 
-	onChangePictures(pic){
-		console.log(pic)
+	renderLink() {
+		const links = ["textAndImage" , "textOnly"  ,"premium" , "lottery"]
+		const prefix = "/return/"
+		return (
+			links.map((link) => {
+				return (
+					<div key={link}>
+						<Link to={prefix + link}>{link}</Link>
+						<br/>
+					</div>
+				)
+
+			})
+		)
 	}
+
 	render() {
 		return (
 			<div className="TestPage">
-				<AdImageUploader
-					id="testpage"
-					onChangePictures={(pic) => this.onChangePictures(pic)}
-				/>
+				{this.renderLink()}
 			</div>
 		)
 	}

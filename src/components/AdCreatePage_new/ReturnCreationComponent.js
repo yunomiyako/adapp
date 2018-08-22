@@ -1,5 +1,5 @@
 import React , {Component} from "react"
-import { Icon, Step } from "semantic-ui-react"
+import { Icon, Step , Button } from "semantic-ui-react"
 import style from "./AdCreatePage.css"
 
 //Components
@@ -19,7 +19,13 @@ class AdCreationComponent extends Component {
 
 	onClickOk() {
 		//validate
+
 		this.props.onChangeReturnCreateCompleted(true)
+		if(this.props.adCreateCompleted) {
+			this.props.onChangeIndex(2)
+		} else {
+			this.props.onChangeIndex(0)
+		}
 	}
 
 	renderTypeSelectionComponent() {
@@ -65,6 +71,13 @@ class AdCreationComponent extends Component {
 		}
 	}
 
+	renderOkButton() {
+		if(this.props.returnDescription !== "") {
+			return <Button onClick={() => this.onClickOk()}>OK</Button>
+		} else {
+			return <Button disabled>OK</Button>
+		}
+	}
 
 	render() {
 		return (
@@ -80,6 +93,11 @@ class AdCreationComponent extends Component {
 				<div className={style.tateMargin}>
 					{this.renderCreateReturnChild()}
 				</div>
+
+				<div className={style.OkButtonFrame}>
+					<div className="OkButtonCorner">{this.renderOkButton()}</div>
+				</div>
+
 			</div>
 		)
 	}

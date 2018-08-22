@@ -115,8 +115,6 @@ class AdCreationComponent extends Component {
 		}
 	}
 
-
-
 	render() {
 		return (
 			<div className="AdCreatePage-ComponentFrame">
@@ -131,6 +129,8 @@ class AdCreationComponent extends Component {
 				<div className={style.tateMargin}>
 					{this.renderCreateAdChild(this.props.adType)}
 				</div>
+
+
 			</div>
 		)
 	}
