@@ -5,6 +5,7 @@ import TopPage from "./TopPage/TopPage"
 import AdPage from "../containers/AdPage/AdPage_new"
 import AdCreatePage from "../containers/AdCreatePage/AdCreatePage"
 import TestPage from "./TestPage/TestPage"
+import UserPage from "./UserPage/UserPage"
 import ExperimentalPage from "./ExperimentalPage/ExperimentalPage"
 import ReturnPage from "./ReturnPage/ReturnPage"
 import Header from "./Header/Header"
@@ -67,6 +68,7 @@ class App extends Component {
 						<Route path="/test" component = {TestPage}/>
 						<Route path="/test2" component = {ExperimentalPage}/>
 						<Route path="/return/:type" component = {ReturnPage}/>
+						<Route path="/userpage" component = {UserPage}/>
 					</div>
 
 
