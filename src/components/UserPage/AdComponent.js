@@ -14,7 +14,7 @@ class AdComponent extends Component {
 	}
 
 	render() {
-		const title = ['t1', 't2', 't3'];
+		const title = ["t1", "t2", "t3"]
 		return (
 			<div className={style.AdComponent}>
 				<h2>taitoru</h2>
