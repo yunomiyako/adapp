@@ -1,9 +1,8 @@
 import TypeSelectionButtonFactory from "./TypeSelectionButtonFactory"
+import ReturnTypeEnum from "./enum/ReturnTypeEnum"
 
-var returnTypeButtons = new TypeSelectionButtonFactory()
-returnTypeButtons.addButton("textAndImage" ,"テキスト&画像"  ,  "文章と画像で感謝の意を示しましょう" , "file image" , "" , false)
-returnTypeButtons.addButton("textOnly" , "テキストのみ！"  , "たくさん文字を書けます。秘密の話を書いてください。"  , "image" , "" ,  false)
-returnTypeButtons.addButton("premium" , "画像ガチャ"  , "画像のガチャを作成できます。宣伝してくれた人は１回無料で引くことができます。"  , "random"  , "プレミアム会員限定" , true)
-returnTypeButtons.addButton("lottery" , "抽選"  , "当選確率や当選人数を設定できます"  , "random"  , "プレミアム会員限定" , true)
+const returnTypeButtons = new TypeSelectionButtonFactory()
 
+//EnumからReturnTypeButtonで必要になる情報へ変換
+ReturnTypeEnum.forEach((type) => returnTypeButtons.addButton(type.string ,type.title , type.description , type.icon , type.popupText , type.disabled))
 export default returnTypeButtons.buttons
