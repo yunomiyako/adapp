@@ -204,6 +204,7 @@ class AdCreatePage extends Component {
 				<div className="AdCreatePage-ComponentFrame">
 					<h1 className="AdCreatePage-Title">お返しを作成</h1>
 					<ReturnCreateComponent
+						returnObject = {this.props.returnObject}
 						returnType = {this.props.returnType}
 						returnObject = {this.props.returnObject}
 						onChangeReturnObject = {(obj) => this.props.onChangeReturnObject(obj)}

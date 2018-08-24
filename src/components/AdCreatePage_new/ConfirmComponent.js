@@ -15,25 +15,20 @@ class ConfirmComponent extends Component {
 
 	getReturnTypeTitle() {
 		const value =ReturnTypeEnum.getByName(this.props.returnType)
-		this.getEnableAdType()
 		return value.title
 	}
 
 	getAdTypeTitle(){
-		const value = AdTypeEnum.getByName(this.props.AdTypeEnum)
+		const value = AdTypeEnum.getByName(this.props.adType)
 		return value.title
-	}
-
-	getEnableAdType(){
-		const value = AdTypeEnum.getByValue("disabled" , false)
-		console.log(value)
 	}
 
 	render() {
 		return (
 			<div className="AdCreatePage-ComponentFrame">
 				<div>
-					<p>宣伝タイプ: {this.getReturnTypeTitle()}</p>
+					<p>宣伝タイプ: {this.getAdTypeTitle()}</p>
+					<p>お返しタイプ: {this.getReturnTypeTitle()}</p>
 				</div>
 				<div>
 				</div>
