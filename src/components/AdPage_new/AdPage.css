@@ -96,6 +96,7 @@
 }
 
 :local .title {
+  text-align: center;
 }
 
 :local .username_frame {

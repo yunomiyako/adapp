@@ -7,6 +7,8 @@ import style from "./AdCreatePage.css"
 import { Comment  , Image , Grid , Modal , Button , Form , TextArea} from "semantic-ui-react"
 
 import AdImageUploader from "./AdImageUploader"
+import AdImageUploaderModal from "./AdImageUploaderModal"
+
 
 // immutable state change helper
 var dotProp = require("dot-prop-immutable")
@@ -43,8 +45,20 @@ class TwitterLikeComponent extends Component {
 		this.props.onChangeAdObject(newObj)
 	}
 
-	CommentExampleMetadata(text) {
+	insertDefaultMessage() {
 		const defaultMessage = "〇〇さん" + "(@username)" + "からの宣伝です。"
+		if(this.props.insertDefaultMessage) {
+			return (
+				<div>
+					{defaultMessage}
+					<br/>
+					<br/>
+				</div>
+			)
+		}
+	}
+
+	CommentExampleMetadata(text) {
 		return (
 			<Comment.Group>
 				<Comment>
@@ -56,9 +70,7 @@ class TwitterLikeComponent extends Component {
 						</Comment.Metadata>
 						<Comment.Text>
 							<div onClick={() => this.show()}>
-								{defaultMessage}
-								<br/>
-								<br/>
+								{this.insertDefaultMessage()}
 								{text ? text : <a >ここをクリックして宣伝文を記述</a>}
 							</div>
 						</Comment.Text>
@@ -92,10 +104,13 @@ class TwitterLikeComponent extends Component {
 				<div className="TwitterLikeComponent">
 					{this.CommentExampleMetadata(text)}
 				</div>
-				<AdImageUploader
-					id="twitterlike"
-					onChangePictures={(pictures) => this.onChangePictures(pictures)}
-				/>
+				<div className={style.AdImageUploaderModalFrame}>
+					<AdImageUploaderModal
+						id="twitterlike"
+						onChangePictures={(pictures) => this.onChangePictures(pictures)}
+						picNum={this.props.adObject.images.length}
+					/>
+				</div>
 			</div>
 		)
 	}

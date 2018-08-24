@@ -42,7 +42,7 @@ class TopPage extends Component {
 				</TabletBreakpoint>
 				
 				
-            </div>
+			</div>
 			
 		)
 
@@ -51,7 +51,7 @@ class TopPage extends Component {
 		
 	}
 
-	
+
 }
 
 

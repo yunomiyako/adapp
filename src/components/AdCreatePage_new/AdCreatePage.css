@@ -16,7 +16,8 @@
 }
 
 .AdCreatePage-Title {
-  color : white ;
+  color : black ;
+  text-align: left
 }
 
 .AdCreatePageForPaddingFrame {
@@ -27,12 +28,17 @@
   position: relative; /*OKボタン用*/
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
-  padding:10px;
+  padding:20px;
   margin: 30px auto;
   height : auto ;
   width  : auto ;
-  max-width : 500px;
-  filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
+  max-width : 600px;
+  filter: drop-shadow(0px 0px 8px rgba(0,0,0,0.3));
+  background: white;
+}
+
+:local .tateMargin {
+  margin :  30px 0px;
 }
 
 :local .description {
@@ -40,7 +46,7 @@
 }
 
 :local .descriptionText {
-  color: white;
+  color: black;
 }
 
 .OkButtonCorner {
@@ -56,7 +62,6 @@
 
 .AdCreatePage-TitleCreateComponent {
   text-align: left;
-  margin : 0px 10px;
 }
 
 .TwitterLikeComponent {
@@ -65,10 +70,15 @@
   border-radius: 10px 10px 10px 10px;
   background: white;
   padding : 10px;
+  filter: drop-shadow(0px 0px 8px rgba(0,0,0,0.3));
 }
 
-.RetweetAdCreate {
+:local .RetweetAdCreate {
+}
+
+:local .RetweetAdCreateCheckBox {
   text-align: left;
+  margin:10px 0px;
 }
 
 :local .image {
@@ -89,4 +99,12 @@
 
 .invalidImage {
   opacity: 0.3;
+}
+
+:local .AdImageUploaderModal {
+  text-align: right;
+}
+
+:local .AdImageUploaderModalFrame {
+  margin : 10px;
 }

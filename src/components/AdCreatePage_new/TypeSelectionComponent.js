@@ -53,9 +53,11 @@ class TypeSelectionComponent extends Component {
 					<p className={style.descriptionText}>{this.renderDescription(this.props.buttons)}</p>
 				</div>
 
+				{/*
 				<div className={style.OkButtonFrame}>
 					<div className="OkButtonCorner">{this.renderOkButton()}</div>
 				</div>
+			*/}
 
 			</div>
 		)

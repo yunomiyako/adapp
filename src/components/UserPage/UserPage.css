@@ -1,0 +1,40 @@
+:local .UserPage {
+  /*background-color: rgba(97, 94, 94, 0.931);*/
+  position: relative;
+  height: auto;
+  min-height: 100vh;
+  margin : 30px 0px 0px 0px;
+  padding: 20px 0px;
+}
+
+
+
+:local .UserPageContainer {
+    text-align: center;
+    max-width: 600px;
+    margin: auto;
+    left : 0;
+    right : 0;
+}
+
+:local .AdComponent {
+  margin-top: 50px;
+  text-align: center;
+}
+
+:local .RewardComponent {
+  margin-top: 50px;
+  text-align: center;
+}
+
+:local .ContentFrame {
+  background: white;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  padding:10px;
+  margin: 30px auto;
+  height : auto ;
+  width  : auto ;
+  max-width : 500px;
+  filter: drop-shadow(0px 0px 8px rgba(0,0,0,0.3));
+}

@@ -9,6 +9,10 @@ import "./AdCreatePage.css"
 //semantic UI
 import { Form, TextArea } from "semantic-ui-react"
 
+// immutable state change helper
+var dotProp = require("dot-prop-immutable")
+
+
 class ReturnCreateComponent extends Component {
 	renderAdCreate(){
 		const returnType = this.props.returnType
@@ -25,10 +29,12 @@ class ReturnCreateComponent extends Component {
 	}
 
 	onChangeText(text) {
-		console.log(text)
+		const newObj = dotProp.set(this.props.returnObject , "text" , text)
+		this.props.onChangeReturnObject(newObj)
 	}
 	onChangePictures(picture) {
-		console.log(picture)
+		const newObj = dotProp.set(this.props.returnObject , "images" , picture)
+		this.props.onChangeReturnObject(newObj)
 	}
 
 	renderTextField() {
@@ -36,6 +42,7 @@ class ReturnCreateComponent extends Component {
 			<Form>
 				<TextArea autoHeight placeholder='説明を書いてね' rows={3}
 					onChange={(event) => this.onChangeText(event.target.value)}
+					value={this.props.returnObject.text}
 				/>
 			</Form>
 		)
@@ -47,6 +54,7 @@ class ReturnCreateComponent extends Component {
 				<AdImageUploader
 					id="returncreate"
 					onChangePictures={(pictures) => this.onChangePictures(pictures)}
+					maxNum = {10}
 				/>
 				{this.renderTextField()}
 			</div>

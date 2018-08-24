@@ -5,7 +5,8 @@
 .AdCreateAnimation-enter-active {
   opacity: 1;
   transform: scale(1);
-  transition: all 500ms ease-in;
+  transition: all 500ms;
+  transition-timing-function: cubic-bezier(0.5,0,0,1.8);
 }
 
 .AdCreateAnimation-exit {
@@ -17,3 +18,15 @@
   transform: scale(0.8);
   transition: all 500ms ease-out ;
 }
+
+/* スッキリシンプルなイージング */
+:local .easing1 {transition-timing-function: ease}
+
+/* 今風な気持ちいいイージング */
+:local .easing2 {transition-timing-function: cubic-bezier(1,0,0,1)}
+
+/* 最後に軽くバウンス */
+:local .bounce1 {transition-timing-function: cubic-bezier(0.9,0,0,1.1)}
+
+/* 最後に思いっきりバウンス */
+:local .bounce2 {transition-timing-function: cubic-bezier(0.5,0,0,1.8)}

@@ -49,12 +49,10 @@ class TitleCreateComponent extends Component {
 		}
 	}
 
-	//TODO :styleは外から渡す方がいいかもしれない。必要になったら
 	render() {
 		return (
 			<div className="AdCreatePage-TitleCreateComponent">
 				<div>
-					<h3 style={{color : "white"}}>宣伝タイトル</h3>
 					<div className="AdCreatePage-TitleCreateComponent-select-frame">
 						{this.DropdownExampleSelection()}
 					</div>
@@ -63,14 +61,18 @@ class TitleCreateComponent extends Component {
 					</div>
 				</div>
 
-				<div style = {{margin : "20px 0px"}}>
-					<span style={{color : "white"}}>あげるお返しは :</span>
-					<span style = {{margin : "0px 10px"}}>{this.renderReturnDescriptionInput()}</span>
-				</div>
+				{/*
+	<div style = {{margin : "20px 0px"}}>
+		<span style={{color : "white"}}>あげるお返しは :</span>
+		<span style = {{margin : "0px 10px"}}>{this.renderReturnDescriptionInput()}</span>
+	</div>
 
-				<div className={style.OkButtonFrame}>
-					<div className="OkButtonCorner">{this.renderOkButton()}</div>
-				</div>
+	<div className={style.OkButtonFrame}>
+		<div className="OkButtonCorner">{this.renderOkButton()}</div>
+	</div>
+	*/
+				}
+
 			</div>
 		)
 	}
