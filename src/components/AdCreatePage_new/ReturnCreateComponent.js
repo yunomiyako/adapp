@@ -1,7 +1,7 @@
 import React , {Component}  from "react"
 
 //Components
-import AdImageUploader from "./AdImageUploader"
+import AdImageUploader from "./deplicated/AdImageUploader"
 import AdImageUploaderModal from "./AdImageUploaderModal"
 
 //css
@@ -15,6 +15,38 @@ var dotProp = require("dot-prop-immutable")
 
 
 class ReturnCreateComponent extends Component {
+	shouldComponentUpdate(nextProps, nextState) {
+		const keys = Object.keys(nextProps)
+		for(var key of keys) {
+			if (nextProps[key] !== this.props[key]) {
+				return true
+			}
+		}
+		const keys2 = Object.keys(nextState || {})
+		for(var key of keys2) {
+			if (nextState[key] !== this.props[key]) {
+				return true
+			}
+		}
+		return false
+	}
+
+	componentDidUpdate(prevProps){
+		const name =
+			this.constructor.displayName || this.constructor.name || "Component"
+		console.group(name)
+		Object.keys(prevProps).forEach(key => {
+			if (prevProps[key] !== this.props[key]) {
+				console.log(
+					`property ${key} changed from ${prevProps[key]} to ${
+						this.props[key]
+					}`
+				)
+			}
+		})
+		console.groupEnd(name)
+	}
+
 	renderAdCreate(){
 		const returnType = this.props.returnType
 		switch(returnType){
@@ -29,11 +61,11 @@ class ReturnCreateComponent extends Component {
 		}
 	}
 
-	onChangeText(text) {
-		const newObj = dotProp.set(this.props.returnObject , "text" , text)
+	onChangeText = (event) => {
+		const newObj = dotProp.set(this.props.returnObject , "text" , event.target.value)
 		this.props.onChangeReturnObject(newObj)
 	}
-	onChangePictures(picture) {
+	onChangePictures = (picture) => {
 		const newObj = dotProp.set(this.props.returnObject , "images" , picture)
 		this.props.onChangeReturnObject(newObj)
 	}
@@ -42,7 +74,7 @@ class ReturnCreateComponent extends Component {
 		return (
 			<Form>
 				<TextArea autoHeight placeholder='説明を書いてね' rows={3}
-					onChange={(event) => this.onChangeText(event.target.value)}
+					onChange={this.onChangeText}
 					value={this.props.returnObject.text}
 				/>
 			</Form>
@@ -55,7 +87,7 @@ class ReturnCreateComponent extends Component {
 				{this.renderTextField()}
 				<AdImageUploaderModal
 					id="returncreate"
-					onChangePictures={(pictures) => this.onChangePictures(pictures)}
+					onChangePictures={this.onChangePictures}
 					maxNum = {10}
 					picNum={this.props.returnObject.images.length}
 				/>

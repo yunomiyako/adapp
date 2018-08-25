@@ -6,7 +6,7 @@ import style from "./AdCreatePage.css"
 //semantic UI
 import { Comment  , Image , Grid , Modal , Button , Form , TextArea} from "semantic-ui-react"
 
-import AdImageUploader from "./AdImageUploader"
+import AdImageUploader from "./deplicated/AdImageUploader"
 import AdImageUploaderModal from "./AdImageUploaderModal"
 
 
@@ -14,6 +14,38 @@ import AdImageUploaderModal from "./AdImageUploaderModal"
 var dotProp = require("dot-prop-immutable")
 
 class TwitterLikeComponent extends Component {
+	shouldComponentUpdate(nextProps, nextState) {
+		const keys = Object.keys(nextProps)
+		for(var key of keys) {
+			if (nextProps[key] !== this.props[key]) {
+				return true
+			}
+		}
+		const keys2 = Object.keys(nextState || {})
+		for(var key of keys2) {
+			if (nextState[key] !== this.props[key]) {
+				return true
+			}
+		}
+		return false
+	}
+
+	componentDidUpdate(prevProps){
+		const name =
+			this.constructor.displayName || this.constructor.name || "Component"
+		console.group(name)
+		Object.keys(prevProps).forEach(key => {
+			if (prevProps[key] !== this.props[key]) {
+				console.log(
+					`property ${key} changed from ${prevProps[key]} to ${
+						this.props[key]
+					}`
+				)
+			}
+		})
+		console.groupEnd(name)
+	}
+
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -36,16 +68,16 @@ class TwitterLikeComponent extends Component {
 		this.setState({ modalOpen : false})
 	}
 
-	onChangeText(text) {
+	onChangeText = (text) => {
 		this.setState({provisionalText : text})
 	}
 
-	onChangePictures(pictures) {
+	onChangePictures = (pictures) => {
 		const newObj = dotProp.set(this.props.adObject , "images" , pictures)
 		this.props.onChangeAdObject(newObj)
 	}
 
-	insertDefaultMessage() {
+	insertDefaultMessage(){
 		const defaultMessage = "〇〇さん" + "(@username)" + "からの宣伝です。"
 		if(this.props.insertDefaultMessage) {
 			return (
@@ -107,7 +139,7 @@ class TwitterLikeComponent extends Component {
 				<div className={style.AdImageUploaderModalFrame}>
 					<AdImageUploaderModal
 						id="twitterlike"
-						onChangePictures={(pictures) => this.onChangePictures(pictures)}
+						onChangePictures={this.onChangePictures}
 						picNum={this.props.adObject.images.length}
 					/>
 				</div>

@@ -1,46 +1,33 @@
 import { connect } from "react-redux"
 import AdCreatePage from "../../components/AdCreatePage_new/AdCreatePage"
 import {
-	onChangeAdType ,
-	onChangeTitle ,
-	onChangeReturnDescription ,
-	onChangeAdObject ,
-	onChangeReturnType ,
-	onChangeReturnObject ,
 	onChangeIndex ,
 	clearState,
 	onChangeAdCreateCompleted ,
 	onChangeReturnCreateCompleted ,
 } from "../../actions/AdCreate"
 
+import {
+	getIndex,
+	getAdCreateCompleted,
+	getReturnCreateCompleted,
+} from "../../selectors/AdCreatePage"
+
 function mapStateToProps(state){
+	const subState = state.AdCreateInfo
 	return {
-		adType: state.AdCreateInfo.adType,
-		title: state.AdCreateInfo.title,
-		returnDescription: state.AdCreateInfo.returnDescription,
-		adObject: state.AdCreateInfo.adObject,
-		returnType: state.AdCreateInfo.returnType,
-		returnObject: state.AdCreateInfo.returnObject,
-		index: state.AdCreateInfo.index,
-		adCreateCompleted : state.AdCreateInfo.adCreateCompleted ,
-		returnCreateCompleted : state.AdCreateInfo.returnCreateCompleted,
+		index: getIndex(subState),
+		adCreateCompleted: getAdCreateCompleted(subState),
+		returnCreateCompleted: getReturnCreateCompleted(subState),
 	}
 }
 
 function mapDispatchToProps(dispatch) {
 	return {
-		onChangeAdType: (adType) => dispatch(onChangeAdType(adType)),
-		onChangeTitle: (title) => dispatch(onChangeTitle(title)),
-		onChangeReturnDescription: (returnDescription) => dispatch(onChangeReturnDescription(returnDescription)),
-		onChangeAdObject: (adObject) => dispatch(onChangeAdObject(adObject)),
-		onChangeReturnType: (returnType) => dispatch(onChangeReturnType(returnType)),
-		onChangeReturnObject: (returnObject) => dispatch(onChangeReturnObject(returnObject)),
 		onChangeIndex: (index) => dispatch(onChangeIndex(index)),
 		clearState : () => dispatch(clearState()) ,
-
 		onChangeAdCreateCompleted: (adCreateCompleted) => dispatch(onChangeAdCreateCompleted(adCreateCompleted)),
 		onChangeReturnCreateCompleted: (returnCreateCompleted) => dispatch(onChangeReturnCreateCompleted(returnCreateCompleted)),
-
 	}
 }
 

@@ -7,13 +7,44 @@ import "./AdCreatePage.css"
 import { Button } from "semantic-ui-react"
 
 class ReturnSelectionComponent extends Component {
+	shouldComponentUpdate(nextProps, nextState) {
+		const keys = Object.keys(nextProps)
+		for(var key of keys) {
+			if (nextProps[key] !== this.props[key]) {
+				return true
+			}
+		}
+		const keys2 = Object.keys(nextState || {})
+		for(var key of keys2) {
+			if (nextState[key] !== this.props[key]) {
+				return true
+			}
+		}
+		return false
+	}
+
+	componentDidUpdate(prevProps){
+		const name =
+			this.constructor.displayName || this.constructor.name || "Component"
+		console.group(name)
+		Object.keys(prevProps).forEach(key => {
+			if (prevProps[key] !== this.props[key]) {
+				console.log(
+					`property ${key} changed from ${prevProps[key]} to ${
+						this.props[key]
+					}`
+				)
+			}
+		})
+		console.groupEnd(name)
+	}
 	//TODO : <Button.Or>をつけたいけどやり方がわからない
 	ButtonCreator(id , text) {
 		if(id === 1) {
-			return <Button key={id} onClick={()=>this.onClickButton(id)}>{text}</Button>
+			return <Button key={id} onClick={onClickButton}>{text}</Button>
 		} else {
 			return (
-				<Button key={id} onClick={()=>this.onClickButton(id)}> {text} </Button>
+				<Button key={id} onClick={onClickButton}> {text} </Button>
 			)
 		}
 	}
@@ -27,8 +58,7 @@ class ReturnSelectionComponent extends Component {
 		)
 	}
 
-	onClickButton(id){
-		window.console.log(id)
+	onClickButton = (id) =>{
 		this.props.onClick(id)
 	}
 

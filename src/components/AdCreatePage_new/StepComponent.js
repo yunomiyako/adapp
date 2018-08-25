@@ -6,7 +6,37 @@ import PhoneBreakpoint from "../responsive_utilities/phone_breakpoint"
 
 
 class StepComponent extends Component {
-	
+	shouldComponentUpdate(nextProps, nextState) {
+		const keys = Object.keys(nextProps)
+		for(var key of keys) {
+			if (nextProps[key] !== this.props[key]) {
+				return true
+			}
+		}
+		const keys2 = Object.keys(nextState || {})
+		for(var key of keys2) {
+			if (nextState[key] !== this.props[key]) {
+				return true
+			}
+		}
+		return false
+	}
+	componentDidUpdate(prevProps){
+		const name =
+			this.constructor.displayName || this.constructor.name || "Component"
+		console.group(name)
+		Object.keys(prevProps).forEach(key => {
+			if (prevProps[key] !== this.props[key]) {
+				console.log(
+					`property ${key} changed from ${prevProps[key]} to ${
+						this.props[key]
+					}`
+				)
+			}
+		})
+		console.groupEnd(name)
+	}
+
 	renderSteps(steps , ncol) {
 		return steps.filter((step) => step.index < ncol).map(step => {
 			return (<Step link
@@ -21,7 +51,10 @@ class StepComponent extends Component {
 				</Step.Content>
 			</Step>)
 		})
+	}
 
+	onChangeIndex = (NO) => {
+		this.props.onChangeIndex(NO)
 	}
 
 	render() {
@@ -29,7 +62,7 @@ class StepComponent extends Component {
 		const steps = [{
 			index: 0 , 
 			completed : this.props.adCreateCompleted,
-			onClick : () => this.props.onChangeIndex(0) , 
+			onClick : () => this.onChangeIndex(0) , 
 			icon : "file outline" , 
 			title : "宣伝を作る" , 
 			description : "show your sprits"
@@ -37,7 +70,7 @@ class StepComponent extends Component {
 		{
 			index: 1 , 
 			completed : this.props.returnCreateCompleted,
-			onClick : () => this.props.onChangeIndex(1) , 
+			onClick : () => this.onChangeIndex(1) , 
 			icon : "gift" , 
 			title : "お返しを作る" , 
 			description : "give your all"
@@ -45,7 +78,7 @@ class StepComponent extends Component {
 		{
 			index: 2 , 
 			completed : false,
-			onClick : () => this.props.onChangeIndex(2) , 
+			onClick : () => this.onChangeIndex(2) , 
 			icon : "send" , 
 			title : "投稿" , 
 			description : "are your body ready?",

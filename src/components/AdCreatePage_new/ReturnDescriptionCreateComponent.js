@@ -13,6 +13,37 @@ import titleCreator from "../../domain/ReturnDescriptionExampleCreator"
 
 
 class ReturnDescriptionCreateComponent extends Component {
+	shouldComponentUpdate(nextProps, nextState) {
+		const keys = Object.keys(nextProps)
+		for(var key of keys) {
+			if (nextProps[key] !== this.props[key]) {
+				return true
+			}
+		}
+		const keys2 = Object.keys(nextState || {})
+		for(var key of keys2) {
+			if (nextState[key] !== this.props[key]) {
+				return true
+			}
+		}
+		return false
+	}
+	componentDidUpdate(prevProps){
+		const name =
+			this.constructor.displayName || this.constructor.name || "Component"
+		console.group(name)
+		Object.keys(prevProps).forEach(key => {
+			if (prevProps[key] !== this.props[key]) {
+				console.log(
+					`property ${key} changed from ${prevProps[key]} to ${
+						this.props[key]
+					}`
+				)
+			}
+		})
+		console.groupEnd(name)
+	}
+
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -20,10 +51,18 @@ class ReturnDescriptionCreateComponent extends Component {
 		}
 	}
 
+	onChangeReturnDescription = (event) => {
+		this.props.onChangeReturnDescription(event.target.value)
+	}
+
+	onChangeReturnDescriptionFromDropdown = (event , data) => {
+		this.props.onChangeReturnDescription(data.value)
+	}
+
 	//フィールドの長さはAdCreatePage-TitleCreateComponentで定義
 	renderTitleInput(){
 		return (<Input placeholder='タイトルを入力してね' fluid
-			onChange={(event) => this.props.onChangeReturnDescription(event.target.value)}
+			onChange={this.onChangeReturnDescription}
 			value={this.props.returnDescription}  />)
 	}
 
@@ -31,7 +70,7 @@ class ReturnDescriptionCreateComponent extends Component {
 		const options = titleCreator(this.props.returnType)
 		return (<Dropdown text='他の例を参考にする'
 			selectOnBlur = {false}
-			onChange = {(event, data) => this.props.onChangeReturnDescription(data.value)}
+			onChange = {this.onChangeReturnDescriptionFromDropdown}
 			fluid selection options={options} />)
 	}
 

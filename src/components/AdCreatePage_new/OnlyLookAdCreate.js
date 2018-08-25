@@ -13,9 +13,45 @@ import AdImageUploaderModal from "./AdImageUploaderModal"
 var dotProp = require("dot-prop-immutable")
 
 class OnlyLookAdCreate extends Component {
-	renderOkButton() {
+	shouldComponentUpdate(nextProps, nextState) {
+		const keys = Object.keys(nextProps)
+		for(var key of keys) {
+			if (nextProps[key] !== this.props[key]) {
+				return true
+			}
+		}
+		const keys2 = Object.keys(nextState || {})
+		for(var key of keys2) {
+			if (nextState[key] !== this.props[key]) {
+				return true
+			}
+		}
+		return false
+	}
+
+	componentDidUpdate(prevProps){
+		const name =
+			this.constructor.displayName || this.constructor.name || "Component"
+		console.group(name)
+		Object.keys(prevProps).forEach(key => {
+			if (prevProps[key] !== this.props[key]) {
+				console.log(
+					`property ${key} changed from ${prevProps[key]} to ${
+						this.props[key]
+					}`
+				)
+			}
+		})
+		console.groupEnd(name)
+	}
+
+	onClickOk = () => {
+		this.props.onClickOk()
+	}
+
+	renderOkButton = () => {
 		if(this.props.adObject.text !== "") {
-			return <Button onClick={() => this.props.onClickOk()}>OK</Button>
+			return <Button onClick={this.onClickOk}>OK</Button>
 		} else {
 			return <Button disabled>OK</Button>
 		}
@@ -29,13 +65,12 @@ class OnlyLookAdCreate extends Component {
 		/>
 	}
 
-	onChangeText(text) {
-		const newObj = dotProp.set(this.props.adObject , "text" , text)
+	onChangeText = (event) => {
+		const newObj = dotProp.set(this.props.adObject , "text" , event.target.value)
 		this.props.onChangeAdObject(newObj)
 	}
 
-	onChangePictures(pictures) {
-		console.log(pictures)
+	onChangePictures = (pictures) => {
 		const newObj = dotProp.set(this.props.adObject , "images" , pictures)
 		this.props.onChangeAdObject(newObj)
 	}
@@ -47,14 +82,14 @@ class OnlyLookAdCreate extends Component {
 				<Form>
 					<TextArea
 						value={this.props.adObject.text}
-						onChange = {(event) => this.onChangeText(event.target.value)}
+						onChange = {this.onChangeText}
 						placeholder='もっと詳しい内容' style={{ minHeight: 100 }}>
 					</TextArea>
 				</Form>
 
 				<AdImageUploaderModal
 					id="onlyLook"
-					onChangePictures={(pictures) => this.onChangePictures(pictures)}
+					onChangePictures={this.onChangePictures}
 					picNum={this.props.adObject.images.length}
 				/>
 
