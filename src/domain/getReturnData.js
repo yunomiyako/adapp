@@ -5,7 +5,7 @@ export default function getReturnData(type , CASE = 0) {
 	case ReturnTypeEnum.textAndImage.string:
 		switch(CASE) {
 		case 0 : return {text : "おわ〜〜" , image_list : []}
-    case 1 : return {text : "" , image_list : ["https://pbs.twimg.com/profile_images/378800000220029324/fe66faeca20115da8566e51d83447ead_400x400.jpeg"]}
+		case 1 : return {text : "" , image_list : ["https://pbs.twimg.com/profile_images/378800000220029324/fe66faeca20115da8566e51d83447ead_400x400.jpeg"]}
 		default : return {text : "" , image_list : []}
 		}
 	case ReturnTypeEnum.textOnly.string :

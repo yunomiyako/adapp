@@ -1,5 +1,6 @@
 import React , {Component}  from "react"
 import getReturnData from "../../domain/getReturnData"
+import style from "./ReturnPage.css"
 
 /* TODO
 1. returnTypeによって異なるお返し画面を描画する
@@ -20,16 +21,24 @@ class ReturnPage extends Component {
 		this.state = {returnType : type}
 
 		const data = getReturnData(type , 0)
+		this.text = getReturnData(type , 0).text
 		console.log(data)
 	}
 
 	render() {
 		return (
+			
 			<div>
+		
 				<br/>
 				<br/>
 				<br/>
+				
 				{this.state.returnType}
+				<br/>
+				<br/>
+				<br/>
+				{this.text}
 			</div>
 		)
 	}
