@@ -5,7 +5,7 @@ import {Api} from "../../api/Api"
 
 export const Funcs = {
 
-    onClicktest() {
+	onClicktest() {
 		var body = Api.testtm()
 		body.then(
 			body => {

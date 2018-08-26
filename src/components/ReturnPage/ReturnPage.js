@@ -1,5 +1,7 @@
 import React , {Component}  from "react"
 import getReturnData from "../../domain/getReturnData"
+import ImageGallery from "react-image-gallery"
+import "react-image-gallery/styles/css/image-gallery.css"
 import style from "./ReturnPage.css"
 
 /* TODO
@@ -14,31 +16,68 @@ import style from "./ReturnPage.css"
 
 3. お返しの特別感が演出できるといいな
 */
+
+const changeUrlToOriginal = (image_list) => {
+	return image_list.map((img) => {
+		return {original : img , thumbnail : img , sizes:100}
+	})
+}
+
 class ReturnPage extends Component {
 	constructor(props) {
 		super(props)
 		const type = this.props.match.params.type
-		this.state = {returnType : type}
+		
 
-		const data = getReturnData(type , 0)
-		this.text = getReturnData(type , 0).text
-		console.log(data)
+		
+		this.data = getReturnData(type , 1)
+		console.log(this.data)
+
+		if(type=="textAndImage" ){
+			this.state = {
+				returnType : type,
+				image_list : changeUrlToOriginal(this.data.image_list)
+		
+			}
+		}
+		if(type=="textOnly" ){
+			this.state = {
+				returnType : type
+	
+			}
+		}
+		if(type=="premium" ){
+			this.state = {
+				returnType : type
+	
+			}
+		}
+		if(type=="lottery" ){
+			this.state = {
+				returnType : type
+	
+			}
+		}
 	}
 
 	render() {
 		return (
 			
-			<div>
-		
-				<br/>
-				<br/>
-				<br/>
-				
-				{this.state.returnType}
-				<br/>
-				<br/>
-				<br/>
-				{this.text}
+			<div className ={style.ReturnPage} >
+				{(() => {
+					if (this.state.returnType=="textAndImage") {
+						return(
+							<div className ={style.textAndImage} >
+								<div className ={style.Image} >
+									< ImageGallery items={this.state.image_list} /> 
+								</div>
+								<div className ={style.Text} >{this.data.text}</div>
+									
+							</div>
+							
+						)	
+					} 
+				})()}
 			</div>
 		)
 	}

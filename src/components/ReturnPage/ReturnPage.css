@@ -1,0 +1,14 @@
+:local .Image {
+   
+    display: flex;
+    justify-content: center;
+    
+   
+}
+
+:local .Text {
+    font-size: 100px;
+    
+    color: rgba(7, 6, 6, 0.931);
+    padding : 60px ;
+}
