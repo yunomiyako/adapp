@@ -1,36 +1,35 @@
 import React , {Component}  from "react"
 import ReactDom from "react-dom"
 import style from "./TopPage2.css"
-import { Button, Icon ,Responsive } from "semantic-ui-react"
+import { Button, Icon } from "semantic-ui-react"
 import {Funcs} from "./funcs"
 import DesktopBreakpoint from "../responsive_utilities/desktop_breakpoint"
 import TabletBreakpoint from "../responsive_utilities/tablet_breakpoint"
 import PhoneBreakpoint from "../responsive_utilities/phone_breakpoint"
-import {title} from "./Texts"
+
 
 
 
 
 
 class Top_Component extends Component {
-
-    
-
+	
+  
 	render() {
 		return (
 			<div className={style.TopPage}>
 					
 				<div className={style.title}>
 					<DesktopBreakpoint>
-						<h3 className={style.text1}>Ad app</h3>
+						<h3 className={style.text1}>{Funcs.getTexts().title}</h3>
 					</DesktopBreakpoint>	
 
 					<PhoneBreakpoint>
-						<h3 className={style.text1_2}>Ad app</h3>
+						<h3 className={style.text1_2}>{Funcs.getTexts().title}</h3>
 					</PhoneBreakpoint>
 
 					<TabletBreakpoint>
-						<h3 className={style.text1_3}>Ad app</h3>
+						<h3 className={style.text1_3}>{Funcs.getTexts().title}</h3>
 					</TabletBreakpoint>
 
 				</div>
@@ -40,30 +39,30 @@ class Top_Component extends Component {
 				<div className={style.Text}>
 
 					<DesktopBreakpoint>	
-						<h2 className={style.text2}>バズってるツイートと一緒に宣伝してもらおう！</h2>
+						<h2 className={style.text2}>{Funcs.getTexts().text2}</h2>
 					</DesktopBreakpoint>
 
 					<TabletBreakpoint>	
-						<h2 className={style.text2}>バズってるツイートと一緒に宣伝してもらおう！</h2>
+						<h2 className={style.text2}>{Funcs.getTexts().text2}</h2>
 					</TabletBreakpoint>
 
 					<PhoneBreakpoint>
-						<h2 className={style.text2_2}>バズってるツイートと一緒に宣伝してもらおう！</h2>
+						<h2 className={style.text2_2}>{Funcs.getTexts().text2}</h2>
 					</PhoneBreakpoint>
 
 					<PhoneBreakpoint>
-						<h2 className={style.text3_2}>あなたのツイートで宣伝&報酬GET!</h2>
+						<h2 className={style.text3_2}>{Funcs.getTexts().text3}</h2>
 					</PhoneBreakpoint>
 
 
 					<TabletBreakpoint>
-						<h2 className={style.text3}>あなたのツイートで宣伝&報酬GET!</h2>
+						<h2 className={style.text3}>{Funcs.getTexts().text3}</h2>
 					</TabletBreakpoint>
 
 
 
 					<DesktopBreakpoint>
-						<h2 className={style.text3}>あなたのツイートで宣伝&報酬GET!</h2>
+						<h2 className={style.text3}>{Funcs.getTexts().text3}</h2>
 					</DesktopBreakpoint>
 
 				</div>
@@ -75,19 +74,19 @@ class Top_Component extends Component {
 
 						<PhoneBreakpoint>
 							<Button onClick={()=>Funcs.onClicktest()} color='twitter' size='mini'>
-								<Icon name='twitter' /> Twitterで登録
+								<Icon name='twitter' /> {Funcs.getTexts().tw_button_text}
 							</Button>
 						</PhoneBreakpoint>
 
 						<TabletBreakpoint>
 							<Button onClick={()=>Funcs.onClicktest()} color='twitter' size='huge'>
-								<Icon name='twitter' /> Twitterで登録
+								<Icon name='twitter' /> {Funcs.getTexts().tw_button_text}
 							</Button>
 						</TabletBreakpoint>
 
 						<DesktopBreakpoint>
 							<Button onClick={()=>Funcs.onClicktest()} color='twitter' size='massive'>
-								<Icon name='twitter' /> Twitterで登録
+								<Icon name='twitter' /> {Funcs.getTexts().tw_button_text}
 							</Button>
 						</DesktopBreakpoint>
 
@@ -98,15 +97,15 @@ class Top_Component extends Component {
 				<div className={style.Button2}>
 					<div className= {style.login_button}>
 						<PhoneBreakpoint>
-							<Button color='black'size='mini'>登録せずに使う</Button >
+							<Button color='black'size='mini'>{Funcs.getTexts().button_text}</Button >
 						</PhoneBreakpoint>
 
 						<TabletBreakpoint>
-							<Button color='black'size='huge'>登録せずに使う</Button >
+							<Button color='black'size='huge'>{Funcs.getTexts().button_text}</Button >
 						</TabletBreakpoint>
 
 						<DesktopBreakpoint>
-							<Button color='black'size='massive'>登録せずに使う</Button >
+							<Button color='black'size='massive'>{Funcs.getTexts().button_text}</Button >
 						</DesktopBreakpoint>
 
 
@@ -115,21 +114,20 @@ class Top_Component extends Component {
 				</div>
 				<div className={style.icon}>
 
-						 <i class="massive edit icon" ></i>
-						 <p className = {style.icon_text}>1,広告を作成しよう！ </p>
-						
+					<i className="massive edit icon" ></i>
+					<p className = {style.icon_text}>{Funcs.getTexts().step1} </p>					
 				</div>
 
 				<div className={style.icon2}>
 
-					<i class="massive star outline icon"></i>
-					<p className = {style.icon_text}>2,報酬を設定しよう！</p>
+					<i className="massive star outline icon"></i>
+					<p className = {style.icon_text}>{Funcs.getTexts().step2}</p>
 				</div>
 
 				<div className={style.icon3}>
 
-					<i class="massive twitter icon"></i>
-					<p className = {style.icon_text}>３,ツイートして貰おう！</p>
+					<i className="massive twitter icon"></i>
+					<p className = {style.icon_text}>{Funcs.getTexts().step3}</p>
 				</div>
 
 				<div className={style.Footer}>			

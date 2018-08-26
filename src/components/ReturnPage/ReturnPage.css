@@ -6,9 +6,18 @@
    
 }
 
-:local .Text {
+
+
+:local .Text_for_only {
     font-size: 100px;
-    
+    position: relative;
+    color: rgba(7, 6, 6, 0.931);
+    padding : 100px ;
+}
+
+:local .aaa {
+    font-size: 100px;
+    position: relative;
     color: rgba(7, 6, 6, 0.931);
     padding : 60px ;
 }

@@ -3,6 +3,7 @@ import getReturnData from "../../domain/getReturnData"
 import ImageGallery from "react-image-gallery"
 import "react-image-gallery/styles/css/image-gallery.css"
 import style from "./ReturnPage.css"
+import { Rating } from "semantic-ui-react"
 
 /* TODO
 1. returnTypeによって異なるお返し画面を描画する
@@ -30,8 +31,8 @@ class ReturnPage extends Component {
 		
 
 		
-		this.data = getReturnData(type , 1)
-		console.log(this.data)
+		this.data = getReturnData(type,0)
+		//console.log(this.data)
 
 		if(type=="textAndImage" ){
 			this.state = {
@@ -71,13 +72,35 @@ class ReturnPage extends Component {
 								<div className ={style.Image} >
 									< ImageGallery items={this.state.image_list} /> 
 								</div>
-								<div className ={style.Text} >{this.data.text}</div>
+								<div class="ui piled segment">
+									<h4 class="ui header">Return</h4>
+									<p>
+										{this.data.text}
+									</p>
+								</div>
 									
 							</div>
 							
 						)	
 					} 
+					if (this.state.returnType=="textOnly"){
+						return(
+							<div className ={style.Text_for_only} >
+								<div class="ui piled segment">
+									<h4 class="ui header">Return</h4>
+									<p>
+										{this.data.text}
+									</p>
+								</div>
+							</div>
+						)
+					}
 				})()}
+
+
+				<div className={style.Rating}>
+					<h2>お返しの評価</h2>
+					<Rating maxRating={5} defaultRating={3.9} icon='star' size='massive' disabled />(3.9)</div>
 			</div>
 		)
 	}
