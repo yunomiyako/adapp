@@ -5,8 +5,9 @@ class AdImageUploader extends React.Component {
 	constructor(props) {
 		super(props)
 		//this.state = {pictures : this.props.pictures}
+		const defaultMaxNum = 4
 		this.onDrop = this.onDrop.bind(this)
-		this.maxNum = this.props.maxNum || 4
+		this.maxNum = this.props.maxNum || defaultMaxNum
 	}
 
 	onDrop(pictureFiles) {
@@ -31,7 +32,6 @@ class AdImageUploader extends React.Component {
 
 		//超過したもののみを変化
 		var containers = uploader.getElementsByClassName("uploadPicture")
-		console.log(containers.length)
 		for(var i = 0 ; i < containers.length ; i++) {
 			//containers[i].style.background = (i >= 4) ? "red" : "#edf2f6"
 			if(i >= this.maxNum) {

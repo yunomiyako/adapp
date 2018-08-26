@@ -9,17 +9,51 @@ import ReturnCreateComponent from "./ReturnCreateComponent"
 
 //data
 import returnTypeButtons from "../../domain/returnTypeButtons"
+// immutable state change helper
+var dotProp = require("dot-prop-immutable")
 
-class AdCreationComponent extends Component {
+class ReturnCreationComponent extends Component {
 	constructor(props) {
 		super(props)
+		this.props.onChangeReturnObject(dotProp.set(this.props.returnObject , "images" , []))
 		this.HeadIcon = <Icon name="angle right"/>
 	}
 
+	shouldComponentUpdate(nextProps, nextState) {
+		const keys = Object.keys(nextProps)
+		for(var key of keys) {
+			if (nextProps[key] !== this.props[key]) {
+				return true
+			}
+		}
+		const keys2 = Object.keys(nextState || {})
+		for(var key of keys2) {
+			if (nextState[key] !== this.props[key]) {
+				return true
+			}
+		}
+		return false
+	}
 
-	onClickOk() {
+	componentDidUpdate(prevProps){
+		const name =
+			this.constructor.displayName || this.constructor.name || "Component"
+		console.group(name)
+		Object.keys(prevProps).forEach(key => {
+			if (prevProps[key] !== this.props[key]) {
+				console.log(
+					`property ${key} changed from ${prevProps[key]} to ${
+						this.props[key]
+					}`
+				)
+			}
+		})
+		console.groupEnd(name)
+	}
+
+
+	onClickOk = () => {
 		//validate
-
 		this.props.onChangeReturnCreateCompleted(true)
 		if(this.props.adCreateCompleted) {
 			this.props.onChangeIndex(2)
@@ -33,7 +67,7 @@ class AdCreationComponent extends Component {
 			<div>
 				<h3 className="AdCreatePage-Title">{this.HeadIcon}どんなお返しを設定しますか？</h3>
 				<TypeSelectionComponent
-					onClick={(id) => this.props.onChangeReturnType(id)}
+					onClick={this.props.onChangeReturnType}
 					type = {this.props.returnType}
 					buttons = {returnTypeButtons}
 				/>
@@ -47,13 +81,17 @@ class AdCreationComponent extends Component {
 				<React.Fragment>
 					<h3 className="AdCreatePage-Title">{this.HeadIcon}お返しを一言で</h3>
 					<ReturnDescriptionCreateComponent
-						onClickOk = {() => this.onClickOk()}
+						onClickOk = {this.onClickOk}
 						returnType = {this.props.returnType}
 						returnDescription = {this.props.returnDescription}
-						onChangeReturnDescription = {(text) => this.props.onChangeReturnDescription(text)}
+						onChangeReturnDescription = {this.props.onChangeReturnDescription}
 					></ReturnDescriptionCreateComponent>
 				</React.Fragment>)
 		}
+	}
+
+	onChangeReturnObject = (obj) => {
+		this.props.onChangeReturnObject(obj)
 	}
 
 	renderCreateReturnChild() {
@@ -64,7 +102,7 @@ class AdCreationComponent extends Component {
 					<ReturnCreateComponent
 						returnType = {this.props.returnType}
 						returnObject = {this.props.returnObject}
-						onChangeReturnObject = {(obj) => this.props.onChangeReturnObject(obj)}
+						onChangeReturnObject = {this.onChangeReturnObject}
 					/>
 				</React.Fragment>
 			)
@@ -103,4 +141,4 @@ class AdCreationComponent extends Component {
 	}
 }
 
-export default AdCreationComponent
+export default ReturnCreationComponent

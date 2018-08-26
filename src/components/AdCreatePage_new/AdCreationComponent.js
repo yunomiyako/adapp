@@ -13,15 +13,55 @@ import RetweetAdCreate from "./RetweetAdCreate"
 //data
 import adTypeButtons from "../../domain/adTypeButtons"
 
+// immutable state change helper
+var dotProp = require("dot-prop-immutable")
+
 class AdCreationComponent extends Component {
 	constructor(props) {
 		super(props)
+		this.props.onChangeAdObject(dotProp.set(this.props.adObject , "images" , []))
 		this.HeadIcon = <Icon name="angle right"/>
 	}
-	onClickOk() {
+
+	shouldComponentUpdate(nextProps, nextState) {
+		const keys = Object.keys(nextProps)
+		for(var key of keys) {
+			if (nextProps[key] !== this.props[key]) {
+				return true
+			}
+		}
+		const keys2 = Object.keys(nextState || {})
+		for(var key of keys2) {
+			if (nextState[key] !== this.props[key]) {
+				return true
+			}
+		}
+		return false
+	}
+	componentDidUpdate(prevProps , prevState){
+		const name =
+			this.constructor.displayName || this.constructor.name || "Component"
+		console.group(name)
+		Object.keys(prevProps).forEach(key => {
+			if (prevProps[key] !== this.props[key]) {
+				console.log(
+					`property ${key} changed from ${prevProps[key]} to ${
+						this.props[key]
+					}`
+				)
+			}
+		})
+		console.groupEnd(name)
+	}
+
+	onClickOk = () => {
 		//validate
 		this.props.onChangeAdCreateCompleted(true)
 		this.props.onChangeIndex(1)
+	}
+
+	onChangeAdType = (id) =>{
+		this.props.onChangeAdType(id)
 	}
 
 	renderTypeSelectionComponent() {
@@ -29,7 +69,7 @@ class AdCreationComponent extends Component {
 			<div>
 				<h3 className="AdCreatePage-Title">{this.HeadIcon}してもらいたいことを選んでください</h3>
 				<TypeSelectionComponent
-					onClick={(id) => this.props.onChangeAdType(id)}
+					onClick={this.onChangeAdType}
 					type = {this.props.adType}
 					buttons = {adTypeButtons}
 				/>
@@ -42,15 +82,26 @@ class AdCreationComponent extends Component {
 				<React.Fragment>
 			  <h3 className="AdCreatePage-Title">{this.HeadIcon}宣伝タイトル</h3>
 					<TitleCreateComponent
-						onClickOk = {() => this.onClickOk()}
 						title = {this.props.title}
 						adType = {this.props.adType}
 						returnDescription = {this.props.returnDescription}
-						onChangeTitle = {(title) => this.props.onChangeTitle(title)}
-						onChangeReturnDescription = {(text) => this.props.onChangeReturnDescription(text)}
+						onChangeTitle = {this.onChangeTitle}
+						onChangeReturnDescription = {this.onChangeReturnDescription}
 					></TitleCreateComponent>
 				</React.Fragment>)
 		}
+	}
+
+	onChangeAdObject = (obj) => {
+		this.props.onChangeAdObject(obj)
+	}
+
+	onChangeTitle = (text) => {
+		this.props.onChangeTitle(text)
+	}
+
+	onChangeReturnDescription = (text) => {
+		this.props.onChangeReturnDescription(text)
 	}
 
 	renderCreateAdChild(adType) {
@@ -61,8 +112,8 @@ class AdCreationComponent extends Component {
 					<h3 className="AdCreatePage-Title">{this.HeadIcon}どんなツイートをしてもらいたいですか？</h3>
 					<TwitterLikeContainerComponent
 						adObject = {this.props.adObject}
-						onClickOk = {() => this.onClickOk()}
-						onChangeAdObject = {(obj) => this.props.onChangeAdObject(obj)}
+						onClickOk = {this.onClickOk}
+						onChangeAdObject = {this.onChangeAdObject}
 					/>
 				</div>)
 		case "retweet" :
@@ -71,8 +122,8 @@ class AdCreationComponent extends Component {
 					<h3 className="AdCreatePage-Title">{this.HeadIcon}リツイートして欲しいツイートを選択or作成</h3>
 					<RetweetAdCreate
 						adObject = {this.props.adObject}
-						onClickOk = {() => this.onClickOk()}
-						onChangeAdObject = {(obj) => this.props.onChangeAdObject(obj)}
+						onClickOk = {this.onClickOk}
+						onChangeAdObject = {this.onChangeAdObject}
 					/>
 				</div>
 			)
@@ -84,8 +135,8 @@ class AdCreationComponent extends Component {
 						adObject = {this.props.adObject}
 						title = {this.props.title}
 						returnDescription = {this.props.returnDescription}
-						onClickOk = {() => this.onClickOk()}
-						onChangeAdObject = {(obj) => this.props.onChangeAdObject(obj)}
+						onClickOk = {this.onClickOk}
+						onChangeAdObject = {this.onChangeAdObject}
 					/>
 				</div>)
 		case "fav" :	return (
@@ -93,8 +144,8 @@ class AdCreationComponent extends Component {
 				<h3 className="AdCreatePage-Title">{this.HeadIcon}いいねして欲しいツイートを選択or作成</h3>
 				<RetweetAdCreate
 					adObject = {this.props.adObject}
-					onClickOk = {() => this.onClickOk()}
-					onChangeAdObject = {(obj) => this.props.onChangeAdObject(obj)}
+					onClickOk = {this.onClickOk}
+					onChangeAdObject = {this.onChangeAdObject}
 				/>
 			</div>)
 		case "follow" :	return (
@@ -104,8 +155,8 @@ class AdCreationComponent extends Component {
 					adObject = {this.props.adObject}
 					title = {this.props.title}
 					returnDescription = {this.props.returnDescription}
-					onClickOk = {() => this.onClickOk()}
-					onChangeAdObject = {(obj) => this.props.onChangeAdObject(obj)}
+					onClickOk = {this.onClickOk}
+					onChangeAdObject = {this.onChangeAdObject}
 				/>
 			</div>)
 		default : return (
@@ -129,7 +180,6 @@ class AdCreationComponent extends Component {
 				<div className={style.tateMargin}>
 					{this.renderCreateAdChild(this.props.adType)}
 				</div>
-
 
 			</div>
 		)

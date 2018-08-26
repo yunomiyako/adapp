@@ -13,25 +13,42 @@ import AdCreationComponentContainer from "../../containers/AdCreatePage/AdCreati
 import ReturnCreationComponentContainer from "../../containers/AdCreatePage/ReturnCreationComponent"
 import ConfirmComponentContainer from "../../containers/AdCreatePage/ConfirmComponent"
 
-// immutable state change helper
-var dotProp = require("dot-prop-immutable")
-
 class AdCreatePage extends Component {
-	constructor(props) {
-		super(props)
-		//画像は初期化
-		this.props.onChangeAdObject(dotProp.set(this.props.adObject , "images" , []))
-		this.props.onChangeReturnObject(dotProp.set(this.props.returnObject , "images" , []))
+	shouldComponentUpdate(nextProps, nextState) {
+		const keys = Object.keys(nextProps)
+		for(var key of keys) {
+			if (nextProps[key] !== this.props[key]) {
+				return true
+			}
+		}
+		const keys2 = Object.keys(nextState || {})
+		for(var key of keys2) {
+			if (nextState[key] !== this.state[key]) {
+				return true
+			}
+		}
+		return false
 	}
 
-	onChangePictures(pictures) {
-		const newObj = dotProp.set(this.props.adObject , "images" , pictures)
-		this.props.onChangeAdObject(newObj)
+	componentDidUpdate(prevProps){
+		const name =
+			this.constructor.displayName || this.constructor.name || "Component"
+		console.group(name)
+		Object.keys(prevProps).forEach(key => {
+			if (prevProps[key] !== this.props[key]) {
+				console.log(
+					`property ${key} changed from ${prevProps[key]} to ${
+						this.props[key]
+					}`
+				)
+			}
+		})
+		console.groupEnd(name)
 	}
 
-	onChangeIndex(NO) {
-		this.props.onChangeIndex(NO)
-		
+
+	onChangeIndex = (NO) => {
+		this.props.onChangeIndex(NO)	
 	}
 
 	renderContent() {
@@ -53,7 +70,7 @@ class AdCreatePage extends Component {
 			<div className="AdCreatePage" >
 				<StepComponent
 					activeIndex={this.props.index}
-					onChangeIndex = {(NO) => this.onChangeIndex(NO)}
+					onChangeIndex = {this.onChangeIndex}
 					adCreateCompleted = {this.props.adCreateCompleted}
 					returnCreateCompleted = {this.props.returnCreateCompleted}
 				/>

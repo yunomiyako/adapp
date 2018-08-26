@@ -8,19 +8,19 @@ import { CSSTransition } from "react-transition-group"
 
 
 // Components
-import TitleCreateComponent from "./TitleCreateComponent"
-import TwitterLikeContainerComponent from "./TwitterLikeContainerComponent"
-import OnlyLookAdCreate from "./OnlyLookAdCreate"
-import TypeSelectionComponent from "./TypeSelectionComponent"
-import ReturnCreateComponent from "./ReturnCreateComponent"
-import RetweetAdCreate from "./RetweetAdCreate"
-import StepComponent from "./StepComponent"
+import TitleCreateComponent from "../TitleCreateComponent"
+import TwitterLikeContainerComponent from "../TwitterLikeContainerComponent"
+import OnlyLookAdCreate from "../OnlyLookAdCreate"
+import TypeSelectionComponent from "../TypeSelectionComponent"
+import ReturnCreateComponent from "../ReturnCreateComponent"
+import RetweetAdCreate from "../RetweetAdCreate"
+import StepComponent from "../StepComponent"
 
 import AdImageUploader from "./AdImageUploader"
 
 //data
-import adTypeButtons from "../../domain/adTypeButtons"
-import returnTypeButtons from "../../domain/returnTypeButtons"
+import adTypeButtons from "../../../domain/adTypeButtons"
+import returnTypeButtons from "../../../domain/returnTypeButtons"
 
 // immutable state change helper
 var dotProp = require("dot-prop-immutable")
@@ -32,6 +32,23 @@ class AdCreatePage extends Component {
 		this.props.onChangeAdObject(dotProp.set(this.props.adObject , "images" , []))
 		this.props.onChangeReturnObject(dotProp.set(this.props.returnObject , "images" , []))
 	}
+
+	componentDidUpdate(prevProps){
+		const name =
+			this.constructor.displayName || this.constructor.name || "Component"
+		console.group(name)
+		Object.keys(prevProps).forEach(key => {
+			if (prevProps[key] !== this.props[key]) {
+				console.log(
+					`property ${key} changed from ${prevProps[key]} to ${
+						this.props[key]
+					}`
+				)
+			}
+		})
+		console.groupEnd(name)
+	}
+ß
 
 	onChangePictures(pictures) {
 		console.log(pictures)
@@ -204,6 +221,7 @@ class AdCreatePage extends Component {
 				<div className="AdCreatePage-ComponentFrame">
 					<h1 className="AdCreatePage-Title">お返しを作成</h1>
 					<ReturnCreateComponent
+						returnObject = {this.props.returnObject}
 						returnType = {this.props.returnType}
 						returnObject = {this.props.returnObject}
 						onChangeReturnObject = {(obj) => this.props.onChangeReturnObject(obj)}
