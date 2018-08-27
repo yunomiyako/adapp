@@ -81,6 +81,7 @@ class FourImageComponent extends Component {
 				}
 
 				<ImageGallery items={this.state.image_list} />
+				
 
 			</div>
 		)

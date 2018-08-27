@@ -4,7 +4,7 @@ import QueryString from "../../Utils/QueryString"
 import DesktopBreakpoint from "../responsive_utilities/desktop_breakpoint"
 import TabletBreakpoint from "../responsive_utilities/tablet_breakpoint"
 import PhoneBreakpoint from "../responsive_utilities/phone_breakpoint"
-import Top_Component from "./Top_component"
+import Top_Component from "./Top_Desktopcomponent"
 import Top_Phonecomponent from "./Top_Phonecomponent"
 import Top_Tabletcomponent from "./Top_Tabletcomponent"
 
