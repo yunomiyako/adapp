@@ -41,7 +41,6 @@ class TopPage extends Component {
 				 <Top_Tabletcomponent/>
 				</TabletBreakpoint>
 				
-				
 			</div>
 			
 		)

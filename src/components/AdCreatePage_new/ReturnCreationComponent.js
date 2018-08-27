@@ -15,7 +15,6 @@ var dotProp = require("dot-prop-immutable")
 class ReturnCreationComponent extends Component {
 	constructor(props) {
 		super(props)
-		this.props.onChangeReturnObject(dotProp.set(this.props.returnObject , "images" , []))
 		this.HeadIcon = <Icon name="angle right"/>
 	}
 

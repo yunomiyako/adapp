@@ -1,14 +1,23 @@
 import React , {Component} from "react"
 import { Table , Button } from "semantic-ui-react"
 import style from "./AdCreatePage.css"
-
+import { Redirect } from "react-router-dom"
 //Components
 
 //data
 import ReturnTypeEnum from "../../domain/enum/ReturnTypeEnum"
 import AdTypeEnum from "../../domain/enum/AdTypeEnum"
+import AdCreateInfoDataStructure from "../../domain/AdCreateInfoDataStructure"
 
 class ConfirmComponent extends Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+			idToGo : ""
+		}
+	}
+
+
 	shouldComponentUpdate(nextProps, nextState) {
 		const keys = Object.keys(nextProps)
 		for(var key of keys) {
@@ -42,10 +51,6 @@ class ConfirmComponent extends Component {
 		console.groupEnd(name)
 	}
 
-	constructor(props) {
-		super(props)
-	}
-
 	getReturnTypeTitle() {
 		const value =ReturnTypeEnum.getByName(this.props.returnType)
 		return value.title
@@ -62,17 +67,33 @@ class ConfirmComponent extends Component {
 
 	onClickOk = () => {
 		//送信処理
-		console.log("onClickOK!!")
-	} 
+		const callback = (response) => {
+			console.log(response)
+			if(response.status == "OK") {
+				console.log("ok = " + response.id)
+				this.setState({idToGo : response.id})
+			} else {
+				console.log(response.errorMessage)
+			}
+		}
+		//送信データ
+		const payload = new AdCreateInfoDataStructure(this.props)
+		this.props.onClickSubmit(payload , callback)
+	}
 
 	render() {
+		if (this.state.idToGo) {
+			return <Redirect to={'/ad_page/' + this.state.idToGo} />
+		}
+
 		return (
 			<div className="AdCreatePage-ComponentFrame">
+
 				<Table definition color="blue">
 					<Table.Body>
 						<Table.Row>
-							<Table.Cell>してもらいたいこと</Table.Cell>
-							<Table.Cell>{this.getAdTypeTitle()}</Table.Cell>
+							<Table.Cell width="4">してもらいたいこと</Table.Cell>
+							<Table.Cell width="6">{this.getAdTypeTitle()}</Table.Cell>
 						</Table.Row>
 
 						<Table.Row>
@@ -95,8 +116,8 @@ class ConfirmComponent extends Component {
 				<Table definition color="red">
 					<Table.Body>
 						<Table.Row>
-							<Table.Cell>お返しタイプ</Table.Cell>
-							<Table.Cell>{this.getReturnTypeTitle()}</Table.Cell>
+							<Table.Cell width="4">お返しタイプ</Table.Cell>
+							<Table.Cell width="6">{this.getReturnTypeTitle()}</Table.Cell>
 						</Table.Row>
 
 						<Table.Row>

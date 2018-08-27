@@ -1,16 +1,9 @@
 import { connect } from "react-redux"
 import ConfirmComponent from "../../components/AdCreatePage_new/ConfirmComponent"
 import {
-	onChangeAdType ,
-	onChangeTitle ,
-	onChangeReturnDescription ,
-	onChangeAdObject ,
-	onChangeReturnType ,
-	onChangeReturnObject ,
 	onChangeIndex ,
-	clearState,
-	onChangeAdCreateCompleted ,
-	onChangeReturnCreateCompleted ,
+	clearState ,
+	onSubmitAdCreate
 } from "../../actions/AdCreate"
 
 import {
@@ -44,6 +37,7 @@ function mapDispatchToProps(dispatch) {
 	return {
 		onChangeIndex: (index) => dispatch(onChangeIndex(index)),
 		clearState : () => dispatch(clearState()) ,
+		onClickSubmit : (payload, callback) => dispatch(onSubmitAdCreate(payload,callback))
 	}
 }
 

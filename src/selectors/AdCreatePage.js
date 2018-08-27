@@ -5,7 +5,6 @@ export const getAdObject = createSelector(
 	(adObject) => adObject
 )
 
-
 const getReturnObjectFromState = (state) => state.returnObject
 export const getReturnObject = createSelector(
 	[getReturnObjectFromState] , 
@@ -14,13 +13,11 @@ export const getReturnObject = createSelector(
 	}
 )
 
-
 const getIndexFromState = (state) => state.index
 export const getIndex = createSelector(
 	[getIndexFromState] , 
 	(index) => index
 )
-
 
 const getAdCreateCompletedFromState = (state) => state.adCreateCompleted
 export const getAdCreateCompleted = createSelector(
@@ -28,13 +25,11 @@ export const getAdCreateCompleted = createSelector(
 	(adCreateCompleted) => adCreateCompleted
 )
 
-
 const getReturnCreateCompletedFromState = (state) => state.returnCreateCompleted
 export const getReturnCreateCompleted = createSelector(
 	[getReturnCreateCompletedFromState] , 
 	(returnCreateCompleted) => returnCreateCompleted
 )
-
 
 const getAdTypeFromState = (state) => state.adType
 export const getAdType = createSelector(
@@ -42,20 +37,17 @@ export const getAdType = createSelector(
 	(adType) => adType
 )
 
-
 const getTitleFromState = (state) => state.title
 export const getTitle = createSelector(
 	[getTitleFromState] , 
 	(title) => title
 )
 
-
 const getReturnDescriptionFromState = (state) => state.returnDescription
 export const getReturnDescription = createSelector(
 	[getReturnDescriptionFromState] , 
 	(returnDescription) => returnDescription
 )
-
 
 const getReturnTypeFromState = (state) => state.returnType
 export const getReturnType = createSelector(

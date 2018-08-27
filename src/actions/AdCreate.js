@@ -93,3 +93,13 @@ export function onChangeReturnCreateCompleted(returnCreateCompleted) {
 		returnCreateCompleted
 	}
 }
+
+//API通信
+export const ON_SUBMIT_ADCREATE = "ON_SUBMIT_ADCREATE"
+export function onSubmitAdCreate(payload , callback) {
+	return {
+		type: ON_SUBMIT_ADCREATE ,
+		payload,
+		callback
+	}
+}

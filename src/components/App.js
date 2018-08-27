@@ -14,9 +14,9 @@ import Header from "./Header/Header"
 import { Route, BrowserRouter } from "react-router-dom"
 
 import Amplify from "aws-amplify"
-import { Auth, API } from "aws-amplify"
-//import conf from "../aws-exports"
-//Amplify.configure(conf);
+import { Auth } from "aws-amplify"
+import conf from "../aws/aws_configure"
+Amplify.configure(conf)
 
 class App extends Component {
 	componentWillMount() {
