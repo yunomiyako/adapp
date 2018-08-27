@@ -74,15 +74,9 @@ class FourImageComponent extends Component {
 	render() {
 		return (
 			<div>
-				{/*
-				{this.renderMainImage()}
-				{this.renderSubImages()}
-				*/
-				}
-
-				<ImageGallery items={this.state.image_list} />
-				
-
+				<div id="FourImageComponent">
+					<ImageGallery items={this.state.image_list} />
+				</div>
 			</div>
 		)
 	}

@@ -9,8 +9,6 @@
   padding: 20px 0px;
 }
 
-
-
 :local .AdPageContainer {
     text-align: center;
     max-width: 600px;
@@ -135,8 +133,8 @@
   text-align: center;
 }
 
-.image-gallery-slide img {
-  width: auto;
+#FourImageComponent .image-gallery-slide img {
+  width: 100%;
   height: 400px;
 	object-fit: cover;
 }

@@ -38,9 +38,9 @@ class ReturnPage extends Component {
 			this.state = {
 				returnType : type,
 				image_list : changeUrlToOriginal(this.data.image_list)
-		
 			}
 		}
+		
 		if(type=="textOnly" ){
 			this.state = {
 				returnType : type

@@ -1,12 +1,7 @@
-:local .Image {
-   
+:local .Image {   
     display: flex;
     justify-content: center;
-    
-   
 }
-
-
 
 :local .Text_for_only {
     font-size: 100px;
