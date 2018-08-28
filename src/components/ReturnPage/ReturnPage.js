@@ -40,23 +40,19 @@ class ReturnPage extends Component {
 				image_list : changeUrlToOriginal(this.data.image_list)
 			}
 		}
-		
 		if(type=="textOnly" ){
 			this.state = {
 				returnType : type
-	
 			}
 		}
 		if(type=="premium" ){
 			this.state = {
 				returnType : type
-	
 			}
 		}
 		if(type=="lottery" ){
 			this.state = {
 				returnType : type
-	
 			}
 		}
 	}

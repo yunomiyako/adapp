@@ -2,9 +2,15 @@ import React , {Component}  from "react"
 import {  Button , Responsive , Icon } from "semantic-ui-react"
 import style from "./AdPage.css"
 
+import getReturnButtonText from "../../domain/getReturnButtonText"
 
 class ActionComponent extends Component {
+	onClickButton() {
+		console.log(this.props.adType)
+	}
+	
 	render() {
+		const buttonText = getReturnButtonText(this.props.adType)
 		return (
 			<div className={style.stickyBottom}>
 				<div className = {style.boxFrame}>
@@ -13,7 +19,7 @@ class ActionComponent extends Component {
 						<div className = {style.returnText}>
 							<Icon name='gift' size='big' />
 							<Responsive minWidth={Responsive.onlyTablet.minWidth}>お返し :　</Responsive>
-							<span className ={style.return}>犬の写真と生い立ちです</span>
+							<span className ={style.return}>{this.props.returnDescription}</span>
 						</div>
 
 					</div>
@@ -23,14 +29,16 @@ class ActionComponent extends Component {
 							<Responsive
 								{...Responsive.onlyMobile}
 								as={Button}
-								content='ツイートして受け取る'
+								content={buttonText}
 								color='orange' size="mini"
+								onClick = {() => this.onClickButton()}
 								maxWidth = {Responsive.onlyTablet.minWidth}
 							/>
 							<Responsive
 								as={Button}
-								content='ツイートして受け取る'
+								content={buttonText}
 								color='orange' size="big"
+								onClick = {() => this.onClickButton()}
 								minWidth={Responsive.onlyTablet.minWidth}
 							/>
 

@@ -10,11 +10,8 @@ import {submitAdCreateInfo} from "../api/AdCreatePage"
 // ワーカー Saga: FETCH_EXAMPLE_DATA Action によって起動する
 function *onSubmitAdCreate(action) {
 	try {
-		const response = yield call(submitAdCreateInfo , action.payload)
-		const result = {}
-		result.status = "OK"
-		result.id = response.data.id
-		console.log(result.id)
+		const result = yield call(submitAdCreateInfo , action.payload)
+		console.log(result)
 		action.callback(result)
 		//yield put({type : ON_SUCCESS_SUBMIT_ADCREATE , callback:callback})
 	} catch (e) {

@@ -1,8 +1,8 @@
 import React , {Component} from "react"
 import { Table , Button } from "semantic-ui-react"
 import style from "./AdCreatePage.css"
-import { Redirect } from "react-router-dom"
 //Components
+import {redirectToAdPage} from "../Redirect/redirect"
 
 //data
 import ReturnTypeEnum from "../../domain/enum/ReturnTypeEnum"
@@ -13,7 +13,9 @@ class ConfirmComponent extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			idToGo : ""
+			id_ad : "" , 
+			id_user : "" , 
+			loading : false
 		}
 	}
 
@@ -62,28 +64,38 @@ class ConfirmComponent extends Component {
 	}
 
 	renderOkButton() {
-		return <Button onClick={this.onClickOk}>送信</Button>
+		return <Button 
+		onClick={this.onClickOk}
+		loading={this.state.loading}
+		disabled={this.state.loading}
+		>送信</Button>
 	}
 
 	onClickOk = () => {
+		this.setState({loading : true})
+
 		//送信処理
 		const callback = (response) => {
-			console.log(response)
 			if(response.status == "OK") {
-				console.log("ok = " + response.id)
-				this.setState({idToGo : response.id})
+				this.setState({loading : false})
+				this.setState({id_ad : response.id_ad})
+				this.setState({id_user : response.id_user})
 			} else {
+				this.setState({loading : false})
 				console.log(response.errorMessage)
 			}
 		}
+
 		//送信データ
 		const payload = new AdCreateInfoDataStructure(this.props)
 		this.props.onClickSubmit(payload , callback)
 	}
 
 	render() {
-		if (this.state.idToGo) {
-			return <Redirect to={'/ad_page/' + this.state.idToGo} />
+		const id_ad = this.state.id_ad
+		const id_user = this.state.id_user
+		if (id_ad && id_user) {
+			return redirectToAdPage(id_user , id_ad)
 		}
 
 		return (
@@ -132,7 +144,7 @@ class ConfirmComponent extends Component {
 
 						<Table.Row>
 							<Table.Cell>お返し画像の枚数</Table.Cell>
-							<Table.Cell>{this.props.returnObject.images.length}/10</Table.Cell>
+							<Table.Cell>{this.props.returnObject.images.length}/4</Table.Cell>
 						</Table.Row>
 					</Table.Body>
 				</Table>

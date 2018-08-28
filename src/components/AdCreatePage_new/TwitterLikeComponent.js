@@ -6,8 +6,7 @@ import style from "./AdCreatePage.css"
 //semantic UI
 import { Comment  , Image , Grid , Modal , Button , Form , TextArea} from "semantic-ui-react"
 
-import AdImageUploader from "./deplicated/AdImageUploader"
-import AdImageUploaderModal from "./AdImageUploaderModal"
+import UploaderWithSlider from "./UploaderWithSlider"
 
 
 // immutable state change helper
@@ -137,11 +136,11 @@ class TwitterLikeComponent extends Component {
 					{this.CommentExampleMetadata(text)}
 				</div>
 				<div className={style.AdImageUploaderModalFrame}>
-					<AdImageUploaderModal
-						id="twitterlike"
-						onChangePictures={this.onChangePictures}
-						picNum={this.props.adObject.images.length}
-					/>
+			<UploaderWithSlider
+				pictures = {this.props.adObject.images}
+				id="twitterlike"
+				onChangePictures={this.onChangePictures}
+				 />
 				</div>
 			</div>
 		)

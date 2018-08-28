@@ -9,11 +9,6 @@ import OnlyLookAdCreate from "./OnlyLookAdCreate"
 import TypeSelectionComponent from "./TypeSelectionComponent"
 import RetweetAdCreate from "./RetweetAdCreate"
 
-//test 
-import {fileDownload} from "../../api/fileDownload"
-import {textUpload} from "../../api/imageUpload"
-
-
 //data
 import adTypeButtons from "../../domain/adTypeButtons"
 
@@ -61,18 +56,6 @@ class AdCreationComponent extends Component {
 		//validate
 		this.props.onChangeAdCreateCompleted(true)
 		this.props.onChangeIndex(1)
-
-		console.log("test")
-		textUpload("test.txt" , "hello world").then((response) => {
-			console.log(response)
-			fileDownload(response.key).then((response) => {
-				console.log(response)
-			})
-		}).catch(e => {
-			console.log("error!!")
-			console.log(e)
-		})
-
 	}
 
 	onChangeAdType = (id) =>{

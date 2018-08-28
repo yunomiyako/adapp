@@ -8,29 +8,50 @@ import ActionComponent from "./ActionComponent"
 import RatingComponent from "./RatingComponent"
 import FeedComponent from "./FeedComponent"
 
+
+const images = [
+	"http://www.jma-net.go.jp/sat/data/web89/parts89/himawari9_first_image/tcr/tcr_m.jpg" , 
+	"http://dic.nicovideo.jp/oekaki/40813.png",
+	"https://grapee.jp/wp-content/uploads/28741_main.jpg" ,
+	"https://r-trade.jp/wp/wp-content/uploads/2016/02/chikyuu.png"
+]
 class AdPage extends Component {
+	fetchAdData() {	
+	}
+
+	createUrlFromKey() {
+		//this.props.adObject.imagesをurlに変換する
+	}
+
 	render() {
 		return (
 			<div className={style.AdPage}>
 				<div className={style.AdPageContainer}>
 					<div>
-						<FourImageComponent/>
+						<FourImageComponent
+							images = {images}
+						/>
 					</div>
 
 					<div className = {style.marginFrame}>
 						<FeedComponent
-							title="僕の作った星をみんなにみて欲しい"
-							username="iamgod"
-							content={"こんな星を作っています。\nまだまだ未完成ですが、どんどん進化をしていて作っていて楽しいです。文字数にあまりがあるのでちょっと叫びます。\nああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ(140字)"}
+							title= {this.props.title}
+							username= {this.props.username}
+							content={this.props.adObject.text}
 						/>
 					</div>
 
 					<div>
-						<RatingComponent/>
+						<RatingComponent
+							rating = {3.9}
+						/>
 					</div>
 
 					<div>
-						<ActionComponent/>
+						<ActionComponent
+							returnDescription = {this.props.returnDescription}
+							adType = {this.props.adType}
+						/>
 					</div>
 
 					<br/>

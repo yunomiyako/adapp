@@ -108,3 +108,8 @@
 :local .AdImageUploaderModalFrame {
   margin : 10px;
 }
+
+:local .previewImavge {
+  max-height : 100px;
+  max-width : 100px;
+}

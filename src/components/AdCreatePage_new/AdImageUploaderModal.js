@@ -1,7 +1,8 @@
 import React from "react"
 import ImageUploader from "react-images-upload"
-import { Button, Header, Image, Modal } from "semantic-ui-react"
+import { Button, Modal } from "semantic-ui-react"
 import style from "./AdCreatePage.css"
+import {imageUploadUserWithRandomName} from "../../api/imageUpload"
 
 class AdImageUploaderModal extends React.Component {
 	shouldComponentUpdate(nextProps, nextState) {
@@ -38,23 +39,26 @@ class AdImageUploaderModal extends React.Component {
 
 	constructor(props) {
 		super(props)
-		//this.state = {pictures : this.props.pictures}
 		const defaultMaxNum = 4
 		this.onDrop = this.onDrop.bind(this)
 		this.state = {
+			pictures : [],
 			modalOpen: false ,
-			okIsDisabled : false
+			okIsDisabled : true,
+			loading : false
 		}
 		this.maxNum = this.props.maxNum || defaultMaxNum
 	}
 
 	onDrop(pictureFiles) {
-		this.props.onChangePictures(pictureFiles)
+		this.setState({pictures : pictureFiles})
 		this.onResetDom()
 		this.setState({okIsDisabled:false})
 		if(pictureFiles.length > this.maxNum) {
 			this.setState({okIsDisabled:true})
 			this.onChangeDom()
+		} else if (pictureFiles.length == 0 ) {
+			this.setState({okIsDisabled:true})
 		}
 	}
 
@@ -84,7 +88,30 @@ class AdImageUploaderModal extends React.Component {
 		this.setState({ modalOpen: true })
 	}
 	handleClose() {
+		this.setState({pictures : [] , okIsDisabled:true})
 		this.setState({ modalOpen: false })
+	}
+
+	handleCancel() {
+		this.handleClose()
+	}
+
+	handleOk() {
+		//画像をアップロード
+		this.setState({loading : true})
+		Promise.all(imageUploadUserWithRandomName(this.state.pictures , "test_user")).then((values) => {
+			const keys = values.map(v => v.key)
+			console.log(keys)
+			this.props.onChangePictures(keys)
+			this.props.onClickOk(keys)
+			this.setState({loading : false})
+			this.handleClose()
+		})
+	}
+
+	handleClear() {
+		this.props.onChangePictures([])
+		this.handleClose()
 	}
 
 
@@ -103,7 +130,16 @@ class AdImageUploaderModal extends React.Component {
 						onChange={this.onDrop}
 						imgExtension={[".jpg",".jpeg", ".png", ".gif"]}
 					/>
-					<Button color="green" size="big" onClick={() => this.handleClose()} disabled={this.state.okIsDisabled}>OK</Button>
+					<div >
+
+					</div>
+
+					<Button color="black" size="small" onClick={() => this.handleClear()} disabled={this.props.picNum == 0}> 画像全削除 </Button>
+					<Button color="red" size="big" onClick={() => this.handleCancel()}>キャンセル</Button>
+					<Button color="green" size="big" onClick={() => this.handleOk()} 
+						disabled={this.state.okIsDisabled || this.state.loading}
+						loading = {this.state.loading}
+					>アップロード</Button>
 				</div>
 			</Modal>
 		)

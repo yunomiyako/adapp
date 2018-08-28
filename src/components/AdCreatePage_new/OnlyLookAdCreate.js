@@ -7,8 +7,8 @@ import style from "./AdCreatePage.css"
 import {Button , Form , TextArea} from "semantic-ui-react"
 
 import FeedComponent from "../AdPage_new/FeedComponent"
-import AdImageUploaderModal from "./AdImageUploaderModal"
-
+import UploaderWithSlider from "./UploaderWithSlider"
+import ImageSlider from "./ImageSlider"
 // immutable state change helper
 var dotProp = require("dot-prop-immutable")
 
@@ -86,12 +86,12 @@ class OnlyLookAdCreate extends Component {
 						placeholder='もっと詳しい内容' style={{ minHeight: 100 }}>
 					</TextArea>
 				</Form>
-
-				<AdImageUploaderModal
-					id="onlyLook"
-					onChangePictures={this.onChangePictures}
-					picNum={this.props.adObject.images.length}
-				/>
+				
+				<UploaderWithSlider
+				pictures = {this.props.adObject.images}
+				id="onlyLook"
+				onChangePictures={this.onChangePictures}
+				 />
 
 				<div className={style.OkButtonFrame}>
 					<div className="OkButtonCorner">{this.renderOkButton()}</div>

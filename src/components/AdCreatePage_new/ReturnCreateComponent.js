@@ -2,7 +2,7 @@ import React , {Component}  from "react"
 
 //Components
 import AdImageUploader from "./deplicated/AdImageUploader"
-import AdImageUploaderModal from "./AdImageUploaderModal"
+import UploaderWithSlider from "./UploaderWithSlider"
 
 //css
 import "./AdCreatePage.css"
@@ -85,11 +85,10 @@ class ReturnCreateComponent extends Component {
 		return (
 			<div>
 				{this.renderTextField()}
-				<AdImageUploaderModal
+				<UploaderWithSlider
 					id="returncreate"
 					onChangePictures={this.onChangePictures}
-					maxNum = {10}
-					picNum={this.props.returnObject.images.length}
+					pictures = {this.props.returnObject.images}
 				/>
 			</div>
 		)
