@@ -1,5 +1,5 @@
 import React , {Component}  from "react"
-import {  } from "semantic-ui-react"
+import { Dimmer , Loader } from "semantic-ui-react"
 import style from "./AdPage.css"
 
 import FourImageComponent from "./FourImageComponent"
@@ -8,28 +8,54 @@ import ActionComponent from "./ActionComponent"
 import RatingComponent from "./RatingComponent"
 import FeedComponent from "./FeedComponent"
 
+//utils
+import getUrlsFromKeys from "../../Utils/getUrlsFromKeys"
 
-const images = [
-	"http://www.jma-net.go.jp/sat/data/web89/parts89/himawari9_first_image/tcr/tcr_m.jpg" , 
-	"http://dic.nicovideo.jp/oekaki/40813.png",
-	"https://grapee.jp/wp-content/uploads/28741_main.jpg" ,
-	"https://r-trade.jp/wp/wp-content/uploads/2016/02/chikyuu.png"
-]
 class AdPage extends Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+			urls: []
+		}
+	}
+	componentWillMount() {
+		this.fetchAdData()
+	}
+
 	fetchAdData() {	
+		const id_user = this.props.match.params.id_user
+		const id_ad = this.props.match.params.id_ad
+		this.props.fetchAdData(id_user, id_ad )
 	}
-
-	createUrlFromKey() {
-		//this.props.adObject.imagesをurlに変換する
-	}
-
 	render() {
+		if(this.props.loading) {
+			return (
+				<Dimmer active>
+					<Loader size='massive'>Loading</Loader>
+				</Dimmer>
+			)
+		}
+
+		if(this.props.errorMessage) {
+			//TODO : もっとまともなエラーページ
+			return (
+				<div>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+					{this.props.errorMessage}
+				</div>
+			)
+		}
+
 		return (
 			<div className={style.AdPage}>
 				<div className={style.AdPageContainer}>
 					<div>
 						<FourImageComponent
-							images = {images}
+							images = {this.props.imageUrls}
 						/>
 					</div>
 

@@ -1,18 +1,16 @@
 import { connect } from "react-redux"
 import AdPage from "../../components/AdPage_new/AdPage"
-import {} from "../../actions/AdPage"
+import {
+	fetchAdData,
+
+} from "../../actions/AdPage"
 
 
 import {
 	getAdObject,
-	getReturnObject,
-	getIndex,
-	getAdCreateCompleted,
-	getReturnCreateCompleted,
 	getAdType,
 	getTitle,
 	getReturnDescription,
-	getReturnType,
 } from "../../selectors/AdCreatePage"
 
 function mapStateToProps(state){
@@ -23,12 +21,16 @@ function mapStateToProps(state){
 		title: getTitle(subState),
 		returnDescription: getReturnDescription(subState),
 		username: subState.username,
+		loading : subState.loading,
+		errorMessage: subState.errorMessage, 
+		imageUrls : subState.imageUrls, 
 		rating : 3
 	}
 }
 
 function mapDispatchToProps(dispatch) {
 	return {
+		fetchAdData : (id_user , id_ad) => dispatch(fetchAdData(id_user , id_ad)) 
 	}
 }
 

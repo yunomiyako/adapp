@@ -1,13 +1,7 @@
-import {fileDownload} from "../api/fileDownload"
+import getUrlsFromKeys from "../api/getUrlsFromKeys"
 
 export default (keys , callback) => {
-	//TODO キャッシュする
-	
-	const promises = keys.map(path => {
-		return fileDownload(path)
-	})
-
-	Promise.all(promises).then(urls => {
+	getUrlsFromKeys(keys).then(urls => {
 		console.log("urls = " + urls.length)
 		callback(urls)
 	})

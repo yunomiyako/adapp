@@ -1,22 +1,40 @@
-export const FETCH_EXAMPLE_DATA  = "FETCH_EXAMPLE_DATA"
-export function fetchExampleData() {
+export const FETCH_AD_DATA  = "FETCH_AD_DATA"
+export function fetchAdData(id_user, id_ad) {
 	return {
-		type: FETCH_EXAMPLE_DATA
+		type: FETCH_AD_DATA , 
+		id_user , 
+		id_ad 
 	}
 }
 
-export const EXAMPLE_FETCH_SUCCEEDED = "EXAMPLE_FETCH_SUCCEEDED"
-export function exampleFetchSucceeded(data) {
+export const FETCH_AD_DATA_FAIL = "FETCH_AD_DATA_FAIL"
+export function fetchAdDataFail(errorMessage) {
 	return {
-		type : EXAMPLE_FETCH_SUCCEEDED ,
-		data
+		type : FETCH_AD_DATA_FAIL,
+		errorMessage
 	}
 }
 
-export const EXAMPLE_FETCH_FAILED = "EXAMPLE_FETCH_FAILED"
-export function exampleFetchFailed(message) {
+export const FETCH_AD_DATA_SUCCESS = "FETCH_AD_DATA_SUCCESS"
+export function fetchAdDataSuccess(response) {
 	return {
-		type : EXAMPLE_FETCH_FAILED ,
-		message
+		type : FETCH_AD_DATA_SUCCESS,
+		response
+	}
+}
+
+export const KEYS_TO_URLS = "KEYS_TO_URLS"
+export function keysToUrls(keys) {
+	return {
+		type : KEYS_TO_URLS , 
+		keys
+	}
+}
+
+export const ON_CHANGE_IMAGE_URLS  = "ON_CHANGE_IMAGE_URLS"
+export function onChangeImageUrls(imageUrls) {
+	return {
+		type: ON_CHANGE_IMAGE_URLS ,
+		imageUrls
 	}
 }

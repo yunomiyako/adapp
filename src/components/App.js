@@ -62,7 +62,7 @@ class App extends Component {
 
 					<div className="App-Component">
 						<Route exact={true} path="/" component={TopPage}/>
-						<Route path="/ad_page" component={AdPage}/>
+						<Route path="/ad_page/:id_user/:id_ad" component={AdPage}/>
 						<Route path="/ad_create" component={AdCreatePage}/>
 						<Route path="/test" component = {TestPage}/>
 						<Route path="/test2" component = {ExperimentalPage}/>
