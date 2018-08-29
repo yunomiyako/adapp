@@ -35,7 +35,7 @@ export default function AdCreateInfo(state = new AdCreateInfoStructure({}) , act
 	case ON_CHANGE_INDEX:
 		return dotProp.set(state , "index" ,  action.index )
 	case CLEAR_STATE :
-		return AdCreateInfoStructure
+		return new AdCreateInfoStructure({})
 	case ON_CHANGE_AD_CREATE_COMPLETED:
 		return dotProp.set(state , "adCreateCompleted" ,  action.adCreateCompleted )
 	case ON_CHANGE_RETURN_CREATE_COMPLETED:

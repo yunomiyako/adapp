@@ -17,7 +17,6 @@ const changeUrlToOriginal = (image_list) => {
 }
 
 class FourImageComponent extends Component {
-
 	render() {
 		return (
 			<div>

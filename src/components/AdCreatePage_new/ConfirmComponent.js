@@ -73,13 +73,14 @@ class ConfirmComponent extends Component {
 
 	onClickOk = () => {
 		this.setState({loading : true})
-
 		//送信処理
 		const callback = (response) => {
 			if(response.status == "OK") {
+				console.log("ok")
 				this.setState({loading : false})
 				this.setState({id_ad : response.id_ad})
 				this.setState({id_user : response.id_user})
+				this.props.clearState()
 			} else {
 				this.setState({loading : false})
 				console.log(response.errorMessage)
