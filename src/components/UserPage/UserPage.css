@@ -28,6 +28,8 @@
 }
 
 :local .ContentFrame {
+  display: flex;
+  justify-content: space-between;
   background: white;
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
@@ -37,4 +39,27 @@
   width  : auto ;
   max-width : 500px;
   filter: drop-shadow(0px 0px 8px rgba(0,0,0,0.3));
+  text-align: left;
+}
+
+:local .ContentFrameTitle {
+  order: 1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-right: 12px;
+}
+
+:local .ContentFrameDate {
+  order: 2;
+  align-self: flex-end;
+  color: rgb(140, 140, 140);
+}
+
+:local .aaaa {
+  color: rgb(100, 100, 100);
+  border-bottom: dashed 2px rgb(100, 100, 100);
+  margin-left: 30px;
+  margin-right: 30px;
+  text-align: left;
 }
