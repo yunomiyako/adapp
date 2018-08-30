@@ -29,8 +29,6 @@ class ReturnPage extends Component {
 		super(props)
 		const type = this.props.match.params.type
 		
-
-		
 		this.data = getReturnData(type,0)
 		//console.log(this.data)
 
