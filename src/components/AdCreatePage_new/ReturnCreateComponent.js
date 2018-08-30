@@ -70,10 +70,10 @@ class ReturnCreateComponent extends Component {
 		this.props.onChangeReturnObject(newObj)
 	}
 
-	renderTextField() {
+	renderTextField(row_num) {
 		return (
 			<Form>
-				<TextArea autoHeight placeholder='説明を書いてね' rows={3}
+				<TextArea autoHeight placeholder='説明を書いてね' rows={row_num}
 					onChange={this.onChangeText}
 					value={this.props.returnObject.text}
 				/>
@@ -84,7 +84,7 @@ class ReturnCreateComponent extends Component {
 	imageAndText() {
 		return (
 			<div>
-				{this.renderTextField()}
+				{this.renderTextField(3)}
 				<UploaderWithSlider
 					id="returncreate"
 					onChangePictures={this.onChangePictures}
@@ -103,7 +103,7 @@ class ReturnCreateComponent extends Component {
 	textOnly() {
 		return (
 			<div>
-				{this.renderTextField()}
+				{this.renderTextField(10)}
 			</div>
 		)
 	}

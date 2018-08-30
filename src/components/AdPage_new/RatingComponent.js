@@ -2,7 +2,7 @@ import React , {Component}  from "react"
 import { Rating } from "semantic-ui-react"
 import style from "./AdPage.css"
 
-class ActionComponent extends Component {
+class RatingComponent extends Component {
 	render() {
 		return (
 			<div className={style.RatingComponent}>
@@ -14,4 +14,4 @@ class ActionComponent extends Component {
 	}
 }
 
-export default ActionComponent
+export default RatingComponent

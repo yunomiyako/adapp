@@ -7,7 +7,7 @@ import TabletBreakpoint from "../responsive_utilities/tablet_breakpoint"
 import PhoneBreakpoint from "../responsive_utilities/phone_breakpoint"
 
 
-class ActionComponent extends Component {
+class TitleComponent extends Component {
 	renderUserName() {
 		if(this.props.username) {
 			return (				<div className ={style.username_frame}>
@@ -34,4 +34,4 @@ class ActionComponent extends Component {
 	}
 }
 
-export default ActionComponent
+export default TitleComponent

@@ -4,12 +4,14 @@ import { call, put, takeEvery , takeLatest } from "redux-saga/effects"
 import {ON_SUBMIT_ADCREATE } from "../actions/AdCreate"
 import {FETCH_AD_DATA , FETCH_AD_DATA_SUCCESS , 
 	FETCH_AD_DATA_FAIL , KEYS_TO_URLS,
-	ON_CHANGE_IMAGE_URLS} from "../actions/AdPage"
+	ON_CHANGE_IMAGE_URLS, ON_SEND_ACTION , 
+	ACTION_FAIL , ACTION_SUCCESS} from "../actions/AdPage"
 
 //import API
 import {submitAdCreateInfo} from "../api/AdCreatePage"
 import fetchAdData from "../api/fetchAdData"
 import getUrlsFromKeys from "../api/getUrlsFromKeys"
+import sendAction from "../api/sendAction"
 
 // ワーカー Saga: FETCH_EXAMPLE_DATA Action によって起動する
 function *onSubmitAdCreate(action) {
@@ -50,6 +52,16 @@ function *onKeysToUrls(action) {
 	}
 }
 
+function *onSendAction(action) {
+	try {
+		const payload = {}
+		const response = yield call(sendAction , payload)
+		yield put({type : ACTION_SUCCESS , response})
+	}catch(e) {
+		yield put({type :  ACTION_FAIL  , errorMessage : "できなかった！"})
+	}
+}
+
 /*
   FETCH_EXAMPLE_DATA Action が送出されるたびに fetchUser を起動します。
   ユーザ情報の並列取得にも対応しています。
@@ -58,6 +70,7 @@ function* mySaga() {
 	yield takeLatest(ON_SUBMIT_ADCREATE, onSubmitAdCreate) 
 	yield takeLatest(FETCH_AD_DATA , onFetchAdData)
 	yield takeLatest(KEYS_TO_URLS , onKeysToUrls)
+	yield takeLatest(ON_SEND_ACTION , onSendAction)
 }
 
 /*

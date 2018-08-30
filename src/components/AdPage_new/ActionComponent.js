@@ -6,7 +6,7 @@ import getReturnButtonText from "../../domain/getReturnButtonText"
 
 class ActionComponent extends Component {
 	onClickButton() {
-		console.log(this.props.adType)
+		this.props.onClickActionButton()
 	}
 	
 	render() {

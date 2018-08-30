@@ -48,27 +48,31 @@ class TypeSelectionComponent extends Component {
 	renderButtons(buttons) {
 		return buttons.map(btn => {
 			return (
-				<Button key={btn.id}
-					id="typeselect"
-					color={this.props.type === btn.id ? "blue" : "grey"}
-					disabled={btn.disabled}
-					size="medium"
-					onClick={() => this.onClick(btn.id)}>
+				<div key={btn.id}>
+					<Button 
+						fluid
+						id="typeselect"
+						color={this.props.type === btn.id ? "blue" : "grey"}
+						disabled={btn.disabled}
+						size="medium"
+						onClick={() => this.onClick(btn.id)}>
 
-					{btn.icon ? <Icon name={btn.icon}/> : null}
-					{btn.btnText}
-				</Button>
+						{btn.icon ? <Icon name={btn.icon}/> : null}
+						{btn.btnText}
+					</Button>
+					<div className={style.description}>
+						<p className={style.descriptionText}>{this.renderDescription(btn)}</p>
+					</div>
+				</div>
 			)
 		}
 		)
 	}
 
-	renderDescription(buttons) {
+	renderDescription(button) {
 		if(this.props.type !== "") {
-			for(var i in buttons) {
-				if(buttons[i].id == this.props.type) {
-					return buttons[i].description
-				}
+			if(button.id == this.props.type) {
+				return button.description
 			}
 		}
 	}
@@ -78,10 +82,6 @@ class TypeSelectionComponent extends Component {
 		return (
 			<div className="TypeSelectionComponent">
 				{this.renderButtons(this.props.buttons)}
-				<div className={style.description}>
-					<p className={style.descriptionText}>{this.renderDescription(this.props.buttons)}</p>
-				</div>
-
 			</div>
 		)
 	}

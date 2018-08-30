@@ -2,7 +2,7 @@ import { connect } from "react-redux"
 import AdPage from "../../components/AdPage_new/AdPage"
 import {
 	fetchAdData,
-
+	onSendAction, 
 } from "../../actions/AdPage"
 
 
@@ -24,13 +24,14 @@ function mapStateToProps(state){
 		loading : subState.loading,
 		errorMessage: subState.errorMessage, 
 		imageUrls : subState.imageUrls, 
-		rating : 3
+		rating : subState.rating
 	}
 }
 
 function mapDispatchToProps(dispatch) {
 	return {
-		fetchAdData : (id_user , id_ad) => dispatch(fetchAdData(id_user , id_ad)) 
+		fetchAdData : (id_user , id_ad) => dispatch(fetchAdData(id_user , id_ad)) , 
+		onClickActionButton : (payload) => dispatch(onSendAction(payload)) 
 	}
 }
 

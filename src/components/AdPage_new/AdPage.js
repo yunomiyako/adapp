@@ -8,9 +8,6 @@ import ActionComponent from "./ActionComponent"
 import RatingComponent from "./RatingComponent"
 import FeedComponent from "./FeedComponent"
 
-//utils
-import getUrlsFromKeys from "../../Utils/getUrlsFromKeys"
-
 class AdPage extends Component {
 	constructor(props) {
 		super(props)
@@ -27,6 +24,11 @@ class AdPage extends Component {
 		const id_ad = this.props.match.params.id_ad
 		this.props.fetchAdData(id_user, id_ad )
 	}
+
+	onClickActionButton() {
+		this.props.onClickActionButton()
+	}
+
 	render() {
 		if(this.props.loading) {
 			return (
@@ -69,12 +71,13 @@ class AdPage extends Component {
 
 					<div>
 						<RatingComponent
-							rating = {3.9}
+							rating = {this.props.rating}
 						/>
 					</div>
 
 					<div>
 						<ActionComponent
+							onClickActionButton = {() => this.onClickActionButton()}
 							returnDescription = {this.props.returnDescription}
 							adType = {this.props.adType}
 						/>

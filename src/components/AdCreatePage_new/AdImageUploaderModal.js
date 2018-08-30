@@ -4,6 +4,10 @@ import { Button, Modal } from "semantic-ui-react"
 import style from "./AdCreatePage.css"
 import {imageUploadUserWithRandomName} from "../../api/imageUpload"
 
+import DesktopBreakpoint from "../responsive_utilities/desktop_breakpoint"
+import TabletBreakpoint from "../responsive_utilities/tablet_breakpoint"
+import PhoneBreakpoint from "../responsive_utilities/phone_breakpoint"
+
 class AdImageUploaderModal extends React.Component {
 	shouldComponentUpdate(nextProps, nextState) {
 		const keys = Object.keys(nextProps)
@@ -114,6 +118,38 @@ class AdImageUploaderModal extends React.Component {
 		this.handleClose()
 	}
 
+	renderButtons() {
+		return (
+			<React.Fragment>
+				<PhoneBreakpoint>
+					<Button color="black" size="mini" onClick={() => this.handleClear()} disabled={this.props.picNum == 0}> 画像全削除 </Button>
+					<Button color="red" size="mini" onClick={() => this.handleCancel()}>キャンセル</Button>
+					<Button color="green" size="mini" onClick={() => this.handleOk()} 
+						disabled={this.state.okIsDisabled || this.state.loading}
+						loading = {this.state.loading}
+					>アップロード</Button>
+				</PhoneBreakpoint>
+				<TabletBreakpoint>
+					<Button color="black" onClick={() => this.handleClear()} disabled={this.props.picNum == 0}> 画像全削除 </Button>
+					<Button color="red" onClick={() => this.handleCancel()}>キャンセル</Button>
+					<Button color="green" onClick={() => this.handleOk()} 
+						disabled={this.state.okIsDisabled || this.state.loading}
+						loading = {this.state.loading}
+					>アップロード</Button>
+				</TabletBreakpoint>
+				<DesktopBreakpoint>
+					<Button color="black" onClick={() => this.handleClear()} disabled={this.props.picNum == 0}> 画像全削除 </Button>
+					<Button color="red" size="big" onClick={() => this.handleCancel()}>キャンセル</Button>
+					<Button color="green" size="big" onClick={() => this.handleOk()} 
+						disabled={this.state.okIsDisabled || this.state.loading}
+						loading = {this.state.loading}
+					>アップロード</Button>
+				</DesktopBreakpoint>
+				
+			</React.Fragment>
+		)
+	}
+
 
 	render() {
 		const buttonText = "画像を追加(" + this.props.picNum  +  "/" + this.maxNum + ")"
@@ -129,17 +165,13 @@ class AdImageUploaderModal extends React.Component {
 						buttonText='Choose images'
 						onChange={this.onDrop}
 						imgExtension={[".jpg",".jpeg", ".png", ".gif"]}
+						maxFileSize={5242880}
 					/>
 					<div >
 
 					</div>
 
-					<Button color="black" size="small" onClick={() => this.handleClear()} disabled={this.props.picNum == 0}> 画像全削除 </Button>
-					<Button color="red" size="big" onClick={() => this.handleCancel()}>キャンセル</Button>
-					<Button color="green" size="big" onClick={() => this.handleOk()} 
-						disabled={this.state.okIsDisabled || this.state.loading}
-						loading = {this.state.loading}
-					>アップロード</Button>
+					{this.renderButtons()}
 				</div>
 			</Modal>
 		)

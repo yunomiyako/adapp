@@ -16,7 +16,6 @@
 }
 
 .AdCreatePage-Title {
-  color : black ;
   text-align: left
 }
 
@@ -42,11 +41,11 @@
 }
 
 :local .description {
-  margin : 20px 10px 0px 10px ;
+  margin : 20px 10px 20px 10px ;
 }
 
 :local .descriptionText {
-  color: black;
+  font-size: 18px;
 }
 
 .OkButtonCorner {
@@ -112,4 +111,19 @@
 :local .previewImavge {
   max-height : 100px;
   max-width : 100px;
+}
+
+.fileContainer .deleteImage {
+  position: absolute !important;
+  top: -9px !important;
+  right: -9px !important;
+  font-size: 8px !important;
+  color: #fff !important;
+  background: #ff4081 !important;
+  border-radius: 50% !important;
+  width: 15px !important;
+  height: 15px !important;
+  text-align: center !important;
+  line-height: 15px !important;
+  cursor: pointer !important;
 }
