@@ -133,10 +133,14 @@
   text-align: center;
 }
 
-#FourImageComponent .image-gallery-slide img {
+#NoFullScreen .image-gallery-slide img {
   width: 100%;
   height: 400px;
 	object-fit: cover;
+}
+
+#FullScreen .image-gallery-slide img {
+  height : 70%;
 }
 
 :local .p_line {

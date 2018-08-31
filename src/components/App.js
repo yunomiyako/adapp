@@ -34,6 +34,7 @@ class App extends Component {
 		Auth.currentAuthenticatedUser().then(user => {
 			console.log("signed in")
 			console.log(user)
+			console.log(user.username)
 		})
 			.catch(err => {
 				Auth.signUp({

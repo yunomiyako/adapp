@@ -4,8 +4,11 @@ import AdPageInfoDataStructure from "../domain/AdPageInfoDataStructure"
 export default function(payload){
 	let apiName = "adApp"
 	let path = "/addata"
+
+	
 	console.log("query is ...")
 	console.log(payload)
+
 	let myInit = { 
 		response: true, // (return the entire Axios response object instead of only response.data)
 		queryStringParameters: payload

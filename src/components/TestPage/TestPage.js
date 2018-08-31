@@ -2,11 +2,16 @@ import React , {Component}  from "react"
 import "./TestPage.css"
 import { Button  } from "semantic-ui-react"
 import { Link } from "react-router-dom"
-
+import api from "../../api/TestAPIWithAuthorization"
 
 class TestPage extends Component {
 	constructor(props) {
 		super(props)
+	}
+
+	async onClickButton() {
+		const test = await api()
+		console.log(test)
 	}
 
 	renderLink() {
@@ -28,6 +33,7 @@ class TestPage extends Component {
 	render() {
 		return (
 			<div className="TestPage">
+			<Button onClick = {() => this.onClickButton()}>test</Button>
 				{this.renderLink()}
 			</div>
 		)
