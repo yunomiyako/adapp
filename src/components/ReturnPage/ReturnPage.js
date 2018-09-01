@@ -3,7 +3,10 @@ import getReturnData from "../../domain/getReturnData"
 import ImageGallery from "react-image-gallery"
 import "react-image-gallery/styles/css/image-gallery.css"
 import style from "./ReturnPage.css"
-import { Rating } from "semantic-ui-react"
+import { Rating} from "semantic-ui-react"
+import PhoneBreakpoint from "../responsive_utilities/phone_breakpoint"
+import DesktopBreakpoint from "../responsive_utilities/desktop_breakpoint"
+import TabletBreakpoint from "../responsive_utilities/tablet_breakpoint"
 
 /* TODO
 1. returnTypeによって異なるお返し画面を描画する
@@ -28,8 +31,6 @@ class ReturnPage extends Component {
 	constructor(props) {
 		super(props)
 		const type = this.props.match.params.type
-		
-
 		
 		this.data = getReturnData(type,0)
 		//console.log(this.data)
@@ -57,46 +58,96 @@ class ReturnPage extends Component {
 		}
 	}
 
+	for_segment(text){
+
+		return(
+
+			<div className="ui piled segment">
+						
+				<h4 className="ui header">Return</h4>
+				<p>
+					{text}
+				</p>
+			</div>
+		)
+
+
+	}
+
+	type_check(ret_type){
+		
+		if (ret_type=="textAndImage") {
+			return(
+				<div className ={style.textAndImage} >
+					<PhoneBreakpoint>
+						<div className ={style.ImagePhone} >
+							< ImageGallery items={this.state.image_list} /> 
+						</div>
+						
+						{this.for_segment(this.data.text)}
+					
+					</PhoneBreakpoint>
+					<DesktopBreakpoint>
+						<div className ={style.Image} >
+							< ImageGallery items={this.state.image_list} /> 
+						</div>
+						<div className ={style.segment} >
+							{this.for_segment(this.data.text)}
+						</div>
+					</DesktopBreakpoint>
+					<TabletBreakpoint>
+						<div className ={style.Image} >
+							< ImageGallery items={this.state.image_list} /> 
+						</div>
+						<div className ={style.segment} >
+							{this.for_segment(this.data.text)}
+						</div>
+					</TabletBreakpoint>
+					
+					
+						
+				</div>	
+			)	}
+		if (ret_type=="textOnly"){
+			return(
+				<div className ={style.Text_for_only} >
+					<PhoneBreakpoint>					
+						{this.for_segment(this.data.text)}				
+					</PhoneBreakpoint>
+					<DesktopBreakpoint>
+						<div className ={style.segment} >
+							{this.for_segment(this.data.text)}
+						</div>
+					</DesktopBreakpoint>
+					<TabletBreakpoint>
+						<div className ={style.segment} >
+							{this.for_segment(this.data.text)}
+						</div>
+					</TabletBreakpoint>
+				</div>
+			)
+		}
+
+	}
+
 	render() {
 		return (
 			
 			<div className ={style.ReturnPage} >
-				{(() => {
-					if (this.state.returnType=="textAndImage") {
-						return(
-							<div className ={style.textAndImage} >
-								<div className ={style.Image} >
-									< ImageGallery items={this.state.image_list} /> 
-								</div>
-								<div class="ui piled segment">
-									<h4 class="ui header">Return</h4>
-									<p>
-										{this.data.text}
-									</p>
-								</div>
-									
-							</div>
-							
-						)	
-					} 
-					if (this.state.returnType=="textOnly"){
-						return(
-							<div className ={style.Text_for_only} >
-								<div class="ui piled segment">
-									<h4 class="ui header">Return</h4>
-									<p>
-										{this.data.text}
-									</p>
-								</div>
-							</div>
-						)
-					}
-				})()}
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				{this.type_check(this.state.returnType)}
 
+				<br/>
+				<br/>
+				<br/>
+				<br/>
 
 				<div className={style.Rating}>
 					<h2>お返しの評価</h2>
-					<Rating maxRating={5} defaultRating={3.9} icon='star' size='massive' disabled />(3.9)</div>
+					<Rating maxRating={5} defaultRating={3.9} icon='star' size='massive' abled />(3.9)</div>
 			</div>
 		)
 	}

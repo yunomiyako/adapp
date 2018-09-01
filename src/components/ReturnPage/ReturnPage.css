@@ -1,14 +1,27 @@
 :local .Image {   
-    display: flex;
+    max-width :25%;
+    max-height: 10%;
+    margin:auto;
+    justify-content: center;
+}
+:local .ImagePhone{   
+    max-width :50%;
+    max-height: 20%;
+    margin:auto;
     justify-content: center;
 }
 
 :local .Text_for_only {
-    font-size: 100px;
-    position: relative;
-    color: rgba(7, 6, 6, 0.931);
-    padding : 100px ;
+
 }
+
+:local .segment {
+    max-width :50%;
+    max-height: 20%;
+    margin:auto;
+
+}
+
 
 :local .aaa {
     font-size: 100px;
