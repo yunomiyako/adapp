@@ -17,7 +17,8 @@ export default function(payload){
 	console.log("fetchAdData start")
 	return API.get(apiName, path, myInit).then(res => {
 		console.log("fetchAdData then")
-		const body = JSON.parse(res.data.body) 
+		//const body = JSON.parse(res.data.body) 
+		const body = res.data
 		const result = new AdPageInfoDataStructure(body)
 		result.status = "OK"
 		return result

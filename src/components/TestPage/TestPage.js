@@ -3,6 +3,7 @@ import "./TestPage.css"
 import { Button  } from "semantic-ui-react"
 import { Link } from "react-router-dom"
 import api from "../../api/TestAPIWithAuthorization"
+import api2 from "../../api/registerUserId"
 
 class TestPage extends Component {
 	constructor(props) {
@@ -10,7 +11,7 @@ class TestPage extends Component {
 	}
 
 	async onClickButton() {
-		const test = await api()
+		const test = await api2()
 		console.log(test)
 	}
 
