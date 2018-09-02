@@ -16,6 +16,8 @@ import { Route, BrowserRouter } from "react-router-dom"
 import Amplify from "aws-amplify"
 import conf from "../aws/aws_configure"
 import anonymousAuth from "../aws/authentification"
+import {set_userdetail} from "../localStorage/user_detail"
+import fetchUserDetail from "../api/fetchUserDetail"
 
 Amplify.configure(conf)
 
@@ -29,7 +31,13 @@ class App extends Component {
 	}
 
 	tmpAuth() {
-		anonymousAuth()
+		const callback = () => {
+			fetchUserDetail().then((detail) => {
+				set_userdetail(detail)
+			})
+		}
+
+		anonymousAuth(callback)
 	}
 
 	render() {

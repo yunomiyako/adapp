@@ -3,6 +3,9 @@ import {  Button , Responsive , Icon } from "semantic-ui-react"
 import style from "./AdPage.css"
 
 import getReturnButtonText from "../../domain/getReturnButtonText"
+import DesktopBreakPoint from "../responsive_utilities/desktop_breakpoint"
+import TabletBreakPoint from "../responsive_utilities/tablet_breakpoint"
+import PhoneBreakPoint from "../responsive_utilities/phone_breakpoint"
 
 class ActionComponent extends Component {
 	onClickButton() {
@@ -13,37 +16,36 @@ class ActionComponent extends Component {
 		const buttonText = getReturnButtonText(this.props.adType)
 		return (
 			<div className={style.stickyBottom}>
-				<div className = {style.boxFrame}>
-					<div className = {style.leftBox}>
+	
+				<div className = {style.returnText}>
+					<Icon name='gift' size='big' />
+					<Responsive minWidth={Responsive.onlyTablet.minWidth}><div className={style.returnPrefix}>お返し :</div></Responsive>
+					<span className ={style.return}>{this.props.returnDescription}</span>
+				</div>
 
-						<div className = {style.returnText}>
-							<Icon name='gift' size='big' />
-							<Responsive minWidth={Responsive.onlyTablet.minWidth}>お返し :　</Responsive>
-							<span className ={style.return}>{this.props.returnDescription}</span>
-						</div>
+				<div className = {style.actionButton}>
 
-					</div>
-					<div className = {style.rightBox}>
-						<div className = {style.actionButton}>
+					<PhoneBreakPoint>
+						<Button color='orange' size="small" 
+							onClick = {() => this.onClickButton()}>
+							{buttonText}
+						</Button>
+					</PhoneBreakPoint>
 
-							<Responsive
-								{...Responsive.onlyMobile}
-								as={Button}
-								content={buttonText}
-								color='orange' size="mini"
-								onClick = {() => this.onClickButton()}
-								maxWidth = {Responsive.onlyTablet.minWidth}
-							/>
-							<Responsive
-								as={Button}
-								content={buttonText}
-								color='orange' size="big"
-								onClick = {() => this.onClickButton()}
-								minWidth={Responsive.onlyTablet.minWidth}
-							/>
+					<TabletBreakPoint>
+						<Button color='orange' size="big"
+							onClick = {() => this.onClickButton()}>
+							{buttonText}
+						</Button>
+					</TabletBreakPoint>
 
-						</div>
-					</div>
+					<DesktopBreakPoint>
+						<Button color='orange' size="big" 
+							onClick = {() => this.onClickButton()}>
+							{buttonText}
+						</Button>
+					</DesktopBreakPoint>
+
 				</div>
 			</div>
 		)

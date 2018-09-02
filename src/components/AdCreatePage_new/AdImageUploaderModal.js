@@ -8,6 +8,8 @@ import DesktopBreakpoint from "../responsive_utilities/desktop_breakpoint"
 import TabletBreakpoint from "../responsive_utilities/tablet_breakpoint"
 import PhoneBreakpoint from "../responsive_utilities/phone_breakpoint"
 
+import {get_id_user} from "../../localStorage/user_detail"
+
 class AdImageUploaderModal extends React.Component {
 	shouldComponentUpdate(nextProps, nextState) {
 		const keys = Object.keys(nextProps)
@@ -17,8 +19,8 @@ class AdImageUploaderModal extends React.Component {
 			}
 		}
 		const keys2 = Object.keys(nextState || {})
-		for(var key of keys2) {
-			if (nextState[key] !== this.props[key]) {
+		for(var key2 of keys2) {
+			if (nextState[key2] !== this.props[keys2]) {
 				return true
 			}
 		}
@@ -103,7 +105,8 @@ class AdImageUploaderModal extends React.Component {
 	handleOk() {
 		//画像をアップロード
 		this.setState({loading : true})
-		Promise.all(imageUploadUserWithRandomName(this.state.pictures , "test_user")).then((values) => {
+		const id_user = get_id_user()
+		Promise.all(imageUploadUserWithRandomName(this.state.pictures , id_user)).then((values) => {
 			const keys = values.map(v => v.key)
 			console.log(keys)
 			this.props.onChangePictures(keys)
