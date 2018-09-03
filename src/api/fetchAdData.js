@@ -15,6 +15,7 @@ export default function(payload){
 	}
 
 	console.log("fetchAdData start")
+	console.log(payload)
 	return API.get(apiName, path, myInit).then(res => {
 		console.log("fetchAdData then")
 		//const body = JSON.parse(res.data.body) 

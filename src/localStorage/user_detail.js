@@ -18,5 +18,7 @@ export const set_userdetail = (detail) => {
 
 export const get_id_user = () => {
 	const detail = get_userdetail()
-	return detail["id_user"]
+	console.log("get id_user from local")
+	console.log(detail)
+	return detail["id_user"] || "temp_id_user"
 }

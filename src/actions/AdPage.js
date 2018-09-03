@@ -62,3 +62,19 @@ export function actionFail(errorMessage) {
 		errorMessage
 	}
 }
+
+export const ON_CHANGE_ID_RETURN_TO_GO = "ON_CHANGE_ID_RETURN_TO_GO" 
+export function onChangeIdReturnToGo(id_return_to_go) {
+	return {
+		type : ON_CHANGE_ID_RETURN_TO_GO, 
+		id_return_to_go
+	}
+}
+
+export const ON_CHANGE_ACTION_LOADING = "ON_CHANGE_ACTION_LOADING" 
+export function onChangeActionLoading(is_loading) {
+	return {
+		type : ON_CHANGE_ID_RETURN_TO_GO, 
+		is_loading
+	}
+}

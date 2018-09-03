@@ -24,14 +24,16 @@ function mapStateToProps(state){
 		loading : subState.loading,
 		errorMessage: subState.errorMessage, 
 		imageUrls : subState.imageUrls, 
-		rating : subState.rating
+		rating : subState.rating , 
+		id_return_to_go : subState.id_return_to_go , 
+		actionLoading : subState.actionLoading
 	}
 }
 
 function mapDispatchToProps(dispatch) {
 	return {
 		fetchAdData : (id_user , id_ad) => dispatch(fetchAdData(id_user , id_ad)) , 
-		onClickActionButton : (payload) => dispatch(onSendAction(payload)) 
+		onClickActionButton : (payload) => dispatch(onSendAction(payload))
 	}
 }
 

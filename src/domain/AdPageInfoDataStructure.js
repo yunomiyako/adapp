@@ -8,7 +8,9 @@ class AdCreateInfoDataStructure {
 		this.username = data.username || "anonymous" , 
 		this.loading = data.loading || false , 
 		this.errorMessage = data.errorMessage || "" ,
-		this.imageUrls = data.imageUrls || []
+		this.imageUrls = data.imageUrls || [] , 
+		this.id_return_to_go = data.id_return_to_go || "" , 
+		this.actionLoading = data.actionLoading || ""
 	}
 }
 

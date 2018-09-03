@@ -3,6 +3,8 @@ import {
 	FETCH_AD_DATA_FAIL , 
 	FETCH_AD_DATA_SUCCESS , 
 	ON_CHANGE_IMAGE_URLS , 
+	ON_CHANGE_ID_RETURN_TO_GO , 
+	ON_CHANGE_ACTION_LOADING
 } from "../actions/AdPage"
 
 //データ構造
@@ -23,6 +25,10 @@ export default function AdPageInfo(state = new AdPageInfoDataStructure({}) , act
 		return new AdPageInfoDataStructure(action.response)
 	case ON_CHANGE_IMAGE_URLS : 
 		return dotProp.set(state , "imageUrls" ,  action.imageUrls )
+	case ON_CHANGE_ID_RETURN_TO_GO : 
+		return dotProp.set(state , "id_return_to_go" , action.id_return_to_go) 
+	case ON_CHANGE_ACTION_LOADING : 
+		return dotProp.set(state , "actionLoading" , action.is_loading) 
 	default :
 		return state
 	}

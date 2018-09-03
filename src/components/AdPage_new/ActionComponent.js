@@ -27,6 +27,8 @@ class ActionComponent extends Component {
 
 					<PhoneBreakPoint>
 						<Button color='orange' size="small" 
+							disabled = {this.props.loading}
+							loading = {this.props.loading}
 							onClick = {() => this.onClickButton()}>
 							{buttonText}
 						</Button>
@@ -34,6 +36,8 @@ class ActionComponent extends Component {
 
 					<TabletBreakPoint>
 						<Button color='orange' size="big"
+							disabled = {this.props.loading}
+							loading = {this.props.loading}
 							onClick = {() => this.onClickButton()}>
 							{buttonText}
 						</Button>
@@ -41,6 +45,8 @@ class ActionComponent extends Component {
 
 					<DesktopBreakPoint>
 						<Button color='orange' size="big" 
+							disabled = {this.props.loading}
+							loading = {this.props.loading}
 							onClick = {() => this.onClickButton()}>
 							{buttonText}
 						</Button>
