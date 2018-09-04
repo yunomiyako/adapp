@@ -35,28 +35,15 @@ class ReturnPage extends Component {
 		this.data = getReturnData(type,0)
 		//console.log(this.data)
 
-		if(type=="textAndImage" ){
-			this.state = {
-				returnType : type,
-				image_list : changeUrlToOriginal(this.data.image_list)
-			}
-		}else if(type=="textOnly" ){
-			this.state = {
-				returnType : type
-			}
-		}else if(type=="premium" ){
-			this.state = {
-				returnType : type
-			}
-		}else if(type=="lottery" ){
-			this.state = {
-				returnType : type
-			}
-		} else {
-			this.state = {
-				returnType : type
-			}
+		this.state = {
+			returnType : type,
+			image_list : null
 		}
+
+		if(type=="textAndImage" ){
+			this.state.image_list = changeUrlToOriginal(this.data.image_list)
+		}
+		
 	}
 
 	for_segment(text){
@@ -142,20 +129,15 @@ class ReturnPage extends Component {
 		return (
 			
 			<div className ={style.ReturnPage} >
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				{this.type_check(this.state.returnType)}
+	
+				<div className ={style.ReturnPage} >
+					{this.type_check(this.state.returnType)}
+				</div>
 
-				<br/>
-				<br/>
-				<br/>
-				<br/>
 
 				<div className={style.Rating}>
 					<h2>お返しの評価</h2>
-					<Rating maxRating={5} defaultRating={3.9} icon='star' size='massive' abled />(3.9)</div>
+					<Rating maxRating={5} defaultRating={0} icon='star' size='massive' /></div>
 			</div>
 		)
 	}
