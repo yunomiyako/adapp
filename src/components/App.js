@@ -9,7 +9,7 @@ import UserPage from "./UserPage/UserPage"
 import ExperimentalPage from "./ExperimentalPage/ExperimentalPage"
 import ReturnPage from "./ReturnPage/ReturnPage"
 import Header from "./Header/Header"
-
+import ReturnPageHome from "../containers/ReturnPage/ReturnPage"
 
 import { Route, BrowserRouter } from "react-router-dom"
 
@@ -56,6 +56,7 @@ class App extends Component {
 						<Route path="/test2" component = {ExperimentalPage}/>
 						<Route path="/return/:type" component = {ReturnPage}/>
 						<Route path="/userpage" component = {UserPage}/>
+						<Route path="/return_page/:id_return" component = {ReturnPageHome} />
 					</div>
 
 

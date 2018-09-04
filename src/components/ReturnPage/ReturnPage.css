@@ -4,6 +4,7 @@
     margin:auto;
     justify-content: center;
 }
+
 :local .ImagePhone{   
     max-width :50%;
     max-height: 20%;
@@ -19,7 +20,6 @@
     max-width :50%;
     max-height: 20%;
     margin:auto;
-
 }
 
 
