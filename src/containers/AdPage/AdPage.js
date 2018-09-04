@@ -31,6 +31,7 @@ function mapStateToProps(state){
 		description: state.AdCreateInfo.description,
 	}
 }
+
 function mapDispatchToProps(dispatch) {
 	return {
 		handleClick: () => handleClick(dispatch),

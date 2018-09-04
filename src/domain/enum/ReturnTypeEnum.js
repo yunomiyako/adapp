@@ -33,5 +33,13 @@ export default defineEnum({
 		popupTitle : "プレミアム会員限定" , 
 		icon : "random" , 
 		disabled : true
+	} , 
+	buyReturn : {
+		string : "buyReturn" , 
+		title : "他の人のお返しを買う" , 
+		description : "お返しが思いつかない人は、他の人が作ったお返しを買うことができます。" , 
+		popupTitle : "" , 
+		icon : "cny" , 
+		disabled : true
 	}
 })

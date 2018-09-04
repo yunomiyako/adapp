@@ -35,6 +35,7 @@ class ReturnPage extends Component {
 		this.data = getReturnData(type,0)
 		//console.log(this.data)
 
+<<<<<<< HEAD
 		this.state = {
 			returnType : type,
 			image_list : null
@@ -45,6 +46,29 @@ class ReturnPage extends Component {
 			
 			this.state.image_list = changeUrlToOriginal(this.data.image_list)
 
+=======
+		if(type=="textAndImage" ){
+			this.state = {
+				returnType : type,
+				image_list : changeUrlToOriginal(this.data.image_list)
+			}
+		}else if(type=="textOnly" ){
+			this.state = {
+				returnType : type
+			}
+		}else if(type=="premium" ){
+			this.state = {
+				returnType : type
+			}
+		}else if(type=="lottery" ){
+			this.state = {
+				returnType : type
+			}
+		} else {
+			this.state = {
+				returnType : type
+			}
+>>>>>>> 7c8efce4f2188326fc869d2719186338ffdbbada
 		}
 		
 	}
@@ -98,8 +122,12 @@ class ReturnPage extends Component {
 					
 						
 				</div>	
+<<<<<<< HEAD
 			)	}
 		else if (ret_type=="textOnly"){
+=======
+			)	}else if (ret_type=="textOnly"){
+>>>>>>> 7c8efce4f2188326fc869d2719186338ffdbbada
 			return(
 				<div className ={style.Text_for_only} >
 					<PhoneBreakpoint>					
@@ -115,6 +143,14 @@ class ReturnPage extends Component {
 							{this.for_segment(this.data.text)}
 						</div>
 					</TabletBreakpoint>
+				</div>
+			)
+		} else {
+			return (
+				<div>
+					id_return : {this.state.returnType}
+					<br/>
+					受け取りずみか検証して表示
 				</div>
 			)
 		}

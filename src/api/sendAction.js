@@ -1,6 +1,7 @@
 import {API} from "aws-amplify"
 import sendActionRequest from "./RequestDataStructure/sendActionRequest"
 
+// actionを行う（API未実装)
 export default function(payload){
 	let apiName = "adApp"
 	let path = "/action"
@@ -12,6 +13,7 @@ export default function(payload){
 		response: true, // (return the entire Axios response object instead of only response.data)
 		body : body
 	}
+
 	console.log( JSON.stringify(body))
 	return API.post(apiName, path, myInit).then(res => {
 		console.log(res)

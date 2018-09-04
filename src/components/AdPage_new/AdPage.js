@@ -8,6 +8,8 @@ import ActionComponent from "./ActionComponent"
 import RatingComponent from "./RatingComponent"
 import FeedComponent from "./FeedComponent"
 
+import {redirectToReturnPage} from "../Redirect/redirect"
+
 class AdPage extends Component {
 	constructor(props) {
 		super(props)
@@ -15,6 +17,7 @@ class AdPage extends Component {
 			urls: []
 		}
 	}
+
 	componentWillMount() {
 		this.fetchAdData()
 	}
@@ -26,7 +29,10 @@ class AdPage extends Component {
 	}
 
 	onClickActionButton() {
-		this.props.onClickActionButton()
+		const id_user = this.props.match.params.id_user
+		const id_ad = this.props.match.params.id_ad
+		const payload = {"id_user" : id_user , "id_ad" : id_ad}
+		this.props.onClickActionButton(payload)
 	}
 
 	render() {
@@ -50,6 +56,11 @@ class AdPage extends Component {
 					{this.props.errorMessage}
 				</div>
 			)
+		}
+
+		const id_return = this.props.id_return_to_go
+		if (id_return) {
+			return redirectToReturnPage(id_return)
 		}
 
 		return (
@@ -80,6 +91,7 @@ class AdPage extends Component {
 							onClickActionButton = {() => this.onClickActionButton()}
 							returnDescription = {this.props.returnDescription}
 							adType = {this.props.adType}
+							loading = {this.props.actionLoading}
 						/>
 					</div>
 

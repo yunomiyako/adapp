@@ -5,13 +5,15 @@ import {ON_SUBMIT_ADCREATE } from "../actions/AdCreate"
 import {FETCH_AD_DATA , FETCH_AD_DATA_SUCCESS , 
 	FETCH_AD_DATA_FAIL , KEYS_TO_URLS,
 	ON_CHANGE_IMAGE_URLS, ON_SEND_ACTION , 
-	ACTION_FAIL , ACTION_SUCCESS} from "../actions/AdPage"
+	ACTION_FAIL , ACTION_SUCCESS , ON_CHANGE_ID_RETURN_TO_GO ,
+	ON_CHANGE_ACTION_LOADING} from "../actions/AdPage"
 
 //import API
 import {submitAdCreateInfo} from "../api/AdCreatePage"
 import fetchAdData from "../api/fetchAdData"
 import getUrlsFromKeys from "../api/getUrlsFromKeys"
 import sendAction from "../api/sendAction"
+import receiveReturn from "../api/receiveReturn"
 
 // ワーカー Saga: FETCH_EXAMPLE_DATA Action によって起動する
 function *onSubmitAdCreate(action) {
@@ -54,10 +56,17 @@ function *onKeysToUrls(action) {
 
 function *onSendAction(action) {
 	try {
-		const payload = {}
-		const response = yield call(sendAction , payload)
-		yield put({type : ACTION_SUCCESS , response})
+		yield put ({type : ON_CHANGE_ACTION_LOADING , is_loading:true})
+		
+		//TODO : twitterAPIができたら差し替え
+		//const response = yield call(sendAction , payload)
+		const response = yield call(receiveReturn , action.payload.id_user , action.payload.id_ad)
+		console.log(response)
+		if(!response.id_return) {console.log("id_returnが帰って来てない！")}
+		//yield put({type : ACTION_SUCCESS , response})
+		yield put({type : ON_CHANGE_ID_RETURN_TO_GO , id_return_to_go : response.id_return})
 	}catch(e) {
+		yield put ({type : ON_CHANGE_ACTION_LOADING , is_loading:false})
 		yield put({type :  ACTION_FAIL  , errorMessage : "できなかった！"})
 	}
 }

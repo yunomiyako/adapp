@@ -17,11 +17,25 @@ const changeUrlToOriginal = (image_list) => {
 }
 
 class FourImageComponent extends Component {
+	onScreenChange() {
+		var imageContainer = document.getElementById("NoFullScreen")
+		if(imageContainer){
+		  imageContainer.id = "FullScreen"
+		} else {
+			var fullScreenedImageContainer = document.getElementById("FullScreen")
+			if (fullScreenedImageContainer) {
+				fullScreenedImageContainer.id = "NoFullScreen"
+			}
+		}
+	}
+
 	render() {
 		return (
 			<div>
-				<div id="FourImageComponent">
-					<ImageGallery items={changeUrlToOriginal(this.props.images)} />
+				<div id="NoFullScreen">
+					<ImageGallery 
+						onScreenChange = {() => this.onScreenChange()}
+						items={changeUrlToOriginal(this.props.images)} />
 				</div>
 			</div>
 		)

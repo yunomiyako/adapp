@@ -4,17 +4,22 @@ import AdPageInfoDataStructure from "../domain/AdPageInfoDataStructure"
 export default function(payload){
 	let apiName = "adApp"
 	let path = "/addata"
+
+	
 	console.log("query is ...")
 	console.log(payload)
+
 	let myInit = { 
 		response: true, // (return the entire Axios response object instead of only response.data)
 		queryStringParameters: payload
 	}
 
 	console.log("fetchAdData start")
+	console.log(payload)
 	return API.get(apiName, path, myInit).then(res => {
 		console.log("fetchAdData then")
-		const body = JSON.parse(res.data.body) 
+		//const body = JSON.parse(res.data.body) 
+		const body = res.data
 		const result = new AdPageInfoDataStructure(body)
 		result.status = "OK"
 		return result

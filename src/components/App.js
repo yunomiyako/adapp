@@ -14,8 +14,11 @@ import Header from "./Header/Header"
 import { Route, BrowserRouter } from "react-router-dom"
 
 import Amplify from "aws-amplify"
-import { Auth } from "aws-amplify"
 import conf from "../aws/aws_configure"
+import anonymousAuth from "../aws/authentification"
+import {set_userdetail} from "../localStorage/user_detail"
+import fetchUserDetail from "../api/fetchUserDetail"
+
 Amplify.configure(conf)
 
 class App extends Component {
@@ -28,28 +31,13 @@ class App extends Component {
 	}
 
 	tmpAuth() {
-		const username = btoa(crypto.getRandomValues(new Uint8Array(16)))
-		const password = username
-
-		Auth.currentAuthenticatedUser().then(user => {
-			console.log("signed in")
-			console.log(user)
-		})
-			.catch(err => {
-				Auth.signUp({
-					username,
-					password,
-				})
-					.then(data => {
-						Auth.signIn(username, password)
-							.then(user => {
-								console.log("signed up")
-								console.log(user)
-							})
-							.catch(err => console.log(err))
-					})
-					.catch(err => console.log(err))
+		const callback = () => {
+			fetchUserDetail().then((detail) => {
+				set_userdetail(detail)
 			})
+		}
+
+		anonymousAuth(callback)
 	}
 
 	render() {
