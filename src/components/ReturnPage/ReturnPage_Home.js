@@ -1,10 +1,6 @@
 import React , {Component}  from "react"
 import ReturnPage from "./ReturnPage"
 
-/*
-returnType
-returnObject = {text : "" , images : [key（URLではないので画像はひらけない)]}
- */
 class ReturnPageHome extends Component {
 	constructor(props) {
 		super(props)
@@ -29,6 +25,11 @@ class ReturnPageHome extends Component {
 					returnType = {this.props.returnType}
 					returnObject = {this.props.returnObject}
 				/>
+				 {/*
+				 流し込んだデータの詳細です
+				returnType : お返しtype
+				returnObject = {text : "" , images : [key（URLではないので画像はひらけない)]}
+				*/}
 			</div>
 		)
 	}
