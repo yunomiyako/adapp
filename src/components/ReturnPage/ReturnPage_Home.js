@@ -1,9 +1,9 @@
 import React , {Component}  from "react"
+import ReturnPage from "./ReturnPage"
 
 /*
-this.props.returnObject
-this.props.returnType 
-this.props.onChangeRate
+returnType
+returnObject = {text : "" , images : [key（URLではないので画像はひらけない)]}
  */
 class ReturnPageHome extends Component {
 	constructor(props) {
@@ -25,6 +25,10 @@ class ReturnPageHome extends Component {
 			<div>
 				<br/><br/><br/><br/><br/>
 				{this.props.returnType || "取得失敗"}
+				<ReturnPage
+					returnType = {this.props.returnType}
+					returnObject = {this.props.returnObject}
+				/>
 			</div>
 		)
 	}

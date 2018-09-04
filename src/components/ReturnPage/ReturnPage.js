@@ -40,6 +40,7 @@ class ReturnPage extends Component {
 			image_list : null
 		}
 
+
 		if(type=="textAndImage" ){
 			this.state.image_list = changeUrlToOriginal(this.data.image_list)
 		}
