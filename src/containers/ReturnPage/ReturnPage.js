@@ -15,7 +15,8 @@ function mapStateToProps(state){
 	return {
 		returnType : subState.returnType , 
 		returnObject : subState.returnObject , 
-		rating : subState.rating
+		rating : subState.rating , 
+		urls : subState.urls
 	}
 }
 
