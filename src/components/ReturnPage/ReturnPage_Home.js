@@ -19,11 +19,11 @@ class ReturnPageHome extends Component {
 	render() {
 		return (
 			<div>
-				<br/><br/><br/><br/><br/>
-				
+
 				<ReturnPage
 					returnType = {this.props.returnType}
 					returnObject = {this.props.returnObject}
+					urls = {[]}
 				/>
 				 {/*
 				 流し込んだデータの詳細です
