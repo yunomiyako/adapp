@@ -48,13 +48,13 @@ class ReturnPage extends Component {
 		
 	}
 
-	get_state(type,obj){
+	get_state(type,obj,urls){
 
 		this.state.returnType = type
 		this.state.returnObject = obj
 
 		if(type=="textAndImage" ){
-			this.state.image_list = changeUrlToOriginal(this.state.returnObject.Image)
+			this.state.image_list = changeUrlToOriginal(urls)
 		}
 
 		return this.state.returnType
@@ -87,7 +87,7 @@ class ReturnPage extends Component {
 							< ImageGallery items={this.state.image_list} /> 
 						</div>
 						
-						{this.for_segment(this.data.text)}
+						{this.for_segment(this.state.returnObject.text)}
 					
 					</PhoneBreakpoint>
 					<DesktopBreakpoint>
@@ -95,7 +95,7 @@ class ReturnPage extends Component {
 							< ImageGallery items={this.state.image_list} /> 
 						</div>
 						<div className ={style.segment} >
-							{this.for_segment(this.data.text)}
+							{this.for_segment(this.state.returnObject.text)}
 						</div>
 					</DesktopBreakpoint>
 					<TabletBreakpoint>
@@ -103,7 +103,7 @@ class ReturnPage extends Component {
 							< ImageGallery items={this.state.image_list} /> 
 						</div>
 						<div className ={style.segment} >
-							{this.for_segment(this.data.text)}
+							{this.for_segment(this.state.returnObject.text)}
 						</div>
 					</TabletBreakpoint>
 					
@@ -139,7 +139,7 @@ class ReturnPage extends Component {
 			<div className ={style.ReturnPage} >
 	
 				<div className ={style.ReturnPage} >
-					{this.type_check(this.get_state(this.props.returnType,this.props.returnObject))}
+					{this.type_check(this.get_state(this.props.returnType,this.props.returnObject,this.props.urls))}
 				</div>
 
 
