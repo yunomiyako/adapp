@@ -3,12 +3,12 @@ const items = {
 		{
 			"title":"タイトル1",
 			"date":"2000/01/01",
-			"link":"http://www.google.com"
+			"link":"http://localhost:3000/statspage"
 		},
 		{
 			"title":"タイトル2タイトルタイトルタイトルタイトルタイトル",
 			"date":"2000/01/02",
-			"link":"http://www.google.co.jp"
+			"link":"http://localhost:3000/statspage"
 		}
 	]
 }
