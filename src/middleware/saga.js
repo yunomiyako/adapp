@@ -79,7 +79,7 @@ function *onFetchReturnData(action) {
 		const result = yield call(fetchReturn , payload)
 		if(result.returnObject.images){
 			const images = result.returnObject.images
-			if(images.length == 0) {
+			if(images.length != 0) {
 				const imageUrls = yield call(getUrlsFromKeys , result.returnObject.images)
 				yield put({type : ON_UPDATE_RETURN_IMAGE_URLS , urls : imageUrls})
 			}

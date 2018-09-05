@@ -19,15 +19,12 @@ class ReturnPageHome extends Component {
 	render() {
 		return (
 			<div>
-				<br/><br/><br/><br/><br/>
 
-				{this.props.urls.length}
-
-				{/* <ReturnPage
+				<ReturnPage
 					returnType = {this.props.returnType}
 					returnObject = {this.props.returnObject}
-					urls = {[]}
-				/> */}
+					urls = {this.props.urls}
+				/>
 			</div>
 		)
 	}
