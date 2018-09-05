@@ -19,17 +19,15 @@ class ReturnPageHome extends Component {
 	render() {
 		return (
 			<div>
+				<br/><br/><br/><br/><br/>
 
-				<ReturnPage
+				{this.props.urls.length}
+
+				{/* <ReturnPage
 					returnType = {this.props.returnType}
 					returnObject = {this.props.returnObject}
 					urls = {[]}
-				/>
-				 {/*
-				 流し込んだデータの詳細です
-				returnType : お返しtype
-				returnObject = {text : "" , images : [key（URLではないので画像はひらけない)]}
-				*/}
+				/> */}
 			</div>
 		)
 	}

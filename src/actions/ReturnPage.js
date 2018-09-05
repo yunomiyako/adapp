@@ -29,3 +29,11 @@ export function onFetchReturn(id_return) {
 		id_return
 	}
 }
+
+export const ON_UPDATE_RETURN_IMAGE_URLS = "ON_UPDATE_RETURN_IMAGE_URLS"
+export function onUpdateReturnImageUrls(urls) {
+	return {
+		type : ON_UPDATE_RETURN_IMAGE_URLS,  
+		urls
+	}
+}

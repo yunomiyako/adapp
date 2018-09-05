@@ -7,7 +7,8 @@ import {FETCH_AD_DATA , FETCH_AD_DATA_SUCCESS ,
 	ON_CHANGE_IMAGE_URLS, ON_SEND_ACTION , 
 	ACTION_FAIL , ACTION_SUCCESS , ON_CHANGE_ID_RETURN_TO_GO ,
 	ON_CHANGE_ACTION_LOADING} from "../actions/AdPage"
-import {ON_FETCH_RETURN , ON_UPDATE_RETURN_OBJECT , ON_UPDATE_RETURN_TYPE} from "../actions/ReturnPage"
+import {ON_FETCH_RETURN , ON_UPDATE_RETURN_OBJECT , ON_UPDATE_RETURN_TYPE,
+	ON_UPDATE_RETURN_IMAGE_URLS} from "../actions/ReturnPage"
 //import API
 import {submitAdCreateInfo} from "../api/AdCreatePage"
 import fetchAdData from "../api/fetchAdData"
@@ -76,7 +77,14 @@ function *onFetchReturnData(action) {
 	try {
 		const payload = {id_return : action.id_return }
 		const result = yield call(fetchReturn , payload)
-		
+		if(result.returnObject.images){
+			const images = result.returnObject.images
+			if(images.length == 0) {
+				const imageUrls = yield call(getUrlsFromKeys , result.returnObject.images)
+				yield put({type : ON_UPDATE_RETURN_IMAGE_URLS , urls : imageUrls})
+			}
+		}
+
 		yield put({type : ON_UPDATE_RETURN_OBJECT , returnObject : result.returnObject})
 		yield put({type : ON_UPDATE_RETURN_TYPE , returnType : result.returnType})
 	} catch (e) {
