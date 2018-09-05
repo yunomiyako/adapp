@@ -12,8 +12,7 @@ export const redirectToAdPage = function(id_user, id_ad) {
 export const redirectToReturnPage = function(id_return) {
 	if(id_return) {
 		return (
-			<Redirect push to={"/return/" + id_return} />
+			<Redirect push to={"/return_page/" + id_return} />
 		)
 	}
 }
-

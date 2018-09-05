@@ -30,23 +30,35 @@ const changeUrlToOriginal = (image_list) => {
 class ReturnPage extends Component {
 	constructor(props) {
 		super(props)
-		const type = this.props.match.params.type
+		//const type = this.props.match.params.type
 		
-		this.data = getReturnData(type,0)
+		//this.data = getReturnData(type,0)
 		//console.log(this.data)
 
 		this.state = {
-			returnType : type,
-			image_list : null
+			returnType : null,
+			image_list : null,
+			returnObject: null
 		}
 
+
+		/*if(type=="textAndImage" ){
+			this.state.image_list = changeUrlToOriginal(this.data.image_list)
+		}*/
+		
+	}
+
+	get_state(type,obj){
+
+		this.state.returnType = type
+		this.state.returnObject = obj
 
 		if(type=="textAndImage" ){
-			
-			this.state.image_list = changeUrlToOriginal(this.data.image_list)
-
+			this.state.image_list = changeUrlToOriginal(this.state.returnObject.Image)
 		}
-		
+
+		return this.state.returnType
+
 	}
 
 	for_segment(text){
@@ -98,34 +110,26 @@ class ReturnPage extends Component {
 					
 						
 				</div>	
-			)	}
-		else if (ret_type=="textOnly"){
+			)	
+		}else if (ret_type=="textOnly"){
 			return(
 				<div className ={style.Text_for_only} >
 					<PhoneBreakpoint>					
-						{this.for_segment(this.data.text)}				
+						{this.for_segment(this.state.returnObject.text)}				
 					</PhoneBreakpoint>
 					<DesktopBreakpoint>
 						<div className ={style.segment} >
-							{this.for_segment(this.data.text)}
+							{this.for_segment(this.state.returnObject.text)}
 						</div>
 					</DesktopBreakpoint>
 					<TabletBreakpoint>
 						<div className ={style.segment} >
-							{this.for_segment(this.data.text)}
+							{this.for_segment(this.state.returnObject.text)}
 						</div>
 					</TabletBreakpoint>
 				</div>
 			)
-		} else {
-			return (
-				<div>
-					id_return : {this.state.returnType}
-					<br/>
-					受け取りずみか検証して表示
-				</div>
-			)
-		}
+		} 
 
 	}
 
@@ -135,7 +139,7 @@ class ReturnPage extends Component {
 			<div className ={style.ReturnPage} >
 	
 				<div className ={style.ReturnPage} >
-					{this.type_check(this.state.returnType)}
+					{this.type_check(this.get_state(this.props.returnType,this.props.returnObject))}
 				</div>
 
 

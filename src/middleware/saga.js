@@ -7,13 +7,14 @@ import {FETCH_AD_DATA , FETCH_AD_DATA_SUCCESS ,
 	ON_CHANGE_IMAGE_URLS, ON_SEND_ACTION , 
 	ACTION_FAIL , ACTION_SUCCESS , ON_CHANGE_ID_RETURN_TO_GO ,
 	ON_CHANGE_ACTION_LOADING} from "../actions/AdPage"
-
+import {ON_FETCH_RETURN , ON_UPDATE_RETURN_OBJECT , ON_UPDATE_RETURN_TYPE} from "../actions/ReturnPage"
 //import API
 import {submitAdCreateInfo} from "../api/AdCreatePage"
 import fetchAdData from "../api/fetchAdData"
 import getUrlsFromKeys from "../api/getUrlsFromKeys"
 import sendAction from "../api/sendAction"
 import receiveReturn from "../api/receiveReturn"
+import fetchReturn from "../api/fetchReturn"
 
 // ワーカー Saga: FETCH_EXAMPLE_DATA Action によって起動する
 function *onSubmitAdCreate(action) {
@@ -71,6 +72,19 @@ function *onSendAction(action) {
 	}
 }
 
+function *onFetchReturnData(action) {
+	try {
+		const payload = {id_return : action.id_return }
+		const result = yield call(fetchReturn , payload)
+		
+		yield put({type : ON_UPDATE_RETURN_OBJECT , returnObject : result.returnObject})
+		yield put({type : ON_UPDATE_RETURN_TYPE , returnType : result.returnType})
+	} catch (e) {
+		console.log("sagaで失敗取得")
+		//失敗を投げるべき
+	}
+}
+
 /*
   FETCH_EXAMPLE_DATA Action が送出されるたびに fetchUser を起動します。
   ユーザ情報の並列取得にも対応しています。
@@ -80,6 +94,7 @@ function* mySaga() {
 	yield takeLatest(FETCH_AD_DATA , onFetchAdData)
 	yield takeLatest(KEYS_TO_URLS , onKeysToUrls)
 	yield takeLatest(ON_SEND_ACTION , onSendAction)
+	yield takeLatest(ON_FETCH_RETURN , onFetchReturnData)
 }
 
 /*
