@@ -8,7 +8,7 @@ class RewardComponent extends Component {
 	renderReward(item) {
 		return item.items.map(_item => {
 			return (
-				<div className ={style.ContentFrame}>
+				<div className ={style.ContentFrame} key={_item.title}>
 					<div className ={style.ContentFrameTitle}>
 						<h2><a href={_item.link}>{_item.title}</a></h2>
 					</div>
