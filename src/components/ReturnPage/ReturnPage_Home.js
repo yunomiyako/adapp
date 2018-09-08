@@ -23,13 +23,8 @@ class ReturnPageHome extends Component {
 				<ReturnPage
 					returnType = {this.props.returnType}
 					returnObject = {this.props.returnObject}
-					urls = {[]}
+					urls = {this.props.urls}
 				/>
-				 {/*
-				 流し込んだデータの詳細です
-				returnType : お返しtype
-				returnObject = {text : "" , images : [key（URLではないので画像はひらけない)]}
-				*/}
 			</div>
 		)
 	}

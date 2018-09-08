@@ -22,6 +22,7 @@ import TabletBreakpoint from "../responsive_utilities/tablet_breakpoint"
 */
 
 const changeUrlToOriginal = (image_list) => {
+	console.log(image_list)
 	return image_list.map((img) => {
 		return {original : img , thumbnail : img , sizes:100}
 	})
@@ -49,7 +50,6 @@ class ReturnPage extends Component {
 	}
 
 	get_state(type,obj,urls){
-
 		this.state.returnType = type
 		this.state.returnObject = obj
 

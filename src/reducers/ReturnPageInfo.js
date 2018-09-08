@@ -1,6 +1,7 @@
 import {
 	ON_UPDATE_RETURN_OBJECT,
-	ON_UPDATE_RETURN_TYPE
+	ON_UPDATE_RETURN_TYPE , 
+	ON_UPDATE_RETURN_IMAGE_URLS
 } from "../actions/ReturnPage"
 
 //データ構造
@@ -15,6 +16,8 @@ export default function AdPageInfo(state = new ReturnPageDataStructure({}) , act
 		return dotProp.set(state , "returnObject" ,  action.returnObject )
 	case ON_UPDATE_RETURN_TYPE : 
 		return dotProp.set(state , "returnType" ,  action.returnType )
+	case ON_UPDATE_RETURN_IMAGE_URLS : 
+		return dotProp.set(state , "urls" ,  action.urls )
 	default :
 		return state
 	}
