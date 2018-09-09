@@ -19,35 +19,18 @@ export default function(callback = () => "") {
 		set_username(username)
 		set_password(password)
 	}
-	
-	Auth.currentAuthenticatedUser().then(user => {
-		console.log("signed in")
-		console.log(user)
-		console.log(user.username)
-		callback()
-	}).catch(err => {
-		Auth.signIn(username, password)
-			.then(user => {
-				console.log("signed up")
-				console.log(user)
-				callback()
+	const user = Auth.currentAuthenticatedUser().catch((e) => {
+		console.log("sign in")
+		//現在ログイン中のユーザがいないため、sign inします
+		const user = Auth.signIn(username, password).catch((e) => {
+			console.log("sign up")
+			//sign inに失敗したため、登録を行います
+			Auth.signUp({username,password}).then(() => {
+				console.log("sign in")
+				const user = Auth.signIn(username, password).catch((e) => {
+					console.log("なんでやねん")
+				}).then(() => callback())
 			})
-			.catch(err => console.log(err))
-
-	}).catch(err => {
-		Auth.signUp({
-			username,
-			password,
-		})
-			.then(data => {
-				Auth.signIn(username, password)
-					.then(user => {
-						console.log("signed up")
-						console.log(user)
-						callback()
-					})
-					.catch(err => console.log(err))
-			})
-			.catch(err => console.log(err))
-	})
+		}).then(() => callback())
+	}).then(() => callback())
 }

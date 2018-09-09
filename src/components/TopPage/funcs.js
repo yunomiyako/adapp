@@ -1,20 +1,14 @@
 
-import {Api} from "../../api/Api"
-
-
-
+import PublishOauthURL from "../../api/PublishOauthURL"
+import {set_oauth_token , set_oauth_token_secret , get_oauth_token} from "../../localStorage/twitter_access_token"
 export const Funcs = {
 
-	onClicktest() {
-		var body = Api.testtm()
-		body.then(
-			body => {
-				//console.log(body.oauth_token)
-
-			}
-		)
-
-
+	async onClicktest() {
+		const result = await PublishOauthURL()
+		console.log(result)
+		set_oauth_token(result.oauth_token)
+		set_oauth_token_secret(result.oauth_token_secret)
+		window.location.href = result.url
 	},
 
 	getTexts() {

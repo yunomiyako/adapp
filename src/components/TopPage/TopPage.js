@@ -42,7 +42,7 @@ class TopPage extends Component {
 			const link = "ad_page/" + ad.id_user + "/" + ad.id_ad
 			const adObject = ad
 			return (
-				<div key={ad.id_ad}>
+				<div key={ad.id_user+ad.id_ad}>
 					{FeedView(link , adObject)}
 				</div>
 			

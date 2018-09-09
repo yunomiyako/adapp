@@ -11,6 +11,7 @@ import ExperimentalPage from "./ExperimentalPage/ExperimentalPage"
 import ReturnPage from "./ReturnPage/ReturnPage"
 import Header from "./Header/Header"
 import ReturnPageHome from "../containers/ReturnPage/ReturnPage"
+import LoginRedirectPage from "./LoginRedirect/LoginRedirectPage"
 
 import { Route, BrowserRouter } from "react-router-dom"
 
@@ -59,6 +60,7 @@ class App extends Component {
 						<Route path="/userpage" component = {UserPage}/>
 						<Route path="/statspage" component = {StatsPage}/>
 						<Route path="/return_page/:id_return" component = {ReturnPageHome} />
+						<Route path="/redirect" component = {LoginRedirectPage} />
 					</div>
 
 
