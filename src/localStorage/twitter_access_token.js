@@ -34,3 +34,8 @@ export const set_oauth_token = (oauth_token) => {
 export const set_oauth_token_secret = (oauth_token_secret) => {
 	localStorage.setItem(TWITTER_OAUTH_TOKEN_SECRET, oauth_token_secret)
 }
+
+export const twitter_logout = () => {
+	//subも含めて全削除する
+	localStorage.clear()
+}

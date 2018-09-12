@@ -57,8 +57,6 @@ class Top_Tabletcomponent extends Component {
 						<h2 className={style.text3}>{Funcs.getTexts().text3}</h2>
 					</TabletBreakpoint>
 
-
-
 					<DesktopBreakpoint>
 						<h2 className={style.text3}>{Funcs.getTexts().text3}</h2>
 					</DesktopBreakpoint>
@@ -66,10 +64,6 @@ class Top_Tabletcomponent extends Component {
 				</div>
 				<div className={style.Button}>
 					<div className= {style.twitter_button}>
-                    
-
-
-
 						<PhoneBreakpoint>
 							<Button onClick={()=>Funcs.onClicktest()} color='twitter' size='mini'>
 								<Icon name='twitter' /> {Funcs.getTexts().tw_button_text}
@@ -125,7 +119,6 @@ class Top_Tabletcomponent extends Component {
 				</div>
 
 				<div className={style.icon3}>
-
 					<i class="massive twitter icon"></i>
 					<p className = {style.icon_text2}>{Funcs.getTexts().step3}</p>
 				</div>

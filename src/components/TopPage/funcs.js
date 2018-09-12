@@ -9,7 +9,7 @@ export const Funcs = {
 		set_oauth_token(result.oauth_token)
 		set_oauth_token_secret(result.oauth_token_secret)
 		window.location.href = result.url
-	},
+	} ,
 
 	getTexts() {
 	

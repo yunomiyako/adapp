@@ -40,5 +40,6 @@ export default (adType) => {
 		titleCreator.addText("私の作った「　　」をいいねして")
 		return titleCreator.titles
 	default:
+		return []
 	}
 }

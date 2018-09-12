@@ -10,13 +10,7 @@ import Top_Tabletcomponent from "./Top_Tabletcomponent"
 
 import fetchAdList from "../../api/fetchAdList"
 import FeedView from "../CommonSemanticUI/FeedView"
-var oauth_verifier = QueryString.oauth_verifier
-
-if (oauth_verifier) {
-	console.log(oauth_verifier)
-	//console.log(oauth_token_secret)
-}
-
+import {get_access_token , twitter_logout} from "../../localStorage/twitter_access_token"
 
 class TopPage extends Component {
 	constructor(props) {
@@ -28,6 +22,21 @@ class TopPage extends Component {
 
 	componentWillMount() {
 		this.getAdList()
+		this.loginCheck()
+	}
+
+	loginCheck() {
+		//localにアクセストークンがあればログインしている
+		if(get_access_token()) {
+			return true
+		}else {
+			return false
+		}
+	}
+
+	logout() {
+		twitter_logout()
+		//TODO : 再読み込み
 	}
 
 	async getAdList() {

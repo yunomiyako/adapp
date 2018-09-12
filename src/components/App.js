@@ -38,7 +38,6 @@ class App extends Component {
 				set_userdetail(detail)
 			})
 		}
-
 		anonymousAuth(callback)
 	}
 

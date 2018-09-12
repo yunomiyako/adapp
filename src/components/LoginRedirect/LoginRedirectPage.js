@@ -2,10 +2,11 @@ import React , {Component}  from "react"
 
 import {set_access_token , 
     set_access_token_secret , 
-    get_access_token , get_access_token_secret,
 get_oauth_token , get_oauth_token_secret} from "../../localStorage/twitter_access_token"
 import QueryString from "../../Utils/QueryString"
 import OauthRequest from "../../api/OauthRequest"
+import {redirectToTopPage} from "../Redirect/redirect"
+import { Dimmer, Loader } from 'semantic-ui-react'
 
 class App extends Component {
     constructor(props) {
@@ -34,23 +35,24 @@ class App extends Component {
         set_access_token(access_token)
         set_access_token_secret(access_token_secret)
 
-        console.log("次の二つ値入ってたらok")
-        console.log(get_access_token())
-        console.log(get_access_token_secret())
-        this.setState({
-            ac : get_access_token()
-        })
-        
         //TODO : redirect to somewhere
+        this.setState({
+            ac : access_token
+        })
 	}
     
 
 
 	render() {
+        if(this.state.ac) {
+            return redirectToTopPage()
+        }
+
 		return (
             <div>
-                <br/><br/><br/><br/><br/><br/><br/>
-                {this.state.ac || "a"}
+                <Dimmer active>
+                    <Loader size='massive'>Loading</Loader>
+                </Dimmer>
             </div>
 		)
 	}
