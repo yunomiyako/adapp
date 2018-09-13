@@ -8,7 +8,7 @@ import Top_Phonecomponent from "./Top_Phonecomponent"
 import Top_Tabletcomponent from "./Top_Tabletcomponent"
 import FeedListComponent from "./FeedListComponent"
 
-import {twitter_logout } from "../../localStorage/twitter_access_token"
+import {twitter_logout ,get_access_token } from "../../localStorage/twitter_access_token"
 import loginCheck from "../../localStorage/loginCheck"
 
 import {Button} from "semantic-ui-react"
@@ -57,7 +57,8 @@ class TopPage extends Component {
 		} else {
 			return (
 				<div className={style.LoginedTopPage}>
-					ようこそ : {get_id_user()}
+					ようこそ : {get_id_user()} <br/>
+					アクセストークン : {get_access_token()} <br/>
 					<Button onClick={() => this.logout()}>ログアウト</Button>
 					<div className={style.aaaa}><h2>最近作成された宣伝</h2></div>
 					<FeedListComponent/>

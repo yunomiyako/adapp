@@ -25,11 +25,14 @@ export default function wrapper(apiName , path , init , methodType){
 				throw new Error("何かしらのエラーだよ")
 			})
 		}
-	}).catch(e => {
-		console.log(e)
-		const callback = () => (console.log("re authen"))
-		return authetification(callback).then(() => {
-			return wrapper(apiName , path , init , methodType)
-		})
+	}).catch(e => {	
+		if(e == "No current user") {
+			const callback = () => (console.log("re authen"))
+			return authetification(callback).then(() => {
+				return wrapper(apiName , path , init , methodType)
+			})
+		} else {
+			window.location.href = "/"
+		}
 	})
 }

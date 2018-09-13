@@ -21,6 +21,8 @@ export default function(callback = () => "") {
 	}
 
 	return Auth.currentAuthenticatedUser().catch((e) => {
+		console.log(e)
+		console.log(e == "No current user")
 		console.log("sign in")
 		//現在ログイン中のユーザがいないため、sign inします
 		return Auth.signIn(username, password).catch((e) => {
