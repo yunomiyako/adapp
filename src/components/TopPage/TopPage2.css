@@ -1,3 +1,19 @@
+:local .LoginedTopPage {
+  padding : 50px;
+  max-width: 600px;
+  margin: auto;
+  left : 0;
+  right : 0;
+}
+
+:local .aaaa {
+  color: rgb(100, 100, 100);
+  border-bottom: dashed 2px rgb(100, 100, 100);
+  margin-left: 30px;
+  margin-right: 30px;
+  text-align: left;
+}
+
 :local .TopPage {
   display: grid;
   height: 100%;

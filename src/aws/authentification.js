@@ -30,8 +30,8 @@ export default function(callback = () => "") {
 				console.log("sign in")
 				return Auth.signIn(username, password).catch((e) => {
 					console.log("なんでやねん")
-				}).then(() => callback())
+				})
 			})
-		}).then(() => callback())
+		})
 	}).then(() => callback())
 }
