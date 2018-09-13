@@ -8,7 +8,7 @@ const FeedView = function(link , adObject , url) {
 	return (
 		<div className={style.FeedView}>
 			<Link to={link}>
-				<Image className={style.FeedImage} src={url}></Image>
+				<img className={style.FeedImage} src={url} alt=""></img>
 				<div className={style.FeedTitleFrame}>
 					<h2 className={style.FeedTitle}>{adObject.title}</h2>
 				</div>
