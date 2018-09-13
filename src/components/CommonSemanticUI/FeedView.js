@@ -4,15 +4,16 @@ import {Link} from "react-router-dom"
 //semantic UI
 import { Image  } from "semantic-ui-react"
 
-const FeedView = function(link , adObject) {
+const FeedView = function(link , adObject , url) {
 	return (
-		<Link to={link}>
-			<div className={style.FeedView}>
-				<Image className={style.FeedImage} src="https://pbs.twimg.com/media/CBFawbbU8AAkbhc.jpg"></Image>
-				<h2 className={style.FeedTitle}>{adObject.title}</h2>
-				
-			</div>
-		</Link>
+		<div className={style.FeedView}>
+			<Link to={link}>
+				<Image className={style.FeedImage} src={url}></Image>
+				<div className={style.FeedTitleFrame}>
+					<h2 className={style.FeedTitle}>{adObject.title}</h2>
+				</div>
+			</Link>
+		</div>
 	)
 }
 
