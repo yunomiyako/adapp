@@ -1,19 +1,17 @@
-
 import AuthentificatedCallWrapper from "./AuthentificatedCallWrapper"
 
-export default function(payload) {
+export default function() {
 	const apiName = "adApp"
-	const path = "/twitter/publish-oauth"
+	const path = "/return/list"
 	const init = { 
 		queryStringParameters: {}
 	}
 
 	return AuthentificatedCallWrapper(apiName , path , init , "get").then((res) => {
-		console.log("publishOauthURL then")
-		const body = JSON.parse(res.data.body) 
+		const body = res.data
 		return body
 	}).catch(e => {
-		console.log("publishOauthURL catch")
+		console.log("fetchReturnData catch")
 		console.log(e)
 		throw new Error("何かしらのエラーだよ")
 	})

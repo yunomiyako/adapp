@@ -11,8 +11,6 @@ export const get_userdetail = () => {
 
 export const set_userdetail = (detail) => {
 	const data = new UserDetailDataStructure(detail)
-	console.log(USER_DETAIL)
-	console.log(JSON.stringify(data))
 	localStorage.setItem(USER_DETAIL, JSON.stringify(data))
 }
 

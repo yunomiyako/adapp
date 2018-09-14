@@ -17,6 +17,7 @@ class TopPage extends Component {
     }
 
 	async getAdList() {
+        //TODO : できたらちゃんとsagaで呼ぶ
         const adList = await fetchAdList()
         const headImages = adList.map(ad => {
             if(ad.adObject) {
