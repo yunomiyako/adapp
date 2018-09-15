@@ -8,13 +8,22 @@ import {FETCH_AD_DATA , FETCH_AD_DATA_SUCCESS ,
 	ACTION_FAIL  , ON_CHANGE_ID_RETURN_TO_GO ,
 	ON_CHANGE_ACTION_LOADING} from "../actions/AdPage"
 import {ON_FETCH_RETURN , ON_UPDATE_RETURN_OBJECT , ON_UPDATE_RETURN_TYPE,
-	ON_UPDATE_RETURN_IMAGE_URLS} from "../actions/ReturnPage"
+	ON_UPDATE_RETURN_IMAGE_URLS , ON_UPDATE_RATING} from "../actions/ReturnPage"
+import {GET_AD_LIST , GET_RETURN_LIST , SET_AD_LIST , SET_RETURN_LIST} from "../actions/UserPage"
+import {GET_AD_LIST as GET_AD_LIST_TOPPAGE , 
+	SET_AD_LIST as SET_AD_LIST_TOPPAGE} from "../actions/TopPage"
+
 //import API
 import submitAdCreateInfo from "../api/AdCreatePage"
 import fetchAdData from "../api/fetchAdData"
 import getUrlsFromKeys from "../api/getUrlsFromKeys"
 import receiveReturn from "../api/receiveReturn"
 import fetchReturn from "../api/fetchReturn"
+import fetchAdList from "../api/fetchAdList"
+import fetchReturnList from "../api/fetchReturnList"
+
+//import utls
+import getDateFromUnixTime from "../Utils/getDateFromUnixTime"
 
 // ワーカー Saga: FETCH_EXAMPLE_DATA Action によって起動する
 function *onSubmitAdCreate(action) {
@@ -81,11 +90,67 @@ function *onFetchReturnData(action) {
 			}
 		}
 
+
+		//TODO : ユーザがつけたrating取れたらとったほうがいい
+		yield put({type : ON_UPDATE_RATING , rating : result.rating})
+		
 		yield put({type : ON_UPDATE_RETURN_OBJECT , returnObject : result.returnObject})
 		yield put({type : ON_UPDATE_RETURN_TYPE , returnType : result.returnType})
 	} catch (e) {
 		console.log("sagaで失敗取得")
 		//失敗を投げるべき
+	}
+}
+
+function *onGetAdList(action) {
+	try {
+		const ad_list = yield call(fetchAdList , {"id_user" : action.id_user})
+		console.log(ad_list)
+		ad_list.map((ad) => {
+			ad.link = "/statspage/" + ad.id_user + "/" + ad.id_ad
+			ad.date = getDateFromUnixTime(ad.created_at)
+		})
+		yield put({type : SET_AD_LIST , ad_list : ad_list})
+	}catch(e) {
+		//TODO : エラーハンドリング
+	}
+}
+
+function *onGetReturnList() {
+	try {
+		const return_list = yield call(fetchReturnList)
+		console.log(return_list)
+		return_list.map((rt) => {
+			rt.title = rt.returnDescription
+			rt.link = "/return_page/" + rt.id_return
+			rt.date = getDateFromUnixTime(rt.date)
+		})
+		yield put({type : SET_RETURN_LIST , return_list : return_list})
+	}catch(e) {
+		//TODO : エラーハンドリング
+	}
+}
+
+function *onGetAdListTopPage() {
+	try {
+		const ad_list = yield call(fetchAdList)
+		const headImages = ad_list.map(ad => {
+			if(ad.adObject) {
+				if(ad.adObject.images) {
+					return ad.adObject.images[0]
+				}
+			}
+			return undefined
+		})
+
+		const urls = yield getUrlsFromKeys(headImages)
+		const ad_list_with_url = ad_list.map( (ad , index) => {
+			ad.url = urls[index]
+			return ad
+		})
+		yield put({type : SET_AD_LIST_TOPPAGE , ad_list : ad_list_with_url})
+	}catch(e) {
+		//TODO : エラーハンドリング
 	}
 }
 
@@ -99,6 +164,9 @@ function* mySaga() {
 	yield takeLatest(KEYS_TO_URLS , onKeysToUrls)
 	yield takeLatest(ON_SEND_ACTION , onSendAction)
 	yield takeLatest(ON_FETCH_RETURN , onFetchReturnData)
+	yield takeLatest(GET_AD_LIST , onGetAdList)
+	yield takeLatest(GET_RETURN_LIST , onGetReturnList)
+	yield takeLatest(GET_AD_LIST_TOPPAGE , onGetAdListTopPage)
 }
 
 /*

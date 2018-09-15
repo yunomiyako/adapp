@@ -12,7 +12,7 @@ class StatsComponent extends Component {
 					{title}
 				</div>
 				<div className ={style.StatsFrameNumber}>
-					{item.number}
+					{item}
 				</div>
 				<div className ={style.StatsFrameDesc}>
 					{desc}
@@ -22,13 +22,14 @@ class StatsComponent extends Component {
 	}
 
 	render() {
+
 		return (
 			<div>
-				<div className={style.aaaa}><h2>何かの詳細</h2></div>
+				<div className={style.aaaa}><h2>宣伝状況の詳細画面</h2></div>
 				<div className={style.StatsComponent}>
-					{this.renderStats(items.items[0], "宣伝された回数", "説明", style.StatsFrame1)}
-					{this.renderStats(items.items[1], "平均評価", "説明", style.StatsFrame2)}
-					{this.renderStats(items.items[0], "何か", "説明", style.StatsFrame3)}
+					{this.renderStats(this.props.ad_count, "宣伝された回数", "回", style.StatsFrame1)}
+					{this.renderStats(this.props.rating, "平均評価", "/5", style.StatsFrame2)}
+					{/*this.renderStats(items[2], "何か", "説明", style.StatsFrame3)*/}
 				</div>
 			</div>
 		)

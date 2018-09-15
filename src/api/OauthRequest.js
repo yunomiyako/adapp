@@ -20,5 +20,6 @@ export default function(oauth_token , oauth_token_secret , oauth_verifier) {
 	}).catch(e => {
 		console.log("OauthRequest catch")
 		console.log(e)
+		window.location.href = "/"
 	})
 }

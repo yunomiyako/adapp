@@ -10,7 +10,7 @@ class AdCreateInfoDataStructure {
 		this.errorMessage = data.errorMessage || "" ,
 		this.imageUrls = data.imageUrls || [] , 
 		this.id_return_to_go = data.id_return_to_go || "" , 
-		this.actionLoading = data.actionLoading || ""
+		this.actionLoading = data.actionLoading || false
 	}
 }
 

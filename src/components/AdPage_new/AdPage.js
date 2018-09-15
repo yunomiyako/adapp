@@ -60,6 +60,7 @@ class AdPage extends Component {
 
 		const id_return = this.props.id_return_to_go
 		if (id_return) {
+			this.props.onResetIdReturnToGO()
 			return redirectToReturnPage(id_return)
 		}
 

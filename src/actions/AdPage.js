@@ -1,4 +1,7 @@
-export const FETCH_AD_DATA  = "FETCH_AD_DATA"
+const prefix = "ADPAGE_"
+
+
+export const FETCH_AD_DATA  = prefix + "FETCH_AD_DATA"
 export function fetchAdData(id_user, id_ad) {
 	return {
 		type: FETCH_AD_DATA , 
@@ -7,7 +10,7 @@ export function fetchAdData(id_user, id_ad) {
 	}
 }
 
-export const FETCH_AD_DATA_FAIL = "FETCH_AD_DATA_FAIL"
+export const FETCH_AD_DATA_FAIL = prefix + "FETCH_AD_DATA_FAIL"
 export function fetchAdDataFail(errorMessage) {
 	return {
 		type : FETCH_AD_DATA_FAIL,
@@ -15,7 +18,7 @@ export function fetchAdDataFail(errorMessage) {
 	}
 }
 
-export const FETCH_AD_DATA_SUCCESS = "FETCH_AD_DATA_SUCCESS"
+export const FETCH_AD_DATA_SUCCESS = prefix + "FETCH_AD_DATA_SUCCESS"
 export function fetchAdDataSuccess(response) {
 	return {
 		type : FETCH_AD_DATA_SUCCESS,
@@ -23,7 +26,7 @@ export function fetchAdDataSuccess(response) {
 	}
 }
 
-export const KEYS_TO_URLS = "KEYS_TO_URLS"
+export const KEYS_TO_URLS = prefix + "KEYS_TO_URLS"
 export function keysToUrls(keys) {
 	return {
 		type : KEYS_TO_URLS , 
@@ -31,7 +34,7 @@ export function keysToUrls(keys) {
 	}
 }
 
-export const ON_CHANGE_IMAGE_URLS  = "ON_CHANGE_IMAGE_URLS"
+export const ON_CHANGE_IMAGE_URLS  = prefix + "ON_CHANGE_IMAGE_URLS"
 export function onChangeImageUrls(imageUrls) {
 	return {
 		type: ON_CHANGE_IMAGE_URLS ,
@@ -39,7 +42,7 @@ export function onChangeImageUrls(imageUrls) {
 	}
 }
 
-export const ON_SEND_ACTION = "ON_SEND_ACTION" 
+export const ON_SEND_ACTION =prefix +  "ON_SEND_ACTION" 
 export function onSendAction(payload) {
 	return {
 		type : ON_SEND_ACTION , 
@@ -47,7 +50,7 @@ export function onSendAction(payload) {
 	}
 }
 
-export const ACTION_SUCCESS = "ACTION_SUCCESS"
+export const ACTION_SUCCESS = prefix + "ACTION_SUCCESS"
 export function actionSuccess(response) {
 	return {
 		type : ACTION_SUCCESS , 
@@ -55,7 +58,7 @@ export function actionSuccess(response) {
 	}
 }
 
-export const ACTION_FAIL = "ACTION_FAIL"
+export const ACTION_FAIL = prefix + "ACTION_FAIL"
 export function actionFail(errorMessage) {
 	return {
 		type : ACTION_FAIL , 

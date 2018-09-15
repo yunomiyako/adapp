@@ -1,22 +1,22 @@
 import { connect } from "react-redux"
-import AdCreatePage from "../../components/AdCreatePage_new/AdCreatePage"
+import UserPage from "../../components/UserPage/UserPage"
 import {
-	fetchDbData
-} from "../../actions/Test"
+} from "../../actions/AdPage"
+import {
+} from "../../selectors/AdCreatePage"
 
 function mapStateToProps(state){
+	const subState = state.AdPageInfo
 	return {
-		username : state.Test.username
 	}
 }
 
 function mapDispatchToProps(dispatch) {
 	return {
-		fetchDbData: () => dispatch(fetchDbData()),
 	}
 }
 
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(AdCreatePage)
+)(UserPage)

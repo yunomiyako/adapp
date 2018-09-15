@@ -6,7 +6,7 @@ import PhoneBreakpoint from "../responsive_utilities/phone_breakpoint"
 import Top_Component from "./Top_Desktopcomponent"
 import Top_Phonecomponent from "./Top_Phonecomponent"
 import Top_Tabletcomponent from "./Top_Tabletcomponent"
-import FeedListComponent from "./FeedListComponent"
+import FeedListComponent from "../../containers/TopPage/FeedListComponent"
 
 import {twitter_logout ,get_access_token } from "../../localStorage/twitter_access_token"
 import loginCheck from "../../localStorage/loginCheck"

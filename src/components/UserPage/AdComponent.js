@@ -16,19 +16,8 @@ class AdComponent extends Component {
 	}
 
 	componentWillMount() {
-		this.getAdList()
-	}
-
-	async getAdList() {
 		const id_user = get_id_user()
-		const ad_list = await fetchAdList({id_user : id_user})
-		ad_list.map((ad) => {
-			ad.link = "/statspage/" + ad.id_user + "/" + ad.id_ad
-			ad.date = getDateFromUnixTime(ad.created_at)
-		})
-        this.setState({
-			ad_list : ad_list
-		})
+		this.props.getAdList(id_user)
 	}
 
 	renderTitle(items) {
@@ -50,7 +39,7 @@ class AdComponent extends Component {
 		return (
 			<div className={style.AdComponent}>
 				<div className={style.aaaa}><h2>作成した宣伝</h2></div>
-				{this.renderTitle(this.state.ad_list)}
+				{this.renderTitle(this.props.ad_list)}
 			</div>
 		)
 	}

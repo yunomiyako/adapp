@@ -141,11 +141,7 @@ class ReturnPage extends Component {
 				<div className ={style.ReturnPage} >
 					{this.type_check(this.get_state(this.props.returnType,this.props.returnObject,this.props.urls))}
 				</div>
-
-
-				<div className={style.Rating}>
-					<h2>お返しの評価</h2>
-					<Rating maxRating={5} defaultRating={0} icon='star' size='massive' /></div>
+				
 			</div>
 		)
 	}

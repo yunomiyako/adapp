@@ -3,8 +3,6 @@ import {  } from "semantic-ui-react"
 import style from "./UserPage.css"
 
 import { Link } from "react-router-dom"
-import fetchReturnList from "../../api/fetchReturnList"
-import getDateFromUnixTime from "../../Utils/getDateFromUnixTime"
 
 class RewardComponent extends Component {
 	constructor(props) {
@@ -15,20 +13,7 @@ class RewardComponent extends Component {
 	}
 
 	componentWillMount() {
-		this.getReturnList()
-	}
-
-	async getReturnList() {
-		const return_list = await fetchReturnList()
-		return_list.map((rt) => {
-			rt.title = rt.returnDescription
-			rt.link = "/return_page/" + rt.id_return
-			rt.date = getDateFromUnixTime(rt.date)
-		})
-
-        this.setState({
-			return_list : return_list
-		})
+		this.props.getReturnList()
 	}
 
 	renderReward(items) {
@@ -50,7 +35,7 @@ class RewardComponent extends Component {
 		return (
 			<div className={style.RewardComponent}>
 				<div className={style.aaaa}><h2>受け取った見返り</h2></div>
-				{this.renderReward(this.state.return_list)}
+				{this.renderReward(this.props.return_list)}
 			</div>
 		)
 	}
