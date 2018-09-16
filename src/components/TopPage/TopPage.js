@@ -41,16 +41,17 @@ class TopPage extends Component {
 		if(!this.state.logined) {
 			return (
 				<div >
+
 					<DesktopBreakpoint>	
-				 <Top_Component/>
+				 	　<Top_Component/>
 					</DesktopBreakpoint>
 				
 					<PhoneBreakpoint>	
-				 <Top_Phonecomponent/>
+				 	　<Top_Phonecomponent/>
 					</PhoneBreakpoint>
 				
 					<TabletBreakpoint>	
-				 <Top_Tabletcomponent/>
+				      <Top_Tabletcomponent/>
 					</TabletBreakpoint>
 				</div>
 			)
