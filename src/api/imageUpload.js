@@ -25,7 +25,6 @@ export const imagesUploadUser = function(path , files , username) {
 	})
 } 
 
-
 export const imageUploadUserWithRandomName = function(files , username) {
 	if(files.length == 0) {return new Error("画像がないよ")}
 	return files.map(file => {

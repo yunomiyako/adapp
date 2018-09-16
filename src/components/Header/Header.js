@@ -16,7 +16,7 @@ const link2 = new ContentLink("アド作成" , "/ad_create")
 const link3 = new ContentLink("テストページ" , "/test")
 const link4 = new ContentLink("テストページ2" , "/test2")
 const link5 = new ContentLink("userページ" , "/userpage")
-const contentLink = [link1 , link2 , link3 , link4, link5]
+const contentLink = [link2 , link5]
 
 class Header extends Component {
 	renderLink() {

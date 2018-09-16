@@ -1,8 +1,8 @@
 import React , {Component}  from "react"
 import style from "./UserPage.css"
 
-import AdComponent from "./AdComponent"
-import RewardComponent from "./RewardComponent"
+import AdComponent from "../../containers/UserPage/AdComponent"
+import RewardComponent from "../../containers/UserPage/ReturnComponent"
 
 class UserPage extends Component {
 	render() {

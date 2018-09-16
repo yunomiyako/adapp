@@ -51,14 +51,7 @@ class TitleCreateComponent extends Component {
 			options : []
 		}
 	}
-
-	shouldComponentUpdate(nextProps, nextState) {
-		if (this.props.title !== nextProps.title) {
-			return true
-		}
-		return false
-	}
-
+	
 	componentDidUpdate(prevProps){
 		const name =
 			this.constructor.displayName || this.constructor.name || "Component"

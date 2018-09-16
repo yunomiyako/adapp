@@ -1,22 +1,17 @@
-import {API} from "aws-amplify"
-import AdPageInfoDataStructure from "../domain/AdPageInfoDataStructure"
+import AuthentificatedCallWrapper from "./AuthentificatedCallWrapper"
 
-export default function(){
-	let apiName = "adApp"
-	let path = "/addata/list"
-	let myInit = { 
-		response: true, // (return the entire Axios response object instead of only response.data)
+export default function(payload) {
+	const apiName = "adApp"
+	const path = "/addata/list"
+	const init = { 
+		queryStringParameters: payload
 	}
-    
-	return API.get(apiName, path, myInit).then(res => {
-		console.log("fetchAdList then")
-		console.log(res)
-		//const body = JSON.parse(res.data.body) 
+
+	return AuthentificatedCallWrapper(apiName , path , init , "get").then((res) => {
 		const body = res.data
-		//const result = body.map((ad) => new AdPageInfoDataStructure(ad))
 		return body
-	}).catch((e) => {
-		console.log("fetchAdList catch")
+	}).catch(e => {
+		console.log("fetchAdData catch")
 		console.log(e)
 		throw new Error("何かしらのエラーだよ")
 	})

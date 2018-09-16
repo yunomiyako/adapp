@@ -16,3 +16,9 @@ export const redirectToReturnPage = function(id_return) {
 		)
 	}
 }
+
+export const redirectToTopPage = function() {
+	return (
+		<Redirect push to="/" />
+	)
+}

@@ -6,7 +6,7 @@ const logger = store => next => action => {
 
 	window.console.log("next state", store.getState())
 	window.console.groupEnd(action.type)
-
+	
 	return result
 }
 

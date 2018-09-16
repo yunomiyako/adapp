@@ -11,14 +11,10 @@ export const get_userdetail = () => {
 
 export const set_userdetail = (detail) => {
 	const data = new UserDetailDataStructure(detail)
-	console.log(USER_DETAIL)
-	console.log(JSON.stringify(data))
 	localStorage.setItem(USER_DETAIL, JSON.stringify(data))
 }
 
 export const get_id_user = () => {
 	const detail = get_userdetail()
-	console.log("get id_user from local")
-	console.log(detail)
 	return detail["id_user"] || "temp_id_user"
 }

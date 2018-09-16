@@ -3,6 +3,7 @@ import AdPage from "../../components/AdPage_new/AdPage"
 import {
 	fetchAdData,
 	onSendAction, 
+	onChangeIdReturnToGo,
 } from "../../actions/AdPage"
 
 
@@ -32,6 +33,7 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch) {
 	return {
+		onResetIdReturnToGO : () => dispatch(onChangeIdReturnToGo("")) , 
 		fetchAdData : (id_user , id_ad) => dispatch(fetchAdData(id_user , id_ad)) , 
 		onClickActionButton : (payload) => dispatch(onSendAction(payload))
 	}
