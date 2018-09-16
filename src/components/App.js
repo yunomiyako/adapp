@@ -57,7 +57,7 @@ class App extends Component {
 						<Route path="/test2" component = {ExperimentalPage}/>
 						<Route path="/return/:type" component = {ReturnPage}/>
 						<Route path="/userpage" component = {UserPage}/>
-						<Route path="/statspage" component = {StatsPage}/>
+						<Route path="/statspage/:id_user/:id_ad" component = {StatsPage}/>
 						<Route path="/return_page/:id_return" component = {ReturnPageHome} />
 						<Route path="/redirect" component = {LoginRedirectPage} />
 					</div>
