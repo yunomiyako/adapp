@@ -13,16 +13,10 @@ export default function wrapper(apiName , path , init , methodType){
 		if(methodType == "get") {
 			return API.get(apiName, path, myInit).then(res => {
 				return res
-			}).catch((e) => {
-				console.log(e)
-				throw new Error("何かしらのエラーだよ")
 			})
 		} else if(methodType == "post") {
 			return API.post(apiName, path, myInit).then(res => {
 				return res
-			}).catch((e) => {
-				console.log(e)
-				throw new Error("何かしらのエラーだよ")
 			})
 		}
 	}).catch(e => {	

@@ -47,3 +47,11 @@ export function onUpdateRating(rating) {
 		rating
 	}
 }
+
+export const ON_FAIL_FETCH_RETURN = prefix + "ON_FAIL_FETCH_RETURN"
+export function onFailFetchReturn(errorMessage) {
+	return {
+		type : ON_FAIL_FETCH_RETURN , 
+		errorMessage
+	}
+}

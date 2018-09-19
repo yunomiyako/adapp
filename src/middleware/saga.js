@@ -8,7 +8,7 @@ import {FETCH_AD_DATA , FETCH_AD_DATA_SUCCESS ,
 	ACTION_FAIL  , ON_CHANGE_ID_RETURN_TO_GO ,
 	ON_CHANGE_ACTION_LOADING} from "../actions/AdPage"
 import {ON_FETCH_RETURN , ON_UPDATE_RETURN_OBJECT , ON_UPDATE_RETURN_TYPE,
-	ON_UPDATE_RETURN_IMAGE_URLS , ON_UPDATE_RATING} from "../actions/ReturnPage"
+	ON_UPDATE_RETURN_IMAGE_URLS , ON_UPDATE_RATING, ON_FAIL_FETCH_RETURN} from "../actions/ReturnPage"
 import {GET_AD_LIST , GET_RETURN_LIST , SET_AD_LIST , SET_RETURN_LIST} from "../actions/UserPage"
 import {GET_AD_LIST as GET_AD_LIST_TOPPAGE , 
 	SET_AD_LIST as SET_AD_LIST_TOPPAGE} from "../actions/TopPage"
@@ -98,7 +98,7 @@ function *onFetchReturnData(action) {
 		yield put({type : ON_UPDATE_RETURN_TYPE , returnType : result.returnType})
 	} catch (e) {
 		console.log("sagaで失敗取得")
-		//失敗を投げるべき
+		yield put({type : ON_FAIL_FETCH_RETURN , errorMessage : "取得に失敗しました" })
 	}
 }
 
@@ -107,7 +107,7 @@ function *onGetAdList(action) {
 		const ad_list = yield call(fetchAdList , {"id_user" : action.id_user})
 		console.log(ad_list)
 		ad_list.map((ad) => {
-			ad.link = "/statspage/" + ad.id_user + "/" + ad.id_ad
+			ad.link = "/statspage/"  + ad.id_ad
 			ad.date = getDateFromUnixTime(ad.created_at)
 		})
 		yield put({type : SET_AD_LIST , ad_list : ad_list})

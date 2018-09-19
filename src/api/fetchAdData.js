@@ -14,7 +14,7 @@ export default function(payload) {
 		result.status = "OK"
 		return result
 	}).catch(e => {
-		console.log("fetchAdData catch")
+		console.log("fetchAdList catch")
 		console.log(e)
 		throw new Error("何かしらのエラーだよ")
 	})

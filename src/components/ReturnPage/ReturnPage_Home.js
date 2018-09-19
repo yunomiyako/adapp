@@ -1,7 +1,7 @@
 import React , {Component}  from "react"
 import ReturnPage from "./ReturnPage"
 import RatingComponent from "./RatingComponent"
-
+import ErrorPage from "../CommonSemanticUI/ErrorPage"
 import saveRate from "../../api/SaveRate"
 
 class ReturnPageHome extends Component {
@@ -26,6 +26,9 @@ class ReturnPageHome extends Component {
 
     
 	render() {
+		if(this.props.errorMessage) {
+			return ErrorPage(this.props.errorMessage)
+		}
 		return (
 			<div>
 				<ReturnPage

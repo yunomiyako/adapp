@@ -7,6 +7,7 @@ import FourImageComponent from "./FourImageComponent"
 import ActionComponent from "./ActionComponent"
 import RatingComponent from "./RatingComponent"
 import FeedComponent from "./FeedComponent"
+import ErrorPage from "../CommonSemanticUI/ErrorPage"
 
 import {redirectToReturnPage} from "../Redirect/redirect"
 
@@ -45,17 +46,7 @@ class AdPage extends Component {
 		}
 
 		if(this.props.errorMessage) {
-			//TODO : もっとまともなエラーページ
-			return (
-				<div>
-					<br/>
-					<br/>
-					<br/>
-					<br/>
-					<br/>
-					{this.props.errorMessage}
-				</div>
-			)
+			return ErrorPage(this.props.errorMessage)
 		}
 
 		const id_return = this.props.id_return_to_go

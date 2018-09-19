@@ -2,7 +2,8 @@ import {
 	ON_UPDATE_RETURN_OBJECT,
 	ON_UPDATE_RETURN_TYPE , 
 	ON_UPDATE_RETURN_IMAGE_URLS ,
-	ON_UPDATE_RATING
+	ON_UPDATE_RATING,
+	ON_FAIL_FETCH_RETURN
 } from "../actions/ReturnPage"
 
 //データ構造
@@ -21,6 +22,8 @@ export default function AdPageInfo(state = new ReturnPageDataStructure({}) , act
 		return dotProp.set(state , "urls" ,  action.urls )
 	case ON_UPDATE_RATING : 
 		return dotProp.set(state , "rating" ,  action.rating )
+	case ON_FAIL_FETCH_RETURN : 
+		return dotProp.set(state , "errorMessage" , action.errorMessage)
 	default :
 		return state
 	}
