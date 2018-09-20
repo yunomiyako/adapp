@@ -10,9 +10,6 @@ export default function(payload) {
 	return AuthentificatedCallWrapper(apiName , path , init , "get").then((res) => {
 		const body = res.data
 		return body
-	}).catch(e => {
-		console.log("fetchAdData catch")
-		console.log(e)
-		throw new Error("何かしらのエラーだよ")
 	})
+	//エラーハンドルするとそちらが先に実行されてしまう
 }

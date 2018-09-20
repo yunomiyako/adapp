@@ -11,16 +11,18 @@ class RatingComponent extends Component {
 	}
 
 	renderRating() {
-		console.log(this.props.rating)
-		if(this.props.rating){
-			return (
-				<Rating 
-					onRate = {(e, { rating })  => this.onRate(rating)}
-					maxRating={5} 
-					defaultRating={this.props.rating} 
-					icon='star' size='massive' />
-			)
-		}
+		
+		const rating = this.props.rating || 0
+		console.log(rating)
+		return (
+			<Rating 
+				onRate = {(e, { rating })  => this.onRate(rating)}
+				maxRating={5} 
+				rating = {rating}
+				icon='star' size='massive' />
+		)
+		
+		
 	}
 
 	render() {

@@ -1,7 +1,7 @@
 import { call, put, takeEvery , takeLatest } from "redux-saga/effects"
 
 //import Action
-import {ON_SUBMIT_ADCREATE } from "../actions/AdCreate"
+import {ON_SUBMIT_ADCREATE, ON_FETCH_TWEET_DETAIL, ON_CHANGE_TWEET_OBJECT } from "../actions/AdCreate"
 import {FETCH_AD_DATA , FETCH_AD_DATA_SUCCESS , 
 	FETCH_AD_DATA_FAIL , KEYS_TO_URLS,
 	ON_CHANGE_IMAGE_URLS, ON_SEND_ACTION , 
@@ -21,6 +21,7 @@ import receiveReturn from "../api/receiveReturn"
 import fetchReturn from "../api/fetchReturn"
 import fetchAdList from "../api/fetchAdList"
 import fetchReturnList from "../api/fetchReturnList"
+import fetchTweetDetail from "../api/fetchTweetDetail"
 
 //import utls
 import getDateFromUnixTime from "../Utils/getDateFromUnixTime"
@@ -154,6 +155,15 @@ function *onGetAdListTopPage() {
 	}
 }
 
+function *onFetchTweetDetail(action) {
+	try {
+		const tweetObject = yield call(fetchTweetDetail , {"id_tweet" : action.id_tweet})
+		yield put({type : ON_CHANGE_TWEET_OBJECT , tweetObject : tweetObject})
+	}catch(e) {
+		yield put({type : ON_CHANGE_TWEET_OBJECT , tweetObject : {}})
+	}
+}
+
 /*
   FETCH_EXAMPLE_DATA Action が送出されるたびに fetchUser を起動します。
   ユーザ情報の並列取得にも対応しています。
@@ -167,6 +177,7 @@ function* mySaga() {
 	yield takeLatest(GET_AD_LIST , onGetAdList)
 	yield takeLatest(GET_RETURN_LIST , onGetReturnList)
 	yield takeLatest(GET_AD_LIST_TOPPAGE , onGetAdListTopPage)
+	yield takeLatest(ON_FETCH_TWEET_DETAIL , onFetchTweetDetail)
 }
 
 /*

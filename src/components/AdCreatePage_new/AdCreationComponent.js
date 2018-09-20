@@ -102,6 +102,10 @@ class AdCreationComponent extends Component {
 		this.props.onChangeReturnDescription(text)
 	}
 
+	onFetchTweetDetail = (id_tweet) => {
+		this.props.onFetchTweetDetail(id_tweet)
+	}
+
 	renderCreateAdChild(adType) {
 		switch(adType) {
 		case "tweet" :
@@ -122,6 +126,7 @@ class AdCreationComponent extends Component {
 						adObject = {this.props.adObject}
 						onClickOk = {this.onClickOk}
 						onChangeAdObject = {this.onChangeAdObject}
+						onFetchTweetDetail = {this.onFetchTweetDetail}
 					/>
 				</div>
 			)
@@ -144,6 +149,7 @@ class AdCreationComponent extends Component {
 					adObject = {this.props.adObject}
 					onClickOk = {this.onClickOk}
 					onChangeAdObject = {this.onChangeAdObject}
+					onFetchTweetDetail = {this.onFetchTweetDetail}
 				/>
 			</div>)
 		case "follow" :	return (

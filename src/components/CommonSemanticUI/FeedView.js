@@ -10,8 +10,8 @@ const FeedView = function(link , adObject , url) {
 	const icon = AdTypeEnum.getByName(adObject.adType).icon
 	return (
 		<div className={style.FeedView}>
+			<Icon bordered inverted color='teal' name={icon} className={style.FeedIcon} />
 			<Link to={link}>
-				<Icon bordered inverted color='teal' name={icon} className={style.FeedIcon} />
 				<img className={style.FeedImage} src={url} alt=""></img>
 				<div className={style.FeedTitleFrame}>
 					<h2 className={style.FeedTitle}>{adObject.title}</h2>

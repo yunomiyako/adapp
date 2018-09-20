@@ -2,24 +2,10 @@ import {API , Auth} from "aws-amplify"
 import authetification from "../aws/authentification"
 
 export default function wrapper(apiName , path , init , methodType){
-	return Auth.currentAuthenticatedUser().then(user => {
-		console.log("ikuzo")
-		const myInit = { 
-			response: true ,
-			headers : {Authorization : user.signInUserSession.idToken.jwtToken},
-			...init
-		}
-        
-		if(methodType == "get") {
-			return API.get(apiName, path, myInit).then(res => {
-				return res
-			})
-		} else if(methodType == "post") {
-			return API.post(apiName, path, myInit).then(res => {
-				return res
-			})
-		}
-	}).catch(e => {	
+	return Auth.currentAuthenticatedUser().catch((e) => {
+		//ここが実行されていない
+		console.log("is it called?")
+		console.log(e)
 		if(e == "No current user") {
 			console.log("失敗1")
 			const callback = () => (console.log("re authen"))
@@ -35,6 +21,24 @@ export default function wrapper(apiName , path , init , methodType){
 		} else {
 			throw new Error("何かしらのエラーだよ")
 			//window.location.href = "/" //ちょっと強引すぎ
+		}
+
+	}).then(user => {
+		console.log("ikuzo")
+		const myInit = { 
+			response: true ,
+			headers : {Authorization : user.signInUserSession.idToken.jwtToken},
+			...init
+		}
+        
+		if(methodType == "get") {
+			return API.get(apiName, path, myInit).then(res => {
+				return res
+			})
+		} else if(methodType == "post") {
+			return API.post(apiName, path, myInit).then(res => {
+				return res
+			})
 		}
 	})
 }

@@ -3,7 +3,7 @@ class ReturnPageDataStructure {
 		this.returnType = data.returnType || "" , 
 		this.returnObject = data.returnObject || {text: "", images:[]},
 		this.urls = [] , 
-		this.rating = data.rating || 0 , 
+		this.rating = data.rating || undefined , 
 		this.errorMessage = data.errorMessage || ""
 	}
 }

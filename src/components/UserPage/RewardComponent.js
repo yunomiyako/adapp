@@ -19,7 +19,7 @@ class RewardComponent extends Component {
 	renderReward(items) {
 		return items.map(_item => {
 			return (
-				<div className ={style.ContentFrame} key={_item.title}>
+				<div className ={style.ContentFrame} key={_item.id_return}>
 					<div className ={style.ContentFrameTitle}>
 						<h2><Link to={_item.link}>{_item.title}</Link></h2>
 					</div>

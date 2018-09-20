@@ -95,3 +95,19 @@ export function onSubmitAdCreate(payload , callback) {
 		callback
 	}
 }
+
+export const ON_FETCH_TWEET_DETAIL = prefix + "ON_FETCH_TWEET_DETAIL"
+export function onFetchTweetDetail(id_tweet) {
+	return {
+		type : ON_FETCH_TWEET_DETAIL, 
+		id_tweet
+	}
+}
+
+export const ON_CHANGE_TWEET_OBJECT  = prefix + "ON_CHANGE_TWEET_OBJECT"
+export function onChangeTweetObject(tweetObject) {
+	return {
+		type: ON_CHANGE_TWEET_OBJECT ,
+		tweetObject
+	}
+}

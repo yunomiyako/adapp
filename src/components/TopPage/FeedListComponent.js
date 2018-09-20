@@ -9,7 +9,6 @@ class TopPage extends Component {
     }
 
 	async getAdList() {
-        //TODO : できたらちゃんとsagaで呼ぶ
         this.props.getAdList()
 	}
 

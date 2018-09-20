@@ -10,6 +10,8 @@ import {Button , Checkbox , Form} from "semantic-ui-react"
 import TwitterLikeComponent from "./TwitterLikeComponent"
 import TwitterLikeView from "../CommonSemanticUI/TwitterLikeView"
 
+import getTweetIdFromUrl from "../../Utils/getTweetIdFromUrl"
+
 // immutable state change helper
 var dotProp = require("dot-prop-immutable")
 
@@ -71,14 +73,23 @@ class RetweetAdCreate extends Component {
 	}
 
 	onChangeUrl = (event) => {
-		const newObj = dotProp.set(this.props.adObject , "tweetUrl" , event.target.value)
+		const url = event.target.value
+		const newObj = dotProp.set(this.props.adObject , "tweetUrl" , url)
 		this.props.onChangeAdObject(newObj)
+
+		//url check
+		const id_tweet = getTweetIdFromUrl(url)
+		if(id_tweet) {	
+			this.props.onFetchTweetDetail(id_tweet)
+		}
 	}
 
 
 	renderTwitterLikeView() {
 		if(this.props.adObject.tweetUrl){
-			return <TwitterLikeView/>
+			return <TwitterLikeView
+			tweetObject = {this.props.tweetObject}
+			/>
 		}
 	}
 

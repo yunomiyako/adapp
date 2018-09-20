@@ -5,6 +5,7 @@ import {set_access_token ,
 get_oauth_token , get_oauth_token_secret} from "../../localStorage/twitter_access_token"
 import QueryString from "../../Utils/QueryString"
 import OauthRequest from "../../api/OauthRequest"
+import fetchUserDetail from "../../api/fetchUserDetail"
 import {redirectToTopPage} from "../Redirect/redirect"
 import { Dimmer, Loader } from 'semantic-ui-react'
 
@@ -34,6 +35,10 @@ class App extends Component {
         const access_token_secret = result["access_token_secret"]
         set_access_token(access_token)
         set_access_token_secret(access_token_secret)
+
+        //userdetailを取得して目的の値になっているか確認する
+        const user_detail = await fetchUserDetail()
+        console.log(user_detail)
 
         //TODO : redirect to somewhere
         this.setState({
