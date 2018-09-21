@@ -40,10 +40,6 @@ class DescriptionCreateComponent extends Component {
 		console.groupEnd(name)
 	}
 
-	componentWillMount() {
-		//propsの初期化をします
-	}
-
 	//フィールドの長さはAdCreatePage-TitleCreateComponentで定義
 	renderTextArea(){
 		return (

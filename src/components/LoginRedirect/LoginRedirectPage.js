@@ -6,14 +6,15 @@ get_oauth_token , get_oauth_token_secret} from "../../localStorage/twitter_acces
 import QueryString from "../../Utils/QueryString"
 import OauthRequest from "../../api/OauthRequest"
 import fetchUserDetail from "../../api/fetchUserDetail"
-import {redirectToTopPage} from "../Redirect/redirect"
+import {redirectToTopPage, redirectTo} from "../Redirect/redirect"
 import { Dimmer, Loader } from 'semantic-ui-react'
+import { get_redirect_to } from "../../localStorage/redirect_to";
 
 class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            ac : ""
+            redirecTo : ""
         }
     }
 
@@ -26,9 +27,6 @@ class App extends Component {
 		const oauth_token_secret = get_oauth_token_secret()
         const oauth_verifier = QueryString.oauth_verifier
 
-        console.log(oauth_token)
-        console.log(oauth_token_secret)
-        console.log(oauth_verifier)
         const result = await OauthRequest(oauth_token , oauth_token_secret , oauth_verifier)
         
         const access_token = result["access_token"]
@@ -40,17 +38,17 @@ class App extends Component {
         const user_detail = await fetchUserDetail()
         console.log(user_detail)
 
-        //TODO : redirect to somewhere
+        const path = get_redirect_to() || "/"
         this.setState({
-            ac : access_token
+            redirecTo : path
         })
 	}
     
 
 
 	render() {
-        if(this.state.ac) {
-            return redirectToTopPage()
+        if(this.state.redirectTo) {
+            return redirectTo(this.state.redirecTo)
         }
 
 		return (

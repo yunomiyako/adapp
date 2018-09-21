@@ -4,7 +4,7 @@ class AdCreateInfoDataStructure {
 		this.title = data.title || ""
 		this.returnDescription = data.returnDescription || ""
 		this.adObject = data.adObject || { text:"" , images:[] , tweetUrl : "" , isNewlyCreated:false} 
-		this.rating = data.rating || 3 , 
+		this.rating = data.rating || 0 , 
 		this.username = data.username || "anonymous" , 
 		this.loading = data.loading || false , 
 		this.errorMessage = data.errorMessage || "" ,

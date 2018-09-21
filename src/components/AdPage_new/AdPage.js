@@ -10,6 +10,9 @@ import FeedComponent from "./FeedComponent"
 import ErrorPage from "../CommonSemanticUI/ErrorPage"
 
 import {redirectToReturnPage} from "../Redirect/redirect"
+import loginCheck from "../../localStorage/loginCheck"
+import goTwitterLogin from "../../Utils/goTwitterLogin"
+import AdDescriptionView from "./AdDescriptionView"
 
 class AdPage extends Component {
 	constructor(props) {
@@ -19,7 +22,7 @@ class AdPage extends Component {
 		}
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		this.fetchAdData()
 	}
 
@@ -30,10 +33,15 @@ class AdPage extends Component {
 	}
 
 	onClickActionButton() {
-		const id_user = this.props.match.params.id_user
-		const id_ad = this.props.match.params.id_ad
-		const payload = {"id_user" : id_user , "id_ad" : id_ad}
-		this.props.onClickActionButton(payload)
+		if(loginCheck()) {
+			const id_user = this.props.match.params.id_user
+			const id_ad = this.props.match.params.id_ad
+			const payload = {"id_user" : id_user , "id_ad" : id_ad}
+			this.props.onClickActionButton(payload)
+		} else {
+			const path = this.props.location.pathname
+			goTwitterLogin(path)
+		}
 	}
 
 	render() {
@@ -69,6 +77,15 @@ class AdPage extends Component {
 							title= {this.props.title}
 							username= {this.props.username}
 							content={this.props.adObject.text}
+						/>
+					</div>
+
+					<div className={style.adDescriptionFrame}>
+						<AdDescriptionView
+							username = {this.props.username}
+							content = {this.props.adObject.text}
+							adType = {this.props.adType}
+							returnDescription = {this.props.returnDescription}
 						/>
 					</div>
 

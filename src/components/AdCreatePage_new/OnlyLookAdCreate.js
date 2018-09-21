@@ -45,18 +45,6 @@ class OnlyLookAdCreate extends Component {
 		console.groupEnd(name)
 	}
 
-	onClickOk = () => {
-		this.props.onClickOk()
-	}
-
-	renderOkButton = () => {
-		if(this.props.adObject.text !== "") {
-			return <Button onClick={this.onClickOk}>OK</Button>
-		} else {
-			return <Button disabled>OK</Button>
-		}
-	}
-
 	renderAdContent() {
 		return <FeedComponent
 			title={this.props.title}
@@ -92,11 +80,6 @@ class OnlyLookAdCreate extends Component {
 				id="onlyLook"
 				onChangePictures={this.onChangePictures}
 				 />
-
-				<div className={style.OkButtonFrame}>
-					<div className="OkButtonCorner">{this.renderOkButton()}</div>
-				</div>
-
 			</div>
 		)
 	}

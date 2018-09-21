@@ -15,7 +15,7 @@ class AdComponent extends Component {
 		}
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		const id_user = get_id_user()
 		this.props.getAdList(id_user)
 	}

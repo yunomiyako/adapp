@@ -163,3 +163,10 @@
 :local .p_line {
   line-height: 1
 }
+
+:local .adDescriptionFrame {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 50px 10px;
+  text-align: left;
+}

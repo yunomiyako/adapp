@@ -8,6 +8,7 @@ export default function(payload) {
 	}
 
 	return AuthentificatedCallWrapper(apiName , path , init , "get").then((res) => {
+		console.log("fetch ad list then")
 		const body = res.data
 		return body
 	})

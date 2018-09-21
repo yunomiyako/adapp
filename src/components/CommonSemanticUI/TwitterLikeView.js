@@ -4,6 +4,8 @@ import style from "./CommonSemanticUI.css"
 //semantic UI
 import { Comment  } from "semantic-ui-react"
 
+import renderNewLine from "../../Utils/renderNewLine"
+
 class TwitterLikeView extends Component {
 	render() {
 		const tweetObject = this.props.tweetObject
@@ -33,7 +35,7 @@ class TwitterLikeView extends Component {
 								<div>@{userid}</div>
 							</Comment.Metadata>
 							<Comment.Text>
-								{text}
+								{renderNewLine(text)}
 							</Comment.Text>
 						</Comment.Content>
 					</Comment>

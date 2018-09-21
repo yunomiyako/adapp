@@ -1,5 +1,5 @@
 import React , {Component} from "react"
-import { Icon, Step } from "semantic-ui-react"
+import { Icon, Label , Button } from "semantic-ui-react"
 import style from "./AdCreatePage.css"
 
 //Components
@@ -86,6 +86,7 @@ class AdCreationComponent extends Component {
 						onChangeTitle = {this.onChangeTitle}
 						onChangeReturnDescription = {this.onChangeReturnDescription}
 					></TitleCreateComponent>
+					{this.props.title ? "" : <Label pointing color="orange">タイトルは上の例から選ぶことができるよ！</Label>}
 				</React.Fragment>)
 		}
 	}
@@ -114,9 +115,9 @@ class AdCreationComponent extends Component {
 					<h3 className="AdCreatePage-Title">{this.HeadIcon}どんなツイートをしてもらいたいですか？</h3>
 					<TwitterLikeContainerComponent
 						adObject = {this.props.adObject}
-						onClickOk = {this.onClickOk}
 						onChangeAdObject = {this.onChangeAdObject}
 					/>
+					<Label pointing color="orange">ツイート部分をタップすると編集できるよ！</Label>
 				</div>)
 		case "retweet" :
 			return (
@@ -124,10 +125,10 @@ class AdCreationComponent extends Component {
 					<h3 className="AdCreatePage-Title">{this.HeadIcon}リツイートして欲しいツイートを選択or作成</h3>
 					<RetweetAdCreate
 						adObject = {this.props.adObject}
-						onClickOk = {this.onClickOk}
 						onChangeAdObject = {this.onChangeAdObject}
 						onFetchTweetDetail = {this.onFetchTweetDetail}
 					/>
+					<Label pointing color="orange">URLの指定もしくはツイートの新規作成ができるよ</Label>
 				</div>
 			)
 		case "lookMe" :
@@ -138,19 +139,19 @@ class AdCreationComponent extends Component {
 						adObject = {this.props.adObject}
 						title = {this.props.title}
 						returnDescription = {this.props.returnDescription}
-						onClickOk = {this.onClickOk}
 						onChangeAdObject = {this.onChangeAdObject}
 					/>
+					{this.props.adObject.text ? "" : <Label pointing color="orange">画像とテキストで見てほしいことを説明しよう</Label>}
 				</div>)
 		case "fav" :	return (
 			<div>
 				<h3 className="AdCreatePage-Title">{this.HeadIcon}いいねして欲しいツイートを選択or作成</h3>
 				<RetweetAdCreate
 					adObject = {this.props.adObject}
-					onClickOk = {this.onClickOk}
 					onChangeAdObject = {this.onChangeAdObject}
 					onFetchTweetDetail = {this.onFetchTweetDetail}
 				/>
+				<Label pointing color="orange">URLの指定もしくはツイートの新規作成ができるよ</Label>
 			</div>)
 		case "follow" :	return (
 			<div>
@@ -159,14 +160,29 @@ class AdCreationComponent extends Component {
 					adObject = {this.props.adObject}
 					title = {this.props.title}
 					returnDescription = {this.props.returnDescription}
-					onClickOk = {this.onClickOk}
 					onChangeAdObject = {this.onChangeAdObject}
 				/>
+				{this.props.adObject.text ? "" : <Label pointing color="orange">自己紹介や普段のツイートを紹介しよう！</Label>}
 			</div>)
 		default : return (
 			<div>
 			</div>
 		)
+		}
+	}
+
+	renderOkButton = () => {
+		const flag = this.props.title && this.props.adObject.text
+		if(flag) {
+			return (
+				<React.Fragment>
+					<Label pointing="right" color="orange">お返しの設定へ</Label>	
+					<Button onClick={this.onClickOk}>OK</Button>
+				</React.Fragment>
+			)
+
+		} else {
+			return <Button disabled>OK</Button>
 		}
 	}
 
@@ -185,6 +201,9 @@ class AdCreationComponent extends Component {
 					{this.renderCreateAdChild(this.props.adType)}
 				</div>
 
+				<div className={style.OkButtonFrame}>
+					<div className="OkButtonCorner">{this.renderOkButton()}</div>
+				</div>
 			</div>
 		)
 	}

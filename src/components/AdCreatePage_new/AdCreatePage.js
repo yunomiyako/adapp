@@ -3,7 +3,7 @@ import style from "./AdCreatePage.css"
 import style2 from "./Animation.css"
 
 //Semantic UI
-import {  } from "semantic-ui-react"
+import { Label } from "semantic-ui-react"
 import {  } from "react-transition-group"
 
 
@@ -74,7 +74,7 @@ class AdCreatePage extends Component {
 					adCreateCompleted = {this.props.adCreateCompleted}
 					returnCreateCompleted = {this.props.returnCreateCompleted}
 				/>
-				
+				{this.props.index == 2 ? <Label pointing color="orange">ここから戻れるよ</Label> : ""}	
 				<div className="AdCreatePageForPaddingFrame">
 					{this.renderContent()}
 				</div>

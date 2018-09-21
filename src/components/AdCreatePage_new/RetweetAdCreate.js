@@ -49,22 +49,8 @@ class RetweetAdCreate extends Component {
 		console.groupEnd(name)
 	}
 
-	onClickOk = () => {
-		this.props.onClickOk()
-	}
-
 	onChangeAdObject = (obj) => {
 		this.props.onChangeAdObject(obj)
-	}
-
-	renderOkButton() {
-		const flag_1 = !this.props.adObject.isNewlyCreated && this.props.adObject.tweetUrl
-		const flag_2 = this.props.adObject.isNewlyCreated && this.props.adObject.text
-		if(flag_1 || flag_2) {
-			return <Button onClick={this.onClickOk}>OK</Button>
-		} else {
-			return <Button disabled>OK</Button>
-		}
 	}
 
 	onToggled = () => {
@@ -124,11 +110,6 @@ class RetweetAdCreate extends Component {
 					<Checkbox label='新規にツイートを作る' checked={this.props.adObject.isNewlyCreated} onChange={this.onToggled} />
 				</div>
 				{this.renderCreate()}
-
-				<div className={style.OkButtonFrame}>
-					<div className="OkButtonCorner">{this.renderOkButton()}</div>
-				</div>
-
 			</div>
 		)
 	}

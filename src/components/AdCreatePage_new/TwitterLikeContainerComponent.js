@@ -41,18 +41,6 @@ class TwitterLikeContainerComponent extends Component {
 		console.groupEnd(name)
 	}
 
-	renderOkButton() {
-		if(this.props.adObject.text !== "") {
-			return <Button onClick={this.onClickOk}>OK</Button>
-		} else {
-			return <Button disabled>OK</Button>
-		}
-	}
-
-	onClickOk = () => {
-		this.props.onClickOk()
-	}
-
 	onChangeAdObject = (obj) => {
 		this.props.onChangeAdObject(obj)
 	}
@@ -65,11 +53,6 @@ class TwitterLikeContainerComponent extends Component {
 					onChangeAdObject = {this.onChangeAdObject}
 					insertDefaultMessage = {true}
 				/>
-
-				<div className={style.OkButtonFrame}>
-					<div className="OkButtonCorner">{this.renderOkButton()}</div>
-				</div>
-
 			</div>
 		)
 	}

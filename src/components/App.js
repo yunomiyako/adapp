@@ -24,11 +24,11 @@ import fetchUserDetail from "../api/fetchUserDetail"
 Amplify.configure(conf)
 
 class App extends Component {
-	componentWillMount() {
+	componentDidMount() {
 		this.tmpAuth()
 	}
 
-	componentWillUpdate() {
+	componentDidUpdate() {
 		this.tmpAuth()
 	}
 

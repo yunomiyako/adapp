@@ -1,5 +1,5 @@
 import React , {Component} from "react"
-import { Icon, Step , Button } from "semantic-ui-react"
+import { Icon, Step , Button , Label } from "semantic-ui-react"
 import style from "./AdCreatePage.css"
 
 //Components
@@ -71,6 +71,7 @@ class ReturnCreationComponent extends Component {
 					type = {this.props.returnType}
 					buttons = {returnTypeButtons}
 				/>
+				<Label pointing color="purple">押せないのはまだ未実装です</Label>
 			</div>
 		)
 	}
@@ -86,6 +87,7 @@ class ReturnCreationComponent extends Component {
 						returnDescription = {this.props.returnDescription}
 						onChangeReturnDescription = {this.props.onChangeReturnDescription}
 					></ReturnDescriptionCreateComponent>
+					{this.props.returnDescription ? "" : <Label pointing color="orange">宣伝してもらえるような魅力的な一言を</Label>}
 				</React.Fragment>)
 		}
 	}
@@ -104,14 +106,21 @@ class ReturnCreationComponent extends Component {
 						returnObject = {this.props.returnObject}
 						onChangeReturnObject = {this.onChangeReturnObject}
 					/>
+					{this.props.returnObject.text ? "" : <Label pointing color="orange">文章は必須です</Label>}
 				</React.Fragment>
 			)
 		}
 	}
 
 	renderOkButton() {
-		if(this.props.returnDescription !== "") {
-			return <Button onClick={() => this.onClickOk()}>OK</Button>
+		const flag = this.props.returnDescription && this.props.returnObject.text
+		if(flag) {
+			return (
+				<React.Fragment>
+					<Label pointing="right" color="orange">確認画面へ</Label>	
+					<Button onClick={() => this.onClickOk()}>OK</Button>
+				</React.Fragment>
+			);
 		} else {
 			return <Button disabled>OK</Button>
 		}

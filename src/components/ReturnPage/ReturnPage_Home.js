@@ -9,7 +9,7 @@ class ReturnPageHome extends Component {
 		super(props)
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		this.fetchReturnData()
 	}
 

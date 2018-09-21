@@ -12,7 +12,7 @@ class RewardComponent extends Component {
 		}
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		this.props.getReturnList()
 	}
 
