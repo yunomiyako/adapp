@@ -72,6 +72,8 @@ class RetweetAdCreate extends Component {
 
 
 	renderTwitterLikeView() {
+		console.log("is it called?")
+		console.log(this.props.tweetObject)
 		if(this.props.adObject.tweetUrl){
 			return <TwitterLikeView
 			tweetObject = {this.props.tweetObject}

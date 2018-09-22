@@ -1,3 +1,5 @@
+import TweetObjectDataStructure from "./TweetObjectDataStructure"
+
 class AdCreateInfoDataStructure {
 	constructor(data){
 		this.adType = data.adType || ""
@@ -9,7 +11,7 @@ class AdCreateInfoDataStructure {
 		this.index = data.index || 0
 		this.adCreateCompleted = data.adCreateCompleted || false
 		this.returnCreateCompleted = data.adCreateCompleted || false 
-		this.tweetObject = data.tweetObject || {text : "" , images : [] , id_tweet : "" , icon_url : "" , username : "" , userid : ""} 
+		this.tweetObject = data.tweetObject || new TweetObjectDataStructure({})
 
 	}
 }

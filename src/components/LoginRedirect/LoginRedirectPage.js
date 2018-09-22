@@ -47,7 +47,7 @@ class App extends Component {
 
 
 	render() {
-        if(this.state.redirectTo) {
+        if(this.state.redirectTo || this.state.redirecTo == "/") {
             return redirectTo(this.state.redirecTo)
         }
 
