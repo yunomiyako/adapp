@@ -5,7 +5,7 @@ import StatsComponent from "./StatsComponent"
 import BotanComponent from "./BotanComponent"
 import NaiyouComponent from "./NaiyouComponent"
 import fetchAdDetail from "../../api/fetchAdDetail"
-
+import {   } from "semantic-ui-react"
 
 class StatsPage extends Component {
 	constructor(props) {

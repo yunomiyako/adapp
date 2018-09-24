@@ -7,6 +7,7 @@ import Top_Component from "./Top_Desktopcomponent"
 import Top_Phonecomponent from "./Top_Phonecomponent"
 import Top_Tabletcomponent from "./Top_Tabletcomponent"
 import FeedListComponent from "../../containers/TopPage/FeedListComponent"
+import NormalView from "../CommonSemanticUI/NormalView"
 
 import {twitter_logout ,get_access_token } from "../../localStorage/twitter_access_token"
 import loginCheck from "../../localStorage/loginCheck"
@@ -41,7 +42,6 @@ class TopPage extends Component {
 		if(!this.state.logined) {
 			return (
 				<div >
-
 					<DesktopBreakpoint>	
 				 	　<Top_Component/>
 					</DesktopBreakpoint>
@@ -53,6 +53,8 @@ class TopPage extends Component {
 					<TabletBreakpoint>	
 				      <Top_Tabletcomponent/>
 					</TabletBreakpoint>
+
+					<NormalView/>
 				</div>
 			)
 		} else {

@@ -16,6 +16,13 @@ export default function wrapper(apiName , path , init , methodType){
 			console.log("失敗2")
 			const callback = () => (console.log("re authen2"))
 			return authetification(callback).then(() => {
+				console.log("is it called? I think not")
+				return wrapper(apiName , path , init , methodType)
+			})
+		} else if (e.message = "user.signInUserSession is undefined") {
+			console.log("失敗3")
+			const callback = () => (console.log("re authen2"))
+			return authetification(callback).then(() => {
 				return wrapper(apiName , path , init , methodType)
 			})
 		} else {

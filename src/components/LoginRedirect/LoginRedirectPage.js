@@ -9,6 +9,7 @@ import fetchUserDetail from "../../api/fetchUserDetail"
 import {redirectToTopPage, redirectTo} from "../Redirect/redirect"
 import { Dimmer, Loader } from 'semantic-ui-react'
 import { get_redirect_to } from "../../localStorage/redirect_to";
+import RefreshUserDetail from "../../api/RefreshUserDetail";
 
 class App extends Component {
     constructor(props) {
@@ -34,10 +35,10 @@ class App extends Component {
         set_access_token(access_token)
         set_access_token_secret(access_token_secret)
 
-        //userdetailを取得して目的の値になっているか確認する
-        const user_detail = await fetchUserDetail()
+        //userdetailを更新する
+        const user_detail = await RefreshUserDetail()
         console.log(user_detail)
-
+        
         const path = get_redirect_to() || "/"
         this.setState({
             redirecTo : path

@@ -11,6 +11,7 @@ export default function() {
 
 	return AuthentificatedCallWrapper(apiName , path , init , "get").then((res) => {
 		const body = res.data
+		body.username = body.name
 		const result = new UserDetailDataStructure(body)
 		set_userdetail(result)
 		return result

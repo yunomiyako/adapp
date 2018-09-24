@@ -44,8 +44,8 @@
 
 :local .ContentFrameTitle {
   order: 1;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  /* white-space: nowrap;
+  text-overflow: ellipsis; */
   overflow: hidden;
   margin-right: 12px;
 }
@@ -62,4 +62,11 @@
   margin-left: 30px;
   margin-right: 30px;
   text-align: left;
+}
+
+:local .UserCard {
+  max-width: 300px;
+  margin: auto;
+  left : 0;
+  right : 0;
 }

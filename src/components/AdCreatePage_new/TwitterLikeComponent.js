@@ -8,6 +8,7 @@ import { Comment  , Image , Grid , Modal , Button , Form , TextArea} from "seman
 
 import UploaderWithSlider from "./UploaderWithSlider"
 import renderNewLine from "../../Utils/renderNewLine"
+import { get_userdetail } from "../../localStorage/user_detail";
 
 // immutable state change helper
 var dotProp = require("dot-prop-immutable")
@@ -54,7 +55,10 @@ class TwitterLikeComponent extends Component {
 	}
 
 	show(){
-		this.setState({ modalOpen: true })
+		this.setState({ 
+			modalOpen: true, 
+			provisionalText : this.props.adObject.text
+		 })
 	}
 
 	close(doSave) {
@@ -77,7 +81,14 @@ class TwitterLikeComponent extends Component {
 	}
 
 	insertDefaultMessage(){
-		const defaultMessage = "〇〇さん" + "(@username)" + "からの宣伝です。"
+		//TODO : 埋め込み
+		var defaultMessage = ""
+		const user_detail = get_userdetail()
+		if(user_detail) {
+			const screen_name = user_detail.screen_name
+			const username = user_detail.username
+			defaultMessage = username + "さん" + "(@" + screen_name + ")" + "からの宣伝です。"
+		}
 		if(this.props.insertDefaultMessage) {
 			return (
 				<div>

@@ -175,7 +175,8 @@ class AdCreationComponent extends Component {
 
 	renderOkButton = () => {
 		const flag = this.props.title && this.props.adObject.text
-		if(flag) {
+		const flag2 = this.props.title && this.props.tweetObject.text 
+		if(flag || flag2) {
 			return (
 				<React.Fragment>
 					<Label pointing="right" color="orange">お返しの設定へ</Label>	

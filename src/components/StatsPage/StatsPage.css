@@ -16,8 +16,8 @@
 
 :local .StatsComponent {
   margin-top: 50px;
-  display: flex;
-  justify-content: space-around;
+  /* display: flex;
+  justify-content: space-around; */
 }
 
 :local .StatsFrame1 {
@@ -95,4 +95,9 @@
   margin-left: 30px;
   margin-right: 30px;
   text-align: left;
+}
+
+:local .center {
+  display : flex; 
+  justify-content: space-around;
 }
