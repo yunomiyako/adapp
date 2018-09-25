@@ -54,3 +54,9 @@ export const getReturnType = createSelector(
 	[getReturnTypeFromState] , 
 	(returnType) => returnType
 )
+
+const getTweetObjectFromState = (state) => state.tweetObject
+export const getTweetObject = createSelector(
+	[getTweetObjectFromState] , 
+	(tweetObject) => tweetObject
+)

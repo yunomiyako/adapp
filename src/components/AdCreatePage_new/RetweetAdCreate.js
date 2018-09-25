@@ -10,6 +10,8 @@ import {Button , Checkbox , Form} from "semantic-ui-react"
 import TwitterLikeComponent from "./TwitterLikeComponent"
 import TwitterLikeView from "../CommonSemanticUI/TwitterLikeView"
 
+import getTweetIdFromUrl from "../../Utils/getTweetIdFromUrl"
+
 // immutable state change helper
 var dotProp = require("dot-prop-immutable")
 
@@ -47,22 +49,8 @@ class RetweetAdCreate extends Component {
 		console.groupEnd(name)
 	}
 
-	onClickOk = () => {
-		this.props.onClickOk()
-	}
-
 	onChangeAdObject = (obj) => {
 		this.props.onChangeAdObject(obj)
-	}
-
-	renderOkButton() {
-		const flag_1 = !this.props.adObject.isNewlyCreated && this.props.adObject.tweetUrl
-		const flag_2 = this.props.adObject.isNewlyCreated && this.props.adObject.text
-		if(flag_1 || flag_2) {
-			return <Button onClick={this.onClickOk}>OK</Button>
-		} else {
-			return <Button disabled>OK</Button>
-		}
 	}
 
 	onToggled = () => {
@@ -71,14 +59,23 @@ class RetweetAdCreate extends Component {
 	}
 
 	onChangeUrl = (event) => {
-		const newObj = dotProp.set(this.props.adObject , "tweetUrl" , event.target.value)
+		const url = event.target.value
+		const newObj = dotProp.set(this.props.adObject , "tweetUrl" , url)
 		this.props.onChangeAdObject(newObj)
+
+		//url check
+		const id_tweet = getTweetIdFromUrl(url)
+		if(id_tweet) {	
+			this.props.onFetchTweetDetail(id_tweet)
+		}
 	}
 
 
 	renderTwitterLikeView() {
 		if(this.props.adObject.tweetUrl){
-			return <TwitterLikeView/>
+			return <TwitterLikeView
+			tweetObject = {this.props.tweetObject}
+			/>
 		}
 	}
 
@@ -113,11 +110,6 @@ class RetweetAdCreate extends Component {
 					<Checkbox label='新規にツイートを作る' checked={this.props.adObject.isNewlyCreated} onChange={this.onToggled} />
 				</div>
 				{this.renderCreate()}
-
-				<div className={style.OkButtonFrame}>
-					<div className="OkButtonCorner">{this.renderOkButton()}</div>
-				</div>
-
 			</div>
 		)
 	}

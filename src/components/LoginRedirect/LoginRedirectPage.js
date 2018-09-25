@@ -5,14 +5,16 @@ import {set_access_token ,
 get_oauth_token , get_oauth_token_secret} from "../../localStorage/twitter_access_token"
 import QueryString from "../../Utils/QueryString"
 import OauthRequest from "../../api/OauthRequest"
-import {redirectToTopPage} from "../Redirect/redirect"
+import fetchUserDetail from "../../api/fetchUserDetail"
+import {redirectToTopPage, redirectTo} from "../Redirect/redirect"
 import { Dimmer, Loader } from 'semantic-ui-react'
+import { get_redirect_to } from "../../localStorage/redirect_to";
 
 class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            ac : ""
+            redirecTo : ""
         }
     }
 
@@ -25,9 +27,6 @@ class App extends Component {
 		const oauth_token_secret = get_oauth_token_secret()
         const oauth_verifier = QueryString.oauth_verifier
 
-        console.log(oauth_token)
-        console.log(oauth_token_secret)
-        console.log(oauth_verifier)
         const result = await OauthRequest(oauth_token , oauth_token_secret , oauth_verifier)
         
         const access_token = result["access_token"]
@@ -35,17 +34,21 @@ class App extends Component {
         set_access_token(access_token)
         set_access_token_secret(access_token_secret)
 
-        //TODO : redirect to somewhere
+        //userdetailを取得して目的の値になっているか確認する
+        const user_detail = await fetchUserDetail()
+        console.log(user_detail)
+
+        const path = get_redirect_to() || "/"
         this.setState({
-            ac : access_token
+            redirecTo : path
         })
 	}
     
 
 
 	render() {
-        if(this.state.ac) {
-            return redirectToTopPage()
+        if(this.state.redirectTo) {
+            return redirectTo(this.state.redirecTo)
         }
 
 		return (

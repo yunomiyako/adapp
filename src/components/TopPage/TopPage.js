@@ -22,7 +22,7 @@ class TopPage extends Component {
 		}
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		if(loginCheck()) {
 			this.setState({
 				logined : true

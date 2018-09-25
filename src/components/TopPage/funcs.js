@@ -1,14 +1,8 @@
-
-import PublishOauthURL from "../../api/PublishOauthURL"
-import {set_oauth_token , set_oauth_token_secret , get_oauth_token} from "../../localStorage/twitter_access_token"
+import goTwitterLogin from "../../Utils/goTwitterLogin";
 export const Funcs = {
 
 	async onClicktest() {
-		const result = await PublishOauthURL()
-		console.log(result)
-		set_oauth_token(result.oauth_token)
-		set_oauth_token_secret(result.oauth_token_secret)
-		window.location.href = result.url
+		goTwitterLogin()
 	} ,
 
 	getTexts() {

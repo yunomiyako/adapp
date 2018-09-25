@@ -21,7 +21,8 @@ class StatsPage extends Component {
 	}
 
 	async getAdDetail() {
-		const body = await fetchAdDetail(0)
+		const id_ad = this.props.match.params.id_ad
+		const body = await fetchAdDetail(id_ad)
 		console.log(body)
 		this.setState(
 			{

@@ -7,7 +7,7 @@ import style from "./AdCreatePage.css"
 import { Comment  , Image , Grid , Modal , Button , Form , TextArea} from "semantic-ui-react"
 
 import UploaderWithSlider from "./UploaderWithSlider"
-
+import renderNewLine from "../../Utils/renderNewLine"
 
 // immutable state change helper
 var dotProp = require("dot-prop-immutable")
@@ -102,7 +102,7 @@ class TwitterLikeComponent extends Component {
 						<Comment.Text>
 							<div onClick={() => this.show()}>
 								{this.insertDefaultMessage()}
-								{text ? text : <a >ここをクリックして宣伝文を記述</a>}
+								{text ? renderNewLine(text) : <a >ここをクリックして宣伝文を記述</a>}
 							</div>
 						</Comment.Text>
 					</Comment.Content>

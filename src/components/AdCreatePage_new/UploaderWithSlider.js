@@ -18,8 +18,7 @@ class UploaderWithSlider extends React.Component {
         this.props.onChangePictures(pictures)
 	}
 	
-	componentWillMount() {
-		console.log("componentWillMount")
+	componentDidMount() {
 		const callback = (urls) => {
 			this.setState({urls : urls})
 		}

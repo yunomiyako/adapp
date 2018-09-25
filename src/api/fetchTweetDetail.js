@@ -1,20 +1,18 @@
-import AdPageInfoDataStructure from "../domain/AdPageInfoDataStructure"
 import AuthentificatedCallWrapper from "./AuthentificatedCallWrapper"
 
-export default function(payload) {
+export default function(id_tweet) {
 	const apiName = "adApp"
-	const path = "/addata"
+	const path = "/tweet-info"
 	const init = { 
-		queryStringParameters: payload
+		queryStringParameters: {id_tweet : id_tweet}
 	}
 
 	return AuthentificatedCallWrapper(apiName , path , init , "get").then((res) => {
+		console.log("fetchTweetDetail then")
 		const body = res.data
-		const result = new AdPageInfoDataStructure(body)
-		result.status = "OK"
-		return result
+		return body
 	}).catch(e => {
-		console.log("fetchAdList catch")
+		console.log("fetchTweetDetail catch")
 		console.log(e)
 		throw new Error("何かしらのエラーだよ")
 	})

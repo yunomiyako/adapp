@@ -8,7 +8,9 @@ class AdCreateInfoDataStructure {
 		this.returnObject = data.returnObject ||  {text: "", images:[]}
 		this.index = data.index || 0
 		this.adCreateCompleted = data.adCreateCompleted || false
-		this.returnCreateCompleted = data.adCreateCompleted || false
+		this.returnCreateCompleted = data.adCreateCompleted || false 
+		this.tweetObject = data.tweetObject || {text : "" , images : [] , id_tweet : "" , icon_url : "" , username : "" , userid : ""} 
+
 	}
 }
 

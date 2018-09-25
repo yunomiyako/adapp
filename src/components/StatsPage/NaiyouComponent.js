@@ -5,11 +5,13 @@ import items from "./test.js"
 
 class NaiyouComponent extends Component {
 	renderUserList(items) {
+		//TODO : userdetailから修正
 		items = items.map(item => {
 			item.header = "username"
 			item.content = "さっきツイートしてくれた"
 			return item
 		})
+
 		return items.map(item => {
 			return (
 				<List key={item.id_user} celled size="big" animated verticalAlign='middle'>

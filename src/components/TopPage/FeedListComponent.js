@@ -4,12 +4,11 @@ import fetchAdList from "../../api/fetchAdList"
 import FeedView from "../CommonSemanticUI/FeedView"
 import getUrlsFromKeys from "../../Utils/getUrlsFromKeys";
 class TopPage extends Component {
-    componentWillMount() {
+    componentDidMount() {
         this.getAdList()
     }
 
 	async getAdList() {
-        //TODO : できたらちゃんとsagaで呼ぶ
         this.props.getAdList()
 	}
 

@@ -10,6 +10,8 @@ import {
 	ON_CHANGE_AD_CREATE_COMPLETED ,
 	ON_CHANGE_RETURN_CREATE_COMPLETED ,
 	ON_SUBMIT_ADCREATE,
+	ON_FETCH_TWEET_DETAIL,
+	ON_CHANGE_TWEET_OBJECT , 
 } from "../actions/AdCreate"
 
 //データ構造
@@ -40,6 +42,8 @@ export default function AdCreateInfo(state = new AdCreateInfoStructure({}) , act
 		return dotProp.set(state , "adCreateCompleted" ,  action.adCreateCompleted )
 	case ON_CHANGE_RETURN_CREATE_COMPLETED:
 		return dotProp.set(state , "returnCreateCompleted" ,  action.returnCreateCompleted )
+	case ON_CHANGE_TWEET_OBJECT:
+		return dotProp.set(state , "tweetObject" ,  action.tweetObject )
 	default :
 		return state
 	}

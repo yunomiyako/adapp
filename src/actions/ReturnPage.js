@@ -16,14 +16,6 @@ export function onUpdateReturnObject(returnObject) {
 	}
 }
 
-export const ON_CHANGE_RATE  =prefix +  "ON_CHANGE_RATE"
-export function onChangeRate(rate) {
-	return {
-		type: ON_CHANGE_RATE ,
-		rate
-	}
-}
-
 export const ON_FETCH_RETURN =prefix +  "ON_FETCH_RETURN"
 export function onFetchReturn(id_return) {
 	return {
@@ -45,5 +37,20 @@ export function onUpdateRating(rating) {
 	return {
 		type : ON_UPDATE_RATING , 
 		rating
+	}
+}
+
+export const ON_FAIL_FETCH_RETURN = prefix + "ON_FAIL_FETCH_RETURN"
+export function onFailFetchReturn(errorMessage) {
+	return {
+		type : ON_FAIL_FETCH_RETURN , 
+		errorMessage
+	}
+}
+
+export const ON_CLEAR_RETURN_PAGE = prefix + "ON_CLEAR_RETURN_PAGE"
+export function onClearReturnPage() {
+	return {
+		type : ON_CLEAR_RETURN_PAGE
 	}
 }

@@ -1,6 +1,12 @@
 import React from "react"
 import { Redirect } from "react-router-dom"
 
+export const redirectTo = function(redirectTo) {
+	return (
+		<Redirect push to={redirectTo}/>
+	)
+}
+
 export const redirectToAdPage = function(id_user, id_ad) {
 	if(id_user && id_ad) {
 		return (

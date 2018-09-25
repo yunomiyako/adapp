@@ -6,12 +6,15 @@ import {
 	onChangeAdObject ,
 	onChangeIndex ,
 	onChangeAdCreateCompleted ,
+	onFetchTweetDetail,
+	onChangeTweetObject , 
 } from "../../actions/AdCreate"
 
 import {
 	getAdObject,
 	getAdType,
 	getTitle,
+	getTweetObject
 } from "../../selectors/AdCreatePage"
 
 function mapStateToProps(state){
@@ -20,6 +23,7 @@ function mapStateToProps(state){
 		adObject: getAdObject(subState),
 		adType: getAdType(subState),
 		title: getTitle(subState),
+		tweetObject: getTweetObject(subState),
 	}
 }
 
@@ -30,6 +34,8 @@ function mapDispatchToProps(dispatch) {
 		onChangeAdObject: (adObject) => dispatch(onChangeAdObject(adObject)),
 		onChangeIndex: (index) => dispatch(onChangeIndex(index)),
 		onChangeAdCreateCompleted: (adCreateCompleted) => dispatch(onChangeAdCreateCompleted(adCreateCompleted)),
+		onFetchTweetDetail : (id_tweet) => dispatch(onFetchTweetDetail(id_tweet)), 
+		onChangeTweetObject: (tweetObject) => dispatch(onChangeTweetObject(tweetObject)),
 	}
 }
 

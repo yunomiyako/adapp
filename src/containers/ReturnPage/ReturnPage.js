@@ -1,8 +1,9 @@
 import { connect } from "react-redux"
 import ReturnPage from "../../components/ReturnPage/ReturnPage_Home"
 import {
-	onChangeRate,  
-	onFetchReturn
+	onUpdateRating,  
+	onFetchReturn , 
+	onClearReturnPage , 
 } from "../../actions/ReturnPage"
 
 
@@ -16,14 +17,16 @@ function mapStateToProps(state){
 		returnType : subState.returnType , 
 		returnObject : subState.returnObject , 
 		rating : subState.rating , 
-		urls : subState.urls
+		urls : subState.urls, 
+		errorMessage: subState.errorMessage
 	}
 }
 
 function mapDispatchToProps(dispatch) {
 	return {
-		onChangeRate: (rate) => dispatch(onChangeRate(rate)),
-		onFetchReturn : (id_return) => dispatch(onFetchReturn(id_return))
+		onChangeRate: (rate) => dispatch(onUpdateRating(rate)),
+		onFetchReturn : (id_return) => dispatch(onFetchReturn(id_return)) , 
+		onClearReturnPage : () => dispatch(onClearReturnPage())
 	}
 }
 

@@ -1,14 +1,14 @@
 import { call, put, takeEvery , takeLatest } from "redux-saga/effects"
 
 //import Action
-import {ON_SUBMIT_ADCREATE } from "../actions/AdCreate"
+import {ON_SUBMIT_ADCREATE, ON_FETCH_TWEET_DETAIL, ON_CHANGE_TWEET_OBJECT } from "../actions/AdCreate"
 import {FETCH_AD_DATA , FETCH_AD_DATA_SUCCESS , 
 	FETCH_AD_DATA_FAIL , KEYS_TO_URLS,
 	ON_CHANGE_IMAGE_URLS, ON_SEND_ACTION , 
 	ACTION_FAIL  , ON_CHANGE_ID_RETURN_TO_GO ,
 	ON_CHANGE_ACTION_LOADING} from "../actions/AdPage"
 import {ON_FETCH_RETURN , ON_UPDATE_RETURN_OBJECT , ON_UPDATE_RETURN_TYPE,
-	ON_UPDATE_RETURN_IMAGE_URLS , ON_UPDATE_RATING} from "../actions/ReturnPage"
+	ON_UPDATE_RETURN_IMAGE_URLS , ON_UPDATE_RATING, ON_FAIL_FETCH_RETURN} from "../actions/ReturnPage"
 import {GET_AD_LIST , GET_RETURN_LIST , SET_AD_LIST , SET_RETURN_LIST} from "../actions/UserPage"
 import {GET_AD_LIST as GET_AD_LIST_TOPPAGE , 
 	SET_AD_LIST as SET_AD_LIST_TOPPAGE} from "../actions/TopPage"
@@ -21,6 +21,7 @@ import receiveReturn from "../api/receiveReturn"
 import fetchReturn from "../api/fetchReturn"
 import fetchAdList from "../api/fetchAdList"
 import fetchReturnList from "../api/fetchReturnList"
+import fetchTweetDetail from "../api/fetchTweetDetail"
 
 //import utls
 import getDateFromUnixTime from "../Utils/getDateFromUnixTime"
@@ -98,7 +99,7 @@ function *onFetchReturnData(action) {
 		yield put({type : ON_UPDATE_RETURN_TYPE , returnType : result.returnType})
 	} catch (e) {
 		console.log("sagaで失敗取得")
-		//失敗を投げるべき
+		yield put({type : ON_FAIL_FETCH_RETURN , errorMessage : "取得に失敗しました" })
 	}
 }
 
@@ -107,7 +108,7 @@ function *onGetAdList(action) {
 		const ad_list = yield call(fetchAdList , {"id_user" : action.id_user})
 		console.log(ad_list)
 		ad_list.map((ad) => {
-			ad.link = "/statspage/" + ad.id_user + "/" + ad.id_ad
+			ad.link = "/statspage/"  + ad.id_ad
 			ad.date = getDateFromUnixTime(ad.created_at)
 		})
 		yield put({type : SET_AD_LIST , ad_list : ad_list})
@@ -154,6 +155,15 @@ function *onGetAdListTopPage() {
 	}
 }
 
+function *onFetchTweetDetail(action) {
+	try {
+		const tweetObject = yield call(fetchTweetDetail , {"id_tweet" : action.id_tweet})
+		yield put({type : ON_CHANGE_TWEET_OBJECT , tweetObject : tweetObject})
+	}catch(e) {
+		yield put({type : ON_CHANGE_TWEET_OBJECT , tweetObject : {}})
+	}
+}
+
 /*
   FETCH_EXAMPLE_DATA Action が送出されるたびに fetchUser を起動します。
   ユーザ情報の並列取得にも対応しています。
@@ -167,6 +177,7 @@ function* mySaga() {
 	yield takeLatest(GET_AD_LIST , onGetAdList)
 	yield takeLatest(GET_RETURN_LIST , onGetReturnList)
 	yield takeLatest(GET_AD_LIST_TOPPAGE , onGetAdListTopPage)
+	yield takeLatest(ON_FETCH_TWEET_DETAIL , onFetchTweetDetail)
 }
 
 /*

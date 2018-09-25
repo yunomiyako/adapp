@@ -53,7 +53,7 @@ class SimpleSlider extends React.Component {
 
 class DecorateImageComponent extends Component {
 
-	componentWillMount() {
+	componentDidMount() {
 		//propsの初期化をします
 		this.props.onSetImage(frameImages[0])
 	}
