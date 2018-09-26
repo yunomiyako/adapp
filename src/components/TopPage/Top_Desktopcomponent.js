@@ -3,9 +3,6 @@ import ReactDom from "react-dom"
 import style from "./TopPage2.css"
 import { Button, Icon } from "semantic-ui-react"
 import {Funcs} from "./funcs"
-import DesktopBreakpoint from "../responsive_utilities/desktop_breakpoint"
-import TabletBreakpoint from "../responsive_utilities/tablet_breakpoint"
-import PhoneBreakpoint from "../responsive_utilities/phone_breakpoint"
 import { CSSTransition } from "react-transition-group"
 
 
@@ -25,18 +22,10 @@ class Top_Component extends Component {
 						appear={true}
 					>
 						<div className={style.title}>
-							<DesktopBreakpoint>
-								<h3 className={style.text1}>{Funcs.getTexts().title}</h3>
-							</DesktopBreakpoint>	
+				
+							<h3 className={style.text1}>{Funcs.getTexts().title}</h3>
+				
 
-							<PhoneBreakpoint>
-								<h3 className={style.text1_2}>{Funcs.getTexts().title}</h3>
-							</PhoneBreakpoint>
-
-							<TabletBreakpoint>
-								<h3 className={style.text1_3}>{Funcs.getTexts().title}</h3>
-							</TabletBreakpoint>
-						
 						</div>
 
 					
@@ -48,32 +37,11 @@ class Top_Component extends Component {
 					>
 						<div className={style.Text}>
 
-							<DesktopBreakpoint>	
-								<h2 className={style.text2}>{Funcs.getTexts().text2}</h2>
-							</DesktopBreakpoint>
-
-							<TabletBreakpoint>	
-								<h2 className={style.text2}>{Funcs.getTexts().text2}</h2>
-							</TabletBreakpoint>
-
-							<PhoneBreakpoint>
-								<h2 className={style.text2_2}>{Funcs.getTexts().text2}</h2>
-							</PhoneBreakpoint>
-
-							<PhoneBreakpoint>
-								<h2 className={style.text3_2}>{Funcs.getTexts().text3}</h2>
-							</PhoneBreakpoint>
-
-
-							<TabletBreakpoint>
-								<h2 className={style.text3}>{Funcs.getTexts().text3}</h2>
-							</TabletBreakpoint>
-
-
-
-							<DesktopBreakpoint>
-								<h2 className={style.text3}>{Funcs.getTexts().text3}</h2>
-							</DesktopBreakpoint>
+					
+							<h2 className={style.text2}>{Funcs.getTexts().text2}</h2>
+		
+							<h2 className={style.text3}>{Funcs.getTexts().text3}</h2>
+					
 
 						</div>
 					</CSSTransition>
@@ -87,24 +55,11 @@ class Top_Component extends Component {
 								
 
 
-
-								<PhoneBreakpoint>
-									<Button onClick={()=>Funcs.onClicktest()} color='twitter' size='mini'>
-										<Icon name='twitter' /> {Funcs.getTexts().tw_button_text}
-									</Button>
-								</PhoneBreakpoint>
-
-								<TabletBreakpoint>
-									<Button onClick={()=>Funcs.onClicktest()} color='twitter' size='huge'>
-										<Icon name='twitter' /> {Funcs.getTexts().tw_button_text}
-									</Button>
-								</TabletBreakpoint>
-
-								<DesktopBreakpoint>
-									<Button onClick={()=>Funcs.onClicktest()} color='twitter' size='massive'>
-										<Icon name='twitter' /> {Funcs.getTexts().tw_button_text}
-									</Button>
-								</DesktopBreakpoint>
+						
+								<Button onClick={()=>Funcs.onClicktest()} color='twitter' size='massive'>
+									<Icon name='twitter' /> {Funcs.getTexts().tw_button_text}
+								</Button>
+					
 
 
 
@@ -118,17 +73,9 @@ class Top_Component extends Component {
 					>
 						<div className={style.Button2}>
 							<div className= {style.login_button}>
-								<PhoneBreakpoint>
-									<Button color='black'size='mini'>{Funcs.getTexts().button_text}</Button >
-								</PhoneBreakpoint>
 
-								<TabletBreakpoint>
-									<Button color='black'size='huge'>{Funcs.getTexts().button_text}</Button >
-								</TabletBreakpoint>
+								<Button color='black'size='massive'>{Funcs.getTexts().button_text}</Button >
 
-								<DesktopBreakpoint>
-									<Button color='black'size='massive'>{Funcs.getTexts().button_text}</Button >
-								</DesktopBreakpoint>
 
 
 
