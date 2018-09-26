@@ -1,8 +1,15 @@
 {
+<<<<<<< HEAD
   "main.css": "static/css/main.decb3f8f.css",
   "main.css.map": "static/css/main.decb3f8f.css.map",
   "main.js": "static/js/main.e335f05f.js",
   "main.js.map": "static/js/main.e335f05f.js.map",
+=======
+  "main.css": "static/css/main.81e8953e.css",
+  "main.css.map": "static/css/main.81e8953e.css.map",
+  "main.js": "static/js/main.c77a8d7b.js",
+  "main.js.map": "static/js/main.c77a8d7b.js.map",
+>>>>>>> 9398c165e4fe826de4770db11301347c9d3a4c71
   "static/media/141117-twitter.png": "static/media/141117-twitter.55153d33.png",
   "static/media/UploadIcon.svg": "static/media/UploadIcon.1cedb6e9.svg",
   "static/media/logo.svg": "static/media/logo.5d5d9eef.svg"

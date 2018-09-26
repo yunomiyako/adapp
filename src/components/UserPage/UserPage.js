@@ -3,12 +3,16 @@ import style from "./UserPage.css"
 
 import AdComponent from "../../containers/UserPage/AdComponent"
 import RewardComponent from "../../containers/UserPage/ReturnComponent"
-
+import UserCard from "../CommonSemanticUI/UserCard"
 class UserPage extends Component {
 	render() {
 		return (
 			<div className={style.UserPage}>
 				<div className={style.UserPageContainer}>
+					<div className = {style.UserCard}>
+						<UserCard/>
+					</div>
+
 					<div>
 						<AdComponent/>
 					</div>

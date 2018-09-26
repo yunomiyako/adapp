@@ -72,6 +72,8 @@ class RetweetAdCreate extends Component {
 
 
 	renderTwitterLikeView() {
+		console.log("is it called?")
+		console.log(this.props.tweetObject)
 		if(this.props.adObject.tweetUrl){
 			return <TwitterLikeView
 			tweetObject = {this.props.tweetObject}
@@ -93,6 +95,7 @@ class RetweetAdCreate extends Component {
 						<Form.Field>
 							<label>リツイートしてもらいたいツイートのURL</label>
 							<input
+								value = {this.props.adObject.tweetUrl}
 								onChange = {this.onChangeUrl}
 								placeholder='https://twitter.com/hashimoto_lo/status/340640143058825216' />
 						</Form.Field>

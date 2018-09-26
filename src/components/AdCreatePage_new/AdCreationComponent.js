@@ -124,6 +124,7 @@ class AdCreationComponent extends Component {
 				<div>
 					<h3 className="AdCreatePage-Title">{this.HeadIcon}リツイートして欲しいツイートを選択or作成</h3>
 					<RetweetAdCreate
+						tweetObject = {this.props.tweetObject}
 						adObject = {this.props.adObject}
 						onChangeAdObject = {this.onChangeAdObject}
 						onFetchTweetDetail = {this.onFetchTweetDetail}
@@ -147,6 +148,7 @@ class AdCreationComponent extends Component {
 			<div>
 				<h3 className="AdCreatePage-Title">{this.HeadIcon}いいねして欲しいツイートを選択or作成</h3>
 				<RetweetAdCreate
+					tweetObject = {this.props.tweetObject}
 					adObject = {this.props.adObject}
 					onChangeAdObject = {this.onChangeAdObject}
 					onFetchTweetDetail = {this.onFetchTweetDetail}
@@ -173,7 +175,8 @@ class AdCreationComponent extends Component {
 
 	renderOkButton = () => {
 		const flag = this.props.title && this.props.adObject.text
-		if(flag) {
+		const flag2 = this.props.title && this.props.tweetObject.text 
+		if(flag || flag2) {
 			return (
 				<React.Fragment>
 					<Label pointing="right" color="orange">お返しの設定へ</Label>	

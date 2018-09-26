@@ -157,7 +157,9 @@ function *onGetAdListTopPage() {
 
 function *onFetchTweetDetail(action) {
 	try {
-		const tweetObject = yield call(fetchTweetDetail , {"id_tweet" : action.id_tweet})
+		console.log(action)
+		console.log("id_tweet" , action.id_tweet)
+		const tweetObject = yield call(fetchTweetDetail , action.id_tweet)
 		yield put({type : ON_CHANGE_TWEET_OBJECT , tweetObject : tweetObject})
 	}catch(e) {
 		yield put({type : ON_CHANGE_TWEET_OBJECT , tweetObject : {}})
