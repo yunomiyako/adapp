@@ -13,6 +13,7 @@ import {redirectToReturnPage} from "../Redirect/redirect"
 import loginCheck from "../../localStorage/loginCheck"
 import goTwitterLogin from "../../Utils/goTwitterLogin"
 import AdDescriptionView from "./AdDescriptionView"
+import AdTypeEnum from "../../domain/enum/AdTypeEnum"
 
 class AdPage extends Component {
 	constructor(props) {
@@ -33,7 +34,7 @@ class AdPage extends Component {
 	}
 
 	onClickActionButton() {
-		if(loginCheck()) {
+		if(loginCheck() || this.props.adType == "lookMe") {
 			const id_user = this.props.match.params.id_user
 			const id_ad = this.props.match.params.id_ad
 			const payload = {"id_user" : id_user , "id_ad" : id_ad}
