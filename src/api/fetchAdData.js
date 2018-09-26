@@ -16,6 +16,10 @@ export default function(payload) {
 	}).catch(e => {
 		console.log("fetchAdList catch")
 		console.log(e)
-		throw new Error("何かしらのエラーだよ")
+		if(e.name == "UsernameExistsException") {
+			console.log("うわー")
+		} else {
+			throw new Error("何かしらのエラーだよ")
+		}
 	})
 }

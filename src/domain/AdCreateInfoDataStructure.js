@@ -12,7 +12,7 @@ class AdCreateInfoDataStructure {
 		this.adCreateCompleted = data.adCreateCompleted || false
 		this.returnCreateCompleted = data.adCreateCompleted || false 
 		this.tweetObject = data.tweetObject || new TweetObjectDataStructure({})
-
+		this.tweetObjectLoading = false
 	}
 }
 

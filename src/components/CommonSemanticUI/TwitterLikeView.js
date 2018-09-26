@@ -2,7 +2,7 @@ import React , {Component}  from "react"
 import style from "./CommonSemanticUI.css"
 
 //semantic UI
-import { Comment  } from "semantic-ui-react"
+import { Comment , Loader } from "semantic-ui-react"
 
 import renderNewLine from "../../Utils/renderNewLine"
 
@@ -24,10 +24,12 @@ class TwitterLikeView extends Component {
 			userid = this.props.userid || userid
 			text = this.props.text || text
 		}
+		console.log("loading = " + this.props.active)
 		return (
 			<div className={style.TwitterLikeView}>
 				<Comment.Group>
 					<Comment>
+						<Loader active={this.props.active}/>
 						<Comment.Avatar as='a' src={icon_url}/>
 						<Comment.Content>
 							<Comment.Author>{username}</Comment.Author>

@@ -75,10 +75,6 @@ class Top_Component extends Component {
 							<div className= {style.login_button}>
 
 								<Button color='black'size='massive'>{Funcs.getTexts().button_text}</Button >
-
-
-
-
 							</div>
 						</div>
 					</CSSTransition>

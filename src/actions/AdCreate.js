@@ -111,3 +111,11 @@ export function onChangeTweetObject(tweetObject) {
 		tweetObject
 	}
 }
+
+export const ON_CHANGE_TWEET_OBJECT_LOADING  = "ON_CHANGE_TWEET_OBJECT_LOADING"
+export function onChangeTweetObjectLoading(tweetObjectLoading) {
+	return {
+		type: ON_CHANGE_TWEET_OBJECT_LOADING ,
+		loading : tweetObjectLoading
+	}
+}

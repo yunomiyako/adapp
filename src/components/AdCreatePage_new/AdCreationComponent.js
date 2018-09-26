@@ -128,6 +128,7 @@ class AdCreationComponent extends Component {
 						adObject = {this.props.adObject}
 						onChangeAdObject = {this.onChangeAdObject}
 						onFetchTweetDetail = {this.onFetchTweetDetail}
+						tweetObjectLoading={this.props.tweetObjectLoading}
 					/>
 					<Label pointing color="orange">URLの指定もしくはツイートの新規作成ができるよ</Label>
 				</div>
@@ -141,6 +142,7 @@ class AdCreationComponent extends Component {
 						title = {this.props.title}
 						returnDescription = {this.props.returnDescription}
 						onChangeAdObject = {this.onChangeAdObject}
+						
 					/>
 					{this.props.adObject.text ? "" : <Label pointing color="orange">画像とテキストで見てほしいことを説明しよう</Label>}
 				</div>)
@@ -152,6 +154,7 @@ class AdCreationComponent extends Component {
 					adObject = {this.props.adObject}
 					onChangeAdObject = {this.onChangeAdObject}
 					onFetchTweetDetail = {this.onFetchTweetDetail}
+					tweetObjectLoading={this.props.tweetObjectLoading}
 				/>
 				<Label pointing color="orange">URLの指定もしくはツイートの新規作成ができるよ</Label>
 			</div>)

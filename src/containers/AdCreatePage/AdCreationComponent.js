@@ -14,7 +14,8 @@ import {
 	getAdObject,
 	getAdType,
 	getTitle,
-	getTweetObject
+	getTweetObject , 
+	getTweetObjectLoading, 
 } from "../../selectors/AdCreatePage"
 
 function mapStateToProps(state){
@@ -24,6 +25,7 @@ function mapStateToProps(state){
 		adType: getAdType(subState),
 		title: getTitle(subState),
 		tweetObject: getTweetObject(subState),
+		tweetObjectLoading : getTweetObjectLoading(subState)
 	}
 }
 

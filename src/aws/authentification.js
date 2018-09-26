@@ -21,16 +21,22 @@ export default function(callback = () => "") {
 	}
 
 	return Auth.currentAuthenticatedUser().catch((e) => {
+		console.log(e)
 		console.log("sign in")
 		//現在ログイン中のユーザがいないため、sign inします
 		return Auth.signIn(username, password).catch((e) => {
+			console.log(e)
 			console.log("sign up")
 			//sign inに失敗したため、登録を行います
 			return Auth.signUp({username,password}).then(() => {
 				console.log("sign in")
 				return Auth.signIn(username, password).catch((e) => {
+					console.log(e)
 					console.log("なんでやねん")
 				})
+			}).catch(e => {
+				console.log(e)
+				console.log("同時にsign upした場合")
 			})
 		})
 	}).then(() => callback())
