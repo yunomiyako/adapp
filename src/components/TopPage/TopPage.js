@@ -53,7 +53,7 @@ class TopPage extends Component {
 					<TabletBreakpoint>	
 				      <Top_Tabletcomponent/>
 					</TabletBreakpoint>
-
+					ああああテスト
 					<NormalView/>
 				</div>
 			)
