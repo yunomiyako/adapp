@@ -12,7 +12,7 @@ class FeedComponent extends Component {
 				<div className={style.TitleComponent}>
 					<TitleComponent
 						title={this.props.title}
-						username = {this.props.username}
+						user_detail = {this.props.user_detail}
 					/>
 				</div>
 

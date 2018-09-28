@@ -130,7 +130,7 @@ class AdCreationComponent extends Component {
 						onFetchTweetDetail = {this.onFetchTweetDetail}
 						tweetObjectLoading={this.props.tweetObjectLoading}
 					/>
-					<Label pointing color="orange">URLの指定もしくはツイートの新規作成ができるよ</Label>
+					<Label pointing color="orange">リツイートしてほしいツイートのURLをコピペしてください</Label>
 				</div>
 			)
 		case "lookMe" :
@@ -156,7 +156,7 @@ class AdCreationComponent extends Component {
 					onFetchTweetDetail = {this.onFetchTweetDetail}
 					tweetObjectLoading={this.props.tweetObjectLoading}
 				/>
-				<Label pointing color="orange">URLの指定もしくはツイートの新規作成ができるよ</Label>
+				<Label pointing color="orange">いいねしてほしいツイートのURLをコピペしてください</Label>
 			</div>)
 		case "follow" :	return (
 			<div>

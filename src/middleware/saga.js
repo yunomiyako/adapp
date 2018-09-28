@@ -1,7 +1,7 @@
 import { call, put, takeEvery , takeLatest } from "redux-saga/effects"
 
 //import Action
-import {ON_SUBMIT_ADCREATE, ON_FETCH_TWEET_DETAIL, ON_CHANGE_TWEET_OBJECT, ON_CHANGE_TWEET_OBJECT_LOADING } from "../actions/AdCreate"
+import {ON_SUBMIT_ADCREATE, ON_FETCH_TWEET_DETAIL, ON_CHANGE_TWEET_OBJECT, ON_CHANGE_TWEET_OBJECT_LOADING, ON_CHANGE_AD_OBJECT_TEXT } from "../actions/AdCreate"
 import {FETCH_AD_DATA , FETCH_AD_DATA_SUCCESS , 
 	FETCH_AD_DATA_FAIL , KEYS_TO_URLS,
 	ON_CHANGE_IMAGE_URLS, ON_SEND_ACTION , 
@@ -162,9 +162,11 @@ function *onFetchTweetDetail(action) {
 		console.log("id_tweet" , action.id_tweet)
 		const tweetObject = yield call(fetchTweetDetail , action.id_tweet)
 		yield put({type : ON_CHANGE_TWEET_OBJECT , tweetObject : tweetObject})
+		yield put({type : ON_CHANGE_AD_OBJECT_TEXT , text : tweetObject.text})
 		yield put({type :ON_CHANGE_TWEET_OBJECT_LOADING  , loading : false})
 	}catch(e) {
 		yield put({type : ON_CHANGE_TWEET_OBJECT , tweetObject : {}})
+		yield put({type : ON_CHANGE_AD_OBJECT_TEXT , text : ""})
 		yield put({type :ON_CHANGE_TWEET_OBJECT_LOADING  , loading : false})
 	}
 }

@@ -76,8 +76,8 @@ class AdPage extends Component {
 					<div className = {style.marginFrame}>
 						<FeedComponent
 							title= {this.props.title}
-							username= {this.props.username}
 							content={this.props.adObject.text}
+							user_detail = {this.props.user_detail}
 						/>
 					</div>
 
@@ -102,6 +102,7 @@ class AdPage extends Component {
 							returnDescription = {this.props.returnDescription}
 							adType = {this.props.adType}
 							loading = {this.props.actionLoading}
+							hasReceived = {this.props.hasReceived}
 						/>
 					</div>
 

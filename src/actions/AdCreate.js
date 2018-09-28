@@ -112,10 +112,18 @@ export function onChangeTweetObject(tweetObject) {
 	}
 }
 
-export const ON_CHANGE_TWEET_OBJECT_LOADING  = "ON_CHANGE_TWEET_OBJECT_LOADING"
+export const ON_CHANGE_TWEET_OBJECT_LOADING  = prefix + "ON_CHANGE_TWEET_OBJECT_LOADING"
 export function onChangeTweetObjectLoading(tweetObjectLoading) {
 	return {
 		type: ON_CHANGE_TWEET_OBJECT_LOADING ,
 		loading : tweetObjectLoading
+	}
+}
+
+export const ON_CHANGE_AD_OBJECT_TEXT = prefix + "ON_CHANGE_AD_OBJECT_TEXT"
+export function onChangeAdObjectText(text) {
+	return {
+		type : ON_CHANGE_AD_OBJECT_TEXT , 
+		text
 	}
 }

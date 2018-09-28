@@ -2,7 +2,7 @@ import React , {Component}  from "react"
 
 import {set_access_token , 
     set_access_token_secret , 
-get_oauth_token , get_oauth_token_secret} from "../../localStorage/twitter_access_token"
+get_oauth_token , get_oauth_token_secret, get_access_token} from "../../localStorage/twitter_access_token"
 import QueryString from "../../Utils/QueryString"
 import OauthRequest from "../../api/OauthRequest"
 import fetchUserDetail from "../../api/fetchUserDetail"
@@ -15,7 +15,8 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            redirecTo : ""
+            redirecTo : "" , 
+            redirect : false
         }
     }
 
@@ -24,6 +25,19 @@ class App extends Component {
 	}
 
 	async getToken() {
+        //リダイレクト先をあらかじめセットしておく
+        const path = get_redirect_to() || "/"
+        console.log("path : " + path)
+        this.setState({
+            redirecTo : path
+        })
+
+        if(get_access_token()) {
+            //ログインずみならトップへ飛ばす
+            this.setState({
+                redirect : true
+            })
+        }
 		const oauth_token = get_oauth_token()
 		const oauth_token_secret = get_oauth_token_secret()
         const oauth_verifier = QueryString.oauth_verifier
@@ -39,16 +53,16 @@ class App extends Component {
         const user_detail = await RefreshUserDetail()
         console.log(user_detail)
         
-        const path = get_redirect_to() || "/"
-        this.setState({
-            redirecTo : path
-        })
+        this.setState(
+            {redirect : true}
+        )
 	}
     
 
 
 	render() {
-        if(this.state.redirectTo || this.state.redirecTo == "/") {
+        console.log("redirectTo = " + this.state.redirectTo)
+        if(this.state.redirect) {
             return redirectTo(this.state.redirecTo)
         }
 

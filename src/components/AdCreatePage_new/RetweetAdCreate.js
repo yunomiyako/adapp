@@ -83,7 +83,8 @@ class RetweetAdCreate extends Component {
 	}
 
 	renderCreate() {
-		const isNewly = this.props.adObject.isNewlyCreated
+		//const isNewly = this.props.adObject.isNewlyCreated
+		const isNewly = false //強制的にURL入力
 		if(isNewly) {
 			return (<TwitterLikeComponent
 				adObject = {this.props.adObject}
@@ -110,9 +111,9 @@ class RetweetAdCreate extends Component {
 	render() {
 		return (
 			<div className={style.RetweetAdCreate}>
-				<div className={style.RetweetAdCreateCheckBox}>
+				{/* <div className={style.RetweetAdCreateCheckBox}>
 					<Checkbox label='新規にツイートを作る' checked={this.props.adObject.isNewlyCreated} onChange={this.onToggled} />
-				</div>
+				</div> */}
 				{this.renderCreate()}
 			</div>
 		)

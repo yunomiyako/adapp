@@ -7,13 +7,22 @@ import DesktopBreakPoint from "../responsive_utilities/desktop_breakpoint"
 import TabletBreakPoint from "../responsive_utilities/tablet_breakpoint"
 import PhoneBreakPoint from "../responsive_utilities/phone_breakpoint"
 
+import loginCheck from "../../localStorage/loginCheck"
+import AdTypeEnum from "../../domain/enum/AdTypeEnum"
+
 class ActionComponent extends Component {
 	onClickButton() {
 		this.props.onClickActionButton()
 	}
 	
 	render() {
-		const buttonText = getReturnButtonText(this.props.adType)
+		var buttonText = ""
+		if(this.props.hasReceived) {
+			buttonText = "入手済！"
+		} else {
+			buttonText = getReturnButtonText(this.props.adType)
+		}
+
 		return (
 			<div className={style.stickyBottom}>
 	
@@ -35,7 +44,7 @@ class ActionComponent extends Component {
 					</PhoneBreakPoint>
 
 					<TabletBreakPoint>
-						<Button color='orange' size="big"
+						<Button color='orange' size="medium"
 							disabled = {this.props.loading}
 							loading = {this.props.loading}
 							onClick = {() => this.onClickButton()}>
@@ -44,7 +53,8 @@ class ActionComponent extends Component {
 					</TabletBreakPoint>
 
 					<DesktopBreakPoint>
-						<Button color='orange' size="big" 
+						<Button color='orange' size="large" 
+							
 							disabled = {this.props.loading}
 							loading = {this.props.loading}
 							onClick = {() => this.onClickButton()}>

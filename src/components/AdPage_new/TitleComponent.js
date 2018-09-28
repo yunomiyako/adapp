@@ -8,13 +8,28 @@ import PhoneBreakpoint from "../responsive_utilities/phone_breakpoint"
 
 
 class TitleComponent extends Component {
+	//TODO 個別ユーザページができたらそれに差し替える
+	renderUserLink(screen_name) {
+		return (
+			<span>
+				by
+				<a href={"https://www.twitter.com/" + screen_name} >
+				@{screen_name}
+				</a>
+			</span>
+		)
+	}
+
 	renderUserName() {
-		if(this.props.username) {
-			return (				<div className ={style.username_frame}>
-				<p className={style.username}>by @{this.props.username}</p>
-			</div>)
+		const user_detail = this.props.user_detail
+		if(user_detail) {
+			return (
+				<div className ={style.username_frame}>
+					<p className={style.username}> { this.renderUserLink(user_detail.screen_name) }</p>
+				</div>)
 		}
 	}
+
 	render() {
 		return (
 			<div>

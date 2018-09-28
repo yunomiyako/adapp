@@ -27,7 +27,9 @@ function mapStateToProps(state){
 		imageUrls : subState.imageUrls, 
 		rating : subState.rating , 
 		id_return_to_go : subState.id_return_to_go , 
-		actionLoading : subState.actionLoading
+		actionLoading : subState.actionLoading ,
+		hasReceived : subState.hasReceived , 
+		user_detail : subState.user_detail
 	}
 }
 
