@@ -43,6 +43,7 @@ class UploaderWithSlider extends React.Component {
 					id={this.props.id}
 					onChangePictures={this.onChangePictures}
 					picNum={this.props.pictures.length}
+					maxNum = {this.props.maxNum}
 				/>
 			</div>
 		)

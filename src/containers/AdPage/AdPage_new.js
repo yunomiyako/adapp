@@ -29,7 +29,8 @@ function mapStateToProps(state){
 		id_return_to_go : subState.id_return_to_go , 
 		actionLoading : subState.actionLoading ,
 		hasReceived : subState.hasReceived , 
-		user_detail : subState.user_detail
+		user_detail : subState.user_detail , 
+		tweetObject : subState.tweetObject
 	}
 }
 

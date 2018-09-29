@@ -10,14 +10,16 @@ import PhoneBreakpoint from "../responsive_utilities/phone_breakpoint"
 class TitleComponent extends Component {
 	//TODO 個別ユーザページができたらそれに差し替える
 	renderUserLink(screen_name) {
-		return (
-			<span>
+		if(screen_name) {
+			return (
+				<span>
 				by
-				<a href={"https://www.twitter.com/" + screen_name} >
+					<a href={"https://www.twitter.com/" + screen_name} >
 				@{screen_name}
-				</a>
-			</span>
-		)
+					</a>
+				</span>
+			)
+		}
 	}
 
 	renderUserName() {

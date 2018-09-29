@@ -1,4 +1,6 @@
 .AdCreatePage {
+  background: url("../../images/007-subtle-light-patterns.jpg");
+  background-size: auto ;
   position: relative;
   height: auto;
   min-height: 100vh;
@@ -126,4 +128,8 @@
   text-align: center !important;
   line-height: 15px !important;
   cursor: pointer !important;
+}
+
+:local .center{
+  text-align: center;
 }

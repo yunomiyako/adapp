@@ -9,6 +9,7 @@ import {Button , Checkbox , Form} from "semantic-ui-react"
 //component
 import TwitterLikeComponent from "./TwitterLikeComponent"
 import TwitterLikeView from "../CommonSemanticUI/TwitterLikeView"
+import UploaderWithSlider from "./UploaderWithSlider"
 
 import getTweetIdFromUrl from "../../Utils/getTweetIdFromUrl"
 
@@ -82,6 +83,12 @@ class RetweetAdCreate extends Component {
 		}
 	}
 
+	onChangePictures = (pictures) => {
+		const newObj = dotProp.set(this.props.adObject , "images" , pictures)
+		this.props.onChangeAdObject(newObj)
+	}
+
+
 	renderCreate() {
 		//const isNewly = this.props.adObject.isNewlyCreated
 		const isNewly = false //強制的にURL入力
@@ -103,6 +110,14 @@ class RetweetAdCreate extends Component {
 						</Form.Field>
 					</Form>
 					{this.renderTwitterLikeView()}
+				<div className={style.center}>
+					<UploaderWithSlider
+					pictures = {this.props.adObject.images}
+					id="retweet"
+					onChangePictures={this.onChangePictures}
+					maxNum={1}
+					/>
+				 </div>
 				</div>
 			)
 		}

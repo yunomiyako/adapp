@@ -15,7 +15,8 @@ class AdCreateInfoDataStructure {
 		this.id_return_to_go = data.id_return_to_go || "" , 
 		this.actionLoading = data.actionLoading || false , 
 		this.hasReceived = data.hasReceived || false , 
-		this.user_detail = data.user_detail || new UserDetailDataStructure({})
+		this.user_detail = data.user_detail || new UserDetailDataStructure({}) , 
+		this.tweetObject = null  //tweetUrlから後から取得する
 	}
 }
 

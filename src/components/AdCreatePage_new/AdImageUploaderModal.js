@@ -94,6 +94,7 @@ class AdImageUploaderModal extends React.Component {
 		this.setState({ modalOpen: true })
 	}
 	handleClose() {
+		this.props.onClickOk([])
 		this.setState({pictures : [] , okIsDisabled:true})
 		this.setState({ modalOpen: false })
 	}

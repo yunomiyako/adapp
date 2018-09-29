@@ -1,5 +1,5 @@
 import React , {Component}  from "react"
-import { Dimmer , Loader } from "semantic-ui-react"
+import { Dimmer , Loader , Button} from "semantic-ui-react"
 import style from "./AdPage.css"
 
 import FourImageComponent from "./FourImageComponent"
@@ -9,17 +9,18 @@ import RatingComponent from "./RatingComponent"
 import FeedComponent from "./FeedComponent"
 import ErrorPage from "../CommonSemanticUI/ErrorPage"
 
-import {redirectToReturnPage} from "../Redirect/redirect"
+import {redirectToReturnPage, redirectToAdPage} from "../Redirect/redirect"
 import loginCheck from "../../localStorage/loginCheck"
 import goTwitterLogin from "../../Utils/goTwitterLogin"
 import AdDescriptionView from "./AdDescriptionView"
-import AdTypeEnum from "../../domain/enum/AdTypeEnum"
+import fetchRandomAdData from "../../api/fetchRandomAdData";
 
 class AdPage extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			urls: []
+			urls: [], 
+			randomObject : null
 		}
 	}
 
@@ -43,6 +44,11 @@ class AdPage extends Component {
 			const path = this.props.location.pathname
 			goTwitterLogin(path)
 		}
+	}
+
+	async onClickRandomButton() {
+		const res = await fetchRandomAdData()
+		this.props.fetchAdData(res.id_user, res.id_ad )
 	}
 
 	render() {
@@ -78,6 +84,8 @@ class AdPage extends Component {
 							title= {this.props.title}
 							content={this.props.adObject.text}
 							user_detail = {this.props.user_detail}
+							tweetObject = {this.props.tweetObject}
+							adType = {this.props.adType}
 						/>
 					</div>
 
@@ -106,6 +114,15 @@ class AdPage extends Component {
 						/>
 					</div>
 
+					<br/><br/><br/>
+					<div>
+						<Button 
+						color="blue"
+						size="massive"
+						onClick={() => this.onClickRandomButton()}>
+						他の宣伝を見る(ランダム)
+						</Button>
+					</div>
 					<br/>
 					<br/><br/>
 					<br/><br/><br/>

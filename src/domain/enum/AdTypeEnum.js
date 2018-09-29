@@ -8,7 +8,8 @@ export default defineEnum({
 		popupTitle : "Twitterのログインが必要です" , 
 		icon : "share" , 
 		disabled : false , 
-		short_title : "ツイート"
+		short_title : "ツイート" , 
+		has_tweet_object : false 
 	},
 	retweet : {
 		string : "retweet" , 
@@ -17,7 +18,8 @@ export default defineEnum({
 		popupTitle : "Twitterのログインが必要です" , 
 		icon : "retweet" , 
 		disabled : false, 
-		short_title : "リツイート"
+		short_title : "リツイート" , 
+		has_tweet_object : true 
 	},
 	follow : {
 		string : "follow" , 
@@ -26,7 +28,8 @@ export default defineEnum({
 		popupTitle : "準備中" , 
 		icon : "child" , 
 		disabled : false,
-		short_title : "フォロー"
+		short_title : "フォロー" , 
+		has_tweet_object : false
 	} ,
 	fav : {
 		string : "fav" , 
@@ -35,7 +38,8 @@ export default defineEnum({
 		popupTitle : "プレミアム会員限定" , 
 		icon : "heart" , 
 		disabled : false,
-		short_title : "いいね"
+		short_title : "いいね" , 
+		has_tweet_object : true
 	},
 	lookMe : {
 		string : "lookMe" , 
@@ -44,6 +48,7 @@ export default defineEnum({
 		popupTitle : "" , 
 		icon : "eye" , 
 		disabled : false,
-		short_title : "見るだけ"
+		short_title : "見るだけ" , 
+		has_tweet_object : false
 	}
 })

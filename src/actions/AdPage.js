@@ -66,7 +66,7 @@ export function actionFail(errorMessage) {
 	}
 }
 
-export const ON_CHANGE_ID_RETURN_TO_GO = "ON_CHANGE_ID_RETURN_TO_GO" 
+export const ON_CHANGE_ID_RETURN_TO_GO = prefix + "ON_CHANGE_ID_RETURN_TO_GO" 
 export function onChangeIdReturnToGo(id_return_to_go) {
 	return {
 		type : ON_CHANGE_ID_RETURN_TO_GO, 
@@ -74,10 +74,18 @@ export function onChangeIdReturnToGo(id_return_to_go) {
 	}
 }
 
-export const ON_CHANGE_ACTION_LOADING = "ON_CHANGE_ACTION_LOADING" 
+export const ON_CHANGE_ACTION_LOADING = prefix + "ON_CHANGE_ACTION_LOADING" 
 export function onChangeActionLoading(is_loading) {
 	return {
 		type : ON_CHANGE_ID_RETURN_TO_GO, 
 		is_loading
+	}
+}
+
+export const SET_TWEET_OBJECT = prefix + "SET_TWEET_OBJECT"
+export function fetchTweetObject(tweetObject) {
+	return {
+		type : SET_TWEET_OBJECT , 
+		tweetObject
 	}
 }
