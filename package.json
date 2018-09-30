@@ -10,6 +10,7 @@
     "react-image-gallery": "^0.8.10",
     "react-images-upload": "^1.1.99",
     "react-images-uploader": "^1.2.0-rc1",
+    "react-linkify": "^0.2.2",
     "react-redux": "^5.0.7",
     "react-responsive": "^5.0.0",
     "react-router": "^4.3.1",

@@ -31,11 +31,11 @@ class StatsComponent extends Component {
 					<Segment padded>
 						<div className={style.center}>
 							<Statistic.Group color="blue">
-								<Statistic>
+								{/* <Statistic>
 									<Statistic.Label>閲覧回数</Statistic.Label>
 									<Statistic.Value>41</Statistic.Value>
 									<Statistic.Label>回</Statistic.Label>
-								</Statistic>
+								</Statistic> */}
 								<Statistic>
 									<Statistic.Label>宣伝された回数</Statistic.Label>
 									<Statistic.Value>{this.props.ad_count}</Statistic.Value>

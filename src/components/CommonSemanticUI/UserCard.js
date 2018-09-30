@@ -7,13 +7,14 @@ import { get_userdetail } from "../../localStorage/user_detail"
 import UserDetailDataStructure from "../../domain/UserDetailDataStructure"
 import convertBigImageUrl from "../../Utils/convertBigImageUrl"
 class UserCard extends Component {
-	renderLink() {
-		return (this.props.link || false ? 
+	renderLink(screen_name) {
+		return (
 			<Card.Content extra>
-				<a>
-                    作成した広告はこちら>
+				<a href={"https://www.twitter.com/" + screen_name}>
+                    Twitterアカウントへ飛ぶ>
 				</a>
-			</Card.Content> : "")
+			</Card.Content>
+		)
 	}
 
 	render() {
@@ -28,6 +29,11 @@ class UserCard extends Component {
 			icon_url = convertBigImageUrl(user_detail.profile_image_url)
 			screen_name = user_detail.screen_name
 			description = user_detail.description
+		} else {
+			name = this.props.user_detail.name
+			icon_url = convertBigImageUrl(this.props.user_detail.profile_image_url)
+			screen_name = this.props.user_detail.screen_name
+			description = this.props.user_detail.description
 		}
         
 		return (
@@ -42,7 +48,7 @@ class UserCard extends Component {
 						<Card.Description>{description}</Card.Description>
 					</Card.Content>
 
-					{this.renderLink()}
+					{this.renderLink(screen_name)}
 
 				</Card>
 			</div>

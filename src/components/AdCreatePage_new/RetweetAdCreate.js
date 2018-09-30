@@ -9,6 +9,7 @@ import {Button , Checkbox , Form} from "semantic-ui-react"
 //component
 import TwitterLikeComponent from "./TwitterLikeComponent"
 import TwitterLikeView from "../CommonSemanticUI/TwitterLikeView"
+import UploaderWithSlider from "./UploaderWithSlider"
 
 import getTweetIdFromUrl from "../../Utils/getTweetIdFromUrl"
 
@@ -72,17 +73,25 @@ class RetweetAdCreate extends Component {
 
 
 	renderTwitterLikeView() {
-		console.log("is it called?")
+		console.log("active = " + this.props.tweetObjectLoading)
 		console.log(this.props.tweetObject)
 		if(this.props.adObject.tweetUrl){
 			return <TwitterLikeView
+			active={this.props.tweetObjectLoading}
 			tweetObject = {this.props.tweetObject}
 			/>
 		}
 	}
 
+	onChangePictures = (pictures) => {
+		const newObj = dotProp.set(this.props.adObject , "images" , pictures)
+		this.props.onChangeAdObject(newObj)
+	}
+
+
 	renderCreate() {
-		const isNewly = this.props.adObject.isNewlyCreated
+		//const isNewly = this.props.adObject.isNewlyCreated
+		const isNewly = false //強制的にURL入力
 		if(isNewly) {
 			return (<TwitterLikeComponent
 				adObject = {this.props.adObject}
@@ -101,6 +110,14 @@ class RetweetAdCreate extends Component {
 						</Form.Field>
 					</Form>
 					{this.renderTwitterLikeView()}
+				<div className={style.center}>
+					<UploaderWithSlider
+					pictures = {this.props.adObject.images}
+					id="retweet"
+					onChangePictures={this.onChangePictures}
+					maxNum={1}
+					/>
+				 </div>
 				</div>
 			)
 		}
@@ -109,9 +126,9 @@ class RetweetAdCreate extends Component {
 	render() {
 		return (
 			<div className={style.RetweetAdCreate}>
-				<div className={style.RetweetAdCreateCheckBox}>
+				{/* <div className={style.RetweetAdCreateCheckBox}>
 					<Checkbox label='新規にツイートを作る' checked={this.props.adObject.isNewlyCreated} onChange={this.onToggled} />
-				</div>
+				</div> */}
 				{this.renderCreate()}
 			</div>
 		)

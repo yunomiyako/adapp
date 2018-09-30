@@ -12,6 +12,8 @@ import {
 	ON_SUBMIT_ADCREATE,
 	ON_FETCH_TWEET_DETAIL,
 	ON_CHANGE_TWEET_OBJECT , 
+	ON_CHANGE_TWEET_OBJECT_LOADING,
+	ON_CHANGE_AD_OBJECT_TEXT,
 } from "../actions/AdCreate"
 
 //データ構造
@@ -44,6 +46,10 @@ export default function AdCreateInfo(state = new AdCreateInfoStructure({}) , act
 		return dotProp.set(state , "returnCreateCompleted" ,  action.returnCreateCompleted )
 	case ON_CHANGE_TWEET_OBJECT:
 		return dotProp.set(state , "tweetObject" ,  action.tweetObject )
+	case ON_CHANGE_TWEET_OBJECT_LOADING: 
+		return dotProp.set(state , "tweetObjectLoading" , action.loading)
+	case ON_CHANGE_AD_OBJECT_TEXT : 
+		return dotProp.set(state , "adObject" ,  dotProp.set(state.adObject , "text" , action.text) )
 	default :
 		return state
 	}

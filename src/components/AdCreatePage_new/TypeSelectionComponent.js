@@ -4,7 +4,7 @@ import React , {Component}  from "react"
 import style from "./AdCreatePage.css"
 
 //semantic UI
-import { Button , Icon , Popup} from "semantic-ui-react"
+import { Button , Icon } from "semantic-ui-react"
 
 
 class TypeSelectionComponent extends Component {

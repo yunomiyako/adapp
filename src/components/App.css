@@ -18,5 +18,6 @@ p {
 }
 
 body {
-  background: #b2bec3;
+  background: url("../images/005-subtle-light-patterns.jpg");
+  background-size: auto ;
 }

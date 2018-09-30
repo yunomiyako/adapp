@@ -1,12 +1,14 @@
 import { call, put, takeEvery , takeLatest } from "redux-saga/effects"
 
 //import Action
-import {ON_SUBMIT_ADCREATE, ON_FETCH_TWEET_DETAIL, ON_CHANGE_TWEET_OBJECT } from "../actions/AdCreate"
+import {ON_SUBMIT_ADCREATE, ON_FETCH_TWEET_DETAIL, 
+	ON_CHANGE_TWEET_OBJECT, ON_CHANGE_TWEET_OBJECT_LOADING, 
+	ON_CHANGE_AD_OBJECT_TEXT } from "../actions/AdCreate"
 import {FETCH_AD_DATA , FETCH_AD_DATA_SUCCESS , 
 	FETCH_AD_DATA_FAIL , KEYS_TO_URLS,
 	ON_CHANGE_IMAGE_URLS, ON_SEND_ACTION , 
 	ACTION_FAIL  , ON_CHANGE_ID_RETURN_TO_GO ,
-	ON_CHANGE_ACTION_LOADING} from "../actions/AdPage"
+	ON_CHANGE_ACTION_LOADING ,SET_TWEET_OBJECT} from "../actions/AdPage"
 import {ON_FETCH_RETURN , ON_UPDATE_RETURN_OBJECT , ON_UPDATE_RETURN_TYPE,
 	ON_UPDATE_RETURN_IMAGE_URLS , ON_UPDATE_RATING, ON_FAIL_FETCH_RETURN} from "../actions/ReturnPage"
 import {GET_AD_LIST , GET_RETURN_LIST , SET_AD_LIST , SET_RETURN_LIST} from "../actions/UserPage"
@@ -25,6 +27,8 @@ import fetchTweetDetail from "../api/fetchTweetDetail"
 
 //import utls
 import getDateFromUnixTime from "../Utils/getDateFromUnixTime"
+import AdTypeEnum from "../domain/enum/AdTypeEnum"
+import getTweetIdFromUrl from "../Utils/getTweetIdFromUrl"
 
 // ワーカー Saga: FETCH_EXAMPLE_DATA Action によって起動する
 function *onSubmitAdCreate(action) {
@@ -46,10 +50,21 @@ function *onFetchAdData(action) {
 	try {
 		const payload = {id_user : action.id_user , id_ad : action.id_ad}
 		const result = yield call(fetchAdData , payload)
-		console.log("saga : ")
-		console.log(result)
-		yield put({type : FETCH_AD_DATA_SUCCESS , response:result})
-		yield put({type : KEYS_TO_URLS , keys : result.adObject.images})
+
+			
+		//retweetかfavであればtweetObjectを取得する
+		if( AdTypeEnum.getByName(result.adType).has_tweet_object) {
+			const url = result.adObject.tweetUrl
+			const id_tweet = getTweetIdFromUrl(url)
+			const tweetObject = yield call(fetchTweetDetail , id_tweet)
+			yield put({type : FETCH_AD_DATA_SUCCESS , response:result})
+			yield put({type : SET_TWEET_OBJECT , tweetObject})
+		} else {
+			yield put({type : FETCH_AD_DATA_SUCCESS , response:result})
+			yield put({type : KEYS_TO_URLS , keys : result.adObject.images})
+		}
+		
+	
 	} catch (e) {
 		yield put({type: FETCH_AD_DATA_FAIL, errorMessage : "広告データを読み込めませんでした！"})
 	}
@@ -91,10 +106,7 @@ function *onFetchReturnData(action) {
 			}
 		}
 
-
-		//TODO : ユーザがつけたrating取れたらとったほうがいい
-		yield put({type : ON_UPDATE_RATING , rating : result.rating})
-		
+		yield put({type : ON_UPDATE_RATING , rating : result.rating})		
 		yield put({type : ON_UPDATE_RETURN_OBJECT , returnObject : result.returnObject})
 		yield put({type : ON_UPDATE_RETURN_TYPE , returnType : result.returnType})
 	} catch (e) {
@@ -157,12 +169,17 @@ function *onGetAdListTopPage() {
 
 function *onFetchTweetDetail(action) {
 	try {
+		yield put({type :ON_CHANGE_TWEET_OBJECT_LOADING  , loading : true})
 		console.log(action)
 		console.log("id_tweet" , action.id_tweet)
 		const tweetObject = yield call(fetchTweetDetail , action.id_tweet)
 		yield put({type : ON_CHANGE_TWEET_OBJECT , tweetObject : tweetObject})
+		yield put({type : ON_CHANGE_AD_OBJECT_TEXT , text : tweetObject.text})
+		yield put({type :ON_CHANGE_TWEET_OBJECT_LOADING  , loading : false})
 	}catch(e) {
 		yield put({type : ON_CHANGE_TWEET_OBJECT , tweetObject : {}})
+		yield put({type : ON_CHANGE_AD_OBJECT_TEXT , text : ""})
+		yield put({type :ON_CHANGE_TWEET_OBJECT_LOADING  , loading : false})
 	}
 }
 

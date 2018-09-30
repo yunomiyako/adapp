@@ -48,7 +48,6 @@ class App extends Component {
 					<div className="App-Header">
 						<Route path="/" component={Header}/>
 					</div>
-
 					<div className="App-Component">
 						<Route exact={true} path="/" component={TopPage}/>
 						<Route path="/ad_page/:id_user/:id_ad" component={AdPage}/>
@@ -61,7 +60,6 @@ class App extends Component {
 						<Route path="/return_page/:id_return" component = {ReturnPageHome} />
 						<Route path="/redirect" component = {LoginRedirectPage} />
 					</div>
-
 
 				</div>
 			</BrowserRouter>

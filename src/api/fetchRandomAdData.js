@@ -1,17 +1,20 @@
-import AdPageInfoDataStructure from "../domain/AdPageInfoDataStructure"
 import AuthentificatedCallWrapper from "./AuthentificatedCallWrapper"
 
-export default function(payload) {
+//適当なid_userとid_adを返すAPI
+export default function() {
 	const apiName = "adApp"
-	const path = "/addata"
+	const path = "/addata/random"
 	const init = { 
-		queryStringParameters: payload
+		queryStringParameters: {}
 	}
 
 	return AuthentificatedCallWrapper(apiName , path , init , "get").then((res) => {
 		const body = res.data
-		const result = new AdPageInfoDataStructure(body)
-		result.status = "OK"
+		const result = {
+			id_user : body.id_user ,
+			id_ad : body.id_ad
+		}
+		console.log(result)
 		return result
 	}).catch(e => {
 		console.log("fetchAdList catch")

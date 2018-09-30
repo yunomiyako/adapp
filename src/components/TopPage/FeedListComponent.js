@@ -1,9 +1,7 @@
 import React , {Component}  from "react"
 import style from "./TopPage.css"
-import fetchAdList from "../../api/fetchAdList"
 import FeedView from "../CommonSemanticUI/FeedView"
-import getUrlsFromKeys from "../../Utils/getUrlsFromKeys";
-class TopPage extends Component {
+class FeedListComponent extends Component {
     componentDidMount() {
         this.getAdList()
     }
@@ -35,4 +33,4 @@ class TopPage extends Component {
 	}
 }
 
-export default TopPage
+export default FeedListComponent

@@ -8,12 +8,9 @@ import FeedListComponent from "../../containers/TopPage/FeedListComponent"
 import NormalView from "../CommonSemanticUI/NormalView"
 import Toppage_second from "./toppage_second_comp"
 
-import {twitter_logout ,get_access_token } from "../../localStorage/twitter_access_token"
 import loginCheck from "../../localStorage/loginCheck"
 
-import {Button} from "semantic-ui-react"
-import { get_id_user } from "../../localStorage/user_detail"
-
+import AfterLoginPage from "./AfterLoginPage"
 class TopPage extends Component {
 	constructor(props) {
 		super(props)
@@ -28,12 +25,6 @@ class TopPage extends Component {
 				logined : true
 			})
 		}
-	}
-
-	logout() {
-		twitter_logout()
-		//TODO : 再読み込み
-		window.location.href = "/"
 	}
 
 	render() {
@@ -57,13 +48,7 @@ class TopPage extends Component {
 			)
 		} else {
 			return (
-				<div className={style.LoginedTopPage}>
-					ようこそ : {get_id_user()} <br/>
-					アクセストークン : {get_access_token()} <br/>
-					<Button onClick={() => this.logout()}>ログアウト</Button>
-					<div className={style.aaaa}><h2>最近作成された宣伝</h2></div>
-					<FeedListComponent/>
-				</div>
+				<AfterLoginPage/>
 			)
 		}
 	}

@@ -60,3 +60,9 @@ export const getTweetObject = createSelector(
 	[getTweetObjectFromState] , 
 	(tweetObject) => tweetObject
 )
+
+const getTweetObjectLoadingFromState = (state) => state.tweetObjectLoading
+export const getTweetObjectLoading = createSelector(
+	[getTweetObjectLoadingFromState] , 
+	(tweetObjectLoading) => tweetObjectLoading
+)

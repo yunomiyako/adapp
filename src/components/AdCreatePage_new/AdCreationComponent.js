@@ -107,6 +107,18 @@ class AdCreationComponent extends Component {
 		this.props.onFetchTweetDetail(id_tweet)
 	}
 
+	favOrRetweetDescriptionLabel(action = "いいね") {
+		if(this.props.adObject.tweetUrl && this.props.adObject.text) {
+			if(this.props.adObject.images.length == 0) {
+				return <Label pointing color="orange">トップ画像を１枚設定できます(ツイート内で使用している画像など)</Label>
+			} else {
+				return 
+			}
+		} else {
+			return (<Label pointing color="orange">{action}してほしいツイートのURLをコピペしてください</Label>)
+		}
+	}
+
 	renderCreateAdChild(adType) {
 		switch(adType) {
 		case "tweet" :
@@ -128,8 +140,9 @@ class AdCreationComponent extends Component {
 						adObject = {this.props.adObject}
 						onChangeAdObject = {this.onChangeAdObject}
 						onFetchTweetDetail = {this.onFetchTweetDetail}
+						tweetObjectLoading={this.props.tweetObjectLoading}
 					/>
-					<Label pointing color="orange">URLの指定もしくはツイートの新規作成ができるよ</Label>
+					<Label pointing color="orange">リツイートしてほしいツイートのURLをコピペしてください</Label>
 				</div>
 			)
 		case "lookMe" :
@@ -141,6 +154,7 @@ class AdCreationComponent extends Component {
 						title = {this.props.title}
 						returnDescription = {this.props.returnDescription}
 						onChangeAdObject = {this.onChangeAdObject}
+						
 					/>
 					{this.props.adObject.text ? "" : <Label pointing color="orange">画像とテキストで見てほしいことを説明しよう</Label>}
 				</div>)
@@ -152,8 +166,10 @@ class AdCreationComponent extends Component {
 					adObject = {this.props.adObject}
 					onChangeAdObject = {this.onChangeAdObject}
 					onFetchTweetDetail = {this.onFetchTweetDetail}
+					tweetObjectLoading={this.props.tweetObjectLoading}
 				/>
-				<Label pointing color="orange">URLの指定もしくはツイートの新規作成ができるよ</Label>
+				{this.favOrRetweetDescriptionLabel()}
+				
 			</div>)
 		case "follow" :	return (
 			<div>
