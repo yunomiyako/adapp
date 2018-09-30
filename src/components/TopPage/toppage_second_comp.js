@@ -11,15 +11,9 @@ class Toppage_second extends Component {
 
 	render() {
 		return (
-
 			<div className={style.TopPage_second_wrapper}>
-				<div className={style.TopPageTopPage_second}>
-                
-                
-					
-						
+				<div className={style.TopPageTopPage_second}>		
 					<h3 className={style.text1}>{Funcs.getTexts().sectext1}</h3>
-
 					<h3 className={style.text2}>
 						<p>・Twitterを使った<font color="#CD5C5C">SNSアドバタイジングサービス</font></p>
 						<br></br>
