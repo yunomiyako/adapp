@@ -1,0 +1,76 @@
+:local .LoginedTopPage {
+    padding : 60px 0px;
+    max-width: 600px;
+    margin: auto;
+    left : 0;
+    right : 0;
+}
+ 
+:local .text1.is-active {
+    opacity: 1;
+}
+
+:local .TopPage {
+    
+    width: 100vw;
+    height: 100vh;
+    
+    background: linear-gradient(-45deg,rgba(5, 172, 175, 0.9), rgba(0, 28, 187, 0.9)),
+    url(../../images/141117-twitter.png);
+    background-size: contain;
+    background-position: center ;
+    background-repeat: no-repeat;
+    
+  }
+
+  :local .text1 {
+    position: relative;
+    top: 30%;
+    margin-left: auto; 
+    margin-right: auto;
+
+    
+    font-size: 10vh ;
+
+    font-family: "Ravi Prakash", cursive;
+    color: rgba(255, 255, 255, 0.931);
+
+
+    /*background-color: black*/
+}
+
+:local .text2 {
+    position: relative;
+    top: 30%;
+    font-size: 2vh ;
+    color: rgba(255, 255, 255, 0.931);
+  }
+  
+  :local .text3 {
+    position: relative;
+    top: 35%;
+    font-size: 2vh ;
+    color: rgba(255, 255, 255, 0.931);
+  }
+
+  :local .buttons {
+    display: grid;
+    position: relative;
+    top: 45vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows:  1fr  ;
+    grid-gap: undefined;
+    grid-template-areas:  ". . tbtn .  btn ."   ;
+  }
+
+:local .twitter_button { 
+    grid-area: tbtn;
+   width: 35vw;
+
+}
+
+:local .login_button { 
+    grid-area: btn;
+    width: 35vw;
+
+ }

@@ -1,0 +1,62 @@
+
+  :local .TopPageTopPage_second {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+  }
+
+  :local .text1 {
+    position: relative;
+    top: 10%;
+ 
+    font-family:  Impact;
+    font-size: 5vmin;
+  }
+
+  :local .text2 {
+    position: relative;
+    top: 15%;
+    font-size: 4vmin;
+    text-align: left;
+    
+  }
+
+
+  :local .icons {
+    display: grid;
+    position: relative;
+    top: 25%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows:  1fr  ;
+    grid-gap: undefined;
+    
+    grid-template-areas:  ". icon . icon2 . icon3 ."  ;
+  }
+
+
+
+  :local .picon {
+    position: relative;
+    top: 20vh;
+  }
+  :local .picon2 {
+    position: relative;
+    top: 20vh;
+  }
+  
+  :local .picon3 {
+    position: relative;
+    top: 20vh;
+  }
+
+
+  :local .icon {
+    grid-area: icon;
+  }
+  :local .icon2 {
+    grid-area: icon2;
+  }
+  
+  :local .icon3 {
+    grid-area: icon3;
+  }

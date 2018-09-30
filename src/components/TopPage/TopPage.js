@@ -3,11 +3,10 @@ import style from "./TopPage2.css"
 import DesktopBreakpoint from "../responsive_utilities/desktop_breakpoint"
 import TabletBreakpoint from "../responsive_utilities/tablet_breakpoint"
 import PhoneBreakpoint from "../responsive_utilities/phone_breakpoint"
-import Top_Component from "./Top_Desktopcomponent"
-import Top_Phonecomponent from "./Top_Phonecomponent"
-import Top_Tabletcomponent from "./Top_Tabletcomponent"
+import Top_Component from "./Topcomponent"
 import FeedListComponent from "../../containers/TopPage/FeedListComponent"
 import NormalView from "../CommonSemanticUI/NormalView"
+import Toppage_second from "./toppage_second_comp"
 
 import {twitter_logout ,get_access_token } from "../../localStorage/twitter_access_token"
 import loginCheck from "../../localStorage/loginCheck"
@@ -42,20 +41,19 @@ class TopPage extends Component {
 		if(!this.state.logined) {
 			return (
 				<div >
-					<DesktopBreakpoint>	
-				 	　<Top_Component/>
-					</DesktopBreakpoint>
-				
-					<PhoneBreakpoint>	
-				 	　<Top_Phonecomponent/>
-					</PhoneBreakpoint>
-				
-					<TabletBreakpoint>	
-				      <Top_Tabletcomponent/>
-					</TabletBreakpoint>
-
-					<NormalView/>
+					<Top_Component/>
+					<Toppage_second/>
+					<div className={style.Footerback}>	
+						<div className={style.Footer}>			
+							<ul>
+								<p className="list-unstyled"><a href="https://www.google.co.jp/webhp?hl=ja&sa=X&ved=0ahUKEwiwtObcw_DcAhWFTrwKHSptBA4QPAgD">お問い合わせ</a></p>
+								<p className="list-unstyled"><a href="https://www.google.co.jp/webhp?hl=ja&sa=X&ved=0ahUKEwiwtObcw_DcAhWFTrwKHSptBA4QPAgD">利用規約</a></p>
+								<p className="list-unstyled"><a href="https://www.google.co.jp/webhp?hl=ja&sa=X&ved=0ahUKEwiwtObcw_DcAhWFTrwKHSptBA4QPAgD">プライバシーポリシー</a></p>
+							</ul>		
+						</div>
+					</div>
 				</div>
+				
 			)
 		} else {
 			return (

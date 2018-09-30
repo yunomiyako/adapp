@@ -80,6 +80,7 @@
 
 :local .title { grid-area: Title; }
 :local .text1 {
+  grid-area: Title;
     font-size: 150px;
     font-family: "Ravi Prakash", cursive;
     color: rgba(255, 255, 255, 0.931);
