@@ -15,8 +15,8 @@
   }
 }
 
-.animation {
-  animation-name: fadeIn;
+:local .animation {
+  animation-name: "fadeIn";
   animation-duration: 3s;
 }
 

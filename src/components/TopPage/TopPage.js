@@ -7,9 +7,7 @@ import Top_Component from "./Topcomponent"
 import FeedListComponent from "../../containers/TopPage/FeedListComponent"
 import NormalView from "../CommonSemanticUI/NormalView"
 import Toppage_second from "./toppage_second_comp"
-
 import loginCheck from "../../localStorage/loginCheck"
-
 import AfterLoginPage from "./AfterLoginPage"
 class TopPage extends Component {
 	constructor(props) {
