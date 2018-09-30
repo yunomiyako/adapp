@@ -44,7 +44,9 @@ class AfterLoginPage extends Component {
                 
                 <div className={style.dotLine}><h2>メニュー</h2></div>
                     <div className={style.ButtonMenuComponent}>
-                    <ButtonMenuComponent/>
+                    <ButtonMenuComponent
+                    history = {this.props.history}
+                    />
                     </div>
                     <div className={style.dotLine}><h2>最近作成された宣伝</h2></div>
                     <FeedListComponent/>

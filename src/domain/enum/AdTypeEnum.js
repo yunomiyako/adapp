@@ -9,7 +9,8 @@ export default defineEnum({
 		icon : "share" , 
 		disabled : false , 
 		short_title : "ツイート" , 
-		has_tweet_object : false 
+		has_tweet_object : false ,
+		needLogin : true
 	},
 	retweet : {
 		string : "retweet" , 
@@ -19,7 +20,8 @@ export default defineEnum({
 		icon : "retweet" , 
 		disabled : false, 
 		short_title : "リツイート" , 
-		has_tweet_object : true 
+		has_tweet_object : true ,
+		needLogin : false
 	},
 	follow : {
 		string : "follow" , 
@@ -29,7 +31,8 @@ export default defineEnum({
 		icon : "child" , 
 		disabled : false,
 		short_title : "フォロー" , 
-		has_tweet_object : false
+		has_tweet_object : false, 
+		needLogin : true
 	} ,
 	fav : {
 		string : "fav" , 
@@ -39,7 +42,8 @@ export default defineEnum({
 		icon : "heart" , 
 		disabled : false,
 		short_title : "いいね" , 
-		has_tweet_object : true
+		has_tweet_object : true , 
+		needLogin : false
 	},
 	lookMe : {
 		string : "lookMe" , 
@@ -49,6 +53,7 @@ export default defineEnum({
 		icon : "eye" , 
 		disabled : false,
 		short_title : "見るだけ" , 
-		has_tweet_object : false
+		has_tweet_object : false , 
+		needLogin : false
 	}
 })

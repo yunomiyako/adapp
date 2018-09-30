@@ -7,7 +7,8 @@ export default defineEnum({
 		description : "文章と画像で感謝の意を示しましょう" , 
 		popupTitle : "" , 
 		icon : "image" , 
-		disabled : false
+		disabled : false , 
+		needLogin : false
 	},
 	textOnly : {
 		string : "textOnly" , 
@@ -15,7 +16,8 @@ export default defineEnum({
 		description : "たくさん文字を書けます。秘密の話を書いてください。" , 
 		popupTitle : "" , 
 		icon : "file" , 
-		disabled : false
+		disabled : false , 
+		needLogin : false
 	},
 	premium : {
 		string : "premium" , 
@@ -23,7 +25,8 @@ export default defineEnum({
 		description : "画像のガチャを作成できます。宣伝してくれた人は１回無料で引くことができます。",
 		popupTitle : "プレミアム会員限定" , 
 		icon : "random" , 
-		disabled : true
+		disabled : true , 
+		needLogin : true
 
 	} ,
 	lottery : {
@@ -32,7 +35,8 @@ export default defineEnum({
 		description : "当選確率や当選人数を設定できます",
 		popupTitle : "プレミアム会員限定" , 
 		icon : "random" , 
-		disabled : true
+		disabled : true , 
+		needLogin : true
 	} , 
 	buyReturn : {
 		string : "buyReturn" , 
@@ -40,6 +44,7 @@ export default defineEnum({
 		description : "お返しが思いつかない人は、他の人が作ったお返しを買うことができます。" , 
 		popupTitle : "" , 
 		icon : "cny" , 
-		disabled : true
+		disabled : true ,
+		needLogin : true
 	}
 })

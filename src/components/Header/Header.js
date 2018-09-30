@@ -11,11 +11,8 @@ class ContentLink {
 	}
 }
 
-const link1 = new ContentLink("アド表示画面" , "/ad_page")
-const link2 = new ContentLink("アド作成" , "/ad_create")
-const link3 = new ContentLink("テストページ" , "/test")
-const link4 = new ContentLink("テストページ2" , "/test2")
-const link5 = new ContentLink("userページ" , "/userpage")
+const link2 = new ContentLink("宣伝作成" , "/ad_create")
+const link5 = new ContentLink("ユーザページ" , "/userpage")
 const contentLink = [link2 , link5]
 
 class Header extends Component {
