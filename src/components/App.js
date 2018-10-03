@@ -6,6 +6,7 @@ import AdPage from "../containers/AdPage/AdPage_new"
 import AdCreatePage from "../containers/AdCreatePage/AdCreatePage"
 import TestPage from "./TestPage/TestPage"
 import UserPage from "./UserPage/UserPage"
+import UserAdListPage from "./UserPage/UserAdListPage"
 import StatsPage from "./StatsPage/StatsPage"
 import ExperimentalPage from "./ExperimentalPage/ExperimentalPage"
 import ReturnPage from "./ReturnPage/ReturnPage"
@@ -34,7 +35,7 @@ class App extends Component {
 
 	tmpAuth() {
 		const callback = () => {
-			fetchUserDetail().then((detail) => {
+			fetchUserDetail("" , true).then((detail) => {
 				set_userdetail(detail)
 			})
 		}
@@ -51,6 +52,7 @@ class App extends Component {
 					<div className="App-Component">
 						<Route exact={true} path="/" component={TopPage}/>
 						<Route path="/ad_page/:id_user/:id_ad" component={AdPage}/>
+						<Route exact path="/ad_page/:id_user/" component={UserAdListPage}/>
 						<Route path="/ad_create" component={AdCreatePage}/>
 						<Route path="/test" component = {TestPage}/>
 						<Route path="/test2" component = {ExperimentalPage}/>

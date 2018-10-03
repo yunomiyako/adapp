@@ -119,10 +119,6 @@ function *onGetAdList(action) {
 	try {
 		const ad_list = yield call(fetchAdList , {"id_user" : action.id_user})
 		console.log(ad_list)
-		ad_list.map((ad) => {
-			ad.link = "/statspage/"  + ad.id_ad
-			ad.date = getDateFromUnixTime(ad.created_at)
-		})
 		yield put({type : SET_AD_LIST , ad_list : ad_list})
 	}catch(e) {
 		//TODO : エラーハンドリング

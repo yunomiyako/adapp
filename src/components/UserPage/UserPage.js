@@ -7,22 +7,32 @@ import RewardComponent from "../../containers/UserPage/ReturnComponent"
 import UserCard from "../CommonSemanticUI/UserCard"
 import loginCheck from "../../localStorage/loginCheck"
 import goTwitterLogin from "../../Utils/goTwitterLogin"
+import { get_id_user, get_userdetail } from "../../localStorage/user_detail"
 
 
 class UserPage extends Component {
 
+
 	renderUserPage() {
 		if(loginCheck()) {
+			console.log("ここ呼ばれててほしい")
+			const user_detail = get_userdetail()
+			const id_user = get_id_user()
+			console.log(user_detail)
 			return (
 				<div className={style.UserPage}>
 					<div className={style.UserPageContainer}>
 
 						<div className = {style.UserCard}>
-							<UserCard/>
+							<UserCard
+								user_detail={user_detail}
+							/>
 						</div>
 
 						<div>
-							<AdComponent/>
+							<AdComponent
+								id_user = {id_user}
+							/>
 						</div>
 
 						<div>
@@ -55,7 +65,6 @@ class UserPage extends Component {
 
 	render() {
 		return (
-
 			<div>
 				{this.renderUserPage()}
 			</div>
