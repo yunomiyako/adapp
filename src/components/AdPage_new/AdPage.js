@@ -49,6 +49,7 @@ class AdPage extends Component {
 
 	async onClickRandomButton() {
 		const res = await fetchRandomAdData()
+		this.props.history.push("/ad_page/" + res.id_user + "/" + res.id_ad )
 		this.props.fetchAdData(res.id_user, res.id_ad )
 	}
 

@@ -8,6 +8,7 @@ import { CSSTransition , TransitionGroup , Transition } from "react-transition-g
 import { Button , Image , Grid} from "semantic-ui-react"
 
 import { Storage } from "aws-amplify"
+import fetchExampleAds from "../../api/fetchExampleAds";
 class ExperimentalPage extends Component {
 	constructor(props) {
 		super(props)
@@ -19,8 +20,9 @@ class ExperimentalPage extends Component {
 		}
 	}
 
-	onClickButton() {
-
+	async onClickButton() {
+		const res = await fetchExampleAds()
+		console.log(res)
 		//window.location.href = "https://yahoo.co.jp"
 		//window.open("https://yahoo.co.jp", "_blank")
 		this.setState({fire : !this.state.fire})

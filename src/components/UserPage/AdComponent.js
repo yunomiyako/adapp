@@ -23,6 +23,7 @@ class AdComponent extends Component {
 
 	renderTitle(items) {
 		return items.map(_item => {
+			console.log(this.props.shouldGoStat)
 			if(this.props.shouldGoStat) {
 				_item.link = "/statspage/"  + _item.id_ad
 			} else {

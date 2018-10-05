@@ -32,6 +32,7 @@ class UserPage extends Component {
 						<div>
 							<AdComponent
 								id_user = {id_user}
+								shouldGoStat = {true}
 							/>
 						</div>
 
