@@ -16,6 +16,7 @@ import {
 	getTitle,
 	getReturnDescription,
 	getReturnType,
+	getTweetObject,
 } from "../../selectors/AdCreatePage"
 
 function mapStateToProps(state){
@@ -30,6 +31,7 @@ function mapStateToProps(state){
 		title: getTitle(subState),
 		returnDescription: getReturnDescription(subState),
 		returnType: getReturnType(subState),
+		tweetObject: getTweetObject(subState)
 	}
 }
 

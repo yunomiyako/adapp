@@ -88,6 +88,7 @@ class ExperimentalPage extends Component {
 				<h3 style={style.dummyCSS}>これは存在しないlocal CSSです。</h3>
 				<Button onClick={() => this.onClickButton()}>アニメーションボタン</Button>
 
+				<div className="animation" style={{height : "200px" , width: "300px" , background:"white" , margin:"30px auto"}}>起動時のdiv</div>
 				{/*
 				 <CSSTransition
 				 	in = {this.state.fire}

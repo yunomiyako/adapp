@@ -47,16 +47,16 @@ class TypeSelectionComponent extends Component {
 
 	renderButtons(buttons) {
 		return buttons.map(btn => {
+			const disabledFlag = btn.needLogin && !this.props.isLogin
 			return (
 				<div key={btn.id}>
 					<Button 
 						fluid
 						id="typeselect"
 						color={this.props.type === btn.id ? "blue" : "grey"}
-						disabled={btn.disabled}
+						disabled={btn.disabled || disabledFlag}
 						size="medium"
 						onClick={() => this.onClick(btn.id)}>
-
 						{btn.icon ? <Icon name={btn.icon}/> : null}
 						{btn.btnText}
 					</Button>

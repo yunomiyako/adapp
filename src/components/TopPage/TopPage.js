@@ -48,7 +48,9 @@ class TopPage extends Component {
 			)
 		} else {
 			return (
-				<AfterLoginPage/>
+				<AfterLoginPage
+					history = {this.props.history}
+				/>
 			)
 		}
 	}

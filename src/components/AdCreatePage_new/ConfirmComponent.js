@@ -8,6 +8,7 @@ import {redirectToAdPage} from "../Redirect/redirect"
 import ReturnTypeEnum from "../../domain/enum/ReturnTypeEnum"
 import AdTypeEnum from "../../domain/enum/AdTypeEnum"
 import AdCreateInfoDataStructure from "../../domain/AdCreateInfoDataStructure"
+import goTwitterLogin from "../../Utils/goTwitterLogin";
 
 class ConfirmComponent extends Component {
 	constructor(props) {
@@ -64,11 +65,21 @@ class ConfirmComponent extends Component {
 	}
 
 	renderOkButton() {
-		return <Button 
-		onClick={this.onClickOk}
-		loading={this.state.loading}
-		disabled={this.state.loading}
-		>送信</Button>
+		const adFinished = this.props.title && this.props.adObject.text
+		const adFinished2 = !(AdTypeEnum.getByName(this.props.adType).has_tweet_object && !this.props.tweetObject.id_tweet)
+		const returnFinished = this.props.returnType && this.props.returnObject.text
+		if(adFinished && adFinished2 && returnFinished) {
+			return <Button 
+			onClick={this.onClickOk}
+			loading={this.state.loading}
+			disabled={this.state.loading}
+			>送信</Button>
+		} else {
+			return <Button 
+			disabled={true}
+			>送信</Button>
+		}
+
 	}
 
 	onClickOk = () => {
@@ -83,13 +94,25 @@ class ConfirmComponent extends Component {
 				this.props.clearState()
 			} else {
 				this.setState({loading : false})
-				console.log(response.errorMessage)
+				//ログインページへ飛ばしてみる
+				goTwitterLogin("/ad_create")
 			}
 		}
 
 		//送信データ
 		const payload = new AdCreateInfoDataStructure(this.props)
 		this.props.onClickSubmit(payload , callback)
+	}
+
+	renderTableCell(data) {
+		return data.map(d => {
+			return (
+			<Table.Row key={d.title} negative={d.negativeFrag}>
+				<Table.Cell width="4">{d.title}</Table.Cell>
+				<Table.Cell width="6">{d.content}</Table.Cell>
+			</Table.Row>
+			)
+		})
 	}
 
 	render() {
@@ -99,54 +122,64 @@ class ConfirmComponent extends Component {
 			return redirectToAdPage(id_user , id_ad)
 		}
 
+		const ad_data = [
+			{
+				title : "してもらいたいこと",
+				content : this.getAdTypeTitle() , 
+				negativeFrag : this.getAdTypeTitle() == ""
+			} , 
+			{
+				title : "宣伝タイトル",
+				content : this.props.title , 
+				negativeFrag :  this.props.title == ""
+			} , 
+			{
+				title : "宣伝内容",
+				content : this.props.adObject.text, 
+				negativeFrag :  this.props.adObject.text == ""
+			} , 
+			{
+				title : "宣伝画像の枚数",
+				content : this.props.adObject.images.length + "枚", 
+				negativeFrag : false
+			} , 
+		]
+
+		const return_data = [
+			{
+				title : "お返しタイプ",
+				content : this.getReturnTypeTitle() , 
+				negativeFrag : this.getReturnTypeTitle() == ""
+			} , 
+			{
+				title : "お返し",
+				content : this.props.returnDescription , 
+				negativeFrag :  this.props.returnDescription == ""
+			} , 
+			{
+				title : "お返し内容",
+				content : this.props.returnObject.text, 
+				negativeFrag :  this.props.returnObject.text == ""
+			} , 
+			{
+				title : "お返し画像の枚数",
+				content : this.props.returnObject.images.length + "枚", 
+				negativeFrag : false
+			} , 
+		]
+
 		return (
 			<div className="AdCreatePage-ComponentFrame">
 
 				<Table definition color="blue">
 					<Table.Body>
-						<Table.Row>
-							<Table.Cell width="4">してもらいたいこと</Table.Cell>
-							<Table.Cell width="6">{this.getAdTypeTitle()}</Table.Cell>
-						</Table.Row>
-
-						<Table.Row>
-							<Table.Cell>宣伝タイトル</Table.Cell>
-							<Table.Cell>{this.props.title}</Table.Cell>
-						</Table.Row>
-
-						<Table.Row>
-							<Table.Cell>宣伝内容</Table.Cell>
-							<Table.Cell>{this.props.adObject.text}</Table.Cell>
-						</Table.Row>
-
-						<Table.Row>
-							<Table.Cell>宣伝画像の枚数</Table.Cell>
-							<Table.Cell>{this.props.adObject.images.length}/4</Table.Cell>
-						</Table.Row>
+						{this.renderTableCell(ad_data)}
 					</Table.Body>
 				</Table>
 
 				<Table definition color="red">
 					<Table.Body>
-						<Table.Row>
-							<Table.Cell width="4">お返しタイプ</Table.Cell>
-							<Table.Cell width="6">{this.getReturnTypeTitle()}</Table.Cell>
-						</Table.Row>
-
-						<Table.Row>
-							<Table.Cell>お返し</Table.Cell>
-							<Table.Cell>{this.props.returnDescription}</Table.Cell>
-						</Table.Row>
-
-						<Table.Row>
-							<Table.Cell>お返し内容</Table.Cell>
-							<Table.Cell>{this.props.returnObject.text}</Table.Cell>
-						</Table.Row>
-
-						<Table.Row>
-							<Table.Cell>お返し画像の枚数</Table.Cell>
-							<Table.Cell>{this.props.returnObject.images.length}/4</Table.Cell>
-						</Table.Row>
+						{this.renderTableCell(return_data)}
 					</Table.Body>
 				</Table>
 

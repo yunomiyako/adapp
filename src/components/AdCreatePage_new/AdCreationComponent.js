@@ -11,6 +11,7 @@ import RetweetAdCreate from "./RetweetAdCreate"
 
 //data
 import adTypeButtons from "../../domain/adTypeButtons"
+import loginCheck from "../../localStorage/loginCheck";
 
 // immutable state change helper
 var dotProp = require("dot-prop-immutable")
@@ -18,8 +19,18 @@ var dotProp = require("dot-prop-immutable")
 class AdCreationComponent extends Component {
 	constructor(props) {
 		super(props)
+		this.state = {
+			isLogin : false
+		}
 		this.HeadIcon = <Icon name="angle right"/>
 	}
+
+	componentDidMount() {
+		this.setState({
+			isLogin : loginCheck()
+		})
+	}
+
 
 	shouldComponentUpdate(nextProps, nextState) {
 		const keys = Object.keys(nextProps)
@@ -36,6 +47,7 @@ class AdCreationComponent extends Component {
 		}
 		return false
 	}
+	
 	componentDidUpdate(prevProps , prevState){
 		const name =
 			this.constructor.displayName || this.constructor.name || "Component"
@@ -70,6 +82,7 @@ class AdCreationComponent extends Component {
 					onClick={this.onChangeAdType}
 					type = {this.props.adType}
 					buttons = {adTypeButtons}
+					isLogin = {this.state.isLogin}
 				/>
 			</div>)
 	}
