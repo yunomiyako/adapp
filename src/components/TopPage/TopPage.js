@@ -9,6 +9,7 @@ import NormalView from "../CommonSemanticUI/NormalView"
 import Toppage_second from "./toppage_second_comp"
 import loginCheck from "../../localStorage/loginCheck"
 import AfterLoginPage from "./AfterLoginPage"
+import fetchExampleAds from "../../api/fetchExampleAds"
 class TopPage extends Component {
 	constructor(props) {
 		super(props)
@@ -22,7 +23,15 @@ class TopPage extends Component {
 			this.setState({
 				logined : true
 			})
+		} else {
+			this.loadExampleAd()
 		}
+	}
+
+	loadExampleAd() {
+		fetchExampleAds().then((exampleAds) => {
+			console.log(exampleAds)
+		})
 	}
 
 	render() {
