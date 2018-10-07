@@ -5,8 +5,7 @@ import {set_access_token ,
 get_oauth_token , get_oauth_token_secret, get_access_token} from "../../localStorage/twitter_access_token"
 import QueryString from "../../Utils/QueryString"
 import OauthRequest from "../../api/OauthRequest"
-import fetchUserDetail from "../../api/fetchUserDetail"
-import {redirectToTopPage, redirectTo} from "../Redirect/redirect"
+import {redirectTo} from "../Redirect/redirect"
 import { Dimmer, Loader } from 'semantic-ui-react'
 import { get_redirect_to } from "../../localStorage/redirect_to";
 import RefreshUserDetail from "../../api/RefreshUserDetail";

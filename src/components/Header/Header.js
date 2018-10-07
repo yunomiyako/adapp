@@ -18,7 +18,7 @@ const contentLink = [link2 , link5]
 class Header extends Component {
 	renderLink() {
 		return (contentLink.map(link => {
-			return <Link key={link.title} to={link.link} className="item">{link.title}</Link>
+			return <Link push key={link.title} to={link.link} className="item">{link.title}</Link>
 		}))
 	}
 
@@ -28,7 +28,7 @@ class Header extends Component {
 				<header className="Header-header">
 					<div className="ui fixed inverted menu">
 						<div className="ui container">
-							<Link to="/" className="header item">
+							<Link push to="/" className="header item">
 								<img className="logo" src={logo} alt="LOGO"/>
 								Ad App
 							</Link>

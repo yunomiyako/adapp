@@ -3,8 +3,6 @@ import {  } from "semantic-ui-react"
 import style from "./UserPage.css"
 
 import { Link } from "react-router-dom"
-
-import fetchAdList from "../../api/fetchAdList"
 import {get_id_user} from "../../localStorage/user_detail"
 import getDateFromUnixTime from "../../Utils/getDateFromUnixTime"
 class AdComponent extends Component {
@@ -15,17 +13,28 @@ class AdComponent extends Component {
 		}
 	}
 
+
 	componentDidMount() {
-		const id_user = get_id_user()
-		this.props.getAdList(id_user)
+		//再描画の時に呼ばれない
+		if(this.props.id_user) {
+			this.props.getAdList(this.props.id_user)
+		}
 	}
 
 	renderTitle(items) {
 		return items.map(_item => {
+			console.log(this.props.shouldGoStat)
+			if(this.props.shouldGoStat) {
+				_item.link = "/statspage/"  + _item.id_ad
+			} else {
+				_item.link = "/ad_page/" + this.props.id_user +  "/" + _item.id_ad
+			}
+			
+			_item.date = getDateFromUnixTime(_item.created_at)
 			return (
 				<div className ={style.ContentFrame} key={_item.title}>
 					<div className ={style.ContentFrameTitle}>
-						<h2><Link to={_item.link}>{_item.title}</Link></h2>
+						<h2><Link push to={_item.link}>{_item.title}</Link></h2>
 					</div>
 					<div className ={style.ContentFrameDate}>
 						<h4>{_item.date}</h4>

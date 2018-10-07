@@ -18,12 +18,14 @@ class UserCard extends Component {
 	}
 
 	render() {
+		console.log("reRender usercard")
 		//TODO : 外側から値を受けられるように
 		var name = ""
 		var icon_url = ""
 		var screen_name = ""
 		var description = ""
 		if(!this.props.user_detail) {
+			console.log("default user defauld")
 			const user_detail = new UserDetailDataStructure(get_userdetail() || {})
 			name = user_detail.username
 			icon_url = convertBigImageUrl(user_detail.profile_image_url)

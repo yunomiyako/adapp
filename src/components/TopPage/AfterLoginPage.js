@@ -9,27 +9,20 @@ import { get_id_user } from "../../localStorage/user_detail"
 import  ButtonMenuComponent from "./ButtonMenuComponent"
 
 class AfterLoginPage extends Component {
-    componentDidMount() {
-        this.getAdList()
-    }
 
-    logout() {
+	logout() {
 		twitter_logout()
 		//TODO : 再読み込み
 		window.location.href = "/"
 	}
-
-	async getAdList() {
-        this.props.getAdList()
-	}
-
+    
 	renderLink() {
 		return this.props.ad_list.map((ad) => {
 			const link = "ad_page/" + ad.id_user + "/" + ad.id_ad
-            const adObject = ad
-            const url = ad.url
+			const adObject = ad
+			const url = ad.url
 			return (
-                <div key={ad.id_user+ad.id_ad} className={style.FeedView}>
+				<div key={ad.id_user+ad.id_ad} className={style.FeedView}>
 					{FeedView(link , adObject  , url)}
 				</div>	
 			)
@@ -38,21 +31,21 @@ class AfterLoginPage extends Component {
 
 
 	render() {
-        return(
-            <div className={style.LoginedTopPage}>
-                <div className={style.LoginedTopPageContainer}>
+		return(
+			<div className={style.LoginedTopPage}>
+				<div className={style.LoginedTopPageContainer}>
                 
-                <div className={style.dotLine}><h2>メニュー</h2></div>
-                    <div className={style.ButtonMenuComponent}>
-                    <ButtonMenuComponent
-                    history = {this.props.history}
-                    />
-                    </div>
-                    <div className={style.dotLine}><h2>最近作成された宣伝</h2></div>
-                    <FeedListComponent/>
-                </div>
-            </div>
-        )
+					<div className={style.dotLine}><h2>メニュー</h2></div>
+					<div className={style.ButtonMenuComponent}>
+						<ButtonMenuComponent
+							history = {this.props.history}
+						/>
+					</div>
+					<div className={style.dotLine}><h2>最近作成された宣伝</h2></div>
+					<FeedListComponent/>
+				</div>
+			</div>
+		)
 	}
 }
 

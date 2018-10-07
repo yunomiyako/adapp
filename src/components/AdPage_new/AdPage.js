@@ -14,6 +14,7 @@ import loginCheck from "../../localStorage/loginCheck"
 import goTwitterLogin from "../../Utils/goTwitterLogin"
 import AdDescriptionView from "./AdDescriptionView"
 import fetchRandomAdData from "../../api/fetchRandomAdData";
+import { get_userdetail } from "../../localStorage/user_detail";
 
 class AdPage extends Component {
 	constructor(props) {
@@ -48,7 +49,26 @@ class AdPage extends Component {
 
 	async onClickRandomButton() {
 		const res = await fetchRandomAdData()
+		this.props.history.push("/ad_page/" + res.id_user + "/" + res.id_ad )
 		this.props.fetchAdData(res.id_user, res.id_ad )
+	}
+
+	renderActionBar() {
+		const id_user = this.props.match.params.id_user
+		const user_detail = get_userdetail()
+		if(user_detail.id_user == id_user) {
+			//作成者と見ている人のid_userが同じならactionbarを出さない
+		} else {
+			return (
+				<ActionComponent
+					onClickActionButton = {() => this.onClickActionButton()}
+					returnDescription = {this.props.returnDescription}
+					adType = {this.props.adType}
+					loading = {this.props.actionLoading}
+					hasReceived = {this.props.hasReceived}
+				/>
+			)
+		}
 	}
 
 	render() {
@@ -104,15 +124,7 @@ class AdPage extends Component {
 						/>
 					</div>
 
-					<div>
-						<ActionComponent
-							onClickActionButton = {() => this.onClickActionButton()}
-							returnDescription = {this.props.returnDescription}
-							adType = {this.props.adType}
-							loading = {this.props.actionLoading}
-							hasReceived = {this.props.hasReceived}
-						/>
-					</div>
+					{this.renderActionBar()}
 
 					<br/><br/><br/>
 					<div>
