@@ -11,7 +11,7 @@ import {FETCH_AD_DATA , FETCH_AD_DATA_SUCCESS ,
 	ON_CHANGE_ACTION_LOADING ,SET_TWEET_OBJECT} from "../actions/AdPage"
 import {ON_FETCH_RETURN , ON_UPDATE_RETURN_OBJECT , ON_UPDATE_RETURN_TYPE,
 	ON_UPDATE_RETURN_IMAGE_URLS , ON_UPDATE_RATING, ON_FAIL_FETCH_RETURN} from "../actions/ReturnPage"
-import {GET_AD_LIST , GET_RETURN_LIST , SET_AD_LIST , SET_RETURN_LIST} from "../actions/UserPage"
+import {GET_AD_LIST , GET_RETURN_LIST , SET_AD_LIST , SET_RETURN_LIST , SET_LOADING} from "../actions/UserPage"
 import {GET_AD_LIST as GET_AD_LIST_TOPPAGE , 
 	SET_AD_LIST as SET_AD_LIST_TOPPAGE} from "../actions/TopPage"
 
@@ -117,9 +117,11 @@ function *onFetchReturnData(action) {
 
 function *onGetAdList(action) {
 	try {
+		yield put({type : SET_LOADING , loading : true})
 		const ad_list = yield call(fetchAdList , {"id_user" : action.id_user})
 		console.log(ad_list)
 		yield put({type : SET_AD_LIST , ad_list : ad_list})
+		yield put({type : SET_LOADING , loading : false})
 	}catch(e) {
 		//TODO : エラーハンドリング
 	}

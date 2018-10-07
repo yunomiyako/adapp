@@ -15,7 +15,6 @@ class UserPage extends Component {
 
 	renderUserPage() {
 		if(loginCheck()) {
-			console.log("ここ呼ばれててほしい")
 			const user_detail = get_userdetail()
 			const id_user = get_id_user()
 			console.log(user_detail)

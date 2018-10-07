@@ -7,7 +7,8 @@ import {
 function mapStateToProps(state){
 	const subState = state.UserPage
 	return {
-		ad_list : subState.ad_list
+		ad_list : subState.ad_list ,
+		loading : subState.loading
 	}
 }
 

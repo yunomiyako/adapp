@@ -1,10 +1,12 @@
 import React , {Component}  from "react"
-import {  } from "semantic-ui-react"
+import { Loader , Segment , Image } from "semantic-ui-react"
 import style from "./UserPage.css"
 
 import { Link } from "react-router-dom"
 import {get_id_user} from "../../localStorage/user_detail"
 import getDateFromUnixTime from "../../Utils/getDateFromUnixTime"
+import paragraph from "../../images/paragraph.png"
+
 class AdComponent extends Component {
 	constructor(props) {
 		super(props)
@@ -22,6 +24,14 @@ class AdComponent extends Component {
 	}
 
 	renderTitle(items) {
+		if(this.props.loading) {
+			return (
+				<div className ={style.ContentFrame}>
+					<Loader active />
+					<Image src={paragraph} />
+			  </div>
+			)
+		}
 		return items.map(_item => {
 			console.log(this.props.shouldGoStat)
 			if(this.props.shouldGoStat) {
