@@ -17,13 +17,14 @@ export default (adType) => {
 	var titleCreator = new TitleCreator()
 	switch (adType) {
 	case "textAndImage":
-		titleCreator.addText("犬の写真")
-		titleCreator.addText("最近描いた絵")
-		titleCreator.addText("オリジナルマンガ")
+		titleCreator.addText("さらなる画像")
+		titleCreator.addText("秘密の写真")
+		titleCreator.addText("お礼の気持ち")
 		return titleCreator.titles
 	case "textOnly" :
-		titleCreator.addText("私の半生")
-		titleCreator.addText("年収")
+		titleCreator.addText("秘密のURL")
+		titleCreator.addText("秘密の話")
+		titleCreator.addText("お礼の気持ち")
 		return titleCreator.titles
 	case "premium" :
 		titleCreator.addText("")
