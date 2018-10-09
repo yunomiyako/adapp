@@ -1,7 +1,6 @@
 import React , {Component}  from "react"
 import { Message , Icon } from "semantic-ui-react"
-import style from "./AdPage.css"
-import renderNewLine from "../../Utils/renderNewLine"
+//import style from "./AdPage.css"
 import AdTypeEnum from "../../domain/enum/AdTypeEnum"
 import getReturnButtonText from "../../domain/getReturnButtonText"
 

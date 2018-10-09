@@ -5,10 +5,6 @@ import ErrorPage from "../CommonSemanticUI/ErrorPage"
 import saveRate from "../../api/SaveRate"
 
 class ReturnPageHome extends Component {
-	constructor(props) {
-		super(props)
-	}
-
 	componentDidMount() {
 		this.fetchReturnData()
 	}

@@ -1,10 +1,10 @@
 import React , {Component}  from "react"
 
 //css
-import style from "./AdCreatePage.css"
+//import style from "./AdCreatePage.css"
 
 //semantic UI
-import {Button} from "semantic-ui-react"
+import {} from "semantic-ui-react"
 
 import TwitterLikeComponent from "./TwitterLikeComponent"
 
@@ -17,7 +17,7 @@ class TwitterLikeContainerComponent extends Component {
 			}
 		}
 		const keys2 = Object.keys(nextState || {})
-		for(var key of keys2) {
+		for(key of keys2) {
 			if (nextState[key] !== this.props[key]) {
 				return true
 			}

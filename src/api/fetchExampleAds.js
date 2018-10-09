@@ -1,4 +1,3 @@
-import AdPageInfoDataStructure from "../domain/AdPageInfoDataStructure"
 import AuthentificatedCallWrapper from "./AuthentificatedCallWrapper"
 
 export default function() {

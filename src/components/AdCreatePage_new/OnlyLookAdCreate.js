@@ -1,14 +1,13 @@
 import React , {Component}  from "react"
 
 //css
-import style from "./AdCreatePage.css"
+//import style from "./AdCreatePage.css"
 
 //semantic UI
-import {Button , Form , TextArea} from "semantic-ui-react"
+import {Form , TextArea} from "semantic-ui-react"
 
 import FeedComponent from "../AdPage_new/FeedComponent"
 import UploaderWithSlider from "./UploaderWithSlider"
-import ImageSlider from "./ImageSlider"
 // immutable state change helper
 var dotProp = require("dot-prop-immutable")
 
@@ -21,7 +20,7 @@ class OnlyLookAdCreate extends Component {
 			}
 		}
 		const keys2 = Object.keys(nextState || {})
-		for(var key of keys2) {
+		for(key of keys2) {
 			if (nextState[key] !== this.props[key]) {
 				return true
 			}

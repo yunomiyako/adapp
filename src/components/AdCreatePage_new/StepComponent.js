@@ -14,8 +14,8 @@ class StepComponent extends Component {
 			}
 		}
 		const keys2 = Object.keys(nextState || {})
-		for(var key of keys2) {
-			if (nextState[key] !== this.props[key]) {
+		for(var key2 of keys2) {
+			if (nextState[key2] !== this.props[key2]) {
 				return true
 			}
 		}
@@ -42,7 +42,7 @@ class StepComponent extends Component {
 			return (<Step link
 				key={step.title}
 				disabled ={step.disabled}
-				active={this.props.activeIndex == step.index}
+				active={this.props.activeIndex === step.index}
 				completed={step.completed} onClick={step.onClick}>
 				<Icon name= {step.icon} />
 				<Step.Content>

@@ -4,7 +4,7 @@ import React , {Component}  from "react"
 import style from "./AdCreatePage.css"
 
 //semantic UI
-import { Comment  , Image , Grid , Modal , Button , Form , TextArea} from "semantic-ui-react"
+import { Comment  , Modal , Button , Form , TextArea} from "semantic-ui-react"
 
 import UploaderWithSlider from "./UploaderWithSlider"
 import renderNewLine from "../../Utils/renderNewLine"
@@ -22,7 +22,7 @@ class TwitterLikeComponent extends Component {
 			}
 		}
 		const keys2 = Object.keys(nextState || {})
-		for(var key of keys2) {
+		for(key of keys2) {
 			if (nextState[key] !== this.props[key]) {
 				return true
 			}
@@ -87,7 +87,7 @@ class TwitterLikeComponent extends Component {
 		if(user_detail) {
 			const screen_name = user_detail.screen_name
 			const username = user_detail.username
-			defaultMessage = username + "さん" + "(@" + screen_name + ")" + "からの宣伝です。"
+			defaultMessage = username + "さん(@" + screen_name + ")からの宣伝です。"
 		}
 		if(this.props.insertDefaultMessage) {
 			return (

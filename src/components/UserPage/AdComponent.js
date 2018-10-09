@@ -1,9 +1,8 @@
 import React , {Component}  from "react"
-import { Loader , Segment , Image } from "semantic-ui-react"
+import { Loader  , Image } from "semantic-ui-react"
 import style from "./UserPage.css"
 
 import { Link } from "react-router-dom"
-import {get_id_user} from "../../localStorage/user_detail"
 import getDateFromUnixTime from "../../Utils/getDateFromUnixTime"
 import paragraph from "../../images/paragraph.png"
 

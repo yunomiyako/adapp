@@ -63,7 +63,7 @@ class AdImageUploaderModal extends React.Component {
 		if(pictureFiles.length > this.maxNum) {
 			this.setState({okIsDisabled:true})
 			this.onChangeDom()
-		} else if (pictureFiles.length == 0 ) {
+		} else if (pictureFiles.length === 0 ) {
 			this.setState({okIsDisabled:true})
 		}
 	}
@@ -126,7 +126,7 @@ class AdImageUploaderModal extends React.Component {
 		return (
 			<React.Fragment>
 				<PhoneBreakpoint>
-					<Button color="black" size="mini" onClick={() => this.handleClear()} disabled={this.props.picNum == 0}> 画像全削除 </Button>
+					<Button color="black" size="mini" onClick={() => this.handleClear()} disabled={this.props.picNum === 0}> 画像全削除 </Button>
 					<Button color="red" size="mini" onClick={() => this.handleCancel()}>キャンセル</Button>
 					<Button color="green" size="mini" onClick={() => this.handleOk()} 
 						disabled={this.state.okIsDisabled || this.state.loading}
@@ -134,7 +134,7 @@ class AdImageUploaderModal extends React.Component {
 					>アップロード</Button>
 				</PhoneBreakpoint>
 				<TabletBreakpoint>
-					<Button color="black" onClick={() => this.handleClear()} disabled={this.props.picNum == 0}> 画像全削除 </Button>
+					<Button color="black" onClick={() => this.handleClear()} disabled={this.props.picNum === 0}> 画像全削除 </Button>
 					<Button color="red" onClick={() => this.handleCancel()}>キャンセル</Button>
 					<Button color="green" onClick={() => this.handleOk()} 
 						disabled={this.state.okIsDisabled || this.state.loading}
@@ -142,7 +142,7 @@ class AdImageUploaderModal extends React.Component {
 					>アップロード</Button>
 				</TabletBreakpoint>
 				<DesktopBreakpoint>
-					<Button color="black" onClick={() => this.handleClear()} disabled={this.props.picNum == 0}> 画像全削除 </Button>
+					<Button color="black" onClick={() => this.handleClear()} disabled={this.props.picNum === 0}> 画像全削除 </Button>
 					<Button color="red" size="big" onClick={() => this.handleCancel()}>キャンセル</Button>
 					<Button color="green" size="big" onClick={() => this.handleOk()} 
 						disabled={this.state.okIsDisabled || this.state.loading}

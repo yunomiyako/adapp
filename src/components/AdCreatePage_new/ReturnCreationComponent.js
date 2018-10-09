@@ -1,5 +1,5 @@
 import React , {Component} from "react"
-import { Icon, Step , Button , Label } from "semantic-ui-react"
+import { Icon , Button , Label } from "semantic-ui-react"
 import style from "./AdCreatePage.css"
 
 //Components
@@ -10,8 +10,6 @@ import ReturnCreateComponent from "./ReturnCreateComponent"
 
 //data
 import returnTypeButtons from "../../domain/returnTypeButtons"
-// immutable state change helper
-var dotProp = require("dot-prop-immutable")
 
 class ReturnCreationComponent extends Component {
 	constructor(props) {
@@ -27,7 +25,7 @@ class ReturnCreationComponent extends Component {
 			}
 		}
 		const keys2 = Object.keys(nextState || {})
-		for(var key of keys2) {
+		for(key of keys2) {
 			if (nextState[key] !== this.props[key]) {
 				return true
 			}

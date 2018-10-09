@@ -1,6 +1,4 @@
 import React , {Component}  from "react"
-import style from "./AdCreatePage.css"
-import style2 from "./Animation.css"
 
 //Semantic UI
 import { Label } from "semantic-ui-react"
@@ -22,7 +20,7 @@ class AdCreatePage extends Component {
 			}
 		}
 		const keys2 = Object.keys(nextState || {})
-		for(var key of keys2) {
+		for(key of keys2) {
 			if (nextState[key] !== this.state[key]) {
 				return true
 			}
@@ -52,11 +50,11 @@ class AdCreatePage extends Component {
 	}
 
 	renderContent() {
-		if(this.props.index == 0) {
+		if(this.props.index === 0) {
 			return (<AdCreationComponentContainer/>)
-		} else if (this.props.index == 1) {
+		} else if (this.props.index === 1) {
 			return (<ReturnCreationComponentContainer/>)
-		} else if (this.props.index == 2) {
+		} else if (this.props.index === 2) {
 			return (<ConfirmComponentContainer/>)
 		} else {
 			return <div>おや？</div>
@@ -74,7 +72,7 @@ class AdCreatePage extends Component {
 					adCreateCompleted = {this.props.adCreateCompleted}
 					returnCreateCompleted = {this.props.returnCreateCompleted}
 				/>
-				{this.props.index == 2 ? <Label pointing color="orange">ここから戻れるよ</Label> : ""}	
+				{this.props.index === 2 ? <Label pointing color="orange">ここから戻れるよ</Label> : ""}	
 				<div className="AdCreatePageForPaddingFrame">
 					{this.renderContent()}
 				</div>

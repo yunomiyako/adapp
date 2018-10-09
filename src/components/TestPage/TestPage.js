@@ -1,8 +1,7 @@
 import React , {Component}  from "react"
 import "./TestPage.css"
-import { Button  } from "semantic-ui-react"
+import {   } from "semantic-ui-react"
 import { Link } from "react-router-dom"
-import api from "../../api/TestAPIWithAuthorization"
 
 class TestPage extends Component {
 	constructor(props) {

@@ -13,9 +13,6 @@ import RetweetAdCreate from "./RetweetAdCreate"
 import adTypeButtons from "../../domain/adTypeButtons"
 import loginCheck from "../../localStorage/loginCheck";
 
-// immutable state change helper
-var dotProp = require("dot-prop-immutable")
-
 class AdCreationComponent extends Component {
 	constructor(props) {
 		super(props)
@@ -40,8 +37,8 @@ class AdCreationComponent extends Component {
 			}
 		}
 		const keys2 = Object.keys(nextState || {})
-		for(var key of keys2) {
-			if (nextState[key] !== this.props[key]) {
+		for(var key2 of keys2) {
+			if (nextState[key2] !== this.props[key2]) {
 				return true
 			}
 		}
@@ -122,7 +119,7 @@ class AdCreationComponent extends Component {
 
 	favOrRetweetDescriptionLabel(action = "いいね") {
 		if(this.props.adObject.tweetUrl && this.props.adObject.text) {
-			if(this.props.adObject.images.length == 0) {
+			if(this.props.adObject.images.length === 0) {
 				return <Label pointing color="orange">トップ画像を１枚設定できます(ツイート内で使用している画像など)</Label>
 			} else {
 				return 

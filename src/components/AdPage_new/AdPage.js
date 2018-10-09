@@ -9,7 +9,7 @@ import RatingComponent from "./RatingComponent"
 import FeedComponent from "./FeedComponent"
 import ErrorPage from "../CommonSemanticUI/ErrorPage"
 
-import {redirectToReturnPage, redirectToAdPage} from "../Redirect/redirect"
+import {redirectToReturnPage} from "../Redirect/redirect"
 import loginCheck from "../../localStorage/loginCheck"
 import goTwitterLogin from "../../Utils/goTwitterLogin"
 import AdDescriptionView from "./AdDescriptionView"
@@ -36,7 +36,7 @@ class AdPage extends Component {
 	}
 
 	onClickActionButton() {
-		if(loginCheck() || this.props.adType == "lookMe") {
+		if(loginCheck() || this.props.adType === "lookMe") {
 			const id_user = this.props.match.params.id_user
 			const id_ad = this.props.match.params.id_ad
 			const payload = {"id_user" : id_user , "id_ad" : id_ad}
@@ -56,7 +56,7 @@ class AdPage extends Component {
 	renderActionBar() {
 		const id_user = this.props.match.params.id_user
 		const user_detail = get_userdetail()
-		if(user_detail.id_user == id_user) {
+		if(user_detail.id_user === id_user) {
 			//作成者と見ている人のid_userが同じならactionbarを出さない
 		} else {
 			return (
