@@ -14,7 +14,7 @@ class TwitterLikeView extends Component {
 		const tweetObject = this.props.tweetObject
 		var icon_url = "https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png"
 		var username = "ユーザ名"
-		var userid = "twitter_id"
+		var userid = ""
 		var text = "正しくツイートが取得できません"
 		var images = []
 		var id_tweet = ""
@@ -28,11 +28,11 @@ class TwitterLikeView extends Component {
 		} else {
 			icon_url = this.props.icon_url || icon_url
 			username = this.props.username  || username
-			userid = this.props.userid || userid
+			userid =   tweetObject.userid  || userid
 			text = this.props.text || text
 			images = this.props.images || images
 		}
-		const tweet_link =getUrlFromTweetId(userid , id_tweet)
+		const tweet_link = getUrlFromTweetId(userid , id_tweet)
 		return (
 			<div className={style.TwitterLikeView}>
 				<Comment.Group>
@@ -44,9 +44,9 @@ class TwitterLikeView extends Component {
 								<p>{username}</p>
 							</Comment.Author>
 							<Comment.Metadata>
-								<a href={tweet_link} target="_blank">
+								{userid ? <a href={tweet_link} target="_blank">
 									@{userid}
-								</a>
+								</a> : "@user_id"}
 							</Comment.Metadata>
 							<Comment.Text>
 								{renderNewLine(text)}

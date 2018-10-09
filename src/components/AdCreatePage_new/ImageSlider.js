@@ -4,10 +4,6 @@ import style from "./AdCreatePage.css"
 
 
 class SimpleSlider extends React.Component {
-	constructor(props) {
-		super(props)
-	}
-
 	render() {
 		const imagesTag = this.props.urls.map(url => {
 			return (

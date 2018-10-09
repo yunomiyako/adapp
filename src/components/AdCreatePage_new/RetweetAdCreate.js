@@ -4,18 +4,18 @@ import React , {Component}  from "react"
 import style from "./AdCreatePage.css"
 
 //semantic UI
-import {Button , Checkbox , Form} from "semantic-ui-react"
+import { Form} from "semantic-ui-react"
 
 //component
 import TwitterLikeComponent from "./TwitterLikeComponent"
 import TwitterLikeView from "../CommonSemanticUI/TwitterLikeView"
 import UploaderWithSlider from "./UploaderWithSlider"
 
+import getGoogTwitterUrl from "../../Utils/getGoogTwitterUrl"
 import getTweetIdFromUrl from "../../Utils/getTweetIdFromUrl"
 
 // immutable state change helper
 var dotProp = require("dot-prop-immutable")
-
 
 class RetweetAdCreate extends Component {
 	shouldComponentUpdate(nextProps, nextState) {
@@ -26,7 +26,7 @@ class RetweetAdCreate extends Component {
 			}
 		}
 		const keys2 = Object.keys(nextState || {})
-		for(var key of keys2) {
+		for(key of keys2) {
 			if (nextState[key] !== this.props[key]) {
 				return true
 			}
@@ -61,7 +61,8 @@ class RetweetAdCreate extends Component {
 
 	onChangeUrl = (event) => {
 		const url = event.target.value
-		const newObj = dotProp.set(this.props.adObject , "tweetUrl" , url)
+		const goodUrl = getGoogTwitterUrl(url)
+		const newObj = dotProp.set(this.props.adObject , "tweetUrl" , goodUrl)
 		this.props.onChangeAdObject(newObj)
 
 		//url check

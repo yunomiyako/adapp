@@ -16,8 +16,8 @@ class TypeSelectionComponent extends Component {
 			}
 		}
 		const keys2 = Object.keys(nextState || {})
-		for(var key of keys2) {
-			if (nextState[key] !== this.props[key]) {
+		for(var key2 of keys2) {
+			if (nextState[key2] !== this.props[key2]) {
 				return true
 			}
 		}
@@ -71,7 +71,7 @@ class TypeSelectionComponent extends Component {
 
 	renderDescription(button) {
 		if(this.props.type !== "") {
-			if(button.id == this.props.type) {
+			if(button.id === this.props.type) {
 				return button.description
 			}
 		}

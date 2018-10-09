@@ -1,9 +1,8 @@
 import React  from "react"
-import style from "./AdCreatePage.css"
+//import style from "./AdCreatePage.css"
 
 import ImageSlider from "./ImageSlider"
 import AdImageUploaderModal from "./AdImageUploaderModal"
-import {fileDownload} from "../../api/fileDownload"
 import getUrlsFromKeys from "../../Utils/getUrlsFromKeys"
 
 class UploaderWithSlider extends React.Component {

@@ -1,4 +1,4 @@
-import { call, put, takeEvery , takeLatest } from "redux-saga/effects"
+import { call, put , takeLatest } from "redux-saga/effects"
 
 //import Action
 import {ON_SUBMIT_ADCREATE, ON_FETCH_TWEET_DETAIL, 
@@ -50,20 +50,22 @@ function *onFetchAdData(action) {
 	try {
 		const payload = {id_user : action.id_user , id_ad : action.id_ad}
 		const result = yield call(fetchAdData , payload)
-
-			
+		
 		//retweetかfavであればtweetObjectを取得する
 		if( AdTypeEnum.getByName(result.adType).has_tweet_object) {
 			const url = result.adObject.tweetUrl
 			const id_tweet = getTweetIdFromUrl(url)
 			const tweetObject = yield call(fetchTweetDetail , id_tweet)
+
+			//set_tweet_objectとfetch_ad_date_successに順序があるのきもいな
 			yield put({type : FETCH_AD_DATA_SUCCESS , response:result})
 			yield put({type : SET_TWEET_OBJECT , tweetObject})
 		} else {
 			yield put({type : FETCH_AD_DATA_SUCCESS , response:result})
-			yield put({type : KEYS_TO_URLS , keys : result.adObject.images})
 		}
 		
+		//共通でやる処理
+		yield put({type : KEYS_TO_URLS , keys : result.adObject.images})
 	
 	} catch (e) {
 		yield put({type: FETCH_AD_DATA_FAIL, errorMessage : "広告データを読み込めませんでした！"})
@@ -100,7 +102,7 @@ function *onFetchReturnData(action) {
 		const result = yield call(fetchReturn , payload)
 		if(result.returnObject.images){
 			const images = result.returnObject.images
-			if(images.length != 0) {
+			if(images.length !== 0) {
 				const imageUrls = yield call(getUrlsFromKeys , result.returnObject.images)
 				yield put({type : ON_UPDATE_RETURN_IMAGE_URLS , urls : imageUrls})
 			}
@@ -129,12 +131,13 @@ function *onGetAdList(action) {
 
 function *onGetReturnList() {
 	try {
-		const return_list = yield call(fetchReturnList)
+		var return_list = yield call(fetchReturnList)
 		console.log(return_list)
-		return_list.map((rt) => {
+		return_list = return_list.map((rt) => {
 			rt.title = rt.returnDescription
 			rt.link = "/return_page/" + rt.id_return
 			rt.date = getDateFromUnixTime(rt.date)
+			return rt
 		})
 		yield put({type : SET_RETURN_LIST , return_list : return_list})
 	}catch(e) {

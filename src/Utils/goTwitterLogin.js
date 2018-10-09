@@ -1,6 +1,6 @@
 
 import PublishOauthURL from "../api/PublishOauthURL"
-import {set_oauth_token , set_oauth_token_secret , get_oauth_token} from "../localStorage/twitter_access_token"
+import {set_oauth_token , set_oauth_token_secret } from "../localStorage/twitter_access_token"
 import { set_redirect_to } from "../localStorage/redirect_to";
 
 export default async function(path) {

@@ -1,7 +1,6 @@
 import React , {Component}  from "react"
 import {List , Image} from "semantic-ui-react"
 import style from "./StatsPage.css"
-import { Link } from "react-router-dom"
 
 class NaiyouComponent extends Component {
 	onClickListItem(id_user) {

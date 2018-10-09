@@ -7,7 +7,7 @@ class AdCreateInfoDataStructure {
 		this.title = data.title || ""
 		this.returnDescription = data.returnDescription || ""
 		this.adObject = data.adObject || new AdObjectDataStructure({})
-		this.returnType = data.returnType ||  ""  ,
+		this.returnType = data.returnType ||  "" 
 		this.returnObject = data.returnObject ||  {text: "", images:[]}
 		this.index = data.index || 0
 		this.adCreateCompleted = data.adCreateCompleted || false

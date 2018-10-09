@@ -33,7 +33,7 @@ Enum.prototype.getByValue = function(field, value) {
 			var m = this._enums[k]
 			var j = m[field]
 			lookup[j] = m
-			if(j == value) {
+			if(j === value) {
 				return m
 			}
 		}

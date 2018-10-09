@@ -2,7 +2,6 @@ import React , {Component}  from "react"
 import style from "./StatsPage.css"
 
 import StatsComponent from "./StatsComponent"
-import BotanComponent from "./BotanComponent"
 import NaiyouComponent from "./NaiyouComponent"
 import fetchAdDetail from "../../api/fetchAdDetail"
 import {  Dimmer , Loader } from "semantic-ui-react"

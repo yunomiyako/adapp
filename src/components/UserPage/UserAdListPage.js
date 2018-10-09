@@ -1,11 +1,9 @@
 import React , {Component}  from "react"
 import style from "./UserPage.css"
-import { Button , Icon } from "semantic-ui-react"
+import { } from "semantic-ui-react"
 
 import AdComponent from "../../containers/UserPage/AdComponent"
 import UserCard from "../CommonSemanticUI/UserCard"
-import loginCheck from "../../localStorage/loginCheck"
-import goTwitterLogin from "../../Utils/goTwitterLogin"
 import fetchUserDetail from "../../api/fetchUserDetail";
 import UserDetailDataStructure from "../../domain/UserDetailDataStructure";
 

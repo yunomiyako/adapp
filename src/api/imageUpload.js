@@ -30,14 +30,14 @@ export const imageUploadUser = function(path , file , username) {
 }
 
 export const imagesUploadUser = function(path , files , username) {
-	if(files.length == 0) {return new Error("画像がないよ")}
+	if(files.length === 0) {return new Error("画像がないよ")}
 	return files.map(file => {
 		return imageUploadUser(path , file , username)
 	})
 } 
 
 export const imageUploadUserWithRandomName = function(files , username) {
-	if(files.length == 0) {return new Error("画像がないよ")}
+	if(files.length === 0) {return new Error("画像がないよ")}
 	return files.map(file => {
 		const uuid = btoa(crypto.getRandomValues(new Uint8Array(16)))
 		return imageUploadUser(uuid , file , username)

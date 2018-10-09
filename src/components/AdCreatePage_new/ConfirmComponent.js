@@ -29,7 +29,7 @@ class ConfirmComponent extends Component {
 			}
 		}
 		const keys2 = Object.keys(nextState || {})
-		for(var key of keys2) {
+		for(key of keys2) {
 			if (nextState[key] !== this.props[key]) {
 				return true
 			}
@@ -86,7 +86,7 @@ class ConfirmComponent extends Component {
 		this.setState({loading : true})
 		//送信処理
 		const callback = (response) => {
-			if(response.status == "OK") {
+			if(response.status === "OK") {
 				console.log("ok")
 				this.setState({loading : false})
 				this.setState({id_ad : response.id_ad})
@@ -126,17 +126,17 @@ class ConfirmComponent extends Component {
 			{
 				title : "してもらいたいこと",
 				content : this.getAdTypeTitle() , 
-				negativeFrag : this.getAdTypeTitle() == ""
+				negativeFrag : this.getAdTypeTitle() === ""
 			} , 
 			{
 				title : "宣伝タイトル",
 				content : this.props.title , 
-				negativeFrag :  this.props.title == ""
+				negativeFrag :  this.props.title === ""
 			} , 
 			{
 				title : "宣伝内容",
 				content : this.props.adObject.text, 
-				negativeFrag :  this.props.adObject.text == ""
+				negativeFrag :  this.props.adObject.text === ""
 			} , 
 			{
 				title : "宣伝画像の枚数",
@@ -149,17 +149,17 @@ class ConfirmComponent extends Component {
 			{
 				title : "お返しタイプ",
 				content : this.getReturnTypeTitle() , 
-				negativeFrag : this.getReturnTypeTitle() == ""
+				negativeFrag : this.getReturnTypeTitle() === ""
 			} , 
 			{
 				title : "お返し",
 				content : this.props.returnDescription , 
-				negativeFrag :  this.props.returnDescription == ""
+				negativeFrag :  this.props.returnDescription === ""
 			} , 
 			{
 				title : "お返し内容",
 				content : this.props.returnObject.text, 
-				negativeFrag :  this.props.returnObject.text == ""
+				negativeFrag :  this.props.returnObject.text === ""
 			} , 
 			{
 				title : "お返し画像の枚数",

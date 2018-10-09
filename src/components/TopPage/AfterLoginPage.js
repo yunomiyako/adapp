@@ -3,9 +3,8 @@ import React , {Component}  from "react"
 import style from "./AfterLoginPage.css"
 import FeedView from "../CommonSemanticUI/FeedView"
 import FeedListComponent from "../../containers/TopPage/FeedListComponent"
-import {twitter_logout ,get_access_token } from "../../localStorage/twitter_access_token"
-import {Button} from "semantic-ui-react"
-import { get_id_user } from "../../localStorage/user_detail"
+import {twitter_logout  } from "../../localStorage/twitter_access_token"
+import {} from "semantic-ui-react"
 import  ButtonMenuComponent from "./ButtonMenuComponent"
 
 class AfterLoginPage extends Component {

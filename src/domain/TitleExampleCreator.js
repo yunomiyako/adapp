@@ -17,26 +17,31 @@ export default (adType) => {
 	var titleCreator = new TitleCreator()
 	switch (adType) {
 	case "tweet":
+		titleCreator.addText("ツイートして欲しいことがあります")
 		titleCreator.addText("私の作った「　　」をツイートして")
 		titleCreator.addText("みんなで作った「　　」をツイートして")
 		titleCreator.addText("私の描いた「　　」をツイートして")
 		return titleCreator.titles
 	case "retweet" :
+		titleCreator.addText("お気に入りのツイートをリツイートしてください")
 		titleCreator.addText("私の作った「　　」をリツイートして")
 		titleCreator.addText("みんなで作った「　　」をリツイートして")
 		titleCreator.addText("私の描いた「　　」をリツイートして")
 		return titleCreator.titles
 	case "follow" :
+		titleCreator.addText("フォローしてください。フォロバします。")
 		titleCreator.addText("「　　」してます。フォローしてください。")
 		titleCreator.addText("「　　」作ってます。フォローしてください。")
 		titleCreator.addText("「　　」についてツイートしています。フォローしてください。")
 		return titleCreator.titles
 	case "lookMe" :
+		titleCreator.addText("これを見て！")
 		titleCreator.addText("私の作った「　　」を見て")
 		titleCreator.addText("みんなで作った「　　」を見て")
 		titleCreator.addText("私の描いた「　　」を見て")
 		return titleCreator.titles
 	case "fav" :
+		titleCreator.addText("このツイートをいいねして")
 		titleCreator.addText("私の作った「　　」をいいねして")
 		return titleCreator.titles
 	default:
