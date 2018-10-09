@@ -23,7 +23,6 @@ class FeedListComponent extends Component {
 					</div>	
 				)
 			})
-	
 		} else {
 			console.log("is it called?")
 			return (

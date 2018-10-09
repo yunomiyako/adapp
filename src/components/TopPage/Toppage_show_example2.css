@@ -1,0 +1,71 @@
+:local .Toppage_show_example{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(171, 177, 89);
+    display: grid;
+    position: relative;
+   
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: undefined;
+    
+    grid-template-areas: ". . . . . . ." "text_tweet text_tweet text_tweet text_tweet . FeedView1 ." ". . . . . . ." ". . . . . . ." ". FeedView2 . text_follow text_follow text_follow text_follow" ". . . . . . ."  ;
+}
+:local .Toppage_show_example_p{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(171, 177, 89);
+    display: grid;
+    position: relative;
+   
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
+    grid-gap: undefined;
+    
+    grid-template-areas: ".  . FeedView1 .  ." ". text_tweet text_tweet text_tweet ."  ". . FeedView2 . ." ". text_follow text_follow text_follow ."". . . . ."   ;
+  }
+
+  @keyframes fadeIn {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+
+
+  :local .FeedView1 {
+
+    grid-area: FeedView1;  
+    animation-name: "fadeIn";
+    animation-duration: 3s;
+}
+
+
+
+:local .text_tweet {
+    grid-area:text_tweet;
+    font-family:  Impact;
+    font-size: 5vmin;
+
+    animation-name: "fadeIn";
+    animation-duration: 3s;
+  }
+
+:local .FeedView2 {
+
+    grid-area: FeedView2;  
+    animation-name: "fadeIn";
+    animation-duration: 3s;
+}
+
+
+  :local .text_follow {
+    grid-area:text_follow;
+    font-family:  Impact;
+    font-size: 5vmin;
+
+    animation-name: "fadeIn";
+    animation-duration: 3s;
+  }

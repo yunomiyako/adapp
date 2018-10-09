@@ -25,6 +25,14 @@ export function setAdList(ad_list) {
 	}
 }
 
+export const SET_LOADING = prefix + "SET_LOADING"
+export function setLoading(loading) {
+	return {
+		type : SET_LOADING , 
+		loading
+	}
+}
+
 
 export const SET_RETURN_LIST = prefix + "SET_RETURN_LIST"
 export function setReturnList(return_list) {

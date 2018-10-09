@@ -7,8 +7,11 @@ import Top_Component from "./Topcomponent"
 import FeedListComponent from "../../containers/TopPage/FeedListComponent"
 import NormalView from "../CommonSemanticUI/NormalView"
 import Toppage_second from "./toppage_second_comp"
+import Toppage_show_example from "./Toppage_show_example"
+import Toppage_show_example2 from "./Toppage_show_example2"
 import loginCheck from "../../localStorage/loginCheck"
 import AfterLoginPage from "./AfterLoginPage"
+import fetchExampleAds from "../../api/fetchExampleAds"
 class TopPage extends Component {
 	constructor(props) {
 		super(props)
@@ -22,7 +25,16 @@ class TopPage extends Component {
 			this.setState({
 				logined : true
 			})
+		} else {
+			this.loadExampleAd()
 		}
+	}
+
+	loadExampleAd() {
+		fetchExampleAds().then((exampleAds) => {
+			
+			console.log(exampleAds)
+		})
 	}
 
 	render() {
@@ -32,6 +44,10 @@ class TopPage extends Component {
 				<div >
 					<Top_Component/>
 					<Toppage_second/>
+					
+					<Toppage_show_example/>
+					<Toppage_show_example2/>
+					
 					<div className={style.Footerback}>	
 						<div className={style.Footer}>			
 							<ul>
