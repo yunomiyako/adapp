@@ -156,7 +156,6 @@ function *onGetAdListTopPage() {
 			}
 			return undefined
 		})
-
 		const urls = yield getUrlsFromKeys(headImages)
 		const ad_list_with_url = ad_list.map( (ad , index) => {
 			ad.url = urls[index]

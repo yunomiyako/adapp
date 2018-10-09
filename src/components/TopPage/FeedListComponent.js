@@ -24,7 +24,6 @@ class FeedListComponent extends Component {
 				)
 			})
 		} else {
-			console.log("is it called?")
 			return (
 				<React.Fragment>
 					<div  className={style.FeedView}>
