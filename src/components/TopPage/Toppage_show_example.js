@@ -7,6 +7,7 @@ import DesktopBreakpoint from "../responsive_utilities/desktop_breakpoint"
 import TabletBreakpoint from "../responsive_utilities/tablet_breakpoint"
 import PhoneBreakpoint from "../responsive_utilities/phone_breakpoint"
 import {Funcs} from "./funcs"
+import getUrlsFromKeys from "../../api/getUrlsFromKeys"
 class Toppage_show_example extends Component {
 	constructor(props) {
 		super(props)
@@ -22,14 +23,24 @@ class Toppage_show_example extends Component {
 	}
     
 	async get_example() {
-        
-        
-
         const examples = await fetchExampleAds()
+		const headImages = examples.map(ad => {
+			if(ad.adObject) {
+				if(ad.adObject.images) {
+					return ad.adObject.images[0]
+				}
+			}
+			return undefined
+		})
+		const urls = await getUrlsFromKeys(headImages)
+		const examplesWithImage = examples.map( (ad , index) => {
+			ad.url = urls[index]
+			return ad
+		})
         
         this.setState(
 			{
-                exampleAds: examples
+                exampleAds: examplesWithImage
 			}
 
         )
