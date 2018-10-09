@@ -31,8 +31,9 @@ class Toppage_second extends Component {
 							<p>・プラットフォームにお金を払って広めてもらう従来型の広告とは<font color="#CD5C5C">異なった宣伝方法を提供</font></p>
 							<br></br>
 						</ScrollAnimation>
-						<ScrollAnimation animateIn="fadeInRight">
-						animateOnce={true}
+						<ScrollAnimation animateIn="fadeInRight"
+							animateOnce={true}>
+						
 							<p>・宣伝してくれる人全員にお返しを上げることで<font color="#CD5C5C">SNSに広めてもらう</font>タイプの宣伝</p> 
 						</ScrollAnimation>
 					</h3>
