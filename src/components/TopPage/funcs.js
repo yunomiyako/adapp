@@ -12,7 +12,7 @@ export const Funcs = {
 			step1:"1,広告を作成しよう！",step2:"2,報酬を設定しよう！",step3:"３,ツイートしてもらおう！",
 			sectext1:"Ad appとは？",extweet:"ツイートしてもらおう",extweetsub:"タイムラインに広めて欲しいツイートを",
 			exfollow:"フォローしてもらおう",exfollowsub:"フォロワーを増やしたい時にも",exretweet:"リツイートして欲しい！"
-			,exretweet:"このツイートをバズらせたい、そんな時に",exlook:"ツイートを見てほしい。。。",exlooksub:"ただ見てほしい、それだけでも"
+			,exretweetsub:"このツイートをバズらせたい、そんな時に",exlook:"ツイートを見てほしい。。。",exlooksub:"ただ見てほしい、それだけでも"
 		}
 				
 	}
