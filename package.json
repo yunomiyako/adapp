@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "animate.css": "^3.7.0",
     "aws-amplify": "^1.0.4",
     "dot-prop-immutable": "^1.4.0",
     "image-compressor.js": "^1.1.4",
+    "react-animate-on-scroll": "^2.1.5",
     "react-dom": "^16.4.0",
     "react-image-gallery": "^0.8.10",
     "react-images-upload": "^1.1.99",
