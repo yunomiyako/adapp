@@ -13,7 +13,8 @@ import ReturnPage from "./ReturnPage/ReturnPage"
 import Header from "./Header/Header"
 import ReturnPageHome from "../containers/ReturnPage/ReturnPage"
 import LoginRedirectPage from "./LoginRedirect/LoginRedirectPage"
-
+import PrivacyPolicyPage from "./PrivacyPolicyPage/PrivacyPolicyPage"
+import TermsOfServicePage from "./PrivacyPolicyPage/TermsOfService"
 import { Route, BrowserRouter } from "react-router-dom"
 
 import Amplify from "aws-amplify"
@@ -61,6 +62,8 @@ class App extends Component {
 						<Route path="/statspage/:id_ad" component = {StatsPage}/>
 						<Route path="/return_page/:id_return" component = {ReturnPageHome} />
 						<Route path="/redirect" component = {LoginRedirectPage} />
+						<Route path="/privacypolicy" component = {PrivacyPolicyPage} />
+						<Route path="/terms_service" component = {TermsOfServicePage} />
 					</div>
 
 				</div>

@@ -15,6 +15,7 @@ import goTwitterLogin from "../../Utils/goTwitterLogin"
 import AdDescriptionView from "./AdDescriptionView"
 import fetchRandomAdData from "../../api/fetchRandomAdData";
 import { get_userdetail } from "../../localStorage/user_detail";
+import createTweetUrl from "../../Utils/createTweetUrl";
 
 class AdPage extends Component {
 	constructor(props) {
@@ -36,14 +37,27 @@ class AdPage extends Component {
 	}
 
 	onClickActionButton() {
-		if(loginCheck() || this.props.adType === "lookMe") {
-			const id_user = this.props.match.params.id_user
-			const id_ad = this.props.match.params.id_ad
-			const payload = {"id_user" : id_user , "id_ad" : id_ad}
-			this.props.onClickActionButton(payload)
+		const id_ad = this.props.match.params.id_ad
+		const id_user = this.props.match.params.id_user
+		const user_detail = get_userdetail()
+		if(user_detail.id_user === id_user) {
+			//作成者と見ている人のid_userが同じ場合
+			//このページをツイートする
+			const url = createTweetUrl(id_user , id_ad , this.props.adType)
+			window.open(url);
+
+			
+
 		} else {
-			const path = this.props.location.pathname
-			goTwitterLogin(path)
+			if(loginCheck() || this.props.adType === "lookMe") {
+				const id_user = this.props.match.params.id_user
+				const id_ad = this.props.match.params.id_ad
+				const payload = {"id_user" : id_user , "id_ad" : id_ad}
+				this.props.onClickActionButton(payload)
+			} else {
+				const path = this.props.location.pathname
+				goTwitterLogin(path)
+			}
 		}
 	}
 
@@ -57,7 +71,16 @@ class AdPage extends Component {
 		const id_user = this.props.match.params.id_user
 		const user_detail = get_userdetail()
 		if(user_detail.id_user === id_user) {
-			//作成者と見ている人のid_userが同じならactionbarを出さない
+			//作成者と見ている人のid_userが同じ場合
+			return (
+			<ActionComponent
+			onClickActionButton = {() => this.onClickActionButton()}
+			returnDescription = {this.props.returnDescription}
+			adType = {this.props.adType}
+			loading = {this.props.actionLoading}
+			hasReceived = {this.props.hasReceived}
+			isIdentical = {true}
+		/>)
 		} else {
 			return (
 				<ActionComponent
@@ -66,6 +89,7 @@ class AdPage extends Component {
 					adType = {this.props.adType}
 					loading = {this.props.actionLoading}
 					hasReceived = {this.props.hasReceived}
+					isIdentical = {false}
 				/>
 			)
 		}

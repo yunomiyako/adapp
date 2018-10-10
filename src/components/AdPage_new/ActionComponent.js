@@ -11,18 +11,31 @@ class ActionComponent extends Component {
 	onClickButton() {
 		this.props.onClickActionButton()
 	}
-	
-	render() {
+
+	renderIdenticalbar() {
+		return (
+			<div className={style.tweetButton}>
+				<Button 
+					onClick={() => this.props.onClickActionButton()}
+					color="twitter"
+					size = "massive"
+					fluid>
+					<Icon name='twitter' />
+				この宣伝をツイートする
+				</Button>
+			</div>
+		)
+	}
+
+	renderNotIdenticalbar() {
 		var buttonText = ""
 		if(this.props.hasReceived) {
 			buttonText = "入手済！"
 		} else {
 			buttonText = getReturnButtonText(this.props.adType)
 		}
-
 		return (
-			<div className={style.stickyBottom}>
-	
+			<React.Fragment>
 				<div className = {style.returnText}>
 					<Icon name='gift' size='big' />
 					<Responsive minWidth={Responsive.onlyTablet.minWidth}><div className={style.returnPrefix}>お返し :</div></Responsive>
@@ -30,7 +43,6 @@ class ActionComponent extends Component {
 				</div>
 
 				<div className = {style.actionButton}>
-
 					<PhoneBreakPoint>
 						<Button color='orange' size="small" 
 							disabled = {this.props.loading}
@@ -51,7 +63,7 @@ class ActionComponent extends Component {
 
 					<DesktopBreakPoint>
 						<Button color='orange' size="large" 
-							
+					
 							disabled = {this.props.loading}
 							loading = {this.props.loading}
 							onClick = {() => this.onClickButton()}>
@@ -60,8 +72,25 @@ class ActionComponent extends Component {
 					</DesktopBreakPoint>
 
 				</div>
-			</div>
+			</React.Fragment>
 		)
+	}
+	
+	render() {
+
+		if(this.props.isIdentical) {
+			return (
+				<div className={style.stickyBottomIdentical}>
+					{this.renderIdenticalbar()}
+				</div>
+			)
+		} else {
+			return (
+				<div className={style.stickyBottom}>
+					{this.renderNotIdenticalbar()}
+				</div>
+			)
+		}
 	}
 }
 
