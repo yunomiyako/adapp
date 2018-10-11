@@ -1,24 +1,36 @@
 import React , {Component}  from "react"
-import "./Header.css"
-import logo from "../../images/logo.svg"
+import style from "./Header.css"
+//import default_icon from "../../images/anonymousIcon.jpg"
 
 import { Link } from "react-router-dom"
+import { get_userdetail } from "../../localStorage/user_detail"
+import {  Image , Icon } from "semantic-ui-react"
+
 
 class ContentLink {
-	constructor(title, link) {
+	constructor(title, link , icon_url) {
 		this.title = title
 		this.link = link
+		this.icon_url = icon_url
 	}
 }
 
-const link2 = new ContentLink("宣伝作成" , "/ad_create")
-const link5 = new ContentLink("ユーザページ" , "/userpage")
+const user_detail = get_userdetail()
+const icon_url = user_detail ? user_detail.profile_image_url : undefined
+
+const link2 = new ContentLink("宣伝作成" , "/ad_create" , undefined)
+const link5 = new ContentLink("ユーザページ" , "/userpage" , icon_url )
 const contentLink = [link2 , link5]
 
 class Header extends Component {
 	renderLink() {
 		return (contentLink.map(link => {
-			return <Link push key={link.title} to={link.link} className="item">{link.title}</Link>
+			return (
+				<Link className="item" push key={link.title} to={link.link}>
+					{link.icon_url ? <div className={style.icon}><Image src={link.icon_url} size='mini' circular /></div> : ""}
+					{link.title}
+				</Link>
+			)
 		}))
 	}
 
@@ -29,7 +41,7 @@ class Header extends Component {
 					<div className="ui fixed inverted menu">
 						<div className="ui container">
 							<Link push to="/" className="header item">
-								<img className="logo" src={logo} alt="LOGO"/>
+								<Icon name="bullhorn" color="orange"></Icon>
 								Ad App
 							</Link>
 							{this.renderLink()}
