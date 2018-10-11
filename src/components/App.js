@@ -22,6 +22,10 @@ import conf from "../aws/aws_configure"
 import anonymousAuth from "../aws/authentification"
 import {set_userdetail} from "../localStorage/user_detail"
 import fetchUserDetail from "../api/fetchUserDetail"
+import HelmetCreator from "../Utils/HelmetCreator"
+
+import QueryString from "../Utils/QueryString"
+import redirectByQueryString from "./Redirect/redirectByQueryString"
 
 Amplify.configure(conf)
 
@@ -47,6 +51,9 @@ class App extends Component {
 		return (
 			<BrowserRouter>
 				<div className="App">
+				
+					{redirectByQueryString(QueryString)}
+					{HelmetCreator()}
 					<div className="App-Header">
 						<Route path="/" component={Header}/>
 					</div>

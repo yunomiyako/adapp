@@ -3,8 +3,10 @@ import style from "./StatsPage.css"
 
 import StatsComponent from "./StatsComponent"
 import NaiyouComponent from "./NaiyouComponent"
+import URLComponent from "./URLComponent"
 import fetchAdDetail from "../../api/fetchAdDetail"
 import {  Dimmer , Loader } from "semantic-ui-react"
+import { get_id_user } from "../../localStorage/user_detail";
 
 class StatsPage extends Component {
 	constructor(props) {
@@ -38,7 +40,6 @@ class StatsPage extends Component {
 	}
 
 	onClickListItem(id_user) {
-		console.log(id_user)
 		this.props.history.push("/ad_page/" + id_user  )
 	}
 
@@ -53,6 +54,13 @@ class StatsPage extends Component {
 		return (
 			<div className={style.StatsPage}>
 				<div className={style.StatsPageContainer}>
+					<div>
+						<URLComponent
+						id_user = {get_id_user()}
+						id_ad = {this.props.match.params.id_ad}
+						/>
+					</div>
+
 					<div>
 						<StatsComponent
 						ad_count = {this.state.ad_count}

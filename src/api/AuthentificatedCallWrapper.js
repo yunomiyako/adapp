@@ -3,7 +3,6 @@ import authetification from "../aws/authentification"
 
 export default function wrapper(apiName , path , init , methodType){
 	return Auth.currentAuthenticatedUser().then(user => {
-		console.log("currentAuthenticatedUser　success")
 		console.log(user)
 		console.log("ikuzo")
 		const myInit = { 

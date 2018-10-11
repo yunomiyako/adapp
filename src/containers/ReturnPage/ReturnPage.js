@@ -18,7 +18,9 @@ function mapStateToProps(state){
 		returnObject : subState.returnObject , 
 		rating : subState.rating , 
 		urls : subState.urls, 
-		errorMessage: subState.errorMessage
+		errorMessage: subState.errorMessage , 
+		returnDescription : subState.returnDescription , 
+		ad_info : subState.ad_info
 	}
 }
 

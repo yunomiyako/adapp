@@ -2,8 +2,10 @@ import { Storage } from "aws-amplify"
 
 export const fileDownload = function(path) {
 	if(path) {
-		console.log(path + "is download")
-		return Storage.get(path)
+		//return Storage.get(path)
+		const baseUrl = "https://s3-ap-northeast-1.amazonaws.com/adapp-image-folder/"
+		console.log(baseUrl + path)
+		return baseUrl + "public/" + path
 	} else {
 		return undefined
 	}

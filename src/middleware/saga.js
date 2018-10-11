@@ -10,7 +10,7 @@ import {FETCH_AD_DATA , FETCH_AD_DATA_SUCCESS ,
 	ACTION_FAIL  , ON_CHANGE_ID_RETURN_TO_GO ,
 	ON_CHANGE_ACTION_LOADING ,SET_TWEET_OBJECT} from "../actions/AdPage"
 import {ON_FETCH_RETURN , ON_UPDATE_RETURN_OBJECT , ON_UPDATE_RETURN_TYPE,
-	ON_UPDATE_RETURN_IMAGE_URLS , ON_UPDATE_RATING, ON_FAIL_FETCH_RETURN} from "../actions/ReturnPage"
+	ON_UPDATE_RETURN_IMAGE_URLS , ON_UPDATE_RATING, ON_FAIL_FETCH_RETURN, ON_UPDATE_RETURN_DESCRIPTION, ON_UPDATE_AD_INFO} from "../actions/ReturnPage"
 import {GET_AD_LIST , GET_RETURN_LIST , SET_AD_LIST , SET_RETURN_LIST , SET_LOADING} from "../actions/UserPage"
 import {GET_AD_LIST as GET_AD_LIST_TOPPAGE , 
 	SET_AD_LIST as SET_AD_LIST_TOPPAGE} from "../actions/TopPage"
@@ -107,7 +107,9 @@ function *onFetchReturnData(action) {
 				yield put({type : ON_UPDATE_RETURN_IMAGE_URLS , urls : imageUrls})
 			}
 		}
-
+		
+		yield put({type : ON_UPDATE_AD_INFO , ad_info : result.ad_info})
+		yield put({type : ON_UPDATE_RETURN_DESCRIPTION , returnDescription : result.returnDescription})
 		yield put({type : ON_UPDATE_RATING , rating : result.rating})		
 		yield put({type : ON_UPDATE_RETURN_OBJECT , returnObject : result.returnObject})
 		yield put({type : ON_UPDATE_RETURN_TYPE , returnType : result.returnType})

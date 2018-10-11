@@ -40,6 +40,24 @@ export function onUpdateRating(rating) {
 	}
 }
 
+export const ON_UPDATE_RETURN_DESCRIPTION= prefix + "ON_UPDATE_RETURN_DESCRIPTION"
+export function onUpdateReturnDescription(returnDescription) {
+	return {
+		type : ON_UPDATE_RETURN_DESCRIPTION , 
+		returnDescription
+	}
+}
+
+
+export const ON_UPDATE_AD_INFO = prefix + "ON_UPDATE_AD_INFO"
+export function onUpdateAdInfo(ad_info) {
+	return {
+		type : ON_UPDATE_AD_INFO , 
+		ad_info
+	}
+}
+
+
 export const ON_FAIL_FETCH_RETURN = prefix + "ON_FAIL_FETCH_RETURN"
 export function onFailFetchReturn(errorMessage) {
 	return {

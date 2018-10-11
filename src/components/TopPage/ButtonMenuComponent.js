@@ -30,14 +30,14 @@ class ButtonMenuComponent extends Component {
 			{
 				id : 0 , 
 				name : "宣伝を作る" , 
-				color : "green" , 
+				color : "orange" , 
 				onClick : () => null , 
 				link : "/ad_create"
 			} , 
 			{
 				id : 1 , 
-				name : "進捗を見る" , 
-				color : "orange" , 
+				name : "作った宣伝の様子を見る" , 
+				color : "green" , 
 				onClick : () => null , 
 				link : "/userpage"
 			} , 

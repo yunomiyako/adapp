@@ -12,7 +12,6 @@ class RatingComponent extends Component {
 	renderRating() {
 		
 		const rating = this.props.rating || 0
-		console.log(rating)
 		return (
 			<Rating 
 				onRate = {(e, { rating })  => this.onRate(rating)}
@@ -30,6 +29,9 @@ class RatingComponent extends Component {
 				<div className={style.Rating}>
 					<h2>お返しの評価</h2>
 					{this.renderRating()}
+					<p>
+						{this.props.rating ? "Thank you!!" : ""}
+					</p>
 				</div>
 			</div>
 		)

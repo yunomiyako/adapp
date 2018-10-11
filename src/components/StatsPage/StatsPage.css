@@ -92,12 +92,17 @@
   margin-top: 50px;
   color: rgb(100, 100, 100);
   border-bottom: dashed 2px rgb(100, 100, 100);
-  margin-left: 30px;
-  margin-right: 30px;
   text-align: left;
 }
 
 :local .center {
   display : flex; 
   justify-content: space-around;
+}
+
+:local .link_text {
+  text-align: left
+}
+
+:local .sad_text {
 }

@@ -9,6 +9,7 @@
     "image-compressor.js": "^1.1.4",
     "react-animate-on-scroll": "^2.1.5",
     "react-dom": "^16.4.0",
+    "react-helmet": "^5.2.0",
     "react-image-gallery": "^0.8.10",
     "react-images-upload": "^1.1.99",
     "react-images-uploader": "^1.2.0-rc1",

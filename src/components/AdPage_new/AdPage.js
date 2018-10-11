@@ -16,6 +16,7 @@ import AdDescriptionView from "./AdDescriptionView"
 import fetchRandomAdData from "../../api/fetchRandomAdData";
 import { get_userdetail } from "../../localStorage/user_detail";
 import createTweetUrl from "../../Utils/createTweetUrl";
+import HelmetCreator from "../../Utils/HelmetCreator";
 
 class AdPage extends Component {
 	constructor(props) {
@@ -34,6 +35,20 @@ class AdPage extends Component {
 		const id_user = this.props.match.params.id_user
 		const id_ad = this.props.match.params.id_ad
 		this.props.fetchAdData(id_user, id_ad )
+	}
+
+	renderHelmet() {
+		const title = this.props.title
+		const id_user = this.props.match.params.id_user
+		const id_ad = this.props.match.params.id_ad
+		const path = "ad_page/" + id_user + "/" + id_ad
+		var image = undefined
+		if(this.props.adObject) {
+			if(this.props.adObject.images) {
+				image = this.props.adObject.images[0]
+			}
+		}
+		return HelmetCreator(title)
 	}
 
 	onClickActionButton() {
@@ -117,6 +132,7 @@ class AdPage extends Component {
 		return (
 			<div className={style.AdPage}>
 				<div className={style.AdPageContainer}>
+				{this.renderHelmet()}
 					<div>
 						<FourImageComponent
 							images = {this.props.imageUrls}

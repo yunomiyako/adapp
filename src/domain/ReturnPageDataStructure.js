@@ -5,6 +5,8 @@ class ReturnPageDataStructure {
 		this.urls = [] 
 		this.rating = data.rating || undefined 
 		this.errorMessage = data.errorMessage || ""
+		this.returnDescription = data.returnDescription || "" 
+		this.ad_info = data.ad_info || undefined
 	}
 }
 
