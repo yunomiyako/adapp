@@ -16,12 +16,9 @@
 }
 
 :local .TopPage {
-    
     width: 100vw;
     height: 100vh;
-    
-    background: linear-gradient(-45deg,rgba(5, 172, 175, 0.9), rgba(0, 28, 187, 0.9)),
-    url(../../images/141117-twitter.png);
+    background: linear-gradient(-45deg,rgba(5, 172, 175, 0.9), rgba(0, 28, 187, 0.9));
     background-size: contain;
     background-position: center ;
     background-repeat: no-repeat;
@@ -34,19 +31,17 @@ top: 30%;
 margin-left: auto; 
 margin-right: auto;
 font-size: 10vh ;
-font-family: "Ravi Prakash", cursive;
+font-family: 'Indie Flower', cursive;
 color: rgba(255, 255, 255, 0.931);
-
 animation-name: "fadeIn";
 animation-duration: 3s;
-
-
 }
 
 :local .text2 {
     position: relative;
     top: 30%;
-    font-size: 2vh ;
+    /* font-size: 2vh ; */
+    font-size: 20px;
     color: rgba(255, 255, 255, 0.931);
     animation-name: "fadeIn";
     animation-duration: 3s;
@@ -55,7 +50,7 @@ animation-duration: 3s;
   :local .text3 {
     position: relative;
     top: 35%;
-    font-size: 2vh ;
+    font-size: 20px ;
     color: rgba(255, 255, 255, 0.931);
     animation-name: "fadeIn";
     animation-duration: 3s;

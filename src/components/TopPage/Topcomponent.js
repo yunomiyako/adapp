@@ -6,8 +6,6 @@ import DesktopBreakpoint from "../responsive_utilities/desktop_breakpoint"
 import TabletBreakpoint from "../responsive_utilities/tablet_breakpoint"
 import PhoneBreakpoint from "../responsive_utilities/phone_breakpoint"
 
-
-
 class Top_Component extends Component {
 	
   
@@ -15,19 +13,13 @@ class Top_Component extends Component {
 		return (
 			<div className={style.TopPage_wrapper}>
 				<div className={style.TopPage}>
-				
-				
-					
-					
-				
+
 					<h3 className={style.text1} >{Funcs.getTexts().title}</h3>
 
 					<h2 className={style.text2}>{Funcs.getTexts().text2}</h2>
 		
 					<h2 className={style.text3}>{Funcs.getTexts().text3}</h2>
-					
 
-					
 					<div className= {style.buttons}>
 					
 						<div className= {style.twitter_button}>
@@ -65,14 +57,6 @@ class Top_Component extends Component {
 					
 					</div>
 				</div>
-				
-
-				
-				
-
-
-
-				
 			</div>
 		)
 

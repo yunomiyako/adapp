@@ -4,7 +4,6 @@ import ImageGallery from "react-image-gallery"
 import "react-image-gallery/styles/css/image-gallery.css"
 
 const changeUrlToOriginal = (image_list) => {
-	console.log(image_list)
 	if(image_list) {
 		return image_list.map((img) => {
 			return {original : img , thumbnail : img , sizes:200}
@@ -31,9 +30,12 @@ class FourImageComponent extends Component {
 		return (
 			<div>
 				<div id="NoFullScreen">
-					<ImageGallery 
-						onScreenChange = {() => this.onScreenChange()}
-						items={changeUrlToOriginal(this.props.images)} />
+					{this.props.images.length > 0 ?
+						<ImageGallery 
+							onScreenChange = {() => this.onScreenChange()}
+							items={changeUrlToOriginal(this.props.images)} />
+						: ""
+					}
 				</div>
 			</div>
 		)

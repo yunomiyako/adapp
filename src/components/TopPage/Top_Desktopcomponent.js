@@ -1,5 +1,4 @@
 import React , {Component}  from "react"
-import ReactDom from "react-dom"
 import style from "./TopPage2.css"
 import { Button, Icon } from "semantic-ui-react"
 import {Funcs} from "./funcs"
