@@ -54,6 +54,7 @@ class ReturnPageHome extends Component {
 						urls = {this.props.urls}
 						returnDescription = {this.props.returnDescription} 
 						ad_info = {this.props.ad_info}
+						loading = {!this.props.returnType} //まともにやれ
 					/>
 
 					<Message

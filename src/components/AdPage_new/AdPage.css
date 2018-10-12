@@ -126,6 +126,7 @@
 }
 
 :local .title {
+  font-size: 35px;
   text-align: center;
 }
 
@@ -140,6 +141,7 @@
 }
 
 :local .content {
+  font-size: 28px;
 }
 
 :local .mainImage {

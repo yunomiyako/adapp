@@ -7,7 +7,6 @@ import FeedComponent from "../AdPage_new/FeedComponent"
 
 class AdPage extends Component {
 	render() {
-		console.log(this.props.returnDescription)
 		if(this.props.loading) {
 			return (
 				<Dimmer active>
