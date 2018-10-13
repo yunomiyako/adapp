@@ -11,183 +11,146 @@ import getUrlsFromKeys from "../../api/getUrlsFromKeys"
 class Toppage_show_example extends Component {
 	constructor(props) {
 		super(props)
-		this.state = {
-            exampleAds:[],
-            loading:true
-		}
+
 	}
 
 
-    componentDidMount() {
-		this.get_example()
-	}
-    
-	async get_example() {
-        
-        
-
-        const examples = await fetchExampleAds()
-        const headImages = examples.map(ad => {
-			if(ad.adObject) {
-				if(ad.adObject.images) {
-					return ad.adObject.images[0]
-				}
-			}
-			return undefined
-		})
-		const urls = await getUrlsFromKeys(headImages)
-		const examplesWithImage = examples.map( (ad , index) => {
-			ad.url = urls[index]
-			return ad
-		})
-        
-        
-        this.setState(
-			{
-                exampleAds: examplesWithImage
-			}
-
-        )
-        this.setState({loading : false})
-        //console.log(this.state.adObject.adType)
-		
-	}
 
 	render() {
         
-        if(this.state.loading) {
+		if(this.props.loading) {
 			return (
-                <div className={style.Toppage_show_example_wrapper}>
-                <DesktopBreakpoint>
-                <div className={style.Toppage_show_example}>
-				<React.Fragment>
-					<div  className={style.FeedView1}>
-						{FeedViewPlaceHolder()}
-					</div>
-                    <div  className={style.FeedView2}>
-						{FeedViewPlaceHolder()}
-					</div>
-				</React.Fragment>
-                </div>
-                </DesktopBreakpoint>
+				<div className={style.Toppage_show_example_wrapper}>
+					<DesktopBreakpoint>
+						<div className={style.Toppage_show_example}>
+							<React.Fragment>
+								<div  className={style.FeedView1}>
+									{FeedViewPlaceHolder()}
+								</div>
+								<div  className={style.FeedView2}>
+									{FeedViewPlaceHolder()}
+								</div>
+							</React.Fragment>
+						</div>
+					</DesktopBreakpoint>
                 
                 
-                <TabletBreakpoint>
-                <div className={style.Toppage_show_example_p}>
-				<React.Fragment>
-					<div  className={style.FeedView1}>
-						{FeedViewPlaceHolder()}
-					</div>
-                    <div  className={style.FeedView2}>
-						{FeedViewPlaceHolder()}
-					</div>
-				</React.Fragment>
-                </div>
-                </TabletBreakpoint>
+					<TabletBreakpoint>
+						<div className={style.Toppage_show_example_p}>
+							<React.Fragment>
+								<div  className={style.FeedView1}>
+									{FeedViewPlaceHolder()}
+								</div>
+								<div  className={style.FeedView2}>
+									{FeedViewPlaceHolder()}
+								</div>
+							</React.Fragment>
+						</div>
+					</TabletBreakpoint>
 
-                <PhoneBreakpoint>
-                <div className={style.Toppage_show_example_p}>
-				<React.Fragment>
-					<div  className={style.FeedView1}>
-						{FeedViewPlaceHolder()}
-					</div>
-                    <div  className={style.FeedView2}>
-						{FeedViewPlaceHolder()}
-					</div>
-				</React.Fragment>
-                </div>
-                </PhoneBreakpoint> 
+					<PhoneBreakpoint>
+						<div className={style.Toppage_show_example_p}>
+							<React.Fragment>
+								<div  className={style.FeedView1}>
+									{FeedViewPlaceHolder()}
+								</div>
+								<div  className={style.FeedView2}>
+									{FeedViewPlaceHolder()}
+								</div>
+							</React.Fragment>
+						</div>
+					</PhoneBreakpoint> 
                
         
-                </div>
+				</div>
                 
 			)
 		}else{
 
-		return (
-            <div className={style.Toppage_show_example_wrapper}>
-            <DesktopBreakpoint>
-			<div className={style.Toppage_show_example}>
+			return (
+				<div className={style.Toppage_show_example_wrapper}>
+					<DesktopBreakpoint>
+						<div className={style.Toppage_show_example}>
 
                 
-                <div  className={style.FeedView1}>
-                    {FeedView("ad_page/" + this.state.exampleAds[1].id_user + "/" + this.state.exampleAds[1].id_ad , this.state.exampleAds[1]  , this.state.exampleAds[1].url)}
-                </div>
-                <div  className={style.text_tweet}>
-                 <p>{Funcs.getTexts().exretweet}</p>
+							<div  className={style.FeedView1}>
+								{FeedView("ad_page/" + this.props.exampleAds[1].id_user + "/" + this.props.exampleAds[1].id_ad , this.props.exampleAds[1]  , this.props.exampleAds[1].url)}
+							</div>
+							<div  className={style.text_tweet}>
+								<p>{Funcs.getTexts().exretweet}</p>
                  
-                 <p><font size="6">{Funcs.getTexts().exretweetsub}</font></p>
-				</div>
+								<p><font size="6">{Funcs.getTexts().exretweetsub}</font></p>
+							</div>
 
-                <div  className={style.FeedView2}>
-                    {FeedView("ad_page/" + this.state.exampleAds[3].id_user + "/" + this.state.exampleAds[3].id_ad , this.state.exampleAds[3]  , this.state.exampleAds[3].url)}
-                </div>
+							<div  className={style.FeedView2}>
+								{FeedView("ad_page/" + this.props.exampleAds[3].id_user + "/" + this.props.exampleAds[3].id_ad , this.props.exampleAds[3]  , this.props.exampleAds[3].url)}
+							</div>
 
-                 <div  className={style.text_follow}>
-                 <p>{Funcs.getTexts().exlook}</p>
+							<div  className={style.text_follow}>
+								<p>{Funcs.getTexts().exlook}</p>
                  
-                 <p><font size="6">{Funcs.getTexts().exlooksub}</font></p>
-				</div>
+								<p><font size="6">{Funcs.getTexts().exlooksub}</font></p>
+							</div>
                
-			</div>
-            </DesktopBreakpoint>
+						</div>
+					</DesktopBreakpoint>
             
-            <TabletBreakpoint>
-			<div className={style.Toppage_show_example_p}>
+					<TabletBreakpoint>
+						<div className={style.Toppage_show_example_p}>
 
                 
-                <div  className={style.FeedView1}>
-                    {FeedView("ad_page/" + this.state.exampleAds[1].id_user + "/" + this.state.exampleAds[1].id_ad , this.state.exampleAds[1]  , this.state.exampleAds[1].url)}
-                </div>
-                <div  className={style.text_tweet}>
-                 <p>{Funcs.getTexts().exretweet}</p>
+							<div  className={style.FeedView1}>
+								{FeedView("ad_page/" + this.props.exampleAds[1].id_user + "/" + this.props.exampleAds[1].id_ad , this.props.exampleAds[1]  , this.props.exampleAds[1].url)}
+							</div>
+							<div  className={style.text_tweet}>
+								<p>{Funcs.getTexts().exretweet}</p>
                  
-                 <p><font size="6">{Funcs.getTexts().exretweetsub}</font></p>
-				</div>
+								<p><font size="6">{Funcs.getTexts().exretweetsub}</font></p>
+							</div>
 
-                <div  className={style.FeedView2}>
-                    {FeedView("ad_page/" + this.state.exampleAds[3].id_user + "/" + this.state.exampleAds[3].id_ad , this.state.exampleAds[3]  , this.state.exampleAds[3].url)}
-                </div>
+							<div  className={style.FeedView2}>
+								{FeedView("ad_page/" + this.props.exampleAds[3].id_user + "/" + this.props.exampleAds[3].id_ad , this.props.exampleAds[3]  , this.props.exampleAds[3].url)}
+							</div>
 
-                 <div  className={style.text_follow}>
-                 <p>{Funcs.getTexts().exlook}</p>
+							<div  className={style.text_follow}>
+								<p>{Funcs.getTexts().exlook}</p>
                  
-                 <p><font size="6">{Funcs.getTexts().exlooksub}</font></p>
-				</div>
+								<p><font size="6">{Funcs.getTexts().exlooksub}</font></p>
+							</div>
                
-			</div>
-            </TabletBreakpoint>
+						</div>
+					</TabletBreakpoint>
 
-            <PhoneBreakpoint> 
-			<div className={style.Toppage_show_example_p}>
+					<PhoneBreakpoint> 
+						<div className={style.Toppage_show_example_p}>
 
                 
-                <div  className={style.FeedView1}>
-                    {FeedView("ad_page/" + this.state.exampleAds[1].id_user + "/" + this.state.exampleAds[1].id_ad , this.state.exampleAds[1]  , this.state.exampleAds[1].url)}
-                </div>
-                <div  className={style.text_tweet}>
-                 <p><font size="5">{Funcs.getTexts().exretweet}</font></p>
+							<div  className={style.FeedView1}>
+								{FeedView("ad_page/" + this.props.exampleAds[1].id_user + "/" + this.props.exampleAds[1].id_ad , this.props.exampleAds[1]  , this.props.exampleAds[1].url)}
+							</div>
+							<div  className={style.text_tweet}>
+								<p><font size="5">{Funcs.getTexts().exretweet}</font></p>
                  
-                 <p><font size="3">{Funcs.getTexts().exretweetsub}</font></p>
-				</div>
+								<p><font size="3">{Funcs.getTexts().exretweetsub}</font></p>
+							</div>
 
-                <div  className={style.FeedView2}>
-                    {FeedView("ad_page/" + this.state.exampleAds[3].id_user + "/" + this.state.exampleAds[3].id_ad , this.state.exampleAds[3]  , this.state.exampleAds[3].url)}
-                </div>
+							<div  className={style.FeedView2}>
+								{FeedView("ad_page/" + this.props.exampleAds[3].id_user + "/" + this.props.exampleAds[3].id_ad , this.props.exampleAds[3]  , this.props.exampleAds[3].url)}
+							</div>
 
-                 <div  className={style.text_follow}>
-                 <p><font size="5">{Funcs.getTexts().exlook}</font></p>
+							<div  className={style.text_follow}>
+								<p><font size="5">{Funcs.getTexts().exlook}</font></p>
                  
-                 <p><font size="3">{Funcs.getTexts().exlooksub}</font></p>
-				</div>
+								<p><font size="3">{Funcs.getTexts().exlooksub}</font></p>
+							</div>
                
-			</div>
-            </PhoneBreakpoint> 
+						</div>
+					</PhoneBreakpoint> 
             
             
             
-            </div>
-        )
-    }
+				</div>
+			)
+		}
 	}
 } export default Toppage_show_example
