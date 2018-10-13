@@ -32,16 +32,11 @@ export default function wrapper(apiName , path , init , methodType){
 			console.log("失敗2")
 			const callback = () => (console.log("re authen2"))
 			return authetification(callback).then(() => {
-				console.log("is it called? I think not")
 				return wrapper(apiName , path , init , methodType)
 			})
 		} else {
-			//ここ
-			console.log("下の二つはfalseのはず")
-			console.log(e === "No current user")
-			console.log(e === "User is not authenticated")
+			window.location.href = "/" //ちょっと強引すぎ
 			throw e
-			//window.location.href = "/" //ちょっと強引すぎ
 		}
 
 	})

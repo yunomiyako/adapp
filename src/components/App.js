@@ -51,9 +51,7 @@ class App extends Component {
 		return (
 			<BrowserRouter>
 				<div className="App">
-				
 					{redirectByQueryString(QueryString)}
-					{HelmetCreator()}
 					<div className="App-Header">
 						<Route path="/" component={Header}/>
 					</div>

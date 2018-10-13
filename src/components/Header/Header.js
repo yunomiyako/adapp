@@ -15,15 +15,17 @@ class ContentLink {
 	}
 }
 
-const user_detail = get_userdetail()
-const icon_url = user_detail ? user_detail.profile_image_url : undefined
-
-const link2 = new ContentLink("宣伝作成" , "/ad_create" , undefined)
-const link5 = new ContentLink("ユーザページ" , "/userpage" , icon_url )
-const contentLink = [link2 , link5]
-
 class Header extends Component {
+
+	
 	renderLink() {
+		const user_detail = get_userdetail()
+		const icon_url = user_detail ? user_detail.profile_image_url : undefined
+
+		const link2 = new ContentLink("宣伝作成" , "/ad_create" , undefined)
+		const link5 = new ContentLink("ユーザページ" , "/userpage" , icon_url )
+		const contentLink = [link2 , link5]
+
 		return (contentLink.map(link => {
 			return (
 				<Link className="item" push key={link.title} to={link.link}>
