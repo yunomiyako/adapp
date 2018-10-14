@@ -1,7 +1,7 @@
 
   :local .TopPageTopPage_second {
     width: 100vw;
-    height: calc(100vh + 35px);
+    height: calc(100vh + 35px); 
     background-color: rgb(255, 255, 255);
   }
 
@@ -27,11 +27,9 @@
   :local .icons {
     display: grid;
     position: relative;
-    top: 20%;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows:  1fr  ;
     grid-gap: undefined;
-    
     grid-template-areas:  ". icon . icon2 . icon3 ."  ;
   }
 
@@ -61,4 +59,13 @@
   
   :local .icon3 {
     grid-area: icon3;
+  }
+
+  :local .icons_vertical {
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows:  1fr  ;
+    grid-gap: undefined;
+    grid-template-areas:  ". icon . icon2 . icon3 ."  ;
   }

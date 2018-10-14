@@ -1,5 +1,5 @@
 import React , {Component}  from "react"
-import { Dimmer , Loader , Button} from "semantic-ui-react"
+import { Dimmer , Loader , Button , Icon} from "semantic-ui-react"
 import style from "./AdPage.css"
 
 import FourImageComponent from "./FourImageComponent"
@@ -51,6 +51,14 @@ class AdPage extends Component {
 		return HelmetCreator(title)
 	}
 
+	onClickTweetButton() {
+		const id_ad = this.props.match.params.id_ad
+		const id_user = this.props.match.params.id_user
+		const text = "こんな宣伝があったよ！%0AadAppを通してactionをしてくれたらお返しがあります。%0A%0A"
+		const url = createTweetUrl(id_user , id_ad , this.props.adType , text)
+		window.open(url);
+	}
+
 	onClickActionButton() {
 		const id_ad = this.props.match.params.id_ad
 		const id_user = this.props.match.params.id_user
@@ -58,11 +66,9 @@ class AdPage extends Component {
 		if(user_detail.id_user === id_user) {
 			//作成者と見ている人のid_userが同じ場合
 			//このページをツイートする
-			const url = createTweetUrl(id_user , id_ad , this.props.adType)
+			const text = "こんな宣伝を作ったよ！%0AadAppを通してactionをしてくれたらお返しがあります。%0A%0A"
+			const url = createTweetUrl(id_user , id_ad , this.props.adType , text)
 			window.open(url);
-
-			
-
 		} else {
 			if(loginCheck() || this.props.adType === "lookMe") {
 				const id_user = this.props.match.params.id_user
@@ -176,6 +182,15 @@ class AdPage extends Component {
 						</Button>
 					</div>
 					<br/>
+					<div>
+						<Button 
+						color="twitter"
+						size="massive"
+						onClick={() => this.onClickTweetButton()}>
+						<Icon name="twitter"/>
+						この宣伝をツイート
+						</Button>
+					</div>
 					<br/><br/>
 					<br/><br/><br/>
 					<br/><br/><br/><br/>
