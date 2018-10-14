@@ -23,6 +23,8 @@ import fetchUserDetail from "../api/fetchUserDetail"
 import QueryString from "../Utils/QueryString"
 import redirectByQueryString from "./Redirect/redirectByQueryString"
 
+import { Snackbar } from "react-redux-snackbar";
+ 
 Amplify.configure(conf)
 
 class App extends Component {
@@ -47,6 +49,9 @@ class App extends Component {
 		return (
 			<BrowserRouter>
 				<div className="App">
+
+					<Snackbar />
+
 					{redirectByQueryString(QueryString)}
 					<div className="App-Header">
 						<Route path="/" component={Header}/>

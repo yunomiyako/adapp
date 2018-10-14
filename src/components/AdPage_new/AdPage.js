@@ -73,7 +73,8 @@ class AdPage extends Component {
 			if(loginCheck() || this.props.adType === "lookMe") {
 				const id_user = this.props.match.params.id_user
 				const id_ad = this.props.match.params.id_ad
-				const payload = {"id_user" : id_user , "id_ad" : id_ad}
+				const payload = {"id_user" : id_user , "id_ad" : id_ad 
+				, "adType" : this.props.adType , "hasReceived" : this.props.hasReceived}
 				this.props.onClickActionButton(payload)
 			} else {
 				const path = this.props.location.pathname

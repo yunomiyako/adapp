@@ -1,5 +1,6 @@
 import { call, put , takeLatest } from "redux-saga/effects"
-
+import { showSnack } from "react-redux-snackbar"
+ 
 //import Action
 import {ON_SUBMIT_ADCREATE, ON_FETCH_TWEET_DETAIL, 
 	ON_CHANGE_TWEET_OBJECT, ON_CHANGE_TWEET_OBJECT_LOADING, 
@@ -86,8 +87,16 @@ function *onSendAction(action) {
 	try {
 		yield put ({type : ON_CHANGE_ACTION_LOADING , is_loading:true})
 		const response = yield call(receiveReturn , action.payload.id_user , action.payload.id_ad)
-		console.log(response)
-		if(!response.id_return) {console.log("id_returnが帰って来てない！")}
+		
+		if(!action.payload.hasReceived) {
+			const label = AdTypeEnum.getByName(action.payload.adType).short_title + "をしました！"
+			yield put (showSnack("myUniqueId", {
+				label: label,
+				timeout: 10000,
+				button: { label: "OK, GOT IT" }
+			}))
+		}
+
 		//yield put({type : ACTION_SUCCESS , response})
 		yield put({type : ON_CHANGE_ID_RETURN_TO_GO , id_return_to_go : response.id_return})
 	}catch(e) {
