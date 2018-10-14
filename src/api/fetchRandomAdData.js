@@ -16,9 +16,5 @@ export default function() {
 		}
 		console.log(result)
 		return result
-	}).catch(e => {
-		console.log("fetchAdList catch")
-		console.log(e)
-		throw new Error("何かしらのエラーだよ")	
 	})
 }

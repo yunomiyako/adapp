@@ -16,9 +16,5 @@ export default function(payload) {
 		console.log("publishOauthURL then")
 		const body = res.data
 		return body
-	}).catch(e => {
-		console.log("publishOauthURL catch")
-		console.log(e)
-		throw new Error("何かしらのエラーだよ")
 	})
 }

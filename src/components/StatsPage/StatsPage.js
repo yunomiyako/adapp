@@ -5,8 +5,9 @@ import StatsComponent from "./StatsComponent"
 import NaiyouComponent from "./NaiyouComponent"
 import URLComponent from "./URLComponent"
 import fetchAdDetail from "../../api/fetchAdDetail"
-import {  Dimmer , Loader } from "semantic-ui-react"
+import {  Dimmer , Loader , Button } from "semantic-ui-react"
 import { get_id_user } from "../../localStorage/user_detail";
+import deleteAdReturn from "../../api/deleteAdReturn";
 
 class StatsPage extends Component {
 	constructor(props) {
@@ -19,6 +20,7 @@ class StatsPage extends Component {
 			loading : false
 		}
 	}
+	
 	componentDidMount() {
 		this.getAdDetail()
 	}
@@ -41,6 +43,14 @@ class StatsPage extends Component {
 
 	onClickListItem(id_user) {
 		this.props.history.push("/ad_page/" + id_user  )
+	}
+
+	async onClickDelete() {
+		const id_ad = this.props.match.params.id_ad
+		this.setState({loading : true})
+		await deleteAdReturn(id_ad)
+		this.setState({loading : false})
+		this.props.history.push("/userpage"  )
 	}
 
 	render() {
@@ -75,6 +85,15 @@ class StatsPage extends Component {
 						onClickListItem = {(id_user) => this.onClickListItem(id_user)}
 						/>
 					</div>
+
+					<br/>
+					<br/><br/>
+
+					<div>
+						<Button color="red"
+						onClick = {() => this.onClickDelete()}>この宣伝を削除する</Button>
+					</div>
+
 
 					<br/>
 					<br/><br/>

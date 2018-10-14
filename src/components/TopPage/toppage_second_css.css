@@ -1,21 +1,23 @@
 
   :local .TopPageTopPage_second {
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh + 35px);
     background-color: rgb(255, 255, 255);
   }
 
   :local .text1 {
     position: relative;
-    top: 10%;
- 
+    top: 5%;
+    
     font-family:  Impact;
-    font-size: 5vmin;
+    font-size: 50px;
   }
 
   :local .text2 {
     position: relative;
-    top: 15%;
+    padding-left: 30px; 
+    padding-right: 30px; 
+    top: 5%;
     font-size: 4vmin;
     text-align: left;
     
@@ -25,7 +27,7 @@
   :local .icons {
     display: grid;
     position: relative;
-    top: 25%;
+    top: 20%;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows:  1fr  ;
     grid-gap: undefined;
@@ -37,16 +39,16 @@
 
   :local .picon {
     position: relative;
-    top: 20vh;
+    top: 10vh;
   }
   :local .picon2 {
     position: relative;
-    top: 20vh;
+    top: 10vh;
   }
   
   :local .picon3 {
     position: relative;
-    top: 20vh;
+    top: 10vh;
   }
 
 

@@ -13,9 +13,5 @@ export default function(payload) {
 		const result = new AdPageInfoDataStructure(body)
 		result.status = "OK"
 		return result
-	}).catch(e => {
-		console.log("fetchAdList catch")
-		console.log(e)
-		throw new Error("何かしらのエラーだよ")	
 	})
 }

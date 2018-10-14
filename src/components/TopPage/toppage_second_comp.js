@@ -1,6 +1,5 @@
 import React , {Component}  from "react"
 import style from "./toppage_second_css.css"
-import { Button, Icon } from "semantic-ui-react"
 import {Funcs} from "./funcs"
 import DesktopBreakpoint from "../responsive_utilities/desktop_breakpoint"
 import TabletBreakpoint from "../responsive_utilities/tablet_breakpoint"
@@ -105,6 +104,7 @@ class Toppage_second extends Component {
 								<p className = {style.icon_text}>{Funcs.getTexts().step1}</p>	
 							</ScrollAnimation>				
 						</div>
+						<br></br>
 						<div className={style.picon2}>
 							<ScrollAnimation animateIn="fadeInUp"
 								animateOnce={true}>
@@ -112,6 +112,7 @@ class Toppage_second extends Component {
 								<p className = {style.icon_text}>{Funcs.getTexts().step2}</p>
 							</ScrollAnimation>
 						</div>
+						<br></br>
 						<div className={style.picon3}>
 							<ScrollAnimation animateIn="fadeInUp"
 								animateOnce={true}>

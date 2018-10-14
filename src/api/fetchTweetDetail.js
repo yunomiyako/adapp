@@ -27,9 +27,5 @@ export default function(id_tweet) {
 		}
 
 		return new TweetObjectDataStructure(data)
-	}).catch(e => {
-		console.log("fetchTweetDetail catch")
-		console.log(e)
-		throw new Error("何かしらのエラーだよ")
 	})
 }

@@ -98,6 +98,9 @@ function *onSendAction(action) {
 
 function *onFetchReturnData(action) {
 	try {
+		//TODO : returnTypeの有無でローディングしようとするクズ
+		yield put({type : ON_UPDATE_RETURN_TYPE , returnType : undefined})
+
 		const payload = {id_return : action.id_return }
 		const result = yield call(fetchReturn , payload)
 		if(result.returnObject.images){

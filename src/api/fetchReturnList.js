@@ -10,9 +10,5 @@ export default function() {
 	return AuthentificatedCallWrapper(apiName , path , init , "get").then((res) => {
 		const body = res.data
 		return body
-	}).catch(e => {
-		console.log("fetchReturnData catch")
-		console.log(e)
-		throw new Error("何かしらのエラーだよ")
 	})
 }

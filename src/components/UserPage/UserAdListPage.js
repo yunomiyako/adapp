@@ -43,6 +43,9 @@ class UserAdListPage extends Component {
 						<AdComponent
 						id_user = {this.props.match.params.id_user}/>
 					</div>
+
+					<br/><br/><br/>
+					<br/><br/><br/>
 				</div>
 			</div>
 		)

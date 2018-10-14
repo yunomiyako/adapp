@@ -20,9 +20,5 @@ export default function(id_user , self_info = false) {
 			set_userdetail(result)
 		}
 		return result
-	}).catch(e => {
-		console.log("fetchUserDetail catch")
-		console.log(e)
-		throw new Error("何かしらのエラーだよ")
 	})
 }

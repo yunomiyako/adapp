@@ -7,6 +7,21 @@ import TabletBreakpoint from "../responsive_utilities/tablet_breakpoint"
 import PhoneBreakpoint from "../responsive_utilities/phone_breakpoint"
 
 class Top_Component extends Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+			loading : false
+		}
+	}
+
+	onClickTwitterLogin() {
+		this.setState(
+			{
+				loading : true
+			}
+		)
+		Funcs.onClicktest()
+	}
 	
   
 	render() {
@@ -24,17 +39,23 @@ class Top_Component extends Component {
 					
 						<div className= {style.twitter_button}>
 							<DesktopBreakpoint>
-								<Button onClick={()=>Funcs.onClicktest()} color='twitter' size='massive'>
+								<Button 
+									loading = {this.state.loading}
+									onClick={()=>this.onClickTwitterLogin()} color='twitter' size='massive'>
 									<Icon name='twitter' /> {Funcs.getTexts().tw_button_text}
 								</Button>
 							</DesktopBreakpoint>
 							<TabletBreakpoint>
-								<Button onClick={()=>Funcs.onClicktest()} color='twitter' size='huge'>
+								<Button 
+									loading = {this.state.loading}
+									onClick={()=>this.onClickTwitterLogin()} color='twitter' size='huge'>
 									<Icon name='twitter' /> {Funcs.getTexts().tw_button_text}
 								</Button>
 							</TabletBreakpoint>
 							<PhoneBreakpoint>
-								<Button onClick={()=>Funcs.onClicktest()} color='twitter' size='mini'>
+								<Button 
+									loading = {this.state.loading}
+									onClick={()=>this.onClickTwitterLogin()} color='twitter' size='mini'>
 									<Icon name='twitter' /> {Funcs.getTexts().tw_button_text}
 								</Button>
 							</PhoneBreakpoint>

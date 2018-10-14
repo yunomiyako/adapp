@@ -17,9 +17,10 @@ export default function(oauth_token , oauth_token_secret , oauth_verifier) {
 	return AuthentificatedCallWrapper(apiName , path , init , "get").then((res) => {
 		console.log(res)
 		return res.data
-	}).catch(e => {
-		console.log("OauthRequest catch")
-		console.log(e)
-		window.location.href = "/"
 	})
+	// }).catch(e => {
+	// 	console.log("OauthRequest catch")
+	// 	console.log(e)
+	// 	window.location.href = "/"
+	// })
 }

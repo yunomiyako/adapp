@@ -1,16 +1,14 @@
 import AuthentificatedCallWrapper from "./AuthentificatedCallWrapper"
 
-export default function(id_return , rating) {
+export default function(id_ad) {
 	const apiName = "adApp"
-	const path = "/return/rate"
+	const path = "/addata/delete"
 
 	const init = { 
-		body: {"id_return" : id_return , "rating" : rating}
+		body: {"id_ad" : Number(id_ad) }
 	}
 
 	return AuthentificatedCallWrapper(apiName , path , init , "post").then((res) => {
-		console.log("saverate then")
-		console.log(res)
 		const body = res.data
 		return body
 	})

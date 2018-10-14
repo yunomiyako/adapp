@@ -8,9 +8,13 @@ class NaiyouComponent extends Component {
 	}
 
 	renderSadMessage() {
-		return (
-			<h3 className={style.sad_text}>まだ宣伝してくれた人はいません😭</h3>
-		)
+		if(this.props.receivers) {
+			if(this.props.receivers.length == 0) {
+				return (
+					<h3 className={style.sad_text}>まだ宣伝してくれた人はいません<span role="img" aria-label="sad face">😭</span></h3>
+				)
+			}
+		}
 	}
 
 	renderUserList(items) {
@@ -43,7 +47,7 @@ class NaiyouComponent extends Component {
 			<div className={style.NaiyouComponent}>
 				<div className={style.aaaa}><h2>宣伝してくれた人たち</h2></div>
 				{this.renderUserList(this.props.receivers)}
-				{this.props.receivers ? this.renderSadMessage() : ""}
+				{this.renderSadMessage()}
 			</div>
 		)
 	}
