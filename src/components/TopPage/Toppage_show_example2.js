@@ -1,19 +1,14 @@
 import React , {Component}  from "react"
 import style from "./Toppage_show_example2.css"
 import FeedView from "../CommonSemanticUI/FeedView"
-import fetchExampleAds from "../../api/fetchExampleAds"
-import FeedViewPlaceHolder from "../CommonSemanticUI/FeedViewPlaceHolder"
 import DesktopBreakpoint from "../responsive_utilities/desktop_breakpoint"
 import TabletBreakpoint from "../responsive_utilities/tablet_breakpoint"
 import PhoneBreakpoint from "../responsive_utilities/phone_breakpoint"
 import {Funcs} from "./funcs"
 import "animate.css/animate.min.css"
 import ScrollAnimation from "react-animate-on-scroll"
-class Toppage_show_example extends Component {
-	constructor(props) {
-		super(props)
+class ToppageShowExample extends Component {
 
-	}
 
 
 
@@ -190,4 +185,4 @@ class Toppage_show_example extends Component {
 			)
 		}
 	}
-} export default Toppage_show_example
+} export default ToppageShowExample

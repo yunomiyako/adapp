@@ -1,6 +1,5 @@
 import React , {Component}  from "react"
 import style from "./toppage_second_css.css"
-import { Button, Icon } from "semantic-ui-react"
 import {Funcs} from "./funcs"
 import DesktopBreakpoint from "../responsive_utilities/desktop_breakpoint"
 import TabletBreakpoint from "../responsive_utilities/tablet_breakpoint"

@@ -1,16 +1,10 @@
-import Toppage_show_example from "./Toppage_show_example"
-import Toppage_show_example2 from "./Toppage_show_example2"
+import ToppageShowExample from "./Toppage_show_example"
+import ToppageShowExample2 from "./Toppage_show_example2"
 import React , {Component}  from "react"
 
 
 
-class TSC_merged extends Component {
-	constructor(props) {
-		super(props)
-
-	}
-
-
+class TSCMerged extends Component {
 
 	render() {
         
@@ -18,7 +12,7 @@ class TSC_merged extends Component {
 			return(
 
 				<div >
-					<Toppage_show_example exampleAds = {this.props.exampleAds} loading = {this.props.loading} />
+					<ToppageShowExample exampleAds = {this.props.exampleAds} loading = {this.props.loading} />
 				</div>
 
 			)
@@ -26,7 +20,7 @@ class TSC_merged extends Component {
 		}else{
 			return(
 				<div > 
-					<Toppage_show_example2 exampleAds = {this.props.exampleAds} loading = {this.props.loading}/>
+					<ToppageShowExample2 exampleAds = {this.props.exampleAds} loading = {this.props.loading}/>
 				</div>
 			)
 
@@ -35,4 +29,4 @@ class TSC_merged extends Component {
 
 	}
 
-}export default TSC_merged
+}export default TSCMerged
