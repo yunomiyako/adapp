@@ -8,13 +8,15 @@
   :local .text1 {
     position: relative;
     top: 10%;
- 
+    
     font-family:  Impact;
     font-size: 5vmin;
   }
 
   :local .text2 {
     position: relative;
+    padding-left: 30px; 
+    padding-right: 30px; 
     top: 15%;
     font-size: 4vmin;
     text-align: left;

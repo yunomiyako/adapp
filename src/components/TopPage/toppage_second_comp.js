@@ -105,6 +105,7 @@ class Toppage_second extends Component {
 								<p className = {style.icon_text}>{Funcs.getTexts().step1}</p>	
 							</ScrollAnimation>				
 						</div>
+						<br></br>
 						<div className={style.picon2}>
 							<ScrollAnimation animateIn="fadeInUp"
 								animateOnce={true}>
@@ -112,6 +113,7 @@ class Toppage_second extends Component {
 								<p className = {style.icon_text}>{Funcs.getTexts().step2}</p>
 							</ScrollAnimation>
 						</div>
+						<br></br>
 						<div className={style.picon3}>
 							<ScrollAnimation animateIn="fadeInUp"
 								animateOnce={true}>

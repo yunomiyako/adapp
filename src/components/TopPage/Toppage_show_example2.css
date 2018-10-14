@@ -11,7 +11,60 @@
     
     grid-template-areas: ". . . . . . ." "text_tweet text_tweet text_tweet text_tweet . FeedView1 ." ". . . . . . ." ". . . . . . ." ". FeedView2 . text_follow text_follow text_follow text_follow" ". . . . . . ."  ;
 }
+
 :local .Toppage_show_example_p{
+    width: 100vw;
+    height: calc(100vh + 150px);
+    background-color: rgb(171, 177, 89);
+    position: relative;
+   
+  }
+
+  :local .FeedView1_p {
+
+    padding-right: 15px ;
+    padding-left: 15px ;
+    padding-top:40px;
+    padding-bottom:10px;  
+    grid-area: FeedView1;
+    animation-name: "fadeIn";
+    animation-duration: 3s;
+
+    /* width: 30px; */
+
+}
+
+:local .text_tweet_p {
+    padding: 15px ; 
+    font-family:  Impact;
+    font-size: 5vmin;
+
+    color: black;
+
+    animation-name: "fadeIn";
+    animation-duration: 3s;
+  }
+
+:local .text_follow_p {
+    padding: 15px ; 
+    font-family:  Impact;
+    font-size: 5vmin;
+
+    color: black;
+
+    animation-name: "fadeIn";
+    animation-duration: 3s;
+  }
+
+:local .FeedView2_p {
+    padding-right: 15px ;
+    padding-left: 15px ;
+    padding-top:40px;
+    padding-bottom:10px; 
+    animation-name: "fadeIn";
+    animation-duration: 3s;
+}
+/*:local .Toppage_show_example_p{
     width: 100vw;
     height: 100vh;
     background-color: rgb(171, 177, 89);
@@ -23,7 +76,7 @@
     grid-gap: undefined;
     
     grid-template-areas: ".  . FeedView1 .  ." ". text_tweet text_tweet text_tweet ."  ". . FeedView2 . ." ". text_follow text_follow text_follow ."". . . . ."   ;
-  }
+  }*/
 
   @keyframes fadeIn {
     from {
@@ -36,8 +89,8 @@
 
 
   :local .FeedView1 {
-
-    grid-area: FeedView1;  
+    /* padding: 15px ; */
+     grid-area: FeedView1;  
     animation-name: "fadeIn";
     animation-duration: 3s;
 }
@@ -54,7 +107,7 @@
   }
 
 :local .FeedView2 {
-
+    /* padding: 15px ; */
     grid-area: FeedView2;  
     animation-name: "fadeIn";
     animation-duration: 3s;
