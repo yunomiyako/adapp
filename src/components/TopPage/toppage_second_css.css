@@ -1,71 +1,40 @@
 
   :local .TopPageTopPage_second {
     width: 100vw;
-    height: calc(100vh + 35px); 
+    /* height: calc(100vh + 35px);  */
     background-color: rgb(255, 255, 255);
   }
 
   :local .text1 {
-    position: relative;
     top: 5%;
-    
     font-family:  Impact;
     font-size: 50px;
   }
 
   :local .text2 {
-    position: relative;
     padding-left: 30px; 
     padding-right: 30px; 
     top: 5%;
     font-size: 4vmin;
     text-align: left;
-    
-  }
-
-
-  :local .icons {
-    display: grid;
-    position: relative;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows:  1fr  ;
-    grid-gap: undefined;
-    grid-template-areas:  ". icon . icon2 . icon3 ."  ;
-  }
-
-
-
-  :local .picon {
-    position: relative;
-    top: 10vh;
-  }
-  :local .picon2 {
-    position: relative;
-    top: 10vh;
-  }
-  
-  :local .picon3 {
-    position: relative;
-    top: 10vh;
-  }
-
-
-  :local .icon {
-    grid-area: icon;
-  }
-  :local .icon2 {
-    grid-area: icon2;
-  }
-  
-  :local .icon3 {
-    grid-area: icon3;
   }
 
   :local .icons_vertical {
-    display: grid;
-    position: relative;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows:  1fr  ;
-    grid-gap: undefined;
-    grid-template-areas:  ". icon . icon2 . icon3 ."  ;
+    padding-top: 10px;
+    bottom : 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
+  :local .icons {
+    padding-top: 10px;
+    bottom : 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
+  :local .picon {
+    margin : 40px;
   }

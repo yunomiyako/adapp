@@ -12,7 +12,7 @@ export default defineEnum({
 		has_tweet_object : false ,
 		needLogin : true , 
 		mainText : "ツイートしてもらおう" , 
-		subText : "タイムラインに広めて欲しいツイートを"
+		subText : "他人にツイートしてもらう、そんなことadApp以外じゃできない"
 	},
 	retweet : {
 		string : "retweet" , 
@@ -25,7 +25,7 @@ export default defineEnum({
 		has_tweet_object : true ,
 		needLogin : false ,
 		mainText : "リツイートして欲しい！" , 
-		subText : "このツイートをバズらせたい、そんな時に"
+		subText : "だってたくさんの人に見てほしいから"
 	},
 	follow : {
 		string : "follow" , 
@@ -37,8 +37,8 @@ export default defineEnum({
 		short_title : "フォロー" , 
 		has_tweet_object : false, 
 		needLogin : true,
-		mainText : "フォローしてもらおう" , 
-		subText : "フォロワーを増やしたい時にも"
+		mainText : "フォローして欲しい？" , 
+		subText : "フォロワー増やしたいよね"
 	} ,
 	fav : {
 		string : "fav" , 

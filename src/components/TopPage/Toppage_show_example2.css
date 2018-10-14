@@ -9,7 +9,7 @@
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: undefined;
     
-    grid-template-areas: ". . . . . . ." "text_tweet text_tweet text_tweet text_tweet . FeedView1 ." ". . . . . . ." ". . . . . . ." ". FeedView2 . text_follow text_follow text_follow text_follow" ". . . . . . ."  ;
+    grid-template-areas: ". . . . . . ." "text_tweet text_tweet text_tweet text_tweet  . FeedView1 ." ". . . . . . ." ". . . . . . ." ". FeedView2 . text_follow text_follow text_follow text_follow" ". . . . . . ."  ;
 }
 
 :local .Toppage_show_example_p{
@@ -95,13 +95,8 @@
     animation-duration: 3s;
 }
 
-
-
 :local .text_tweet {
     grid-area:text_tweet;
-    font-family:  Impact;
-    font-size: 5vmin;
-
     animation-name: "fadeIn";
     animation-duration: 3s;
   }
