@@ -137,39 +137,7 @@ class ToppageShowExample extends Component {
 					</TabletBreakpoint>
 
 					<PhoneBreakpoint> 
-						<div className={style.Toppage_show_example_p}>                
-							<div  className={style.FeedView1_p}>
-								<ScrollAnimation animateIn="fadeInUp"
-									animateOnce={true}>
-									{FeedView("ad_page/" + this.props.exampleAds[0].id_user + "/" + this.props.exampleAds[0].id_ad , this.props.exampleAds[0]  , this.props.exampleAds[0].url)}
-								</ScrollAnimation>
-							</div>
-							<div  className={style.text_tweet_p}>
-								<ScrollAnimation animateIn="fadeIn"
-									animateOnce={true}>
-									<div  className={style.white_text}><font size="5">{Funcs.getTexts().extweet}</font></div>
-                 
-									<div  className={style.white_text}><font size="3">{Funcs.getTexts().extweetsub}</font></div>
-								</ScrollAnimation>
-							</div>
-
-							<div  className={style.FeedView2_p}>
-								<ScrollAnimation animateIn="fadeInUp"
-									animateOnce={true}>
-									{FeedView("ad_page/" + this.props.exampleAds[2].id_user + "/" + this.props.exampleAds[2].id_ad , this.props.exampleAds[2]  , this.props.exampleAds[2].url)}
-								</ScrollAnimation>
-							</div>
-
-							<div  className={style.text_follow_p}>
-								<ScrollAnimation animateIn="fadeIn"
-									animateOnce={true}>
-									<div  className={style.white_text}><font size="5">{Funcs.getTexts().exfollow}</font></div>
-                 
-									<div  className={style.white_text}><font size="3">{Funcs.getTexts().exfollowsub}</font></div>
-								</ScrollAnimation>
-							</div>
-               
-						</div>
+						{this.renderTablet(0 , 2)}
 					</PhoneBreakpoint> 
             
             

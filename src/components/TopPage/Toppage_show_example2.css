@@ -148,5 +148,6 @@
     justify-content: center; /* 変更なし */
     align-items: center; /* 変更なし */
     height : 50%;
+    padding-top : 30px;
     padding-bottom: 40px;
 }
