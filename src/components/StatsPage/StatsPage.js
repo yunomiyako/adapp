@@ -20,6 +20,7 @@ class StatsPage extends Component {
 			loading : false
 		}
 	}
+	
 	componentDidMount() {
 		this.getAdDetail()
 	}

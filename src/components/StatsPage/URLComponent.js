@@ -15,7 +15,11 @@ class StatsComponent extends Component {
 				<h3 className={style.link_text}>
 					<Link push to={link}>{baseUrl + query}</Link>
 				</h3>
-				
+				<form class="ui form">
+					<div class="field">
+						<input type="text" value={baseUrl + query}/>
+					</div>
+				</form>				
 			</div>
 		)
 	}
