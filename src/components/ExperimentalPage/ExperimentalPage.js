@@ -2,7 +2,7 @@ import React , {Component}  from "react"
 
 import style from "./ExperimentalPage.css"
 
-import { CSSTransition , TransitionGroup , Transition } from "react-transition-group"
+import { CSSTransition  } from "react-transition-group"
 
 //semantic UI
 import { Button , Image } from "semantic-ui-react"

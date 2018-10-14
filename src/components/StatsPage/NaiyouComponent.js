@@ -9,7 +9,7 @@ class NaiyouComponent extends Component {
 
 	renderSadMessage() {
 		return (
-			<h3 className={style.sad_text}>まだ宣伝してくれた人はいません😭</h3>
+			<h3 className={style.sad_text}>まだ宣伝してくれた人はいません<span role="img" aria-label="sad face">😭</span></h3>
 		)
 	}
 

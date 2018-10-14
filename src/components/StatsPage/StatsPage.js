@@ -48,7 +48,7 @@ class StatsPage extends Component {
 	async onClickDelete() {
 		const id_ad = this.props.match.params.id_ad
 		this.setState({loading : true})
-		const body = await deleteAdReturn(id_ad)
+		await deleteAdReturn(id_ad)
 		this.setState({loading : false})
 		this.props.history.push("/userpage"  )
 	}

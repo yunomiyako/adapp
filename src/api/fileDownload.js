@@ -1,4 +1,4 @@
-import { Storage } from "aws-amplify"
+// import { Storage } from "aws-amplify"
 
 export const fileDownload = function(path) {
 	if(path) {

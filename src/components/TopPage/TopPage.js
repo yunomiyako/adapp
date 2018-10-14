@@ -9,6 +9,8 @@ import loginCheck from "../../localStorage/loginCheck"
 import AfterLoginPage from "./AfterLoginPage"
 import fetchExampleAds from "../../api/fetchExampleAds"
 import getUrlsFromKeys from "../../api/getUrlsFromKeys"
+import Footer from "../Footer/Footer"
+
 class TopPage extends Component {
 	constructor(props) {
 		super(props)
@@ -25,18 +27,9 @@ class TopPage extends Component {
 				logined : true
 			})
 		} else {
-			this.loadExampleAd()
+			this.get_example()
 		}
-		this.get_example()
 	}
-
-	loadExampleAd() {
-		fetchExampleAds().then((exampleAds) => {
-			
-			//console.log(exampleAds)
-		})
-	}
-
 	async get_example() {
         const examples = await fetchExampleAds()
 		const headImages = examples.map(ad => {
@@ -72,20 +65,9 @@ class TopPage extends Component {
 				<div >
 					<Top_Component/>
 					<Toppage_second/>
-
 					<TSC_merged exampleAds = {this.state.exampleAds} loading = {this.state.loading} reverse = {true}/>
-					
 					<TSC_merged exampleAds = {this.state.exampleAds} loading = {this.state.loading} reverse = {false}/>
-					
-					<div className={style.Footerback}>	
-						<div className={style.Footer}>			
-							<ul>
-								<p className="list-unstyled"><a href="https://www.google.co.jp/webhp?hl=ja&sa=X&ved=0ahUKEwiwtObcw_DcAhWFTrwKHSptBA4QPAgD">お問い合わせ</a></p>
-								<p className="list-unstyled"><a href="https://www.google.co.jp/webhp?hl=ja&sa=X&ved=0ahUKEwiwtObcw_DcAhWFTrwKHSptBA4QPAgD">利用規約</a></p>
-								<p className="list-unstyled"><a href="https://www.google.co.jp/webhp?hl=ja&sa=X&ved=0ahUKEwiwtObcw_DcAhWFTrwKHSptBA4QPAgD">プライバシーポリシー</a></p>
-							</ul>		
-						</div>
-					</div>
+					<Footer/>
 				</div>
 				
 			)
