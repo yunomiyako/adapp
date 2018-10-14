@@ -1,9 +1,6 @@
 import React , {Component}  from "react"
 import style from "./toppage_second_css.css"
 import {Funcs} from "./funcs"
-import DesktopBreakpoint from "../responsive_utilities/desktop_breakpoint"
-import TabletBreakpoint from "../responsive_utilities/tablet_breakpoint"
-import PhoneBreakpoint from "../responsive_utilities/phone_breakpoint"
 import "animate.css/animate.min.css"
 import ScrollAnimation from "react-animate-on-scroll"
 
@@ -62,7 +59,7 @@ class Toppage_second extends Component {
 						</ScrollAnimation>
 						<ScrollAnimation animateIn="fadeInRight"
 							animateOnce={true}>
-							<p>・言葉で説明するのは難しいので、ぜひ使ってみてください😉</p>
+							<p>・言葉で説明するのは難しいので、ぜひ使ってみてください🙂</p>
 						</ScrollAnimation>
 					</h3>
 					{this.renderIcons()}

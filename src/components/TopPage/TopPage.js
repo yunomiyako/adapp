@@ -52,8 +52,10 @@ class TopPage extends Component {
 			}
 
         )
+	}
 
-		
+	onClickUseWithoutRegister() {
+		this.props.history.push("/ad_create")
 	}
 
 	render() {
@@ -61,7 +63,8 @@ class TopPage extends Component {
 		if(!this.state.logined) {
 			return (
 				<div >
-					<TopComponent/>
+					<TopComponent
+					onClickUseWithoutRegister = {() => this.onClickUseWithoutRegister()}/>
 					<ToppageSecond/>
 					<TSCMerged exampleAds = {this.state.exampleAds} loading = {this.state.loading} reverse = {true}/>
 					<TSCMerged exampleAds = {this.state.exampleAds} loading = {this.state.loading} reverse = {false}/>

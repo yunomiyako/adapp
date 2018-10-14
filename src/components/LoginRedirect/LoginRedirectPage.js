@@ -24,6 +24,9 @@ class App extends Component {
 	}
 
 	async getToken() {
+        if(QueryString.denied) {
+            window.location.href = "/"
+        }
         //リダイレクト先をあらかじめセットしておく
         const path = get_redirect_to() || "/"
         console.log("path : " + path)
