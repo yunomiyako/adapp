@@ -7,6 +7,7 @@ import PhoneBreakpoint from "../responsive_utilities/phone_breakpoint"
 import {Funcs} from "./funcs"
 import "animate.css/animate.min.css"
 import ScrollAnimation from "react-animate-on-scroll"
+import AdTypeEnum from "../../domain/enum/AdTypeEnum"
 
 class ToppageShowExample extends Component {
 
@@ -17,6 +18,9 @@ class ToppageShowExample extends Component {
 		]
 
 		const childViews = use_datas.map(d => {
+			const mainText = AdTypeEnum.getByName(d.adType).mainText
+			const subText = AdTypeEnum.getByName(d.adType).subText
+			
 			return (
 				<div className={style.ExampleGroupVertical}>
 					<div  className={style.FeedView1_t}>
@@ -28,8 +32,8 @@ class ToppageShowExample extends Component {
 					<div  className={style.text_tweet_t}>
 						<ScrollAnimation animateIn="fadeIn"
 							animateOnce={true}>
-							<p  className={style.white_text + " " + style.mainText}>{Funcs.getTexts().extweet}</p>
-							<p  className={style.white_text + " " + style.subText}>{Funcs.getTexts().extweetsub}</p>
+							<p  className={style.white_text + " " + style.mainText}>{mainText}</p>
+							<p  className={style.white_text + " " + style.subText}>{subText}</p>
 						</ScrollAnimation>
 					</div>
 				</div>
