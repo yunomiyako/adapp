@@ -35,7 +35,7 @@ export default function wrapper(apiName , path , init , methodType){
 				return wrapper(apiName , path , init , methodType)
 			})
 		} else {
-			window.location.href = "/" //ちょっと強引すぎ
+			//window.location.href = "/" //ちょっと強引すぎ
 			throw e
 		}
 
