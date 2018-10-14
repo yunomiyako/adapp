@@ -38,6 +38,9 @@ class UserPage extends Component {
 						<div>
 							<RewardComponent/>
 						</div>
+
+						<br/><br/><br/>
+						<br/><br/><br/>
 					
 					</div>
 				</div>

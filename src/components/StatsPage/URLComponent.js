@@ -29,7 +29,7 @@ class StatsComponent extends Component {
 				<form class="ui form">
 					<div class="field">
 						<input type="text" id="url_field" value={baseUrl + query}/>
-						<button onClick={(e) => this.onClickCopy(e)}>コピー</button>
+						{/* <button onClick={(e) => this.onClickCopy(e)}>コピー</button> */}
 					</div>
 				</form>				
 			</div>
