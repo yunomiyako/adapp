@@ -1,10 +1,8 @@
 import React , {Component}  from "react"
 import style from "./TopPage2.css"
-import Top_Component from "./Topcomponent"
-import Toppage_second from "./toppage_second_comp"
-import Toppage_show_example from "./Toppage_show_example"
-import Toppage_show_example2 from "./Toppage_show_example2"
-import TSC_merged from "./TSE_merged"
+import TopComponent from "./Topcomponent"
+import ToppageSecond from "./toppage_second_comp"
+import TSCMerged from "./TSE_merged"
 import loginCheck from "../../localStorage/loginCheck"
 import AfterLoginPage from "./AfterLoginPage"
 import fetchExampleAds from "../../api/fetchExampleAds"
@@ -63,11 +61,30 @@ class TopPage extends Component {
 		if(!this.state.logined) {
 			return (
 				<div >
+<<<<<<< HEAD
 					<Top_Component/>
 					<Toppage_second/>
 					<TSC_merged exampleAds = {this.state.exampleAds} loading = {this.state.loading} reverse = {true}/>
 					<TSC_merged exampleAds = {this.state.exampleAds} loading = {this.state.loading} reverse = {false}/>
 					<Footer/>
+=======
+					<TopComponent/>
+					<ToppageSecond/>
+
+					<TSCMerged exampleAds = {this.state.exampleAds} loading = {this.state.loading} reverse = {true}/>
+					
+					<TSCMerged exampleAds = {this.state.exampleAds} loading = {this.state.loading} reverse = {false}/>
+					
+					<div className={style.Footerback}>	
+						<div className={style.Footer}>			
+							<ul>
+								<p className="list-unstyled"><a href="https://www.google.co.jp/webhp?hl=ja&sa=X&ved=0ahUKEwiwtObcw_DcAhWFTrwKHSptBA4QPAgD">お問い合わせ</a></p>
+								<p className="list-unstyled"><a href="https://www.google.co.jp/webhp?hl=ja&sa=X&ved=0ahUKEwiwtObcw_DcAhWFTrwKHSptBA4QPAgD">利用規約</a></p>
+								<p className="list-unstyled"><a href="https://www.google.co.jp/webhp?hl=ja&sa=X&ved=0ahUKEwiwtObcw_DcAhWFTrwKHSptBA4QPAgD">プライバシーポリシー</a></p>
+							</ul>		
+						</div>
+					</div>
+>>>>>>> 093c456d66cd8d10e3b8a4fe725109c019dddf5a
 				</div>
 				
 			)
