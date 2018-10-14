@@ -13,9 +13,5 @@ export default function(id_return , rating) {
 		console.log(res)
 		const body = res.data
 		return body
-	}).catch(e => {
-		console.log("saverate catch")
-		console.log(e)
-		throw new Error("何かしらのエラーだよ")
 	})
 }

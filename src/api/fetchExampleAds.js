@@ -9,9 +9,5 @@ export default function() {
 		console.log("fetchExampleAds then")
 		const body = res.data
 		return body
-	}).catch(e => {
-		console.log("fetchExampleAds catch")
-		console.log(e)
-		throw new Error("何かしらのエラーだよ")	
 	})
 }

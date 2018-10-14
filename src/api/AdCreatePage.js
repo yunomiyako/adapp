@@ -17,9 +17,5 @@ export default function(payload) {
 		result.id_ad = body.id_ad
 		result.id_user = body.id_user
 		return result
-	}).catch(e => {
-		console.log("AdCreatePage catch")
-		console.log(e)
-		throw new Error("何かしらのエラーだよ")
 	})
 }

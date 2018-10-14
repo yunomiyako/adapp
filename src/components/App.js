@@ -60,8 +60,6 @@ class App extends Component {
 						<Route path="/ad_page/:id_user/:id_ad" component={AdPage}/>
 						<Route exact path="/ad_page/:id_user/" component={UserAdListPage}/>
 						<Route path="/ad_create" component={AdCreatePage}/>
-						<Route path="/test" component = {TestPage}/>
-						<Route path="/test2" component = {ExperimentalPage}/>
 						<Route path="/return/:type" component = {ReturnPage}/>
 						<Route path="/userpage" component = {UserPage}/>
 						<Route path="/statspage/:id_ad" component = {StatsPage}/>

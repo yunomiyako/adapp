@@ -12,5 +12,4 @@ export default function(payload) {
 		const body = res.data
 		return body
 	})
-	//エラーハンドルするとそちらが先に実行されてしまう
 }

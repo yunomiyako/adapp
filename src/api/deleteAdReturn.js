@@ -11,7 +11,5 @@ export default function(id_ad) {
 	return AuthentificatedCallWrapper(apiName , path , init , "post").then((res) => {
 		const body = res.data
 		return body
-	}).catch(e => {
-		throw new Error("何かしらのエラーだよ")
 	})
 }

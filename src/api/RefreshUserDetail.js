@@ -27,9 +27,5 @@ export default function() {
 		const user_detail = new UserDetailDataStructure(result)
 		set_userdetail(user_detail)
 		return user_detail
-	}).catch(e => {
-		console.log("refreshUserDetail catch")
-		console.log(e)
-		throw new Error("何かしらのエラーだよ")
 	})
 }

@@ -15,9 +15,5 @@ export default function(payload) {
 		console.log(result)
 		result.status = "OK"
 		return result
-	}).catch(e => {
-		console.log(e)
-		const result = {"status" : "NG" , "errorMessage" : "お返しを受け取れませんでした"}
-		return result
 	})
 }

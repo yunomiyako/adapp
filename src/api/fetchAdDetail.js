@@ -11,9 +11,5 @@ export default function(id_ad) {
 		console.log("fetchAdDetail then")
 		const body = res.data
 		return body
-	}).catch(e => {
-		console.log("fetchAdDetail catch")
-		console.log(e)
-		throw new Error("何かしらのエラーだよ")
 	})
 }
