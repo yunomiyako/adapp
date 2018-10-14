@@ -122,3 +122,31 @@
     animation-name: "fadeIn";
     animation-duration: 3s;
   }
+
+  :local .Toppage_show_example_t {
+    width: 100vw;
+    /* height: 100vh; */
+    background-color: rgb(171, 177, 89);
+}
+
+:local .mainText {
+    font-size: 30px;
+    color: black;
+}
+
+:local .subText {
+    font-size: 20px;
+}
+
+:local .text_tweet_t {
+    margin-top: 30px;
+}
+
+:local .ExampleGroupVertical {
+    display: flex; /* 変更なし */
+    flex-direction: column; /* 変更なし */
+    justify-content: center; /* 変更なし */
+    align-items: center; /* 変更なし */
+    height : 50%;
+    padding-bottom: 40px;
+}

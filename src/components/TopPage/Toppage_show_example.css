@@ -79,47 +79,75 @@
 }
 
 
-  @keyframes fadeIn {
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
+@keyframes fadeIn {
+from {
+    opacity:0;
+}
+to {
+    opacity:1;
+}
 }
 
 
 :local .FeedView1 {
 
-    grid-area: FeedView1;  
-    animation-name: "fadeIn";
-    animation-duration: 3s;
+grid-area: FeedView1;  
+animation-name: "fadeIn";
+animation-duration: 3s;
 }
 
 
 
 :local .text_tweet {
-    grid-area:text_tweet;
-    font-family:  Impact;
-    font-size: 5vmin;
+grid-area:text_tweet;
+font-family:  Impact;
+font-size: 5vmin;
 
-    animation-name: "fadeIn";
-    animation-duration: 3s;
-  }
+animation-name: "fadeIn";
+animation-duration: 3s;
+}
 
 :local .FeedView2 {
-    /* padding: 15px ; */
-    grid-area: FeedView2;  
-    animation-name: "fadeIn";
-    animation-duration: 3s;
+/* padding: 15px ; */
+grid-area: FeedView2;  
+animation-name: "fadeIn";
+animation-duration: 3s;
 }
 
 
-  :local .text_follow {
-    grid-area:text_follow;
-    font-family:  Impact;
-    font-size: 5vmin;
+:local .text_follow {
+grid-area:text_follow;
+font-family:  Impact;
+font-size: 5vmin;
 
-    animation-name: "fadeIn";
-    animation-duration: 3s;
-  }
+animation-name: "fadeIn";
+animation-duration: 3s;
+}
+
+:local .Toppage_show_example_t {
+    width: 100vw;
+    /* height: 100vh; */
+    background-color: rgb(98, 192, 192);
+}
+
+:local .mainText {
+    font-size: 30px;
+    color: black;
+}
+
+:local .subText {
+    font-size: 20px;
+}
+
+:local .text_tweet_t {
+    margin-top: 30px;
+}
+
+:local .ExampleGroupVertical {
+    display: flex; /* 変更なし */
+    flex-direction: column; /* 変更なし */
+    justify-content: center; /* 変更なし */
+    align-items: center; /* 変更なし */
+    height : 50%;
+    padding-bottom: 40px;
+}
