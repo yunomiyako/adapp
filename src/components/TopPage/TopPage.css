@@ -7,3 +7,22 @@
     margin: 30px 0px;
     align-content: center;
 }
+
+:local .InquiryFormContainer {
+    display : flex ; 
+    justify-content: center;
+    margin: 30px 0px;
+    align-content: center;
+}
+
+:local .InquiryForm {
+    width : 500px;
+}
+
+:local .dotLine {
+    color: rgb(100, 100, 100);
+    border-bottom: dashed 2px rgb(100, 100, 100);
+    margin-left: 0px;
+    margin-right: 0px;
+    text-align: left;
+  }

@@ -7,6 +7,7 @@ import loginCheck from "../../localStorage/loginCheck"
 import AfterLoginPage from "./AfterLoginPage"
 import fetchExampleAds from "../../api/fetchExampleAds"
 import getUrlsFromKeys from "../../api/getUrlsFromKeys"
+import InquiryForm from "./InquiryForm"
 import Footer from "../Footer/Footer"
 
 class TopPage extends Component {
@@ -68,15 +69,20 @@ class TopPage extends Component {
 					<ToppageSecond/>
 					<TSCMerged exampleAds = {this.state.exampleAds} loading = {this.state.loading} reverse = {true}/>
 					<TSCMerged exampleAds = {this.state.exampleAds} loading = {this.state.loading} reverse = {false}/>
+					<InquiryForm/>
 					<Footer/>
 				</div>
 				
 			)
 		} else {
 			return (
-				<AfterLoginPage
-					history = {this.props.history}
-				/>
+				<div>
+					<AfterLoginPage
+						history = {this.props.history}
+					/>
+					<InquiryForm/>
+					<Footer/>
+				</div>
 			)
 		}
 	}
