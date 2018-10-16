@@ -8,7 +8,6 @@ export default function(id_ad) {
 	}
 
 	return AuthentificatedCallWrapper(apiName , path , init , "get").then((res) => {
-		console.log("fetchAdDetail then")
 		const body = res.data
 		return body
 	})

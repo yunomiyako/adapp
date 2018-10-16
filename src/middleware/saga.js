@@ -35,7 +35,6 @@ import getTweetIdFromUrl from "../Utils/getTweetIdFromUrl"
 function *onSubmitAdCreate(action) {
 	try {
 		const result = yield call(submitAdCreateInfo , action.payload)
-		console.log(result)
 		action.callback(result)
 		//yield put({type : ON_SUCCESS_SUBMIT_ADCREATE , callback:callback})
 	} catch (e) {
@@ -126,7 +125,6 @@ function *onFetchReturnData(action) {
 		yield put({type : ON_UPDATE_RETURN_OBJECT , returnObject : result.returnObject})
 		yield put({type : ON_UPDATE_RETURN_TYPE , returnType : result.returnType})
 	} catch (e) {
-		console.log("sagaで失敗取得")
 		yield put({type : ON_FAIL_FETCH_RETURN , errorMessage : "取得に失敗しました" })
 	}
 }
@@ -135,7 +133,6 @@ function *onGetAdList(action) {
 	try {
 		yield put({type : SET_LOADING , loading : true})
 		const ad_list = yield call(fetchAdList , {"id_user" : action.id_user})
-		console.log(ad_list)
 		yield put({type : SET_AD_LIST , ad_list : ad_list})
 		yield put({type : SET_LOADING , loading : false})
 	}catch(e) {
@@ -146,7 +143,6 @@ function *onGetAdList(action) {
 function *onGetReturnList() {
 	try {
 		var return_list = yield call(fetchReturnList)
-		console.log(return_list)
 		return_list = return_list.map((rt) => {
 			rt.title = rt.returnDescription
 			rt.link = "/return_page/" + rt.id_return
@@ -184,8 +180,6 @@ function *onGetAdListTopPage() {
 function *onFetchTweetDetail(action) {
 	try {
 		yield put({type :ON_CHANGE_TWEET_OBJECT_LOADING  , loading : true})
-		console.log(action)
-		console.log("id_tweet" , action.id_tweet)
 		const tweetObject = yield call(fetchTweetDetail , action.id_tweet)
 		yield put({type : ON_CHANGE_TWEET_OBJECT , tweetObject : tweetObject})
 		yield put({type : ON_CHANGE_AD_OBJECT_TEXT , text : tweetObject.text})

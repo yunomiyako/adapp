@@ -14,7 +14,6 @@ export default function() {
 			id_user : body.id_user ,
 			id_ad : body.id_ad
 		}
-		console.log(result)
 		return result
 	})
 }

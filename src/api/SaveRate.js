@@ -9,8 +9,6 @@ export default function(id_return , rating) {
 	}
 
 	return AuthentificatedCallWrapper(apiName , path , init , "post").then((res) => {
-		console.log("saverate then")
-		console.log(res)
 		const body = res.data
 		return body
 	})

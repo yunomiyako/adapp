@@ -5,7 +5,6 @@ export default function(payload) {
 	const apiName = "adApp"
 	const path = "/twitter/publish-oauth"
 	const baseUrl = getBaseUrl()
-	console.log(baseUrl)
 	const init = { 
 		queryStringParameters: {
 			baseUrl : baseUrl
@@ -13,7 +12,6 @@ export default function(payload) {
 	}
 
 	return AuthentificatedCallWrapper(apiName , path , init , "get").then((res) => {
-		console.log("publishOauthURL then")
 		const body = res.data
 		return body
 	})

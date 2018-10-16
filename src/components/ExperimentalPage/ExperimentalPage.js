@@ -22,9 +22,7 @@ class ExperimentalPage extends Component {
 
 	async onClickButton() {
 		const res = await fetchExampleAds()
-		console.log(res)
-		//window.location.href = "https://yahoo.co.jp"
-		//window.open("https://yahoo.co.jp", "_blank")
+
 		this.setState({fire : !this.state.fire})
 		if (this.state.index < 3) {
 			this.setState({index : this.state.index + 1})

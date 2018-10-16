@@ -33,31 +33,14 @@ class AdCreatePage extends Component {
 		this.props.onChangeReturnObject(dotProp.set(this.props.returnObject , "images" , []))
 	}
 
-	componentDidUpdate(prevProps){
-		const name =
-			this.constructor.displayName || this.constructor.name || "Component"
-		console.group(name)
-		Object.keys(prevProps).forEach(key => {
-			if (prevProps[key] !== this.props[key]) {
-				console.log(
-					`property ${key} changed from ${prevProps[key]} to ${
-						this.props[key]
-					}`
-				)
-			}
-		})
-		console.groupEnd(name)
-	}
-ß
+
 
 	onChangePictures(pictures) {
-		console.log(pictures)
 		const newObj = dotProp.set(this.props.adObject , "images" , pictures)
 		this.props.onChangeAdObject(newObj)
 	}
 
 	onClickOk(NO) {
-		console.log("NO : " + NO)
 		if (this.props.index < 100) {
 			this.props.onChangeIndex( Math.max(this.props.index , NO + 1))
 		} else {

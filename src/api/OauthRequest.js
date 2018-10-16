@@ -15,7 +15,6 @@ export default function(oauth_token , oauth_token_secret , oauth_verifier) {
 	}
 
 	return AuthentificatedCallWrapper(apiName , path , init , "get").then((res) => {
-		console.log(res)
 		return res.data
 	})
 	// }).catch(e => {

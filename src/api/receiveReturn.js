@@ -9,8 +9,6 @@ export default function(id_user , id_ad) {
 	}
 
 	return AuthentificatedCallWrapper(apiName , path , init , "post").then((res) => {
-		console.log("receive then")
-		console.log(res)
 		const body = res.data
 		return body
 	})

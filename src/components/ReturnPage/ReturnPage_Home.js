@@ -23,7 +23,6 @@ class ReturnPageHome extends Component {
 	}
 
 	saveRate(rating) {
-		console.log("rating : " + rating)
 		this.props.onChangeRate(rating)
 		const id_return = this.props.match.params.id_return
 		saveRate(id_return ,rating)
