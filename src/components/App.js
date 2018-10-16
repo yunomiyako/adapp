@@ -12,6 +12,9 @@ import ReturnPageHome from "../containers/ReturnPage/ReturnPage"
 import LoginRedirectPage from "./LoginRedirect/LoginRedirectPage"
 import PrivacyPolicyPage from "./PrivacyPolicyPage/PrivacyPolicyPage"
 import TermsOfServicePage from "./PrivacyPolicyPage/TermsOfService"
+import IconBattle from "./IconBattle/IconBattle"
+
+
 import { Route, BrowserRouter } from "react-router-dom"
 
 import Amplify from "aws-amplify"
@@ -23,7 +26,7 @@ import fetchUserDetail from "../api/fetchUserDetail"
 import QueryString from "../Utils/QueryString"
 import redirectByQueryString from "./Redirect/redirectByQueryString"
 
-import { Snackbar } from "react-redux-snackbar";
+import { Snackbar } from "react-redux-snackbar"
  
 Amplify.configure(conf)
 
@@ -67,6 +70,7 @@ class App extends Component {
 						<Route path="/redirect" component = {LoginRedirectPage} />
 						<Route path="/privacypolicy" component = {PrivacyPolicyPage} />
 						<Route path="/terms_service" component = {TermsOfServicePage} />
+						<Route path="/iconbattle" component = {IconBattle} />
 					</div>
 
 				</div>
