@@ -44,7 +44,7 @@ class Header extends Component {
 						<div className="ui container">
 							<Link push to="/" className="header item">
 								<Icon name="bullhorn" color="orange"></Icon>
-								Ad App
+								adApp(あどあっぷ)
 							</Link>
 							{this.renderLink()}
 						</div>
