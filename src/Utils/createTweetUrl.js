@@ -6,5 +6,5 @@ export default function(id_user, id_ad , adType , message) {
 	const refUrl = encodeURIComponent(refBaseUrl + "?type=ad_page&id_user=" + id_user + "&id_ad=" + id_ad)
 	const action = AdTypeEnum.getByName(adType).short_title
 	const text = message.replace("action" , action)
-	return baseUrl + "url=" + refUrl + "&" + "hashtags=adApp&text=" + text 
+	return baseUrl + "url=" + refUrl + "&" + "hashtags=adApp,あどあっぷ&text=" + text 
 }

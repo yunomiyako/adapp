@@ -12,7 +12,7 @@ export default defineEnum({
 		has_tweet_object : false ,
 		needLogin : true , 
 		mainText : "ツイートしてもらおう" , 
-		subText : "他人にツイートしてもらう、そんなことadApp以外じゃできない"
+		subText : "他人にツイートしてもらう、そんなことadApp(あどあっぷ)以外じゃできない"
 	},
 	retweet : {
 		string : "retweet" , 
