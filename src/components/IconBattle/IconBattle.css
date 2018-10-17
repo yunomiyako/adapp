@@ -9,3 +9,14 @@
     height: 100px;
     width: 100vw;
   }
+
+  :local .imageContainer {
+    margin:0px; 
+    height : 400px; 
+    align-self : center
+  }
+
+  :local .imageCenterize {
+    display:block;
+    margin:auto;
+  }
