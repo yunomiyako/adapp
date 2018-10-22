@@ -8,6 +8,31 @@ import "animate.css/animate.min.css"
 import ScrollAnimation from "react-animate-on-scroll"
 
 class Toppage_second extends Component {
+
+	renderIcons() {
+		const icons = [
+			{icon : "huge edit icon" , text : Funcs.getTexts().step1},
+			{icon : "huge gift icon" , text : Funcs.getTexts().step2},
+			{icon : "huge twitter icon" , text : Funcs.getTexts().step3}
+		]
+		const iconViews = icons.map(i => {
+			return (
+				<div className={style.picon}>
+					<ScrollAnimation animateIn="fadeInUp"
+						animateOnce={true}>
+						<i className= {i.icon} ></i>
+						<p className = {style.icon_text}>{i.text}</p>	
+					</ScrollAnimation>				
+				</div>)
+		})
+
+		return (
+			<div className={style.icons_vertical}>
+				{iconViews}
+			</div>
+		)
+	}
+
 	render() {
 		return (
 			<div className={style.TopPage_second_wrapper}>
@@ -37,9 +62,7 @@ class Toppage_second extends Component {
 						</ScrollAnimation>
 					</h3>
 					<DesktopBreakpoint>
-						
 						<div className={style.icons}>
-						
 							<div className={style.icon}>
 								<ScrollAnimation animateIn="fadeInUp"
 									animateOnce={true}>
@@ -61,8 +84,6 @@ class Toppage_second extends Component {
 									<p className = {style.icon_text}>{Funcs.getTexts().step3}</p>
 								</ScrollAnimation>
 							</div>
-
-							
 						</div>
 					</DesktopBreakpoint>
 					<TabletBreakpoint>
@@ -95,32 +116,7 @@ class Toppage_second extends Component {
 
 					</TabletBreakpoint>
 					<PhoneBreakpoint>
-						
-						
-						<div className={style.picon}>
-							<ScrollAnimation animateIn="fadeInUp"
-								animateOnce={true}>
-								<i className="huge edit icon" ></i>
-								<p className = {style.icon_text}>{Funcs.getTexts().step1}</p>	
-							</ScrollAnimation>				
-						</div>
-						<br></br>
-						<div className={style.picon2}>
-							<ScrollAnimation animateIn="fadeInUp"
-								animateOnce={true}>
-								<i className="huge gift outline icon"></i>
-								<p className = {style.icon_text}>{Funcs.getTexts().step2}</p>
-							</ScrollAnimation>
-						</div>
-						<br></br>
-						<div className={style.picon3}>
-							<ScrollAnimation animateIn="fadeInUp"
-								animateOnce={true}>
-								<i className="huge twitter icon"></i>
-								<p className = {style.icon_text}>{Funcs.getTexts().step3}</p>
-							</ScrollAnimation>
-						</div>
-						
+						{this.renderIcons()}
 					</PhoneBreakpoint>
 
 
