@@ -48,7 +48,7 @@ class AdPage extends Component {
 				image = this.props.adObject.images[0]
 			}
 		}
-		return HelmetCreator(title , image)
+		return HelmetCreator(title , image , path)
 	}
 
 	onClickTweetButton() {

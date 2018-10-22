@@ -106,7 +106,7 @@ class IconBattle extends Component {
 		return (
 		<div>
 			<br/><br/>
-			{HelmetCreator("フォロワー数比較画像メーカー『アイコン惑星』" , this.state.image_url)}
+			{HelmetCreator("フォロワー数比較画像メーカー『アイコン惑星』" , this.state.image_url , "iconbattle")}
 			<div className={style.imageContainer}>
 				<Image
 					className={style.imageCenterize}
