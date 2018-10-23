@@ -3,6 +3,7 @@ import "./App.css"
 
 import TopPage from "./TopPage/TopPage"
 import AdPage from "../containers/AdPage/AdPage_new"
+import AllAd from "./AllAd/AllAd"
 import AdCreatePage from "../containers/AdCreatePage/AdCreatePage"
 import UserPage from "./UserPage/UserPage"
 import UserAdListPage from "./UserPage/UserAdListPage"
@@ -61,6 +62,7 @@ class App extends Component {
 					</div>
 					<div className="App-Component">
 						<Route exact={true} path="/" component={TopPage}/>
+						<Route exact={true} path="/all_ad" component={AllAd}/>
 						<Route path="/ad_page/:id_user/:id_ad" component={AdPage}/>
 						<Route exact path="/ad_page/:id_user/" component={UserAdListPage}/>
 						<Route path="/ad_create" component={AdCreatePage}/>
