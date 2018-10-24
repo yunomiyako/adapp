@@ -20,8 +20,8 @@ class AllAd extends Component {
 			retweet:[],
 			follow:[],
 			fav:[],
-			lookMe:[]
-			,
+			lookMe:[],
+			
 			
 			
 			focused_ad_list : []
