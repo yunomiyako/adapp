@@ -42,7 +42,7 @@ class AllAd extends Component {
 		})
 
 		const ad_lists = this.state.ad_lists
-		ad_lists[adType] = ad_listWithImage
+		ad_lists[adType] = ad_listWithImage //キャッシュしておく
 		this.setState(
 			{
 				ad_lists : ad_lists , 
@@ -106,6 +106,7 @@ class AllAd extends Component {
 		const key = type.string
 		const ad_list = this.state.ad_lists[key]
 		if(ad_list){
+			//キャッシュがあればそれを使う
 			this.setState({
 				focused_ad_list : ad_list
 			})
