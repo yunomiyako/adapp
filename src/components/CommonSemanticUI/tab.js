@@ -1,26 +1,16 @@
 import React , {Component}  from "react"
 import { Tab } from "semantic-ui-react"
-import AdTypeEnum from "../../domain/enum/AdTypeEnum"
 import FeedView from "../CommonSemanticUI/FeedView"
 import style from "../AllAd/AllAd.css"
-import FeedViewPlaceHolder from "../CommonSemanticUI/FeedViewPlaceHolder"
 
 class TabComponent extends Component {
 
 	onChangeTab(tabNum){
-		
 		this.props.onChangeTab(tabNum)
-
 	}
 
 	getFeedView(){
-
-		
-
 		if(this.props.focused_ad_list.length > 0) {
-		
-			
-				
 			return this.props.focused_ad_list.map((ad) => {
 				const link = "ad_page/" + ad.id_user + "/" + ad.id_ad
 				const adObject = ad
@@ -37,19 +27,11 @@ class TabComponent extends Component {
 		
 	}
 
-	createpanes(){
-		const adTypeList = AdTypeEnum.getEnums()
-
-		const panes = adTypeList.map( data => {
-			return ({menuItem: data.short_title , render : () => 
+	createpanes(columns){
+		const panes = columns.map( column => {
+			return ({menuItem: column , render : () => 
 				<Tab.Pane>
-				
 					{this.getFeedView()}
-					{//FeedViewPlaceHolder()
-					}
-					{//FeedViewPlaceHolder()
-					}
-
 				</Tab.Pane>})
 		})
 		
@@ -60,7 +42,10 @@ class TabComponent extends Component {
 	render() {
 		
 		return (
-			<Tab panes={this.createpanes()} onTabChange ={(e, data) => this.onChangeTab(data.activeIndex)} />
+			<Tab 
+				menu={{ fluid: true, vertical: true, tabular: true }} 
+				panes={this.createpanes(this.props.columns)} 
+				onTabChange ={(e, data) => this.onChangeTab(data.activeIndex)} />
 				
 		)
 	}
