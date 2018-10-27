@@ -40,7 +40,7 @@ class StatsComponent extends Component {
 								</Statistic>
 								<Statistic>
 									<Statistic.Label>平均評価</Statistic.Label>
-									<Statistic.Value>{this.props.rating}</Statistic.Value>
+									<Statistic.Value>{this.props.rating.toFixed(1)}</Statistic.Value>
 									<Statistic.Label>点</Statistic.Label>
 								</Statistic>
 							</Statistic.Group>

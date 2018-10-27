@@ -14,8 +14,6 @@ export default function() {
 	}
 
 	return AuthentificatedCallWrapper(apiName , path , init , "post").then((res) => {
-		console.log("refreshUserDetail then")
-		console.log(res)
 		const body = res.data
 		const result = {
 			screen_name : body.screen_name,

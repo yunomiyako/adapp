@@ -1,5 +1,6 @@
 import { call, put , takeLatest } from "redux-saga/effects"
-
+import { showSnack } from "react-redux-snackbar"
+ 
 //import Action
 import {ON_SUBMIT_ADCREATE, ON_FETCH_TWEET_DETAIL, 
 	ON_CHANGE_TWEET_OBJECT, ON_CHANGE_TWEET_OBJECT_LOADING, 
@@ -34,7 +35,6 @@ import getTweetIdFromUrl from "../Utils/getTweetIdFromUrl"
 function *onSubmitAdCreate(action) {
 	try {
 		const result = yield call(submitAdCreateInfo , action.payload)
-		console.log(result)
 		action.callback(result)
 		//yield put({type : ON_SUCCESS_SUBMIT_ADCREATE , callback:callback})
 	} catch (e) {
@@ -86,8 +86,16 @@ function *onSendAction(action) {
 	try {
 		yield put ({type : ON_CHANGE_ACTION_LOADING , is_loading:true})
 		const response = yield call(receiveReturn , action.payload.id_user , action.payload.id_ad)
-		console.log(response)
-		if(!response.id_return) {console.log("id_returnが帰って来てない！")}
+		
+		if(!action.payload.hasReceived) {
+			const label = AdTypeEnum.getByName(action.payload.adType).short_title + "をしました！"
+			yield put (showSnack("myUniqueId", {
+				label: label,
+				timeout: 10000,
+				button: { label: "OK, GOT IT" }
+			}))
+		}
+
 		//yield put({type : ACTION_SUCCESS , response})
 		yield put({type : ON_CHANGE_ID_RETURN_TO_GO , id_return_to_go : response.id_return})
 	}catch(e) {
@@ -117,7 +125,6 @@ function *onFetchReturnData(action) {
 		yield put({type : ON_UPDATE_RETURN_OBJECT , returnObject : result.returnObject})
 		yield put({type : ON_UPDATE_RETURN_TYPE , returnType : result.returnType})
 	} catch (e) {
-		console.log("sagaで失敗取得")
 		yield put({type : ON_FAIL_FETCH_RETURN , errorMessage : "取得に失敗しました" })
 	}
 }
@@ -126,7 +133,6 @@ function *onGetAdList(action) {
 	try {
 		yield put({type : SET_LOADING , loading : true})
 		const ad_list = yield call(fetchAdList , {"id_user" : action.id_user})
-		console.log(ad_list)
 		yield put({type : SET_AD_LIST , ad_list : ad_list})
 		yield put({type : SET_LOADING , loading : false})
 	}catch(e) {
@@ -137,7 +143,6 @@ function *onGetAdList(action) {
 function *onGetReturnList() {
 	try {
 		var return_list = yield call(fetchReturnList)
-		console.log(return_list)
 		return_list = return_list.map((rt) => {
 			rt.title = rt.returnDescription
 			rt.link = "/return_page/" + rt.id_return
@@ -175,8 +180,6 @@ function *onGetAdListTopPage() {
 function *onFetchTweetDetail(action) {
 	try {
 		yield put({type :ON_CHANGE_TWEET_OBJECT_LOADING  , loading : true})
-		console.log(action)
-		console.log("id_tweet" , action.id_tweet)
 		const tweetObject = yield call(fetchTweetDetail , action.id_tweet)
 		yield put({type : ON_CHANGE_TWEET_OBJECT , tweetObject : tweetObject})
 		yield put({type : ON_CHANGE_AD_OBJECT_TEXT , text : tweetObject.text})

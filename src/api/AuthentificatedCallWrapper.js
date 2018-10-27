@@ -3,8 +3,6 @@ import authetification from "../aws/authentification"
 
 export default function wrapper(apiName , path , init , methodType ){
 	return Auth.currentAuthenticatedUser().then(user => {
-		console.log(user)
-		console.log("ikuzo")
 		const myInit = { 
 			response: true ,
 			headers : {Authorization : user.signInUserSession.idToken.jwtToken},
@@ -21,22 +19,21 @@ export default function wrapper(apiName , path , init , methodType ){
 			})
 		}
 	}).catch((e) => {
-		console.log(e)
 		if(e === "No current user") {
-			console.log("失敗1")
-			const callback = () => (console.log("re authen"))
+			console.log("No current user")
+			const callback = () => (console.log(""))
 			return authetification(callback).then(() => {
 				return wrapper(apiName , path , init , methodType)
 			})
 		} else if(e.message === "User is not authenticated") {
-			console.log("失敗2")
-			const callback = () => (console.log("re authen2"))
+			console.log("User is not authenticated")
+			const callback = () => (console.log(""))
 			return authetification(callback).then(() => {
 				return wrapper(apiName , path , init , methodType)
 			})
 		} else if (e.message === "not authenticated") {
-			console.log("失敗3")
-			const callback = () => (console.log("re authen2"))
+			console.log("not authenticated")
+			const callback = () => (console.log(""))
 			return authetification(callback).then(() => {
 				return wrapper(apiName , path , init , methodType)
 			})

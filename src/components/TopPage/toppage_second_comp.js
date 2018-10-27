@@ -1,9 +1,6 @@
 import React , {Component}  from "react"
 import style from "./toppage_second_css.css"
 import {Funcs} from "./funcs"
-import DesktopBreakpoint from "../responsive_utilities/desktop_breakpoint"
-import TabletBreakpoint from "../responsive_utilities/tablet_breakpoint"
-import PhoneBreakpoint from "../responsive_utilities/phone_breakpoint"
 import "animate.css/animate.min.css"
 import ScrollAnimation from "react-animate-on-scroll"
 
@@ -11,9 +8,9 @@ class Toppage_second extends Component {
 
 	renderIcons() {
 		const icons = [
-			{icon : "huge edit icon" , text : Funcs.getTexts().step1},
-			{icon : "huge gift icon" , text : Funcs.getTexts().step2},
-			{icon : "huge twitter icon" , text : Funcs.getTexts().step3}
+			{icon : "massive edit icon" , text : Funcs.getTexts().step1},
+			{icon : "massive gift icon" , text : Funcs.getTexts().step2},
+			{icon : "massive twitter icon" , text : Funcs.getTexts().step3}
 		]
 		const iconViews = icons.map(i => {
 			return (
@@ -52,72 +49,20 @@ class Toppage_second extends Component {
 						</ScrollAnimation>
 						<ScrollAnimation animateIn="fadeInRight"
 							animateOnce={true}>
+							<p>・宣伝してくれる人全員にお返しを上げることで<font color="#CD5C5C">SNSに広めてもらう</font>タイプの宣伝</p> 
+							<br></br>
+						</ScrollAnimation>
+						<ScrollAnimation animateIn="fadeInRight"
+							animateOnce={true}>
 							<p>・プラットフォームにお金を払って広めてもらう従来型の広告とは<font color="#CD5C5C">異なった宣伝方法を提供</font></p>
 							<br></br>
 						</ScrollAnimation>
 						<ScrollAnimation animateIn="fadeInRight"
 							animateOnce={true}>
-						
-							<p>・宣伝してくれる人全員にお返しを上げることで<font color="#CD5C5C">SNSに広めてもらう</font>タイプの宣伝</p> 
+							<p>・言葉で説明するのは難しいので、ぜひ使ってみてください🙂</p>
 						</ScrollAnimation>
 					</h3>
-					<DesktopBreakpoint>
-						<div className={style.icons}>
-							<div className={style.icon}>
-								<ScrollAnimation animateIn="fadeInUp"
-									animateOnce={true}>
-									<i className="massive edit icon" ></i>
-									<p className = {style.icon_text}>{Funcs.getTexts().step1}</p>	
-								</ScrollAnimation>				
-							</div>
-							<div className={style.icon2}>
-								<ScrollAnimation animateIn="fadeInUp"
-									animateOnce={true}>
-									<i className="massive gift icon"></i>
-									<p className = {style.icon_text}>{Funcs.getTexts().step2}</p>
-								</ScrollAnimation>
-							</div>
-							<div className={style.icon3}>
-								<ScrollAnimation animateIn="fadeInUp"
-									animateOnce={true}>
-									<i className="massive twitter icon"></i>
-									<p className = {style.icon_text}>{Funcs.getTexts().step3}</p>
-								</ScrollAnimation>
-							</div>
-						</div>
-					</DesktopBreakpoint>
-					<TabletBreakpoint>
-						<div className={style.icons}>
-						
-							<div className={style.icon}>
-								<ScrollAnimation animateIn="fadeInUp"
-									animateOnce={true}>
-									<i className="massive edit icon" ></i>
-									<p className = {style.icon_text} >{Funcs.getTexts().step1}</p>	
-								</ScrollAnimation>				
-							</div>
-							<div className={style.icon2}>
-								<ScrollAnimation animateIn="fadeInUp"
-									animateOnce={true}>
-									<i className="massive gift icon"></i>
-									<p className = {style.icon_text}>{Funcs.getTexts().step2}</p>
-								</ScrollAnimation>
-							</div>
-							<div className={style.icon3}>
-								<ScrollAnimation animateIn="fadeInUp"
-									animateOnce={true}>
-									<i className="massive twitter icon"></i>
-									<p className = {style.icon_text}>{Funcs.getTexts().step3}</p>
-								</ScrollAnimation>
-							</div>
-
-						
-						</div>
-
-					</TabletBreakpoint>
-					<PhoneBreakpoint>
-						{this.renderIcons()}
-					</PhoneBreakpoint>
+					{this.renderIcons()}
 
 
 

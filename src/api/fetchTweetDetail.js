@@ -13,8 +13,6 @@ export default function(id_tweet) {
 	}
 
 	return AuthentificatedCallWrapper(apiName , path , init , "get").then((res) => {
-		console.log("fetchTweetDetail then")
-		console.log(res)
 		const body = res.data
 
 		const data = {

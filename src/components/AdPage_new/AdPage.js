@@ -54,7 +54,7 @@ class AdPage extends Component {
 	onClickTweetButton() {
 		const id_ad = this.props.match.params.id_ad
 		const id_user = this.props.match.params.id_user
-		const text = "こんな宣伝があったよ！%0AadAppを通してactionをしてくれたらお返しがあります。%0A%0A"
+		const text = "宣伝【" + this.props.title + "】があったよ！%0AadApp(あどあっぷ)を通してactionをしてくれたらお返しがあります。%0A%0A"
 		const url = createTweetUrl(id_user , id_ad , this.props.adType , text)
 		window.open(url);
 	}
@@ -66,14 +66,15 @@ class AdPage extends Component {
 		if(user_detail.id_user === id_user) {
 			//作成者と見ている人のid_userが同じ場合
 			//このページをツイートする
-			const text = "こんな宣伝を作ったよ！%0AadAppを通してactionをしてくれたらお返しがあります。%0A%0A"
+			const text = "宣伝【" + this.props.title + "】を作ったよ！%0AadApp(あどあっぷ)を通してactionをしてくれたらお返しがあります。%0A%0A"
 			const url = createTweetUrl(id_user , id_ad , this.props.adType , text)
 			window.open(url);
 		} else {
 			if(loginCheck() || this.props.adType === "lookMe") {
 				const id_user = this.props.match.params.id_user
 				const id_ad = this.props.match.params.id_ad
-				const payload = {"id_user" : id_user , "id_ad" : id_ad}
+				const payload = {"id_user" : id_user , "id_ad" : id_ad 
+				, "adType" : this.props.adType , "hasReceived" : this.props.hasReceived}
 				this.props.onClickActionButton(payload)
 			} else {
 				const path = this.props.location.pathname

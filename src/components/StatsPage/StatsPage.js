@@ -30,7 +30,6 @@ class StatsPage extends Component {
 		this.setState({loading : true})
 		const body = await fetchAdDetail(id_ad)
 		this.setState({loading : false})
-		console.log(body)
 		this.setState(
 			{
 				ad_count : body.ad_count , 

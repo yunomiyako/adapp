@@ -27,21 +27,7 @@ class AdImageUploaderModal extends React.Component {
 		return false
 	}
 
-	componentDidUpdate(prevProps){
-		const name =
-			this.constructor.displayName || this.constructor.name || "Component"
-		console.group(name)
-		Object.keys(prevProps).forEach(key => {
-			if (prevProps[key] !== this.props[key]) {
-				console.log(
-					`property ${key} changed from ${prevProps[key]} to ${
-						this.props[key]
-					}`
-				)
-			}
-		})
-		console.groupEnd(name)
-	}
+
 
 	constructor(props) {
 		super(props)
@@ -82,7 +68,6 @@ class AdImageUploaderModal extends React.Component {
 
 		//超過したもののみを変化
 		var containers = uploader.getElementsByClassName("uploadPicture")
-		console.log(containers.length)
 		for(var i = 0 ; i < containers.length ; i++) {
 			if(i >= this.maxNum) {
 				containers[i].classList.add("invalidImage")
@@ -109,7 +94,6 @@ class AdImageUploaderModal extends React.Component {
 		const id_user = get_id_user()
 		Promise.all(imageUploadUserWithRandomName(this.state.pictures , id_user)).then((values) => {
 			const keys = values.map(v => v.key)
-			console.log(keys)
 			this.props.onChangePictures(keys)
 			this.props.onClickOk(keys)
 			this.setState({loading : false})

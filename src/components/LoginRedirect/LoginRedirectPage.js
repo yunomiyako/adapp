@@ -24,9 +24,11 @@ class App extends Component {
 	}
 
 	async getToken() {
+        if(QueryString.denied) {
+            window.location.href = "/"
+        }
         //リダイレクト先をあらかじめセットしておく
         const path = get_redirect_to() || "/"
-        console.log("path : " + path)
         this.setState({
             redirecTo : path
         })
@@ -50,7 +52,6 @@ class App extends Component {
 
         //userdetailを更新する
         const user_detail = await RefreshUserDetail()
-        console.log(user_detail)
         
         this.setState(
             {redirect : true}
@@ -60,7 +61,6 @@ class App extends Component {
 
 
 	render() {
-        console.log("redirectTo = " + this.state.redirectTo)
         if(this.state.redirect) {
             return redirectTo(this.state.redirecTo)
         }

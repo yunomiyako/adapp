@@ -24,7 +24,7 @@ class Header extends Component {
 
 		const link2 = new ContentLink("宣伝作成" , "/ad_create" , undefined)
 		const link5 = new ContentLink("ユーザページ" , "/userpage" , icon_url )
-		const contentLink = [link2 , link5]
+		const contentLink = [ link5]
 
 		return (contentLink.map(link => {
 			return (
@@ -44,7 +44,7 @@ class Header extends Component {
 						<div className="ui container">
 							<Link push to="/" className="header item">
 								<Icon name="bullhorn" color="orange"></Icon>
-								Ad App
+								adApp(あどあっぷ)
 							</Link>
 							{this.renderLink()}
 						</div>

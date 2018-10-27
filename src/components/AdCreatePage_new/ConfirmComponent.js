@@ -38,22 +38,6 @@ class ConfirmComponent extends Component {
 	}
 
 
-	componentDidUpdate(prevProps){
-		const name =
-			this.constructor.displayName || this.constructor.name || "Component"
-		console.group(name)
-		Object.keys(prevProps).forEach(key => {
-			if (prevProps[key] !== this.props[key]) {
-				console.log(
-					`property ${key} changed from ${prevProps[key]} to ${
-						this.props[key]
-					}`
-				)
-			}
-		})
-		console.groupEnd(name)
-	}
-
 	getReturnTypeTitle() {
 		const value =ReturnTypeEnum.getByName(this.props.returnType)
 		return value.title
@@ -87,7 +71,6 @@ class ConfirmComponent extends Component {
 		//送信処理
 		const callback = (response) => {
 			if(response.status === "OK") {
-				console.log("ok")
 				this.setState({loading : false})
 				this.setState({id_ad : response.id_ad})
 				this.setState({id_user : response.id_user})

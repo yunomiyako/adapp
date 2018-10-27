@@ -17,7 +17,6 @@ class UserPage extends Component {
 		if(loginCheck()) {
 			const user_detail = get_userdetail()
 			const id_user = get_id_user()
-			console.log(user_detail)
 			return (
 				<div className={style.UserPage}>
 					<div className={style.UserPageContainer}>

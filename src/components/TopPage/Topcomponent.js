@@ -22,6 +22,10 @@ class Top_Component extends Component {
 		)
 		Funcs.onClicktest()
 	}
+
+	onClickUseWithoutRegister() {
+		this.props.onClickUseWithoutRegister()
+	}
 	
   
 	render() {
@@ -66,13 +70,19 @@ class Top_Component extends Component {
 					
 						<div className= {style.login_button}>
 							<DesktopBreakpoint>
-								<Button color='black'size='massive'>{Funcs.getTexts().button_text}</Button >
+								<Button 
+									onClick = {() => this.onClickUseWithoutRegister()}
+									color='black'size='massive'>{Funcs.getTexts().button_text}</Button >
 							</DesktopBreakpoint>
 							<TabletBreakpoint>
-								<Button color='black'size='huge'>{Funcs.getTexts().button_text}</Button >
+								<Button 
+									onClick = {() => this.onClickUseWithoutRegister()}
+									color='black'size='huge'>{Funcs.getTexts().button_text}</Button >
 							</TabletBreakpoint>
 							<PhoneBreakpoint>
-								<Button color='black'size='mini'>{Funcs.getTexts().button_text}</Button >
+								<Button 
+									onClick = {() => this.onClickUseWithoutRegister()}
+									color='black'size='mini'>{Funcs.getTexts().button_text}</Button >
 							</PhoneBreakpoint>
 						</div>
 					

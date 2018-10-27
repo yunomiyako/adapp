@@ -4,11 +4,53 @@ import FeedView from "../CommonSemanticUI/FeedView"
 import DesktopBreakpoint from "../responsive_utilities/desktop_breakpoint"
 import TabletBreakpoint from "../responsive_utilities/tablet_breakpoint"
 import PhoneBreakpoint from "../responsive_utilities/phone_breakpoint"
-import {Funcs} from "./funcs"
 import "animate.css/animate.min.css"
 import ScrollAnimation from "react-animate-on-scroll"
-class ToppageShowExample extends Component {
+import AdTypeEnum from "../../domain/enum/AdTypeEnum"
 
+class ToppageShowExample extends Component {
+	renderDeskTop(index1 , index2) {
+		const use_datas = [
+			this.props.exampleAds[index1] , 
+			this.props.exampleAds[index2]
+		]
+		const FeedViewClassNames = [
+			style.FeedView1 , 
+			style.FeedView2
+		]
+
+		const TextClassNames = [
+			style.text_tweet , 
+			style.text_follow
+		]
+
+		const childViews = use_datas.map((d , index) => {
+			const mainText = AdTypeEnum.getByName(d.adType).mainText
+			const subText = AdTypeEnum.getByName(d.adType).subText
+			return (
+				<React.Fragment>
+					<div  className={FeedViewClassNames[index]}>
+						<ScrollAnimation animateIn="fadeInUp"
+							animateOnce={true}>
+							{FeedView("ad_page/" + d.id_user + "/" + d.id_ad , d , d.url)}
+						</ScrollAnimation>
+					</div>
+					<div  className={TextClassNames[index]}>
+						<ScrollAnimation animateIn="fadeIn"
+							animateOnce={true}>
+							<p  className={style.white_text + " " + style.mainText}>{mainText}</p>
+							<p  className={style.white_text + " " + style.subText}>{subText}</p>
+						</ScrollAnimation>
+					</div>
+				</React.Fragment>
+			)
+		})
+		return (
+			<div className={style.Toppage_show_example}>
+				{childViews}
+			</div>
+		)
+	}
 
 	renderTablet(index1 , index2) {
 		const use_datas = [
@@ -17,6 +59,9 @@ class ToppageShowExample extends Component {
 		]
 
 		const childViews = use_datas.map(d => {
+			const mainText = AdTypeEnum.getByName(d.adType).mainText
+			const subText = AdTypeEnum.getByName(d.adType).subText
+			
 			return (
 				<div className={style.ExampleGroupVertical}>
 					<div  className={style.FeedView1_t}>
@@ -28,8 +73,8 @@ class ToppageShowExample extends Component {
 					<div  className={style.text_tweet_t}>
 						<ScrollAnimation animateIn="fadeIn"
 							animateOnce={true}>
-							<p  className={style.white_text + " " + style.mainText}>{Funcs.getTexts().extweet}</p>
-							<p  className={style.white_text + " " + style.subText}>{Funcs.getTexts().extweetsub}</p>
+							<p  className={style.white_text + " " + style.mainText}>{mainText}</p>
+							<p  className={style.white_text + " " + style.subText}>{subText}</p>
 						</ScrollAnimation>
 					</div>
 				</div>
@@ -98,41 +143,7 @@ class ToppageShowExample extends Component {
 			return (
 				<div className={style.Toppage_show_example_wrapper}>
 					<DesktopBreakpoint>
-						<div className={style.Toppage_show_example}>
-
-                
-							<div  className={style.FeedView1}>
-								<ScrollAnimation animateIn="fadeInUp"
-									animateOnce={true}>
-									{FeedView("ad_page/" + this.props.exampleAds[1].id_user + "/" + this.props.exampleAds[1].id_ad , this.props.exampleAds[1]  , this.props.exampleAds[1].url)}
-								</ScrollAnimation>
-							</div>
-							<div  className={style.text_tweet}>
-								<ScrollAnimation animateIn="fadeIn"
-									animateOnce={true}>
-									<p><font color="#000000">{Funcs.getTexts().exretweet}</font></p>
-                 
-									<p><font size="6" color="#000000">{Funcs.getTexts().exretweetsub}</font></p>
-								</ScrollAnimation>
-							</div>
-
-							<div  className={style.FeedView2}>
-								<ScrollAnimation animateIn="fadeInUp"
-									animateOnce={true}>
-									{FeedView("ad_page/" + this.props.exampleAds[3].id_user + "/" + this.props.exampleAds[3].id_ad , this.props.exampleAds[3]  , this.props.exampleAds[3].url)}
-								</ScrollAnimation>
-							</div>
-
-							<div  className={style.text_follow}>
-								<ScrollAnimation animateIn="fadeIn"
-									animateOnce={true}>
-									<p><font color="#000000">{Funcs.getTexts().exlook}</font></p>
-                 
-									<p><font size="6" color="#000000">{Funcs.getTexts().exlooksub}</font></p>
-								</ScrollAnimation>
-							</div>
-               
-						</div>
+						{this.renderDeskTop(1 , 3)}
 					</DesktopBreakpoint>
             
 					<TabletBreakpoint>

@@ -35,7 +35,6 @@ class FourImageUploader extends Component {
 
 			//TODO : もうちょっとまともなやり方
 			const f_generator = (i) => () => {
-				window.console.log(i)
 				//var state = dotProp.set(this.state, "imagePreviewUrl.${i}", reader.result)
 				var state = {...this.state,
 					imagePreviewUrl: [

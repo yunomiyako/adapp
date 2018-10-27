@@ -9,10 +9,7 @@ export default function(payload) {
 	}
 	return AuthentificatedCallWrapper(apiName , path , init , "get").then((res) => {
 		const body = res.data
-		console.log("fetchReturn result")
-		console.log(body)
 		const result = new ReturnPageDataStructure(body)
-		console.log(result)
 		result.status = "OK"
 		return result
 	})

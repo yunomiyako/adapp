@@ -1,15 +1,20 @@
 import AuthentificatedCallWrapper from "./AuthentificatedCallWrapper"
 
-export default function(id_return , rating) {
+export default function(text) {
 	const apiName = "adApp"
-	const path = "/return/rate"
-
+	const path = "/inquiry"
 	const init = { 
-		body: {"id_return" : id_return , "rating" : rating}
+		body: {
+			text : text
+		}
 	}
 
 	return AuthentificatedCallWrapper(apiName , path , init , "post").then((res) => {
 		const body = res.data
-		return body
+		const result = {}
+		result.status = "OK"
+		result.id_ad = body.id_ad
+		result.id_user = body.id_user
+		return result
 	})
 }

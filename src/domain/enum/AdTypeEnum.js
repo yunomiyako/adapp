@@ -10,7 +10,9 @@ export default defineEnum({
 		disabled : false , 
 		short_title : "ツイート" , 
 		has_tweet_object : false ,
-		needLogin : true
+		needLogin : true , 
+		mainText : "ツイートしてもらおう" , 
+		subText : "他人にツイートしてもらう、そんなことadApp(あどあっぷ)以外じゃできない"
 	},
 	retweet : {
 		string : "retweet" , 
@@ -21,7 +23,9 @@ export default defineEnum({
 		disabled : false, 
 		short_title : "リツイート" , 
 		has_tweet_object : true ,
-		needLogin : false
+		needLogin : false ,
+		mainText : "リツイートして欲しい！" , 
+		subText : "だってたくさんの人に見てほしいから"
 	},
 	follow : {
 		string : "follow" , 
@@ -32,7 +36,9 @@ export default defineEnum({
 		disabled : false,
 		short_title : "フォロー" , 
 		has_tweet_object : false, 
-		needLogin : true
+		needLogin : true,
+		mainText : "フォローして欲しい？" , 
+		subText : "フォロワー増やしたいよね"
 	} ,
 	fav : {
 		string : "fav" , 
@@ -43,7 +49,9 @@ export default defineEnum({
 		disabled : false,
 		short_title : "いいね" , 
 		has_tweet_object : true , 
-		needLogin : false
+		needLogin : false,
+		mainText : "いいねが欲しい？" , 
+		subText : "あなたのツイートがまるで人気のツイートのように"
 	},
 	lookMe : {
 		string : "lookMe" , 
@@ -54,6 +62,8 @@ export default defineEnum({
 		disabled : false,
 		short_title : "見るだけ" , 
 		has_tweet_object : false , 
-		needLogin : false
+		needLogin : false,
+		mainText : "見てほしい。。。" , 
+		subText : "ただ見てほしい、それだけでも"
 	}
 })

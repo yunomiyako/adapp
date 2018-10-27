@@ -1,0 +1,22 @@
+:local .Footer2 {
+    font-size: 10px;
+    margin-right: 50px;
+  }
+  
+  :local .Footerback {
+    background-color: rgb(1, 7, 12);
+    bottom:0;
+    height: 100px;
+    width: 100vw;
+  }
+
+  :local .imageContainer {
+    margin:0px; 
+    height : 400px; 
+    align-self : center
+  }
+
+  :local .imageCenterize {
+    display:block;
+    margin:auto;
+  }

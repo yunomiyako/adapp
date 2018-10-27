@@ -7,6 +7,7 @@ import loginCheck from "../../localStorage/loginCheck"
 import AfterLoginPage from "./AfterLoginPage"
 import fetchExampleAds from "../../api/fetchExampleAds"
 import getUrlsFromKeys from "../../api/getUrlsFromKeys"
+import InquiryForm from "./InquiryForm"
 import Footer from "../Footer/Footer"
 
 class TopPage extends Component {
@@ -52,8 +53,10 @@ class TopPage extends Component {
 			}
 
         )
+	}
 
-		
+	onClickUseWithoutRegister() {
+		this.props.history.push("/ad_create")
 	}
 
 	render() {
@@ -61,19 +64,25 @@ class TopPage extends Component {
 		if(!this.state.logined) {
 			return (
 				<div >
-					<TopComponent/>
+					<TopComponent
+					onClickUseWithoutRegister = {() => this.onClickUseWithoutRegister()}/>
 					<ToppageSecond/>
 					<TSCMerged exampleAds = {this.state.exampleAds} loading = {this.state.loading} reverse = {true}/>
 					<TSCMerged exampleAds = {this.state.exampleAds} loading = {this.state.loading} reverse = {false}/>
+					<InquiryForm/>
 					<Footer/>
 				</div>
 				
 			)
 		} else {
 			return (
-				<AfterLoginPage
-					history = {this.props.history}
-				/>
+				<div>
+					<AfterLoginPage
+						history = {this.props.history}
+					/>
+					<InquiryForm/>
+					<Footer/>
+				</div>
 			)
 		}
 	}

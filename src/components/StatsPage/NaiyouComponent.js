@@ -20,7 +20,6 @@ class NaiyouComponent extends Component {
 	renderUserList(items) {
 		//TODO : userdetailから修正
 		items = items.map(item => {
-			console.log(item.profile_image_url)
 			item.header = item.user_detail.name
 			item.content = ""
 			item.icon = item.user_detail.profile_image_url
