@@ -48,9 +48,17 @@ class ButtonMenuComponent extends Component {
 				color : "blue" , 
 				onClick : () => this.onClickRandomAd(), 
 				link : "/"
-			} , 
+			} ,
 			{
 				id : 3 , 
+				name : "宣伝一覧を見る" , 
+				color : "red" , 
+				onClick :() => null, 
+				link : "/all_ad"
+			} ,
+			
+			{
+				id : 4 , 
 				name : "ログアウト" , 
 				color : "black" , 
 				onClick : () => this.logout(), 
