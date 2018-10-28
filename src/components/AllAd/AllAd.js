@@ -14,7 +14,7 @@ class AllAd extends Component {
 		const keys = types.map(type => type.string)
 		const list = keys.reduce(
 			(o, type) => { 
-			  o[type] = 0;
+			  o[type] = 5;
 			  return o;
 		  }, {});
 
@@ -38,7 +38,7 @@ class AllAd extends Component {
 		console.log("get_adlist" + adType)
 
 		const ad_num = this.state.ad_num
-		ad_num[adType] = ad_num[adType] + 5
+		
 
 		const ad_list = await fetchAdListForAllAd(adType , ad_num[adType])
 		const headImages = ad_list.map(ad => {
@@ -130,8 +130,6 @@ class AllAd extends Component {
 		const columns = types.map(type => type.short_title)
 		const keys = types.map(type => type.string)
 		
-		console.log(this.state.focused_ad_list)
-
 		return (
 			<div className={style.AllAd}>
 
