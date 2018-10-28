@@ -16,12 +16,18 @@ class AllAd extends Component {
 			(o, type) => { 
 			  o[type] = 5;
 			  return o;
+		  }, {});		
+		const list2 = keys.reduce(
+			(o, type) => { 
+			  o[type] = true;
+			  return o;
 		  }, {});
 
 		this.state = {	
 			ad_lists : {},
 			ad_num : list,
-			focused_ad_list : []
+			focused_ad_list : [],
+			show_fluid:list2
 		}
 
 		
@@ -58,6 +64,7 @@ class AllAd extends Component {
 
 		const ad_lists = this.state.ad_lists
 		ad_lists[adType] = ad_listWithImage
+		
 		this.setState(
 			{
 				ad_lists : ad_lists , 
@@ -91,16 +98,23 @@ class AllAd extends Component {
 
 		const ad_lists = this.state.ad_lists
 		ad_lists[adType] = ad_lists[adType].concat(ad_listWithImage)
-		console.log(ad_lists)
+		
+		var show_fluid = this.state.show_fluid
+
+		if (ad_listWithImage.length < 5){
+
+			show_fluid[adType] = false
+
+		}
 
 		this.setState(
 			{
 				ad_lists : ad_lists,
 				ad_num : ad_num,
-				focused_ad_list : ad_lists[adType]
+				focused_ad_list : ad_lists[adType],
+				show_fluid : show_fluid
 			}
 		)
-		//console.log(this.state.ad_lists[adType])
 	}
 
 	onChangeTab(tabNum){
@@ -140,6 +154,7 @@ class AllAd extends Component {
 					onChangeTab = {(tabNum) => this.onChangeTab(tabNum)}
 					focused_ad_list = {this.state.focused_ad_list}
 					onClickFluid = {(key) => this.onClickFluid(key)}
+					show_fluid = {this.state.show_fluid}
 				/>
 
 			</div>

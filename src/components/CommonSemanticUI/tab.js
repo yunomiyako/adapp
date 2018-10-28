@@ -37,7 +37,12 @@ class TabComponent extends Component {
 			return ({menuItem: column , render : () => 
 				<Tab.Pane>
 					{this.getFeedView()}
-					<Button fluid onClick={() => this.onClickFluid(keys[index])} >次の５件</Button>
+					{(() => {
+						if (this.props.show_fluid[keys[index]])
+						
+							return	<Button fluid onClick={() => this.onClickFluid(keys[index])} >次の５件</Button>
+
+					})()}
 				</Tab.Pane>})
 			
 		})
