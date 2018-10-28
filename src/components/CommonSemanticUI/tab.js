@@ -1,12 +1,17 @@
 import React , {Component}  from "react"
 import { Tab } from "semantic-ui-react"
 import FeedView from "../CommonSemanticUI/FeedView"
+import { Button } from "semantic-ui-react"
 import style from "../AllAd/AllAd.css"
 
 class TabComponent extends Component {
 
 	onChangeTab(tabNum){
 		this.props.onChangeTab(tabNum)
+	}
+
+	onClickFluid(key){
+		this.props.onClickFluid(key)
 	}
 
 	getFeedView(){
@@ -27,12 +32,14 @@ class TabComponent extends Component {
 		
 	}
 
-	createpanes(columns){
-		const panes = columns.map( column => {
+	createpanes(columns,keys){
+		const panes = columns.map( (column,index) => {
 			return ({menuItem: column , render : () => 
 				<Tab.Pane>
 					{this.getFeedView()}
+					<Button fluid onClick={() => this.onClickFluid(keys[index])} >次の５件</Button>
 				</Tab.Pane>})
+			
 		})
 		
 		return panes
@@ -44,7 +51,7 @@ class TabComponent extends Component {
 		return (
 			<Tab 
 				menu={{ fluid: true, vertical: true, tabular: true }} 
-				panes={this.createpanes(this.props.columns)} 
+				panes={this.createpanes(this.props.columns,this.props.keys)} 
 				onTabChange ={(e, data) => this.onChangeTab(data.activeIndex)} />
 				
 		)

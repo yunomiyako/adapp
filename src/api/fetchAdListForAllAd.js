@@ -1,10 +1,13 @@
 import AuthentificatedCallWrapper from "./AuthentificatedCallWrapper"
 
-export default function(payload) {
+export default function(adType,limit) {
 	const apiName = "adApp"
 	const path = "/addata/list/allad"
 	const init = { 
-		queryStringParameters: {adType : payload}
+		queryStringParameters: {	
+			adType : adType,
+			limit : limit					
+		}
 	}
 
 	return AuthentificatedCallWrapper(apiName , path , init , "get").then((res) => {

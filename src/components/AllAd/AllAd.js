@@ -10,8 +10,17 @@ class AllAd extends Component {
 
 	constructor(props) {
 		super(props)
+		const types = AdTypeEnum.getEnums()
+		const keys = types.map(type => type.string)
+		const list = keys.reduce(
+			(o, type) => { 
+			  o[type] = 0;
+			  return o;
+		  }, {});
+
 		this.state = {	
 			ad_lists : {},
+			ad_num : list,
 			focused_ad_list : []
 		}
 
@@ -26,7 +35,11 @@ class AllAd extends Component {
 
 
 	async get_adlist(adType) {
-		const ad_list = await fetchAdListForAllAd(adType)
+
+		const ad_num = this.state.ad_num
+		ad_num[adType] = ad_num[adType] + 5
+
+		const ad_list = await fetchAdListForAllAd(adType,ad_num[adType])
 		const headImages = ad_list.map(ad => {
 			if(ad.adObject) {
 				if(ad.adObject.images) {
@@ -46,58 +59,46 @@ class AllAd extends Component {
 		this.setState(
 			{
 				ad_lists : ad_lists , 
+				ad_num : ad_num,
 				focused_ad_list : ad_listWithImage
 			}
 		)
-		
-		// if (adType == "tweet"){
-		// 	this.setState(
-		// 		{
-		// 			tweet: ad_listWithImage,
-		// 			focused_ad_list: ad_listWithImage
-					
-		// 		}
-	
-		// 	)
-
-		// }else if(adType == "retweet"){
-
-		// 	this.setState(
-		// 		{
-		// 			retweet: ad_listWithImage,
-		// 			focused_ad_list: ad_listWithImage		
-		// 		}
-	
-		// 	)
-		// }else if(adType == "follow"){
-
-		// 	this.setState(
-		// 		{
-		// 			follow: ad_listWithImage,
-		// 			focused_ad_list: ad_listWithImage		
-		// 		}
-	
-		// 	)
-		// }else if(adType == "fav"){
-
-		// 	this.setState(
-		// 		{
-		// 			fav: ad_listWithImage,
-		// 			focused_ad_list: ad_listWithImage		
-		// 		}
-	
-		// 	)
-		// }else if(adType == "lookMe"){
-
-		// 	this.setState(
-		// 		{
-		// 			looKMe: ad_listWithImage,
-		// 			focused_ad_list: ad_listWithImage		
-		// 		}
-	
-		// 	)
-		// }
+		//console.log(this.state.ad_lists[adType])
         
+	}
+
+	async　addAdlist(adType){
+		
+		const ad_num = this.state.ad_num
+		ad_num[adType] = ad_num[adType] + 5
+		
+		const ad_list = await fetchAdListForAllAd(adType,ad_num[adType])
+		const headImages = ad_list.map(ad => {
+			if(ad.adObject) {
+				if(ad.adObject.images) {
+					return ad.adObject.images[0]
+				}
+			}
+			return undefined
+		})
+		const urls = await getUrlsFromKeys(headImages)
+		const ad_listWithImage = ad_list.map( (ad , index) => {
+			ad.url = urls[index]
+			return ad
+		})
+
+		const ad_lists = this.state.ad_lists
+		ad_lists[adType] = ad_lists[adType].concat(ad_listWithImage)
+		console.log(ad_lists)
+
+		this.setState(
+			{
+				ad_lists : ad_lists,
+				ad_num : ad_num,
+				focused_ad_list : ad_lists[adType]
+			}
+		)
+		//console.log(this.state.ad_lists[adType])
 	}
 
 	onChangeTab(tabNum){
@@ -105,84 +106,38 @@ class AllAd extends Component {
 		const type = AdTypeEnum.getEnums()[tabNum]
 		const key = type.string
 		const ad_list = this.state.ad_lists[key]
+		//console.log(ad_list)
+
 		if(ad_list){
 			this.setState({
 				focused_ad_list : ad_list
-			})
+			})	
+			//console.log(this.state.focused_ad_list)
 		} else {
 			this.get_adlist(key)
 		}
+	}
 
+	onClickFluid(key){
 
-		//console.log(tabNum)
-		// if (tabNum == 0){
-		// 	if(this.state.tweet.length > 0){
-		// 		this.setState(
-		// 			{
-		// 				focused_ad_list: this.state.tweet			
-		// 			})
-		// 	}else{
-		// 		this.get_adlist("tweet")
-		// 	}
-		// }else if(tabNum == 1){
-		// 	if(this.state.retweet.length > 0){
-		// 		this.setState(
-		// 			{
-		// 				focused_ad_list: this.state.retweet
-		// 			})
-		// 	}else{
-		// 		this.get_adlist("retweet")
-		// 	}
-		// }else if(tabNum == 2){
-
-		// 	if(this.state.follow.length > 0){
-
-				
-		// 		this.setState(
-		// 			{
-		// 				focused_ad_list: this.state.follow
-							
-		// 			})
-		// 	}else{
-		// 		this.get_adlist("follow")
-		// 	}
-		// }else if(tabNum == 3){
-
-		// 	if(this.state.fav.length > 0){
-		// 		this.setState(
-		// 			{
-		// 				focused_ad_list: this.state.fav
-							
-		// 			})
-		// 	}else{
-		// 		this.get_adlist("fav")
-		// 	}
-		// }else if(tabNum == 4){
-
-		// 	if(this.state.lookMe.length > 0){
-		// 		this.setState(
-		// 			{
-		// 				focused_ad_list: this.state.lookMe
-							
-		// 			})
-		// 	}else{
-		// 		this.get_adlist("lookMe")
-		// 	}
-		// }
-
-
+		this.addAdlist(key)
+		
 	}
 
 	render() {
 		const types = AdTypeEnum.getEnums()
 		const columns = types.map(type => type.short_title)
+		const keys = types.map(type => type.string)
+		console.log(this.state.focused_ad_list)
 		return (
 			<div className={style.AllAd}>
 
 				<TabComponent 
 					columns= {columns}
+					keys= {keys}
 					onChangeTab = {(tabNum) => this.onChangeTab(tabNum)}
 					focused_ad_list = {this.state.focused_ad_list}
+					onClickFluid = {(key) => this.onClickFluid(key)}
 				/>
 
 			</div>
