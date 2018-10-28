@@ -35,11 +35,12 @@ class AllAd extends Component {
 
 
 	async get_adlist(adType) {
+		console.log("get_adlist" + adType)
 
 		const ad_num = this.state.ad_num
 		ad_num[adType] = ad_num[adType] + 5
 
-		const ad_list = await fetchAdListForAllAd(adType,ad_num[adType])
+		const ad_list = await fetchAdListForAllAd(adType , ad_num[adType])
 		const headImages = ad_list.map(ad => {
 			if(ad.adObject) {
 				if(ad.adObject.images) {
@@ -63,7 +64,8 @@ class AllAd extends Component {
 				focused_ad_list : ad_listWithImage
 			}
 		)
-		//console.log(this.state.ad_lists[adType])
+		
+		console.log(this.state.ad_lists)
         
 	}
 
@@ -72,7 +74,7 @@ class AllAd extends Component {
 		const ad_num = this.state.ad_num
 		ad_num[adType] = ad_num[adType] + 5
 		
-		const ad_list = await fetchAdListForAllAd(adType,ad_num[adType])
+		const ad_list = await fetchAdListForAllAd(adType , ad_num[adType])
 		const headImages = ad_list.map(ad => {
 			if(ad.adObject) {
 				if(ad.adObject.images) {
@@ -120,16 +122,16 @@ class AllAd extends Component {
 	}
 
 	onClickFluid(key){
-
 		this.addAdlist(key)
-		
 	}
 
 	render() {
 		const types = AdTypeEnum.getEnums()
 		const columns = types.map(type => type.short_title)
 		const keys = types.map(type => type.string)
+		
 		console.log(this.state.focused_ad_list)
+
 		return (
 			<div className={style.AllAd}>
 

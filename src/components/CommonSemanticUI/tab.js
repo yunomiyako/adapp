@@ -16,20 +16,19 @@ class TabComponent extends Component {
 
 	getFeedView(){
 		if(this.props.focused_ad_list.length > 0) {
-			return this.props.focused_ad_list.map((ad) => {
+			return this.props.focused_ad_list.map((ad , index) => {
 				const link = "ad_page/" + ad.id_user + "/" + ad.id_ad
 				const adObject = ad
 				const url = ad.url
 				return (
 					
-					<div key={ad.id_user+ad.id_ad} className={style.FeedView}>
+					<div key={ad.id_user+ad.id_ad+index} className={style.FeedView}>
 						{FeedView(link , adObject  , url)}
 					</div>	
 					
 				)
 			})
 		}
-		
 	}
 
 	createpanes(columns,keys){
