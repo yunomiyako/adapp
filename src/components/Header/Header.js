@@ -28,7 +28,7 @@ class Header extends Component {
 
 		return (contentLink.map(link => {
 			return (
-				<Link className="item" push key={link.title} to={link.link}>
+				<Link className="item" push="true" key={link.title} to={link.link}>
 					{link.icon_url ? <div className={style.icon}><Image src={link.icon_url} size='mini' circular /></div> : ""}
 					{link.title}
 				</Link>
@@ -42,7 +42,7 @@ class Header extends Component {
 				<header className="Header-header">
 					<div className="ui fixed inverted menu">
 						<div className="ui container">
-							<Link push to="/" className="header item">
+							<Link push="true" to="/" className="header item">
 								<Icon name="bullhorn" color="orange"></Icon>
 								adApp(あどあっぷ)
 							</Link>

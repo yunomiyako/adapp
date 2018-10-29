@@ -9,6 +9,7 @@ import fetchExampleAds from "../../api/fetchExampleAds"
 import getUrlsFromKeys from "../../api/getUrlsFromKeys"
 import InquiryForm from "./InquiryForm"
 import Footer from "../Footer/Footer"
+import AllAd from "../AllAd/AllAd";
 
 class TopPage extends Component {
 	constructor(props) {
@@ -69,6 +70,7 @@ class TopPage extends Component {
 					<ToppageSecond/>
 					<TSCMerged exampleAds = {this.state.exampleAds} loading = {this.state.loading} reverse = {true}/>
 					<TSCMerged exampleAds = {this.state.exampleAds} loading = {this.state.loading} reverse = {false}/>
+					<AllAd/>
 					<InquiryForm/>
 					<Footer/>
 				</div>
