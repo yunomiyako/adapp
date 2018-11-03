@@ -40,10 +40,15 @@ export default (adType) => {
 		titleCreator.addText("仕事(学生なら専攻)の内容")
 		titleCreator.addText("年収")
 		return titleCreator.titles
-	case "premium" :
-		titleCreator.addText("")
-		titleCreator.addText("")
-		titleCreator.addText("")
+	case "link" :
+		titleCreator.addText("動画へのリンク")
+		titleCreator.addText("サイトへのリンク")
+		titleCreator.addText("秘密のサイト")
+		return titleCreator.titles
+	case "coupon" : 
+		titleCreator.addText("30円引きクーポン")
+		titleCreator.addText("1品無料")
+		titleCreator.addText("10000円のアマゾンギフト券")
 		return titleCreator.titles
 	default:
 	}

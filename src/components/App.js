@@ -28,6 +28,7 @@ import QueryString from "../Utils/QueryString"
 import redirectByQueryString from "./Redirect/redirectByQueryString"
 
 import { Snackbar } from "react-redux-snackbar"
+import ExperimentalPage from "./ExperimentalPage/ExperimentalPage"
  
 Amplify.configure(conf)
 
@@ -73,6 +74,8 @@ class App extends Component {
 						<Route path="/privacypolicy" component = {PrivacyPolicyPage} />
 						<Route path="/terms_service" component = {TermsOfServicePage} />
 						<Route path="/iconbattle" component = {IconBattle} />
+
+						<Route path="/test" component = {ExperimentalPage} />
 					</div>
 
 				</div>
