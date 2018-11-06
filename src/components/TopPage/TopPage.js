@@ -30,6 +30,7 @@ class TopPage extends Component {
 			this.get_example()
 		}
 	}
+	
 	async get_example() {
         const examples = await fetchExampleAds()
 		const headImages = examples.map(ad => {
@@ -49,8 +50,7 @@ class TopPage extends Component {
         this.setState(
 			{
                 exampleAds: examplesWithImage,
-                loading:false
-                
+                loading:false 
 			}
 
         )
