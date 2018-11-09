@@ -1,11 +1,24 @@
 import goTwitterLogin from "../../Utils/goTwitterLogin"
 import React , {Component}  from "react"
 
-import { Button } from "semantic-ui-react"
+import { Button , Form } from "semantic-ui-react"
 
 class WebhookLoginPage extends Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+			text : ""
+		}
+	}
+
 	onClickButton() {
 		goTwitterLogin("/" , true)
+	}
+
+	onChangeText(text) {
+		this.setState({
+			text : text
+		})
 	}
 
 	render() {
@@ -16,10 +29,11 @@ class WebhookLoginPage extends Component {
 				<br/>
 				<br/>
 				<br/>
-
 				<Button
 					onClick={() => this.onClickButton()}
 				>ログイン</Button>
+		
+
 			</div>
 		)
 	}

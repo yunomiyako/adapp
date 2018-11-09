@@ -185,8 +185,15 @@ class AdCreationComponent extends Component {
 	}
 
 	renderOkButton = () => {
-		const flag = this.props.title && this.props.adObject.text
-		const flag2 = this.props.title && this.props.tweetObject.text 
+		var flag = false
+		var flag2 = false
+		if(this.props.tweetObject) {
+			flag = this.props.title && this.props.adObject.text
+			flag2 = this.props.title && this.props.tweetObject.text
+		} else {
+			flag = this.props.title && this.props.adObject.text
+			flag2 = false
+		}
 		if(flag || flag2) {
 			return (
 				<React.Fragment>
