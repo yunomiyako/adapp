@@ -14,7 +14,7 @@ class Toppage_second extends Component {
 		]
 		const iconViews = icons.map(i => {
 			return (
-				<div className={style.picon}>
+				<div className={style.picon} key={i.icon}>
 					<ScrollAnimation animateIn="fadeInUp"
 						animateOnce={true}>
 						<i className= {i.icon} ></i>

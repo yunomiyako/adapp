@@ -38,8 +38,10 @@ class ReturnCreateComponent extends Component {
 			return this.imageAndText()
 		case "textOnly" :
 			return this.textOnly()
-		case "imageOnly" :
-			return this.imageOnly()
+		case "link" :
+			return this.textOnly()
+		case "coupon" : 
+			return this.imageAndText()
 		default :
 			return "おや？"
 		}

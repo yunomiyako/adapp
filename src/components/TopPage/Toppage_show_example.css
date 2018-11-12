@@ -61,7 +61,6 @@
 
 :local .text_follow_p {
     padding-bottom: 35px ; 
-    font-family:  Impact;
     font-size: 5vmin;
     color: black;
 
@@ -100,7 +99,6 @@ animation-duration: 3s;
 
 :local .text_tweet {
 grid-area:text_tweet;
-font-family:  Impact;
 font-size: 5vmin;
 
 animation-name: "fadeIn";
@@ -117,7 +115,6 @@ animation-duration: 3s;
 
 :local .text_follow {
 grid-area:text_follow;
-font-family:  Impact;
 font-size: 5vmin;
 
 animation-name: "fadeIn";

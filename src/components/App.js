@@ -4,6 +4,7 @@ import "./App.css"
 import TopPage from "./TopPage/TopPage"
 import AdPage from "../containers/AdPage/AdPage_new"
 import AllAd from "./AllAd/AllAd"
+import Explanation from "./Explanation/Explanation"
 import AdCreatePage from "../containers/AdCreatePage/AdCreatePage"
 import UserPage from "./UserPage/UserPage"
 import UserAdListPage from "./UserPage/UserAdListPage"
@@ -13,6 +14,9 @@ import ReturnPageHome from "../containers/ReturnPage/ReturnPage"
 import LoginRedirectPage from "./LoginRedirect/LoginRedirectPage"
 import PrivacyPolicyPage from "./PrivacyPolicyPage/PrivacyPolicyPage"
 import TermsOfServicePage from "./PrivacyPolicyPage/TermsOfService"
+import WebhookLoginPage from "./WebhookLoginPage/WebhookLoginPage"
+import WebhookRedirectPage from "./WebhookLoginPage/WebhookRedirectPage"
+ 
 import IconBattle from "./IconBattle/IconBattle"
 
 
@@ -28,7 +32,8 @@ import QueryString from "../Utils/QueryString"
 import redirectByQueryString from "./Redirect/redirectByQueryString"
 
 import { Snackbar } from "react-redux-snackbar"
- 
+import ExperimentalPage from "./ExperimentalPage/ExperimentalPage"
+
 Amplify.configure(conf)
 
 class App extends Component {
@@ -63,6 +68,7 @@ class App extends Component {
 					<div className="App-Component">
 						<Route exact={true} path="/" component={TopPage}/>
 						<Route exact={true} path="/all_ad" component={AllAd}/>
+						<Route exact={true} path="/explanation" component={Explanation}/>
 						<Route path="/ad_page/:id_user/:id_ad" component={AdPage}/>
 						<Route exact path="/ad_page/:id_user/" component={UserAdListPage}/>
 						<Route path="/ad_create" component={AdCreatePage}/>
@@ -73,6 +79,11 @@ class App extends Component {
 						<Route path="/privacypolicy" component = {PrivacyPolicyPage} />
 						<Route path="/terms_service" component = {TermsOfServicePage} />
 						<Route path="/iconbattle" component = {IconBattle} />
+						<Route path="/webhook" component = {WebhookLoginPage} />
+						<Route path="/webhook/redirect" component = {WebhookRedirectPage} />
+
+
+						<Route path="/test" component = {ExperimentalPage} />
 					</div>
 
 				</div>

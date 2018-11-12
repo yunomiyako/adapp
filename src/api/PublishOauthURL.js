@@ -1,13 +1,14 @@
 
 import AuthentificatedCallWrapper from "./AuthentificatedCallWrapper"
 import getBaseUrl from "../Utils/getBaseUrl"
-export default function(payload) {
+export default function(isWebhook) {
 	const apiName = "adApp"
 	const path = "/twitter/publish-oauth"
 	const baseUrl = getBaseUrl()
 	const init = { 
 		queryStringParameters: {
-			baseUrl : baseUrl
+			baseUrl : baseUrl , 
+			isWebhook : isWebhook
 		}
 	}
 

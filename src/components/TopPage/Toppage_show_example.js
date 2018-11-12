@@ -29,7 +29,7 @@ class ToppageShowExample extends Component {
 			const mainText = AdTypeEnum.getByName(d.adType).mainText
 			const subText = AdTypeEnum.getByName(d.adType).subText
 			return (
-				<React.Fragment>
+				<React.Fragment key={d.id_user + d.id_ad}>
 					<div  className={FeedViewClassNames[index]}>
 						<ScrollAnimation animateIn="fadeInUp"
 							animateOnce={true}>
@@ -64,7 +64,7 @@ class ToppageShowExample extends Component {
 			const subText = AdTypeEnum.getByName(d.adType).subText
 			
 			return (
-				<div className={style.ExampleGroupVertical}>
+				<div className={style.ExampleGroupVertical} key={d.id_user+"/"+d.id_ad}>
 					<div  className={style.FeedView1_t}>
 						<ScrollAnimation animateIn="fadeInUp"
 							animateOnce={true}>

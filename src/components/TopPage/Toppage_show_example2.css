@@ -111,7 +111,6 @@
 
   :local .text_follow {
     grid-area:text_follow;
-    font-family:  Impact;
     font-size: 5vmin;
 
     animation-name: "fadeIn";
