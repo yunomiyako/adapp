@@ -15,7 +15,7 @@ import PrivacyPolicyPage from "./PrivacyPolicyPage/PrivacyPolicyPage"
 import TermsOfServicePage from "./PrivacyPolicyPage/TermsOfService"
 import WebhookLoginPage from "./WebhookLoginPage/WebhookLoginPage"
 import WebhookRedirectPage from "./WebhookLoginPage/WebhookRedirectPage"
- 
+import CampaignPage from "./CampaignPage/CampaignPage"
 import IconBattle from "./IconBattle/IconBattle"
 
 
@@ -79,6 +79,7 @@ class App extends Component {
 						<Route path="/iconbattle" component = {IconBattle} />
 						<Route path="/webhook" component = {WebhookLoginPage} />
 						<Route path="/webhook/redirect" component = {WebhookRedirectPage} />
+						<Route path="/campaign/:screen_name/:id_campaign" component = {CampaignPage} />
 
 
 						<Route path="/test" component = {ExperimentalPage} />
