@@ -2,7 +2,7 @@
 import React , {Component}  from "react"
 import style from "./AfterLoginPage.css"
 import FeedListComponent from "../../containers/TopPage/FeedListComponent"
-import {twitter_logout  } from "../../localStorage/twitter_access_token"
+import { twitter_logout  } from "../../localStorage/twitter_access_token"
 import {} from "semantic-ui-react"
 import  ButtonMenuComponent from "./ButtonMenuComponent"
 
