@@ -8,19 +8,15 @@
   position: relative;
 }*/
 :local .textWrapper {
-  padding-top: 150px;
-
+  padding-top: 100px;
   background-color: rgb(151, 226, 240);
-
 }
 :local .toptext{
-
-  
-  font-size: 5vw ;
+  font-size: 30px ;
   font-family: 'Indie Flower', cursive;
- 
-  color: rgba(255, 255, 255, 0.931);
+  color: gray;
 }
+
 :local .fig1 {
   
  width: 600px;
@@ -40,8 +36,8 @@
 }
 :local .fig1text {
   /* margin-left: 50px; */
-  width: 550px;
-  height: 20px;
+  width: 600px;
+  height: 100px;
   /* text-align: center; */
   max-width:100%;
   height:auto;
@@ -49,6 +45,7 @@
 }
 
 :local .fig2text {
+  /* padding-top: 100px; */
   width: 600px;
   height: 100px;
   max-width:100%;
@@ -59,19 +56,13 @@
 
 :local .text2Wrapper {
   padding-top: 50px;
-
-  background-color: rgb(233, 245, 65);
+  background-color: #00b894;
 
 }
-:local .secondtext{
 
-  
-  font-size: 5vw ;
-  font-family: 'Indie Flower', cursive;
- 
-  color: rgba(255, 255, 255, 0.931);
-}
 :local .text3Wrapper {
+
+  padding-top: 50px;
   background-color: rgb(98, 192, 192);
 }
 :local .text3{
@@ -81,45 +72,41 @@
  
   color: rgba(255, 255, 255, 0.931);
 }
-:local .button {
-padding:100px ;
 
-background-color: rgb(244, 248, 248);
+:local .listFrame {
+  padding-bottom: 50px;
+  background-color: rgb(244, 248, 248);
+  display : flex ; 
+  flex-direction: column;
+  text-align: center;
+  align-items: center ; 
 }
 
-:local .arrow {
-  margin-top: 20px;
-  width: 90vw;
-  height: 100px;
-  max-width:100%;
-  max-height:100%;
-  text-align: center;
+:local .buttonFrame {
+  padding : 30px ; 
+  max-width: 600px;
 }
 
 :local .text4{
-
-  font-size: 4vw ;
+  font-size: 20px ;
   font-family: 'Indie Flower', cursive;
- 
   color: rgba(17, 13, 13, 0.931);
 }
 
 :local .secondcontainer {
   padding-bottom: 50px;
-  background-color: rgb(233, 245, 65);
+  background-color: #00b894;
   display: flex;
   justify-content:space-around;
 }
 
 :local .secondcontainer1 {
-  
-  
   height:auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content:space-between;
-  background-color: rgb(233, 245, 65);
+  justify-content:space-around;
+  background-color: #00b894;
 }
 
 :local .rec1 {
