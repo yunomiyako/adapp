@@ -71,8 +71,7 @@ class Explanation extends Component {
 					animateOnce={true}>
 					<div className={style.container1}>
 						<img className={style.fig1} src={fig1}  />
-						<img className={style.fig1text} src={fig1text}  />
-										
+						<img className={style.fig1text} src={fig1text}  />				
 					</div>
 
 					<div className={style.container2}>
@@ -86,7 +85,7 @@ class Explanation extends Component {
 				</div>		
 
 				<div className={style.text2Wrapper}>
-					<p className={style.secondtext}>こんな人にオススメ・・・</p>
+					<p className={style.toptext}>こんな人にオススメ・・・</p>
 				</div>
 				<div className={style.secondcontainer}>
 
@@ -102,7 +101,7 @@ class Explanation extends Component {
 				</div>
 
 				<div className={style.text3Wrapper}>
-					<p className={style.text3}>もっと気軽にこんな宣伝も！</p>
+					<p className={style.toptext}>もっと気軽にこんな宣伝も！</p>
 				</div>
 				<div >
 					
@@ -112,26 +111,27 @@ class Explanation extends Component {
 					
 				</div>
 				 
-				<div className={style.button}>
+				<div className={style.listFrame}>
 				
-					<Link to={"/all_ad"}>
-						<Button 
-							basic
-							fluid
-							color={"red"}
-							size="massive"
-							onClick={() => null}>						
-							{"宣伝一覧を見る"}	
-						</Button>
-					</Link>
+				<div className={style.buttonFrame}>
+						<Link to={"/all_ad"}>
+							<Button 
+								basic
+								fluid
+								color={"red"}
+								size="massive"
+								onClick={() => null}>						
+								{"宣伝一覧を見る"}	
+							</Button>
+						</Link>
+				</div>
+
 					<div className={style.arrow}>
 					  {/* <img className={style.arrow} src={arrow} alt="Logo" /> */}
 					  <p className={style.text4}>まずはどんな宣伝があるか見てみよう！</p>
 					</div>
 				</div>
-				
-				
-				 
+
 
 				 <Footer/>
 			</div>
