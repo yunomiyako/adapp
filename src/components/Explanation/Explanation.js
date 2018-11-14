@@ -67,20 +67,23 @@ class Explanation extends Component {
 					<p className={style.toptext}>簡単２ステップで宣伝を作ろう！</p>
 				</div>
 				<div className={style.container}>
-				<ScrollAnimation animateIn="fadeInUp"
-					animateOnce={true}>
-					<div className={style.container1}>
-						<img className={style.fig1} src={fig1}  />
-						<img className={style.fig1text} src={fig1text}  />				
-					</div>
-
-					<div className={style.container2}>
-						<img className={style.fig2} src={fig2} />
-						
-						<img className={style.fig2text} src={fig2text} />
-						
-					</div>
-					</ScrollAnimation>
+					<ScrollAnimation animateIn="fadeInUp" 
+						animateOnce={true}>
+						<div className={style.container1}>
+							<img className={style.fig1} src={fig1}  />
+							<img className={style.fig1text} src={fig1text}  />
+											
+						</div>
+ 					</ScrollAnimation> 
+					 <ScrollAnimation animateIn="fadeInUp" 
+					 animateOnce={true}>
+						<div className={style.container2}>
+							<img className={style.fig2} src={fig2} />
+							
+							<img className={style.fig2text} src={fig2text} />
+							
+						</div>
+						</ScrollAnimation>
 
 				</div>		
 

@@ -36,8 +36,8 @@
 }
 :local .fig1text {
   /* margin-left: 50px; */
-  width: 550px;
-  height: 20px;
+  width: 600px;
+  height: 100px;
   /* text-align: center; */
   max-width:100%;
   height:auto;
@@ -45,6 +45,7 @@
 }
 
 :local .fig2text {
+  /* padding-top: 100px; */
   width: 600px;
   height: 100px;
   max-width:100%;
