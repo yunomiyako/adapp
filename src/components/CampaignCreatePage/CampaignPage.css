@@ -1,11 +1,11 @@
-:local .CampaignPage {
+:local .StatsPage {
   position: relative;
   height: auto;
   min-height: 100vh;
   padding: 50px 20px;
 }
 
-:local .CampaignPageContainer {
+:local .StatsPageContainer {
     text-align: center;
     max-width: 600px;
     margin: auto;

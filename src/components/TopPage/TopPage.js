@@ -9,14 +9,13 @@ import fetchExampleAds from "../../api/fetchExampleAds"
 import getUrlsFromKeys from "../../api/getUrlsFromKeys"
 import InquiryForm from "./InquiryForm"
 import Footer from "../Footer/Footer"
-import AllAd from "../AllAd/AllAd";
+import AllAd from "../AllAd/AllAd"
 
 class TopPage extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
 			logined : false,
-			exampleAds:[],
 			loading:true
 		}
 	}
@@ -26,35 +25,9 @@ class TopPage extends Component {
 			this.setState({
 				logined : true
 			})
-		} else {
-			this.get_example()
-		}
+		} 
 	}
 	
-	async get_example() {
-        const examples = await fetchExampleAds()
-		const headImages = examples.map(ad => {
-			if(ad.adObject) {
-				if(ad.adObject.images) {
-					return ad.adObject.images[0]
-				}
-			}
-			return undefined
-		})
-		const urls = await getUrlsFromKeys(headImages)
-		const examplesWithImage = examples.map( (ad , index) => {
-			ad.url = urls[index]
-			return ad
-		})
-        
-        this.setState(
-			{
-                exampleAds: examplesWithImage,
-                loading:false 
-			}
-
-        )
-	}
 
 	onClickUseWithoutRegister() {
 		this.props.history.push("/ad_create")
@@ -66,10 +39,8 @@ class TopPage extends Component {
 			return (
 				<div >
 					<TopComponent
-					onClickUseWithoutRegister = {() => this.onClickUseWithoutRegister()}/>
+						onClickUseWithoutRegister = {() => this.onClickUseWithoutRegister()}/>
 					<ToppageSecond/>
-					<TSCMerged exampleAds = {this.state.exampleAds} loading = {this.state.loading} reverse = {true}/>
-					<TSCMerged exampleAds = {this.state.exampleAds} loading = {this.state.loading} reverse = {false}/>
 					<AllAd/>
 					<InquiryForm/>
 					<Footer/>
