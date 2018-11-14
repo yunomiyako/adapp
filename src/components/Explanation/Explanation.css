@@ -1,10 +1,180 @@
 
-
-:local .Explanation {
+/*
+:local .firstImgWrapper {
   margin-top: 200px;
   width: 100vw;
   height: 90vh;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(151, 226, 240);
   position: relative;
+}*/
+:local .textWrapper {
+  padding-top: 150px;
+
+  background-color: rgb(151, 226, 240);
+
+}
+:local .toptext{
+
+  
+  font-size: 5vw ;
+  font-family: 'Indie Flower', cursive;
+ 
+  color: rgba(255, 255, 255, 0.931);
+}
+:local .fig1 {
+  
+ width: 600px;
+ height: 600px;
+ max-width:100%;
+ height:auto;
+  
+}
+:local .fig2 {
+  
+  width: 600px;
+  height: 600px;
+  max-width:100%;
+
+  height:auto;
+  
+}
+:local .fig1text {
+  /* margin-left: 50px; */
+  width: 550px;
+  height: 20px;
+  /* text-align: center; */
+  max-width:100%;
+  height:auto;
+  
 }
 
+:local .fig2text {
+  width: 600px;
+  height: 100px;
+  max-width:100%;
+  height:auto;
+  
+}
+
+
+:local .text2Wrapper {
+  padding-top: 50px;
+
+  background-color: rgb(233, 245, 65);
+
+}
+:local .secondtext{
+
+  
+  font-size: 5vw ;
+  font-family: 'Indie Flower', cursive;
+ 
+  color: rgba(255, 255, 255, 0.931);
+}
+:local .text3Wrapper {
+  background-color: rgb(98, 192, 192);
+}
+:local .text3{
+
+  font-size: 5vw ;
+  font-family: 'Indie Flower', cursive;
+ 
+  color: rgba(255, 255, 255, 0.931);
+}
+:local .button {
+padding:100px ;
+
+background-color: rgb(244, 248, 248);
+}
+
+:local .arrow {
+  margin-top: 20px;
+  width: 90vw;
+  height: 100px;
+  max-width:100%;
+  max-height:100%;
+  text-align: center;
+}
+
+:local .text4{
+
+  font-size: 4vw ;
+  font-family: 'Indie Flower', cursive;
+ 
+  color: rgba(17, 13, 13, 0.931);
+}
+
+:local .secondcontainer {
+  padding-bottom: 50px;
+  background-color: rgb(233, 245, 65);
+  display: flex;
+  justify-content:space-around;
+}
+
+:local .secondcontainer1 {
+  
+  
+  height:auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:space-around;
+  background-color: rgb(233, 245, 65);
+}
+
+:local .rec1 {
+  
+  width: 400px;
+  height: 400px;
+  max-width:100%;
+  max-height:100%;
+  /* height:auto; */
+  
+}
+
+
+:local .rec2 {
+  
+  width: 400px;
+  height: 400px;
+  max-width:100%;
+  max-height:100%;
+ /* height:auto; */
+  
+}
+
+:local .rec3 {
+  
+  width: 400px;
+  height: 400px;
+  max-width:100%;
+  max-height:100%;
+ /* height:auto; */
+  
+}
+
+:local .container {
+  
+  background-color: rgb(151, 226, 240);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-around;
+  padding-bottom:50px;
+}
+
+:local .container1 {
+  
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content:space-around;
+}
+
+:local .container2 {
+
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content:space-around;
+}
