@@ -24,8 +24,6 @@ class StatsPage extends Component {
 		this.setState({loading : true})
 		const body = await fetchCampaignDetail(screen_name , id_ad)
 		this.setState({loading : false})
-		console.log(body)
-		console.log(body.applicants)
 		this.setState(
 			{
 				campaign : body.campaign , 
