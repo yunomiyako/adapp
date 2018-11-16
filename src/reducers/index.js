@@ -5,7 +5,8 @@ import AdPageInfo from "./AdPageInfo"
 import ReturnPageInfo from "./ReturnPageInfo"
 import UserPage from "./UserPage"
 import TopPage from "./TopPage"
-import { snackbarReducer } from "react-redux-snackbar"; // Import it
+import CampaignCreatePage from "./CampaignCreate"
+import { snackbarReducer } from "react-redux-snackbar" // Import it
 
 export default combineReducers({
 	AdCreateInfo , 
@@ -13,5 +14,6 @@ export default combineReducers({
 	ReturnPageInfo , 
 	UserPage , 
 	TopPage , 
+	CampaignCreatePage , 
 	snackbar: snackbarReducer
 })

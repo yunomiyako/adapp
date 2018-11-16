@@ -32,3 +32,11 @@ export function clearState() {
 		type: CLEAR_STATE
 	}
 }
+
+export const ON_CHANGE_CAMPAIGNS  = "ON_CHANGE_CAMPAIGNS"
+export function onChangeCampaigns(campaigns) {
+	return {
+		type: ON_CHANGE_CAMPAIGNS ,
+		campaigns
+	}
+}

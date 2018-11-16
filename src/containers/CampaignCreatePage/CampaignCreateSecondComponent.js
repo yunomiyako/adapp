@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import CampaignCreatePage from "../../components/CampaignCreatePage/CampaignCreatePage"
+import CampaignCreateSecondComponent from "../../components/CampaignCreatePage/CampaignCreateSecondComponent"
 import {
 	clearState,
 	onChangeIndex , 
@@ -34,4 +34,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(CampaignCreatePage)
+)(CampaignCreateSecondComponent)

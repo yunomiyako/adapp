@@ -18,3 +18,9 @@ export const getRewardCreateCompleted = createSelector(
 	[getRewardCreateCompletedFromState] , 
 	(rewardCreateCompleted) => rewardCreateCompleted
 )
+
+const getCampaignsFromState = (state) => state.campaigns
+export const getCampaigns = createSelector(
+	[getCampaignsFromState] , 
+	(campaigns) => campaigns
+)

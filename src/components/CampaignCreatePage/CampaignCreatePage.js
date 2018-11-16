@@ -2,7 +2,9 @@ import React , {Component}  from "react"
 import style from "./CampaignCreatePage.css"
 import { Button , Label } from "semantic-ui-react"
 // Components
-import StepComponent from "../AdCreatePage_new/StepComponent"
+import StepComponent from "./StepComponent"
+import CampaignCreateFirstComponent from "../../containers/CampaignCreatePage/CampaignCreateFirstComponent";
+import CampaignCreateSecondComponent from "../../containers/CampaignCreatePage/CampaignCreateSecondComponent";
 
 class CamapignCreatePage extends Component {
 
@@ -12,9 +14,9 @@ class CamapignCreatePage extends Component {
 	
 	renderContent() {
 		if(this.props.index === 0) {
-			return ("1")
+			return (<CampaignCreateFirstComponent/>)
 		} else if (this.props.index === 1) {
-			return ("2")
+			return (<CampaignCreateSecondComponent/>)
 		} else if (this.props.index === 2) {
 			return ("3")
 		} else {
@@ -29,8 +31,8 @@ class CamapignCreatePage extends Component {
 					<StepComponent
 						activeIndex={this.props.index}
 						onChangeIndex = {this.onChangeIndex}
-						adCreateCompleted = {this.props.adCreateCompleted}
-						returnCreateCompleted = {this.props.returnCreateCompleted}
+						firstCompleted = {this.props.campaignCreateCompleted}
+						secondCompleted = {this.props.rewardCreateCompleted}
 					/>
 					{this.props.index === 2 ? <Label pointing color="orange">ここから戻れるよ</Label> : ""}	
 					<div className="AdCreatePageForPaddingFrame">

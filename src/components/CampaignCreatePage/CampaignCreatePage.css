@@ -12,3 +12,13 @@
     left : 0;
     right : 0;
 }
+
+:local .formCell {
+  display : flex ; 
+  justify-content: center;
+  align-items : flex-end;
+}
+
+:local .CamapignCreateFirstPage {
+  margin-top: 40px;
+}
