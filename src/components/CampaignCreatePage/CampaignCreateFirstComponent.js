@@ -43,6 +43,7 @@ class CamapignCreateFirstPage extends Component {
 	}
 
 	onChangeCampaignImage(index , path) {
+		console.log(path)
 		this.onChangeCampaignGeneral(index , path , "image")
 	}
 
@@ -60,7 +61,7 @@ class CamapignCreateFirstPage extends Component {
 
 				</div>
 
-				<div>
+				<div className = {style.RewardMessageSetUpComponentContainer}>
 					<RewardMessageSetUpComponent
 						campaigns = {this.props.campaigns}
 						onChangeCampaignMessage = {(index , text) => this.onChangeCampaignMessage(index , text)}

@@ -1,8 +1,10 @@
 import React , {Component} from "react"
-import {Image,  Table , TextArea } from "semantic-ui-react"
+import {Button ,   Table , TextArea } from "semantic-ui-react"
 import style from "./CampaignCreatePage.css"
-import { placeHolderGenerate, cellTitleGenerate } from "../../domain/campaign/CampaingExamples"
+import { placeHolderGenerate, cellTitleGenerate, defaultPath } from "../../domain/campaign/CampaingExamples"
 import { fileDownload } from "../../api/fileDownload"
+import { get_id_user } from "../../localStorage/user_detail"
+import { imageUploadUserWithRandomName } from "../../api/imageUpload"
 
 //各賞品が当たった時に送られるDMのメッセージと画像を指定する
 class RewardMessageSetUpComponent extends Component {    
@@ -22,10 +24,11 @@ class RewardMessageSetUpComponent extends Component {
 		)
 	}
     
-	renderTextAreaCell(text  , func , placeholder , subText , width) {
+	renderTextAreaCell(text  , func , placeholder  , width) {
 		return (
 			<Table.Cell width={width}>
 				<TextArea
+					rows="5"
 					style={ {width : "100%" , height : "100%"} }
 					onChange={(event) => func(event.target.value)}
 					placeholder={placeholder}
@@ -33,24 +36,28 @@ class RewardMessageSetUpComponent extends Component {
 			</Table.Cell>
 		)
 	}
+
+	onHandleImageUpload(e , index) {
+		// ①イベントからfileの配列を受け取る
+		var files = e.target.files
+		
+		const id_user = get_id_user()
+		Promise.all(imageUploadUserWithRandomName( [files[0]] , id_user)).then((values) => {
+			const keys = values.map(v => v.key)
+			const key = keys[0]
+			this.props.onChangeCampaignImage( index , key)
+		})
+	}
     
-	renderImageUploadCell(imageKey , width) {
+	renderImageUploadCell(imageKey , index , width ) {
 		const url = fileDownload(imageKey)
-		if(url) {
-			return (
-				<Table.Cell width={width}>
-					<Image size="small" src={url} alt="image"/>
-				</Table.Cell>
-			)
-
-		} else {
-			//uploader
-			return (
-				<Table.Cell width={width}>
-
-				</Table.Cell>
-			)
-		}
+		return (
+			<Table.Cell width={width}>
+				<img src={url} alt="image" className={style.cellImage}/>
+				<input id={"image-upload-input"+index} type='file' accept='image/*' onChange={(e) => this.onHandleImageUpload(e , index)} /> 
+				{(imageKey != defaultPath) ? <Button onClick={() => this.onClickDefaultImage(index)}>デフォルト画像</Button> : ""}
+			</Table.Cell>
+		)
 	}
 
 	onAddCampaign() {
@@ -62,16 +69,14 @@ class RewardMessageSetUpComponent extends Component {
 	}
     
 	renderRow(title , message , image , cellTitle , index) {
-		const placeHolder = placeHolderGenerate(index)
 		return(
 			<Table.Row key={index}>
 				{this.renderCell(cellTitle , 2)}
 				{this.renderCell(title , 3)}
 				{this.renderTextAreaCell(message , 
 					(text) => this.props.onChangeCampaignMessage(index , text) ,
-					placeHolder, 
-					"" , 8)}
-				{this.renderImageUploadCell(image , 3)}
+					"当選時に送るメッセージを入力してください",  8)}
+				{this.renderImageUploadCell(image , index , 3)}
 			</Table.Row>
 		)
 	}
@@ -82,6 +87,16 @@ class RewardMessageSetUpComponent extends Component {
 				this.renderRow(campaign.title , campaign.message , campaign.image , cellTitleGenerate(index) , index)
 			)
 		}))
+	}
+
+	onClickDefaultImage(index) {
+		const elem = document.getElementById("image-upload-input" + index)
+		if(elem) {
+			elem.value = ""
+		} else {
+			console.log("見つからない")
+		}
+		this.props.onChangeCampaignImage(index , defaultPath)
 	}
 
 

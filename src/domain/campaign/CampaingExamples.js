@@ -13,3 +13,5 @@ export const placeHolderGenerate = (index) => {
 	]
 	return list[index]
 }
+
+export const defaultPath = "example/当たり画像.jpg"
