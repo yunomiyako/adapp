@@ -1,34 +1,39 @@
 import { connect } from "react-redux"
 import CampaignCreateSecondComponent from "../../components/CampaignCreatePage/CampaignCreateSecondComponent"
 import {
-	clearState,
-	onChangeIndex , 
-	onChangeCampaignCreateCompleted , 
-	onChangeRewardCreateCompleted , 
+	onChangeCampaignInterval , 
+	onChangeName , 
+	onChangeEmail , 
+	onChangeNotes , 
+	onChangeTweetObject , 
 } from "../../actions/CampaignCreate"
 
 import {
-	getIndex,
-	getCampaignCreateCompleted,
-	getRewardCreateCompleted,
+	getCampaignInterval,
+	getName,
+	getEmail,
+	getNotes,
+	getTweetObject,
 } from "../../selectors/CampaignCreatePage"
 
 function mapStateToProps(state){
 	const subState = state.CampaignCreatePage
 	return {
-		index: getIndex(subState),
-		campaignCreateCompleted: getCampaignCreateCompleted(subState),
-		rewardCreateCompleted: getRewardCreateCompleted(subState),
+		campaignInterval: getCampaignInterval(subState),
+		name: getName(subState),
+		email: getEmail(subState),
+		notes: getNotes(subState),
+		tweetObject: getTweetObject(subState),
 	}
 }
 
 function mapDispatchToProps(dispatch) {
 	return {
-		clearState : () => dispatch(clearState()) ,
-		onChangeIndex: (index) => dispatch(onChangeIndex(index)),
-		onChangeCampaignCreateCompleted: (campaignCreateCompleted) => dispatch(onChangeCampaignCreateCompleted(campaignCreateCompleted)),
-		onChangeRewardCreateCompleted: (rewardCreateCompleted) => dispatch(onChangeRewardCreateCompleted(rewardCreateCompleted)),
-	}
+		onChangeCampaignInterval: (campaignInterval) => dispatch(onChangeCampaignInterval(campaignInterval)),
+		onChangeName: (name) => dispatch(onChangeName(name)),
+		onChangeEmail: (email) => dispatch(onChangeEmail(email)),
+		onChangeNotes: (notes) => dispatch(onChangeNotes(notes)),
+		onChangeTweetObject: (tweetObject) => dispatch(onChangeTweetObject(tweetObject)),	}
 }
 
 export default connect(

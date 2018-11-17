@@ -1,6 +1,6 @@
 import React , {Component}  from "react"
 import style from "./CampaignCreatePage.css"
-import { Button , Label } from "semantic-ui-react"
+import {  } from "semantic-ui-react"
 import RewardSetUpComponent from "./RewardSetUpComponent"
 import RewardDataStructure from "../../domain/campaign/RewardDataStructure"
 import RewardMessageSetUpComponent from "./RewardMessageSetUpComponent"
@@ -43,7 +43,6 @@ class CamapignCreateFirstPage extends Component {
 	}
 
 	onChangeCampaignImage(index , path) {
-		console.log(path)
 		this.onChangeCampaignGeneral(index , path , "image")
 	}
 
@@ -58,7 +57,6 @@ class CamapignCreateFirstPage extends Component {
 						onDeleteCampaign = {(index) => this.onDeleteCampaign(index)}
 						onChangeCampaignTitle = {(index , title) => this.onChangeCampaignTitle(index , title)}
 						onChangeCampaignPeople = {(index , people) => this.onChangeCampaignPeople(index , people)} />
-
 				</div>
 
 				<div className = {style.RewardMessageSetUpComponentContainer}>
@@ -66,6 +64,8 @@ class CamapignCreateFirstPage extends Component {
 						campaigns = {this.props.campaigns}
 						onChangeCampaignMessage = {(index , text) => this.onChangeCampaignMessage(index , text)}
 						onChangeCampaignImage = {(index , path) => this.onChangeCampaignImage(index , path)}
+						missText = {this.props.missText} 
+						onChangeMissText = {(text) => this.props.onChangeMissText(text)}
 					/>
 				</div>
 			</div>

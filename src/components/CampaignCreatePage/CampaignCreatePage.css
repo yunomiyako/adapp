@@ -2,7 +2,7 @@
   position: relative;
   height: auto;
   min-height: 100vh;
-  padding: 50px 20px;
+  padding: 80px 20px;
 }
 
 :local .CampaignCreatePageContainer {
@@ -11,6 +11,14 @@
     margin: auto;
     left : 0;
     right : 0;
+}
+
+:local .CamapignCreateSecondPage {
+  max-width : 600px;
+  margin: auto;
+  left : 0;
+  right : 0;
+  margin-top:40px;
 }
 
 :local .formCell {
@@ -32,3 +40,16 @@
   max-width : 150px ; 
 }
 
+:local .centerlize {
+  display: flex ;
+  align-items : center ; 
+  flex-direction:column ; 
+}
+
+:local .FormComponent {
+  text-align : left ; 
+}
+
+:local .CampaignDetailComponent {
+  text-align : left ; 
+}

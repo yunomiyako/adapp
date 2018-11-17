@@ -11,7 +11,6 @@ export default function(user_ids) {
 	}
     
 	return API.post(apiName, path, myInit).then(res => {
-		console.log(res.data)
 		return res.data.key_name
 	}).catch(e => {
 		return {"errorMessage" : "取得できませんでした"}

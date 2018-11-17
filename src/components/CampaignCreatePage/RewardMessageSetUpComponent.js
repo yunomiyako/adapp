@@ -53,9 +53,12 @@ class RewardMessageSetUpComponent extends Component {
 		const url = fileDownload(imageKey)
 		return (
 			<Table.Cell width={width}>
-				<img src={url} alt="image" className={style.cellImage}/>
-				<input id={"image-upload-input"+index} type='file' accept='image/*' onChange={(e) => this.onHandleImageUpload(e , index)} /> 
-				{(imageKey != defaultPath) ? <Button onClick={() => this.onClickDefaultImage(index)}>デフォルト画像</Button> : ""}
+				<div className={style.centerlize}>
+					<img src={url} alt="image" className={style.cellImage}/>
+					<input id={"image-upload-input"+index} type='file' accept='image/*' onChange={(e) => this.onHandleImageUpload(e , index)} /> 
+					{(imageKey != defaultPath) ? <Button onClick={() => this.onClickDefaultImage(index)}>デフォルト画像に戻す</Button> : ""}
+
+				</div>
 			</Table.Cell>
 		)
 	}
@@ -69,18 +72,32 @@ class RewardMessageSetUpComponent extends Component {
 	}
     
 	renderRow(title , message , image , cellTitle , index) {
+		const replacedMessage = message.replace("HOGEHOGEHOGE" , title)
 		return(
 			<Table.Row key={index}>
 				{this.renderCell(cellTitle , 2)}
 				{this.renderCell(title , 3)}
-				{this.renderTextAreaCell(message , 
+				{this.renderTextAreaCell(replacedMessage , 
 					(text) => this.props.onChangeCampaignMessage(index , text) ,
 					"当選時に送るメッセージを入力してください",  8)}
 				{this.renderImageUploadCell(image , index , 3)}
 			</Table.Row>
 		)
 	}
-    
+
+	renderMissRow(missText) {
+		return (
+			<Table.Row>
+				{this.renderCell("ハズレ" , 2)}
+				{this.renderCell(" - " , 3)}
+				{this.renderTextAreaCell(missText , 
+					(text) => this.props.onChangeMissText(text) ,
+					"ハズレの際のメッセージを入力してください",  8)}
+				{this.renderCell(" - " , 3)}
+			</Table.Row>
+		)
+	}
+
 	renderRows() {
 		return (this.props.campaigns.map( (campaign , index) => {
 			return (
@@ -112,6 +129,7 @@ class RewardMessageSetUpComponent extends Component {
 				</Table.Header>
 
 				<Table.Body>
+					{this.renderMissRow(this.props.missText)}
 					{this.renderRows()}
 				</Table.Body>
 			</Table>
