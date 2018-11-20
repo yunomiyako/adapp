@@ -72,9 +72,9 @@ class ConfirmComponent extends Component {
 	}
 
 	renderTableCell(data) {
-		return data.map(d => {
+		return data.map( (d , index) => {
 			return (
-			<Table.Row key={d.title} negative={d.negativeFrag}>
+			<Table.Row key={d.title + d.content + index} negative={d.negativeFrag}>
 				<Table.Cell width="4">{d.title}</Table.Cell>
 				<Table.Cell width="6">{d.content}</Table.Cell>
 			</Table.Row>

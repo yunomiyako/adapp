@@ -54,6 +54,7 @@ class CamapignCreateSecondPage extends Component {
 
 				<div>
 					<CampaignDetailComponent
+					campaignInterval = {this.props.campaignInterval}
 					tweetObject = {this.props.tweetObject}
 					onChangeText = {this.onChangeText}
 					onChangeImages = {this.onChangeImages}

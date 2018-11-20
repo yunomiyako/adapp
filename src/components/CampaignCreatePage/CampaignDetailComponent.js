@@ -21,12 +21,12 @@ class CampaignDetailComponent extends Component {
 			text = tweetObject.text
 			images = tweetObject.images
 		}
-
 		return (
 			<div className={style.CampaignDetailComponent}>
 				<Form>
 					<Form.Group widths='equal'>
 						<Form.Select 
+							value = {this.props.campaignInterval}
 							placeholder="キャンペーン実施期間を選んでください"
 							onChange = {this.onChangeCampaignInterval}
 							label='キャンペーン期間(キャンペーン開始から終了までの日数)' 
