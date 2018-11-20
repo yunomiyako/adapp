@@ -15,3 +15,5 @@ export const placeHolderGenerate = (index) => {
 }
 
 export const defaultPath = "example/当たり画像.jpg"
+
+export const replaceWord = "CAMPAIGN_NAME"

@@ -1,7 +1,7 @@
 import React , {Component} from "react"
 import {Button ,   Table , TextArea } from "semantic-ui-react"
 import style from "./CampaignCreatePage.css"
-import { placeHolderGenerate, cellTitleGenerate, defaultPath } from "../../domain/campaign/CampaingExamples"
+import { placeHolderGenerate, cellTitleGenerate, defaultPath, replaceWord } from "../../domain/campaign/CampaingExamples"
 import { fileDownload } from "../../api/fileDownload"
 import { get_id_user } from "../../localStorage/user_detail"
 import { imageUploadUserWithRandomName } from "../../api/imageUpload"
@@ -72,7 +72,7 @@ class RewardMessageSetUpComponent extends Component {
 	}
     
 	renderRow(title , message , image , cellTitle , index) {
-		const replacedMessage = message.replace("HOGEHOGEHOGE" , title)
+		const replacedMessage = message.replace(replaceWord , title)
 		return(
 			<Table.Row key={index}>
 				{this.renderCell(cellTitle , 2)}

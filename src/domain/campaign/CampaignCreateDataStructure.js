@@ -9,9 +9,8 @@ class CampaignCreateDataStructure {
 		this.index = data.index || 0
 		this.campaignCreateCompleted = data.campaignCreateCompleted || false
 		this.rewardCreateCompleted = data.rewardCreateCompleted || false 
-		this.campaigns = data.campaigns || [new RewardDataStructure({}) , new RewardDataStructure({}) , new RewardDataStructure({})]
+		this.campaigns = data.campaigns || [new RewardDataStructure({})]
 		this.missText = data.missText || ""
-		
 		this.campaignInterval = data.campaignInterval || 1
 		this.name = data.name || "" 
 		this.email = data.email || ""

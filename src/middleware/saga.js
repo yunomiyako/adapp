@@ -15,6 +15,7 @@ import {ON_FETCH_RETURN , ON_UPDATE_RETURN_OBJECT , ON_UPDATE_RETURN_TYPE,
 import {GET_AD_LIST , GET_RETURN_LIST , SET_AD_LIST , SET_RETURN_LIST , SET_LOADING} from "../actions/UserPage"
 import {GET_AD_LIST as GET_AD_LIST_TOPPAGE , 
 	SET_AD_LIST as SET_AD_LIST_TOPPAGE} from "../actions/TopPage"
+import {ON_SUBMIT_CAMPAIGN_CREATE} from "../actions/CampaignCreate"
 
 //import API
 import submitAdCreateInfo from "../api/AdCreatePage"
@@ -25,6 +26,7 @@ import fetchReturn from "../api/fetchReturn"
 import fetchAdList from "../api/fetchAdList"
 import fetchReturnList from "../api/fetchReturnList"
 import fetchTweetDetail from "../api/fetchTweetDetail"
+import submitCampaignCreateInfo from "../api/submitCampaignCreateInfo"
 
 //import utls
 import getDateFromUnixTime from "../Utils/getDateFromUnixTime"
@@ -191,6 +193,19 @@ function *onFetchTweetDetail(action) {
 	}
 }
 
+function *onSubmitCampaignCreate(action) {
+	try {
+		const result = yield call(submitCampaignCreateInfo , action.payload)
+		result.status = "OK"
+		action.callback(result)
+	} catch (e) {
+		const result = {}
+		result.status = "NG"
+		result.errorMessage = e //????
+		action.callback(result)
+	}
+}
+
 /*
   FETCH_EXAMPLE_DATA Action が送出されるたびに fetchUser を起動します。
   ユーザ情報の並列取得にも対応しています。
@@ -205,6 +220,7 @@ function* mySaga() {
 	yield takeLatest(GET_RETURN_LIST , onGetReturnList)
 	yield takeLatest(GET_AD_LIST_TOPPAGE , onGetAdListTopPage)
 	yield takeLatest(ON_FETCH_TWEET_DETAIL , onFetchTweetDetail)
+	yield takeLatest(ON_SUBMIT_CAMPAIGN_CREATE , onSubmitCampaignCreate)
 }
 
 /*

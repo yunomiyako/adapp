@@ -1,6 +1,6 @@
 import React , {Component}  from "react"
 import style from "./CampaignCreatePage.css"
-import {  } from "semantic-ui-react"
+import { Label , Button } from "semantic-ui-react"
 import RewardSetUpComponent from "./RewardSetUpComponent"
 import RewardDataStructure from "../../domain/campaign/RewardDataStructure"
 import RewardMessageSetUpComponent from "./RewardMessageSetUpComponent"
@@ -46,6 +46,19 @@ class CamapignCreateFirstPage extends Component {
 		this.onChangeCampaignGeneral(index , path , "image")
 	}
 
+	onClickOk() {
+		this.props.onClickOk()
+	}
+
+	renderOkButton() {
+		return (
+			<React.Fragment>
+				{/* <Label pointing="right" color="orange">確認画面へ</Label>	 */}
+				<Button onClick={() => this.onClickOk()}>OK</Button>
+			</React.Fragment>
+		)
+	}
+
 	render() {
 		return (
 			<div className={style.CamapignCreateFirstPage}>
@@ -68,6 +81,11 @@ class CamapignCreateFirstPage extends Component {
 						onChangeMissText = {(text) => this.props.onChangeMissText(text)}
 					/>
 				</div>
+
+				<div className={style.OkButtonFrame}>
+					<div className="OkButtonCorner">{this.renderOkButton()}</div>
+				</div>
+
 			</div>
 		)
 	}

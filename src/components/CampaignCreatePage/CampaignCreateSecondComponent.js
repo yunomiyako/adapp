@@ -1,6 +1,6 @@
 import React , {Component}  from "react"
 import style from "./CampaignCreatePage.css"
-import { } from "semantic-ui-react"
+import { Label , Button} from "semantic-ui-react"
 import FormComponent from "./FormComponent"
 import CampaignDetailComponent from "./CampaignDetailComponent"
 // immutable state change helper
@@ -34,6 +34,18 @@ class CamapignCreateSecondPage extends Component {
 		this.props.onChangeTweetObject(newObj)
 	}
 
+	onClickOk() {
+		this.props.onClickOk()
+	}
+
+	renderOkButton() {
+		return (
+			<React.Fragment>
+				<Label pointing="right" color="orange">確認画面へ</Label>	
+				<Button onClick={() => this.onClickOk()}>OK</Button>
+			</React.Fragment>
+		)
+	}
 
 	render() {
 
@@ -59,6 +71,11 @@ class CamapignCreateSecondPage extends Component {
 					onChangeNotes = {this.onChangeNotes}
 					/>
 				</div>
+
+				<div className={style.OkButtonFrame}>
+					<div className="OkButtonCorner">{this.renderOkButton()}</div>
+				</div>
+
 			</div>
 		)
 	}

@@ -44,7 +44,8 @@ class StepComponent extends Component {
 	}
 
 	render() {
-		const isComplated = this.props.firstCompleted && this.props.secondCompleted
+		//const isComplated = this.props.firstCompleted && this.props.secondCompleted
+		const isComplated = true
 		const steps = [{
 			index: 0 , 
 			completed : this.props.firstCompleted,

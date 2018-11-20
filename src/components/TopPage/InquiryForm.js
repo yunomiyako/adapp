@@ -3,55 +3,60 @@ import style from "./TopPage.css"
 //semantic UI
 import { Form, TextArea , Button } from "semantic-ui-react"
 import postInquiry from "../../api/postInquiry";
+import FormComponent from "../CampaignCreatePage/FormComponent";
 
 class InquiryForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            text : "" , 
+            name : "",
+            email : "" , 
+            notes : "" , 
             disable : false , 
             buttonText : "送信"
         }
     }
 
-    onChangeText = (e) => {
-        const text = e.target.value
-        this.setState({
-            text
-        })
-    }
-
     onClickButton = () => {
-        postInquiry(this.state.text)
+        const text = "名前 : " + this.state.name + ", email : " + this.state.email + ", 内容 : " + this.state.notes
+        postInquiry(text)
         this.setState({
             disable : true , 
             buttonText : "送信済み"
         })
     }
-
-	renderTextArea(){
-		return (
-			<Form>
-				<TextArea autoHeight placeholder='なんでもいいからメッセージを送ってね！' rows={2}
-					onChange={this.onChangeText}
-					value={this.state.text}
-				/>
-                <Button 
-                disabled={this.state.disable}
-                onClick = {this.onClickButton}>{this.state.buttonText}</Button>
-			</Form>
-		)
-	}
+    onChangeName(text) {
+        this.setState(
+            {name : text}
+        )
+    }
+    onChangeEmail(text) {
+        this.setState(
+            {email : text}
+        )
+    }
+    onChangeNotes(text) {
+        this.setState(
+            {notes : text}
+        )
+    }
 	render() {
 		return (
             <div className={style.InquiryFormContainer}>
             <div className={style.InquiryForm}>
-            <div className={style.dotLine}><h2>お問い合わせコーナー！</h2></div>
-            <p>
-                新登場、お問い合わせコーナー。制作時間30分。
-            何を書いてもいいよ！直接言いにくいこと、直接言いたいこと、思ったことを打ち込んでボタンを押すだけ。
-                </p>
-            {this.renderTextArea()}
+            <div className={style.dotLine}><h2>お問い合わせフォーム</h2></div>
+                <FormComponent
+                    name = {this.state.name}
+                    email = {this.state.email}
+                    notes = {this.state.notes}
+                    onChangeName={(text) => this.onChangeName(text)}
+                    onChangeEmail = {(text) => this.onChangeEmail(text)}
+                    onChangeNotes = {(text) => this.onChangeNotes(text)}
+                />
+                <Button 
+                disabled={this.state.disable}
+                onClick = {this.onClickButton}>
+                {this.state.buttonText}</Button>
             </div>
                 
             </div>

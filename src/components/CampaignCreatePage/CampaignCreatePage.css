@@ -53,3 +53,15 @@
 :local .CampaignDetailComponent {
   text-align : left ; 
 }
+
+:local .OkButtonFrame {
+  position:relative;
+  height : 50px;
+}
+
+:local .doneResultFrame {
+}
+
+:local .doneResultInner {
+  margin : 40px 00px; 
+}

@@ -5,6 +5,7 @@ import { Button , Label } from "semantic-ui-react"
 import StepComponent from "./StepComponent"
 import CampaignCreateFirstComponent from "../../containers/CampaignCreatePage/CampaignCreateFirstComponent";
 import CampaignCreateSecondComponent from "../../containers/CampaignCreatePage/CampaignCreateSecondComponent";
+import ConfirmComponent from "../../containers/CampaignCreatePage/ConfirmComponent";
 
 class CamapignCreatePage extends Component {
 
@@ -14,11 +15,15 @@ class CamapignCreatePage extends Component {
 	
 	renderContent() {
 		if(this.props.index === 0) {
-			return (<CampaignCreateFirstComponent/>)
+			return (<CampaignCreateFirstComponent
+			onClickOk = {() => this.onChangeIndex(1)}
+			/>)
 		} else if (this.props.index === 1) {
-			return (<CampaignCreateSecondComponent/>)
+			return (<CampaignCreateSecondComponent
+				onClickOk = {() => this.onChangeIndex(2)}
+			/>)
 		} else if (this.props.index === 2) {
-			return ("3")
+			return (<ConfirmComponent/>)
 		} else {
 			return <div>おや？</div>
 		}
@@ -34,7 +39,7 @@ class CamapignCreatePage extends Component {
 						firstCompleted = {this.props.campaignCreateCompleted}
 						secondCompleted = {this.props.rewardCreateCompleted}
 					/>
-					{this.props.index === 2 ? <Label pointing color="orange">ここから戻れるよ</Label> : ""}	
+					{this.props.index === 2 ? <Label pointing color="orange">ここから戻れます</Label> : ""}	
 					<div className="AdCreatePageForPaddingFrame">
 						{this.renderContent()}
 					</div>

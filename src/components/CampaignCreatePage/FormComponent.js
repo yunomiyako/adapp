@@ -42,7 +42,6 @@ class FormComponent extends Component {
 						onChange = {(event) => this.props.onChangeNotes(event.target.value) }
 					
 						label='備考欄' placeholder='不明点やご要望をお書きください' />
-					<Form.Button>送信</Form.Button>
 				</Form>
 			</div>
 		)

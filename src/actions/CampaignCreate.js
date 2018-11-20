@@ -92,3 +92,12 @@ export function onChangeTweetObject(tweetObject) {
 		tweetObject
 	}
 }
+
+export const ON_SUBMIT_CAMPAIGN_CREATE  = prefix + "ON_SUBMIT_CAMPAIGN_CREATE"
+export function onSubmitCampaignCreate(payload , callback) {
+	return {
+		type : ON_SUBMIT_CAMPAIGN_CREATE , 
+		payload , 
+		callback
+	}
+}
