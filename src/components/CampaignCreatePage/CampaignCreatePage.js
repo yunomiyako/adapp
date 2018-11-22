@@ -12,15 +12,25 @@ class CamapignCreatePage extends Component {
 	onChangeIndex = (NO) => {
 		this.props.onChangeIndex(NO)	
 	}
+
+	onClickOk(index) {
+		if(index == 1) {
+			this.props.onChangeCampaignCreateCompleted(true)
+			this.onChangeIndex(1)
+		} else if(index == 2) {
+			this.props.onChangeRewardCreateCompleted(true)
+			this.onChangeIndex(2)
+		}
+	}
 	
 	renderContent() {
 		if(this.props.index === 0) {
 			return (<CampaignCreateFirstComponent
-			onClickOk = {() => this.onChangeIndex(1)}
+			onClickOk = {() => this.onClickOk(1)}
 			/>)
 		} else if (this.props.index === 1) {
 			return (<CampaignCreateSecondComponent
-				onClickOk = {() => this.onChangeIndex(2)}
+				onClickOk = {() => this.onClickOk(2)}
 			/>)
 		} else if (this.props.index === 2) {
 			return (<ConfirmComponent/>)

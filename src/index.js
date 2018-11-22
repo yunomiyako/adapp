@@ -16,11 +16,7 @@ import "./index.css"
 import MyApp from "./components/App"
 import registerServiceWorker from "./registerServiceWorker"
 
-//aws
-// import Amplify, { Storage } from "aws-amplify"
-// import aws_exports from "./aws-exports"
-// Amplify.configure(aws_exports)
-
+import {StripeProvider} from "react-stripe-elements"
 
 const sagaMiddleware = createSagaMiddleware()
 // Be sure to ONLY add this middleware in development
@@ -38,8 +34,10 @@ sagaMiddleware.run(mySaga)
 
 ReactDOM.render(
 	<Provider store = {store}>
-		<MyApp />
-	</Provider> ,
+		<StripeProvider apiKey="pk_test_12345">
+			<MyApp />
+		</StripeProvider>
+	</Provider>  ,
 	document.getElementById("root")
 )
 
