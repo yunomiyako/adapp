@@ -19,6 +19,7 @@ import WebhookRedirectPage from "./WebhookLoginPage/WebhookRedirectPage"
 import CampaignPage from "./CampaignPage/CampaignPage"
 import CampaignCreatePage from "../containers/CampaignCreatePage/CampaignCreatePage"
 import IconBattle from "./IconBattle/IconBattle"
+import CreateSimpleMessage from "./CampaignPage/CreateSimpleMessage"
 
 
 import { Route, BrowserRouter } from "react-router-dom"
@@ -86,6 +87,7 @@ class App extends Component {
 						<Route path="/campaign/:screen_name/:id_campaign" component = {CampaignPage} />
 						<Route path="/campaign_create" component = {CampaignCreatePage} />
 						<Route path="/campaign_hobby" component = {CampaignHobbyPage} />
+						<Route path="/campaign_message" component = {CreateSimpleMessage} />
 
 
 						<Route path="/test" component = {ExperimentalPage} />
