@@ -7,6 +7,7 @@ import QueryString from "../../Utils/QueryString"
 import { Form, TextArea , Button , Dimmer , Loader } from "semantic-ui-react"
 import { getSimpleMessage, postSimpleMessage } from "../../api/SimpleMessage";
 import ErrorView from "../CommonSemanticUI/ErrorPage";
+import { redirectTo } from "../Redirect/redirect";
 
 class CreateSimpleMessage extends Component {
     constructor(props)  {
@@ -14,7 +15,9 @@ class CreateSimpleMessage extends Component {
         this.state = {
             message : "" , 
             success : false , 
-            loading : true
+            loading : true , 
+            sending : false  , 
+            redirectTo : ""
         }
     }
     componentDidMount() {
@@ -27,7 +30,8 @@ class CreateSimpleMessage extends Component {
         getSimpleMessage(QueryString).then(res => {
             this.setState({
                 success : true , 
-                loading : false
+                loading : false , 
+                message : res.message
             })
         }).catch(e => {
             this.setState({
@@ -41,19 +45,40 @@ class CreateSimpleMessage extends Component {
 	renderTextArea(){
 		return (
 			<Form>
-				<TextArea autoHeight placeholder='当たった喜びや感謝を書いてね！' rows={2}
+                <TextArea 
+                    autoHeight placeholder='当たった喜びや感謝を書いてね！' rows={2}
 					onChange={this.onInputCharacter}
 					value={this.state.message}
 				/>
-                <Button onClick={() => this.onClickSubmit()}>送信！</Button>
+                <Button 
+                loading={this.state.sending}
+                onClick={() => this.onClickSubmit()}>送信！</Button>
 			</Form>
 		)
     }
     
     onClickSubmit() {
+
+        const creator_id = QueryString.creator_id
+        const id_tweet = QueryString.id_tweet
+        console.log("creator_id = " + creator_id)
+
         const payload = {...QueryString , message : this.state.message}
-        console.log(payload)
-        postSimpleMessage(payload)
+        this.setState({
+            sending : true
+        })
+        postSimpleMessage(payload).then(res => {
+            const url = "campaign/" + creator_id + "/" + id_tweet
+            console.log(url)
+            this.setState({
+                sending : false , 
+                redirectTo : url
+            })
+        }).catch(e => {
+            this.setState({
+                sending : false
+            })
+        })
     }
 
 	onInputCharacter = (event) => {
@@ -63,6 +88,10 @@ class CreateSimpleMessage extends Component {
 	}
 
 	render() {
+        if(this.state.redirectTo) {
+            return redirectTo(this.state.redirectTo)
+        }
+
         if(this.state.loading) {
 			return (
 				<Dimmer active>
@@ -73,7 +102,11 @@ class CreateSimpleMessage extends Component {
         if(this.state.success) {        
             return (
                 <div className={style.CreateSimpleMessage}>
-                    {this.renderTextArea()}
+                    <h3>当選おめでとうございます！</h3>
+                    <h4>一言メッセージをお願いします。こちらのメッセージは公開されます。</h4>
+                    <div className={style.TextArea}>
+                        {this.renderTextArea()}
+                    </div>
                 </div>
             )
         } else {
