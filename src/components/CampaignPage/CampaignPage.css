@@ -2,7 +2,7 @@
   position: relative;
   height: auto;
   min-height: 100vh;
-  padding: 50px 20px;
+  padding: 80px 20px;
 }
 
 :local .CampaignPageContainer {
@@ -24,4 +24,16 @@
 
 :local .TextArea {
 
+}
+
+:local .NaiyouComponent {
+  margin-top: 50px;
+  text-align: left;
+}
+
+:local .aaaa {
+  margin-top: 50px;
+  color: rgb(100, 100, 100);
+  border-bottom: dashed 2px rgb(100, 100, 100);
+  text-align: left;
 }

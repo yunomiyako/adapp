@@ -1,7 +1,9 @@
 import React , {Component}  from "react"
 import style from "./CampaignPage.css"
-import {  Dimmer , Loader , Button } from "semantic-ui-react"
+import {  Dimmer , Loader } from "semantic-ui-react"
 import fetchCampaignDetail from "../../api/fetchCampaignDetail";
+import WinnerList from "./WinnerList";
+import WinnerListContaienr from "./WinnerListContainer";
 
 
 class CampaignPage extends Component {
@@ -24,16 +26,13 @@ class CampaignPage extends Component {
 		this.setState({loading : true})
 		const body = await fetchCampaignDetail(screen_name , id_ad)
 		this.setState({loading : false})
+		console.log( body)
 		this.setState(
 			{
 				campaign : body.campaign , 
 				applicants : body.applicants , 
 			}
 		)
-	}
-
-	renderList() {
-		return this.state.applicants.map(a => a.user.name)
 	}
 
 	render() {
@@ -44,10 +43,18 @@ class CampaignPage extends Component {
 				</Dimmer>
 			)
 		}
+
 		return (
 			<div className={style.CampaignPagePage}>
-				<div className={style.CampaignPagePageContainer}>
-					{this.renderList()}
+				<div className={style.CampaignPageContainer}>
+
+					<br/><br/><br/><br/><br/>
+				
+					<h1>賞品と当選者一覧</h1>
+					<WinnerListContaienr
+						campaign = {this.state.campaign}
+						applicants={this.state.applicants}
+					/>
 				</div>
 			</div>
 		)
