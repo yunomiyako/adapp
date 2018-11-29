@@ -19,7 +19,7 @@ class WinnerList extends Component {
 			user.id_user = applicant.user.screen_name
 			user.header = applicant.user.name
 			user.content = content
-			user.icon = applicant.user.profile_image_url
+			user.icon = applicant.user.profile_image_url_https
 			items.push(user)
 		})
 

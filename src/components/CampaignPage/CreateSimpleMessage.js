@@ -102,8 +102,9 @@ class CreateSimpleMessage extends Component {
         if(this.state.success) {        
             return (
                 <div className={style.CreateSimpleMessage}>
-                    <h3>当選おめでとうございます！</h3>
-                    <h4>一言メッセージをお願いします。こちらのメッセージは公開されます。</h4>
+                    <h3>当選おめでとう！</h3>
+                    <h4>一言メッセージをお願いします。
+                        こちらのメッセージは公開されます。</h4>
                     <div className={style.TextArea}>
                         {this.renderTextArea()}
                     </div>
