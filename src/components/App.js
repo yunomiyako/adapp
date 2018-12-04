@@ -36,6 +36,7 @@ import redirectByQueryString from "./Redirect/redirectByQueryString"
 import { Snackbar } from "react-redux-snackbar"
 import ExperimentalPage from "./ExperimentalPage/ExperimentalPage"
 import CampaignHobbyPage from "./CampaignHobbyPage/CampaignHobbyPage"
+import CampaignPage2 from "./CampaignPage/CampaignPage2"
 
 Amplify.configure(conf)
 
@@ -84,7 +85,8 @@ class App extends Component {
 						<Route path="/iconbattle" component = {IconBattle} />
 						<Route path="/webhook" component = {WebhookLoginPage} />
 						<Route path="/webhook/redirect" component = {WebhookRedirectPage} />
-						<Route path="/campaign/:screen_name/:id_campaign" component = {CampaignPage} />
+						{/* <Route path="/campaign/:screen_name/:id_campaign" component = {CampaignPage} /> */}
+						<Route path="/campaign/:screen_name/:id_campaign" component = {CampaignPage2} />
 						<Route path="/campaign_create" component = {CampaignCreatePage} />
 						<Route path="/campaign_hobby" component = {CampaignHobbyPage} />
 						<Route path="/campaign_message" component = {CreateSimpleMessage} />
