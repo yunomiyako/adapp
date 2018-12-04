@@ -22,11 +22,11 @@ class CampaignPage2 extends Component {
 
 	async getCamapaignDetail() {
 		const screen_name = this.props.match.params.screen_name
-		const token = this.props.match.params.id_campaign
-		console.log("screen_name = " + screen_name)
+		const id_campaign = this.props.match.params.id_campaign
+		const token = this.props.match.params.token
 		
 		this.setState({loading : true})
-		const body = await fetchCampaignDetail(screen_name , undefined , token)
+		const body = await fetchCampaignDetail(screen_name , id_campaign , token)
 		this.setState({loading : false})
 		console.log( body)
 		this.setState(
