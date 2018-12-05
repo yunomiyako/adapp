@@ -38,13 +38,13 @@ class CampaignPage2 extends Component {
 	}
 
 	render() {
-		if(this.state.loading) {
-			return (
-				<Dimmer active>
-					<Loader size='massive'>Loading</Loader>
-				</Dimmer>
-			)
-		}
+		// if(this.state.loading) {
+		// 	return (
+		// 		<Dimmer active>
+		// 			<Loader size='massive'>Loading</Loader>
+		// 		</Dimmer>
+		// 	)
+		// }
 
 		return (
 			<div className={style.CampaignPagePage}>
