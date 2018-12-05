@@ -28,7 +28,6 @@ class CampaignPage2 extends Component {
 		this.setState({loading : true})
 		const body = await fetchCampaignDetail(screen_name , id_campaign , token)
 		this.setState({loading : false})
-		console.log( body)
 		this.setState(
 			{
 				campaign : body.campaign , 
@@ -38,13 +37,14 @@ class CampaignPage2 extends Component {
 	}
 
 	render() {
-		// if(this.state.loading) {
-		// 	return (
-		// 		<Dimmer active>
-		// 			<Loader size='massive'>Loading</Loader>
-		// 		</Dimmer>
-		// 	)
-		// }
+		console.log(this.state.loading)
+		if(this.state.loading) {
+			return (
+				<Dimmer active>
+					<Loader size='massive'>Loading</Loader>
+				</Dimmer>
+			)
+		}
 
 		return (
 			<div className={style.CampaignPagePage}>

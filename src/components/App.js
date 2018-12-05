@@ -85,8 +85,8 @@ class App extends Component {
 						<Route path="/iconbattle" component = {IconBattle} />
 						<Route path="/webhook" component = {WebhookLoginPage} />
 						<Route path="/webhook/redirect" component = {WebhookRedirectPage} />
-						<Route path="/campaign/:screen_name/:id_campaign" component = {CampaignPage2} />
-						<Route path="/campaign/2/:screen_name/:token" component = {CampaignPage2} />
+						<Route exact={true} path="/campaign/:screen_name/:id_campaign" component = {CampaignPage2} />
+						<Route exact={true} path="/campaign/2/:screen_name/:token" component = {CampaignPage2} />
 						<Route path="/campaign_create" component = {CampaignCreatePage} />
 						<Route path="/campaign_hobby" component = {CampaignHobbyPage} />
 						<Route path="/campaign_message" component = {CreateSimpleMessage} />
