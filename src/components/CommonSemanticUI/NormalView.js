@@ -17,8 +17,8 @@ class NormalView extends Component {
 	}
 
 	render() {
-		const title = "どんな人に使ってもらいたい？"
-		const ls = [
+		const title = this.props.title || "どんな人に使ってもらいたい？"
+		const ls = this.props.ls || [
 			{key: 1 , text : "宣伝したいことがある"} , 
 			{key: 2 , text : "お金をかけずにTwitterで宣伝したい"} , 
 			{key: 3 , text : "「クラウドアドバタイジング」を試してみたい"} , 

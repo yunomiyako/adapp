@@ -6,6 +6,7 @@ import {
 	onChangeEmail , 
 	onChangeNotes , 
 	onChangeTweetObject , 
+	onChangeTwitterId , 
 } from "../../actions/CampaignCreate"
 
 import {
@@ -14,6 +15,7 @@ import {
 	getEmail,
 	getNotes,
 	getTweetObject,
+	getTwitterId,
 } from "../../selectors/CampaignCreatePage"
 
 function mapStateToProps(state){
@@ -24,6 +26,8 @@ function mapStateToProps(state){
 		email: getEmail(subState),
 		notes: getNotes(subState),
 		tweetObject: getTweetObject(subState),
+		twitterId: getTwitterId(subState),
+		
 	}
 }
 
@@ -33,7 +37,9 @@ function mapDispatchToProps(dispatch) {
 		onChangeName: (name) => dispatch(onChangeName(name)),
 		onChangeEmail: (email) => dispatch(onChangeEmail(email)),
 		onChangeNotes: (notes) => dispatch(onChangeNotes(notes)),
-		onChangeTweetObject: (tweetObject) => dispatch(onChangeTweetObject(tweetObject)),	}
+		onChangeTweetObject: (tweetObject) => dispatch(onChangeTweetObject(tweetObject)),
+		onChangeTwitterId: (twitterId) => dispatch(onChangeTwitterId(twitterId)),
+	}
 }
 
 export default connect(

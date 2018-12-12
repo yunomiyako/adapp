@@ -11,6 +11,7 @@ import {
 	ON_CHANGE_EMAIL , 
 	ON_CHANGE_NOTES , 
 	ON_CHANGE_TWEET_OBJECT , 
+	ON_CHANGE_TWITTER_ID , 
 } from "../actions/CampaignCreate"
 
 //データ構造
@@ -43,6 +44,8 @@ export default function AdCreateInfo(state = new CampaignCreateDataStructure({})
 		return dotProp.set(state , "notes" ,  action.notes )
 	case ON_CHANGE_TWEET_OBJECT:
 		return dotProp.set(state , "tweetObject" ,  action.tweetObject )
+	case ON_CHANGE_TWITTER_ID:
+		return dotProp.set(state , "twitterId" ,  action.twitterId )
 	default :
 		return state
 	}
