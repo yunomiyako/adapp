@@ -8,7 +8,6 @@ import { List , Image} from "semantic-ui-react"
 class WinnerList extends Component {
 
 	renderUserList(applicants) {
-		//TODO : userdetailから修正
 		const items = []
 		applicants.forEach(applicant => {
 			var content = undefined

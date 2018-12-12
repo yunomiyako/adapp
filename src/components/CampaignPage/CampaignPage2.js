@@ -27,6 +27,8 @@ class CampaignPage2 extends Component {
 		
 		this.setState({loading : true})
 		const body = await fetchCampaignDetail(screen_name , id_campaign , token)
+		console.log(body.campaign)
+		console.log(body.applicants)
 		this.setState({loading : false})
 		this.setState(
 			{

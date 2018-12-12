@@ -17,21 +17,23 @@ class CreateSimpleMessage extends Component {
             success : false , 
             loading : true , 
             sending : false  , 
-            redirectTo : ""
+            redirectTo : "" , 
+            result : ""
         }
     }
     componentDidMount() {
         //urlをみて当選者か確かめる
-        const id_user = QueryString.id_iser 
-        const creator_id = QueryString.creator_id
-        const id_tweet = QueryString.id_tweet
-        const actionType = QueryString.actionType
-        const token = QueryString.token
+        // const id_user = QueryString.id_iser 
+        // const creator_id = QueryString.creator_id
+        // const id_tweet = QueryString.id_tweet
+        // const actionType = QueryString.actionType
+        // const token = QueryString.token
         getSimpleMessage(QueryString).then(res => {
             this.setState({
                 success : true , 
                 loading : false , 
-                message : res.message
+                message : res.message , 
+                result : res.result
             })
         }).catch(e => {
             this.setState({
@@ -42,11 +44,11 @@ class CreateSimpleMessage extends Component {
     }
 
 	//フィールドの長さはAdCreatePage-TitleCreateComponentで定義
-	renderTextArea(){
+	renderTextArea(placeholder){
 		return (
 			<Form>
                 <TextArea 
-                    autoHeight placeholder='当たった喜びや感謝を書いてね！' rows={2}
+                    autoHeight placeholder={placeholder} rows={2}
 					onChange={this.onInputCharacter}
 					value={this.state.message}
 				/>
@@ -85,7 +87,27 @@ class CreateSimpleMessage extends Component {
 		this.setState({
             message : event.target.value
         })
-	}
+    }
+    
+    renderDescription(result) {
+        if(result == "外れ") {
+            return(
+                <React.Fragment>
+                        <h3>残念、外れでした・・・😢</h3>
+                        <h4>何か一言悲しみのメッセージをお願いします。
+                            こちらのメッセージは公開されますので、誹謗中傷はお控えください🙏</h4>
+                </React.Fragment>
+            )
+        } else {
+            return(
+                <React.Fragment>
+                        <h3>当選おめでとうございます！😄</h3>
+                        <h4>何か一言喜びのメッセージをお願いします。
+                            こちらのメッセージは公開されますので、個人情報等の記述はお控えください🙏</h4>
+                </React.Fragment>
+            )
+        }
+    }
 
 	render() {
         if(this.state.redirectTo) {
@@ -102,9 +124,7 @@ class CreateSimpleMessage extends Component {
         if(this.state.success) {        
             return (
                 <div className={style.CreateSimpleMessage}>
-                    <h3>当選おめでとう！</h3>
-                    <h4>一言メッセージをお願いします。
-                        こちらのメッセージは公開されます。</h4>
+                    {this.renderDescription(this.state.result)}
                     <div className={style.TextArea}>
                         {this.renderTextArea()}
                     </div>

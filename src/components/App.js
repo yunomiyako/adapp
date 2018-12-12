@@ -37,6 +37,7 @@ import { Snackbar } from "react-redux-snackbar"
 import ExperimentalPage from "./ExperimentalPage/ExperimentalPage"
 import CampaignHobbyPage from "./CampaignHobbyPage/CampaignHobbyPage"
 import CampaignPage2 from "./CampaignPage/CampaignPage2"
+import CampaignDescription from "./CampaignDescription/CampaignDescription"
 
 Amplify.configure(conf)
 
@@ -90,6 +91,7 @@ class App extends Component {
 						<Route path="/campaign_create" component = {CampaignCreatePage} />
 						<Route path="/campaign_hobby" component = {CampaignHobbyPage} />
 						<Route path="/campaign_message" component = {CreateSimpleMessage} />
+						<Route path="/campaign_description" component = {CampaignDescription} />
 
 
 						<Route path="/test" component = {ExperimentalPage} />

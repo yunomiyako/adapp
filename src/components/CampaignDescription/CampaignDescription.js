@@ -1,22 +1,17 @@
 import React , {Component}  from "react"
-import style from "./CommonSemanticUI.css"
+import style from "./CampaignDescription.css"
+import { } from "semantic-ui-react"
+import NormalView from "../CommonSemanticUI/NormalView"
 
-//semantic UI
-import { Card , List   } from "semantic-ui-react"
-class NormalView extends Component {
-	renderList(ls) {
-		return ls.map(_item => {
-			return (
-				<List.Item key={_item.key}>
-					<span className={style.NormalViewItem}>
-						{_item.text}
-					</span>
-				</List.Item>
-			)
-		})
+class CampaignDescription extends Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+
+		}
 	}
 
-	render() {
+	renderMerit() {
 		const title = "どんな人に使ってもらいたい？"
 		const ls = [
 			{key: 1 , text : "宣伝したいことがある"} , 
@@ -27,23 +22,23 @@ class NormalView extends Component {
 			{key: 6 , text : "たくさんの人にフォローしてもらいたい"} , 
 			{key: 7 , text : "いいねしてもらいたいツイートがある"} , 
 			{key: 8 , text : "ただただ見てほしいことがある"} ]
+
+		return <NormalView
+			title = {title}
+			ls = {ls} />
+	}
+
+
+	render() {
 		return (
-			<div className={style.NormalView}>
-				<Card fluid>
-					<Card.Content>
-						<Card.Header>{title}</Card.Header>
-					</Card.Content>
-					<Card.Content >
-						<div className={style.NormalViewContent} >
-							<List bulleted relaxed>
-								{this.renderList(ls)}
-							</List>
-						</div>
-					</Card.Content>
-				</Card>
+			<div className={style.CampaignDescriptionPage}>
+				<div className={style.CampaignDescriptionPageContainer}>
+					<h1>プレセントキャンペーンを開きませんか？</h1>
+					{this.renderMerit()}
+				</div>
 			</div>
 		)
 	}
 }
 
-export default NormalView
+export default CampaignDescription
