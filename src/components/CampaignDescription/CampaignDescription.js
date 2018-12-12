@@ -101,6 +101,12 @@ class CampaignDescription extends Component {
 						className = {style.InquiryFormFrame}>
 						<InquiryForm/>
 					</div>
+
+
+					<br/>
+					<br/><br/><br/>
+					<br/><br/><br/><br/>
+					<br/><br/><br/><br/><br/>
 				</div>
 			</div>
 		)
