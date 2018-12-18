@@ -1,25 +1,27 @@
 :local .CampaignPage {
-  position: relative;
-  height: auto;
-  min-height: 100vh;
-  padding: 80px 20px;
+	position: relative;
+	height: auto;
+	min-height: 100vh;
+	padding: 80px 20px;
+	overflow:hidden;
 }
 
 :local .CampaignPageContainer {
-    text-align: center;
-    max-width: 600px;
-    margin: auto;
-    left : 0;
-    right : 0;
+	text-align: center;
+	max-width: 95%;
+	margin: auto;
+	left : 0;
+	right : 0;
+	overflow:hidden;
 }
 
 :local .CreateSimpleMessage {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 
 :local .TextArea {
@@ -27,13 +29,58 @@
 }
 
 :local .NaiyouComponent {
-  margin-top: 50px;
-  text-align: left;
+	/*margin-top: 50px;*/
+	text-align: left;
+	overflow:hidden;
 }
 
-:local .aaaa {
-  margin-top: 50px;
-  color: rgb(100, 100, 100);
-  border-bottom: dashed 2px rgb(100, 100, 100);
-  text-align: left;
+:local .prize{
+	position:relative;
+	background-color:#FFF;
+	border-radius:10px;
+	min-width:600px;
+	min-height:150px;
+	margin:5px;
+	display:inline-block;
+}
+
+:local .prize_name {
+	position:relative;
+	top:3px; left:0; width:100%; height:30px;
+	font-size:25px;
+	font-weight:bold;
+	border-bottom: dashed 2px rgb(100 , 100 , 100);
+	text-align: center;
+}
+
+:local .setColorWhite{
+	/*color:#FFF;*/
+}
+
+:local .winners{
+	}
+
+:local ul{
+	list-style: none;
+}
+
+:local li{
+}
+
+:local .probability{
+	position:relative;
+	left:0; height:80px; width:100%;
+	padding:20px;
+	text-align:right;
+	font-size:30px;
+}
+
+:local .winnerList{
+	position:relative;
+	left:0; width:100%;
+}
+
+:local .emphasise{
+	font-weight:bold;
+	font-size:40px;
 }
