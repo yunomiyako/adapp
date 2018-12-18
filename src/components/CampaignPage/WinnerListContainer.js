@@ -50,7 +50,7 @@ class WinnerListContaienr extends Component {
 				return applicant.result == key
 			})
 			const prize = campaign.campaign[key]
-			const headerLabel = prize.title + " (" + prize.people + "人)"
+			const headerLabel = prize.title
 			let prob = Number(prize.probability).toFixed(3)*100
 			prob = prob.toFixed(1)
 			const remain = prize.people - winners.length
@@ -70,10 +70,9 @@ class WinnerListContaienr extends Component {
 		return objects.map(obj => {
 			return (
 				<div key={obj.headerLabel} className={style.prize}>
-				<div className={style.prize_name}>{obj.headerLabel}</div>
+				<div className={style.prize_name}><span>{obj.headerLabel}</span></div>
 				<div className={style.probability}>この賞品の当選確率は......<span className={style.emphasise}>{obj.prob}%!!</span></div>
 				{this.ItemStatus(obj.item_num , obj.remain_num)}
-				<div className={style.remaing}></div>
 				<div className={style.winnerList}>
 				<WinnerList applicants={obj.applicants} />
 				</div>

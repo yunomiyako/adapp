@@ -58,10 +58,6 @@ class CampaignPage2 extends Component {
 						campaign = {this.state.campaign}
 						applicants={this.state.applicants}
 					/>
-					<WinnerStatus
-						campaign = {this.state.campaign}
-						applicants={this.state.applicants}
-					/>
 				</div>
 			</div>
 		)

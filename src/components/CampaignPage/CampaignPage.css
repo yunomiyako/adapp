@@ -36,23 +36,34 @@
 
 :local .prize{
 	position:relative;
-	background-color:#FFF;
+	border: solid 5px #94CCAE;
+	background-color:#FFFFFF;
 	border-radius:10px;
 	min-width:600px;
 	min-height:150px;
-	margin:5px;
+	margin:10px 10px 30px 10px;
 	display:inline-block;
-	opacity: 0;
 	animation: fadeIn 1s ease 0s forwards;
+	vertical-align: middle;
 }
 
 :local .prize_name {
 	position:relative;
-	top:3px; left:0; width:100%; height:30px;
-	font-size:25px;
+	top:10px; left:0; width:100%; height:30px;
+	font-size:40px;
 	font-weight:bold;
-	border-bottom: dashed 2px rgb(100 , 100 , 100);
-	text-align: center;
+	text-align: left;
+}
+
+:local .prize_name span{
+	position:relative;
+	top:-20px;
+	left:-5px;
+	background-color:#FFFFFF;
+	vertical-align: middle;
+	border-radius:10px;
+	border: solid 5px #94CCAE;
+	padding:3px;
 }
 
 :local .setColorWhite{
@@ -60,10 +71,11 @@
 }
 
 :local .winners{
-	}
+}
 
 :local ul{
 	list-style: none;
+	padding:0px;
 }
 
 :local li{
@@ -74,7 +86,10 @@
 	left:0; height:60px; width:100%;
 	padding:20px 20px 0px 20px;
 	text-align:right;
-	font-size:30px;
+	margin-top:10px;
+	font-size:25px;
+	background: #d6ebff;
+	border: solid 0.5px #F2F2F2;
 }
 
 :local .winnerList{
@@ -82,17 +97,29 @@
 	left:0; width:100%;
 }
 
+:local .winners{
+}
+
 :local .item_status{
 	position:relative;
-	left:0; width:100%;
-	margin:5px;
+	left:0; width:100%; height:30px;
+	margin:10px 0px;
 	text-align:center;
+	vertical-align: middle;
 	font-size:20px;
+	background-color: #ffeaea;
+	padding:5px 0px;
+	border: solid 2px #F2F2F2;
 }
 
 :local .emphasise{
 	font-weight:bold;
 	font-size:40px;
+}
+
+:local .sad_text{
+	text-align:center;
+	margin:10px;
 }
 
 @keyframes fadeIn{
