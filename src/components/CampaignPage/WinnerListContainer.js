@@ -9,6 +9,38 @@ import WinnerList from "./WinnerList"
 
 class WinnerListContaienr extends Component {
 
+	ItemStatus( item_num , remain_num ){
+		const item_num_style={
+			fontSize:'20px',
+			fontWeight:'bold'
+		}
+		if( remain_num == 0 ){
+			return(
+				<div className={style.item_status}>
+				この賞品はなくなりました
+				</div>
+			)
+		}
+		else if(remain_num <= 3){
+			return(
+				<div className={style.item_status}>
+					残り賞品数は
+					<span style={{color:'red',fontSize:'30px',fontWeight:'bold'}}>{remain_num}</span>
+					<span style={item_num_style}>/{item_num}個</span>
+				</div>
+			)
+		}
+		else{
+			return(
+				<div className={style.item_status}>
+					残り賞品数は
+					<span style={{fontSize:'25px',fontWeight:'bold'}}>{remain_num}</span>
+					<span style={item_num_style}>/{item_num}個</span>
+				</div>
+			)
+		}
+	}
+
 	renderWinnerLists(campaign , applicants) {
 		const objects = []
 		if(!campaign) return 
@@ -19,12 +51,16 @@ class WinnerListContaienr extends Component {
 			})
 			const prize = campaign.campaign[key]
 			const headerLabel = prize.title + " (" + prize.people + "人)"
-			let prob = Number(prize.probability).toFixed(3)*100;
+			let prob = Number(prize.probability).toFixed(3)*100
 			prob = prob.toFixed(1)
+			const remain = prize.people - winners.length
+			console.log(remain)
 			const object = {
 				"applicants" : winners ,
 				"headerLabel" : headerLabel,
-				"prob" : prob
+				"prob" : prob,
+				"item_num" : prize.people,
+				"remain_num" : remain
 			}
 
 			objects.push(object)
@@ -34,13 +70,13 @@ class WinnerListContaienr extends Component {
 		return objects.map(obj => {
 			return (
 				<div key={obj.headerLabel} className={style.prize}>
-					<div className={style.prize_name}>{obj.headerLabel}</div>
-					<div className={style.probability}>この賞品の当選確率は......<span className={style.emphasise}>{obj.prob}%!!</span></div>
-
-					<div className={style.remaing}></div>
-					<div className={style.winnerList}>
-						<WinnerList applicants={obj.applicants} />
-					</div>
+				<div className={style.prize_name}>{obj.headerLabel}</div>
+				<div className={style.probability}>この賞品の当選確率は......<span className={style.emphasise}>{obj.prob}%!!</span></div>
+				{this.ItemStatus(obj.item_num , obj.remain_num)}
+				<div className={style.remaing}></div>
+				<div className={style.winnerList}>
+				<WinnerList applicants={obj.applicants} />
+				</div>
 				</div>)
 		})
 	}
@@ -48,9 +84,9 @@ class WinnerListContaienr extends Component {
 	render() {
 		return (
 			<div>
-				<ul>
-					{this.renderWinnerLists(this.props.campaign , this.props.applicants)}
-				</ul>
+			<ul>
+			{this.renderWinnerLists(this.props.campaign , this.props.applicants)}
+			</ul>
 			</div>
 		)
 	}
