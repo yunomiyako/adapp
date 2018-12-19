@@ -11,8 +11,8 @@ class WinnerListContaienr extends Component {
 
 	ItemStatus( item_num , remain_num ){
 		const item_num_style={
-			fontSize:'20px',
-			fontWeight:'bold'
+			fontSize:"20px",
+			fontWeight:"bold"
 		}
 		if( remain_num == 0 ){
 			return(
@@ -25,7 +25,7 @@ class WinnerListContaienr extends Component {
 			return(
 				<div className={style.item_status}>
 					残り賞品数は
-					<span style={{color:'red',fontSize:'30px',fontWeight:'bold'}}>{remain_num}</span>
+					<span style={{color:"red",fontSize:"30px",fontWeight:"bold"}}>{remain_num}</span>
 					<span style={item_num_style}>/{item_num}個</span>
 				</div>
 			)
@@ -34,7 +34,7 @@ class WinnerListContaienr extends Component {
 			return(
 				<div className={style.item_status}>
 					残り賞品数は
-					<span style={{fontSize:'25px',fontWeight:'bold'}}>{remain_num}</span>
+					<span style={{fontSize:"25px",fontWeight:"bold"}}>{remain_num}</span>
 					<span style={item_num_style}>/{item_num}個</span>
 				</div>
 			)
@@ -70,12 +70,12 @@ class WinnerListContaienr extends Component {
 		return objects.map(obj => {
 			return (
 				<div key={obj.headerLabel} className={style.prize}>
-				<div className={style.prize_name}><span>{obj.headerLabel}</span></div>
-				<div className={style.probability}>この賞品の当選確率は......<span className={style.emphasise}>{obj.prob}%!!</span></div>
-				{this.ItemStatus(obj.item_num , obj.remain_num)}
-				<div className={style.winnerList}>
-				<WinnerList applicants={obj.applicants} />
-				</div>
+					<div className={style.prize_name}><span>{obj.headerLabel}</span></div>
+					<div className={style.probability}>この賞品の当選確率は......<span className={style.emphasise}>{obj.prob}%!!</span></div>
+					{this.ItemStatus(obj.item_num , obj.remain_num)}
+					<div className={style.winnerList}>
+						<WinnerList applicants={obj.applicants} />
+					</div>
 				</div>)
 		})
 	}
@@ -83,9 +83,9 @@ class WinnerListContaienr extends Component {
 	render() {
 		return (
 			<div>
-			<ul>
-			{this.renderWinnerLists(this.props.campaign , this.props.applicants)}
-			</ul>
+				<ul>
+					{this.renderWinnerLists(this.props.campaign , this.props.applicants)}
+				</ul>
 			</div>
 		)
 	}
