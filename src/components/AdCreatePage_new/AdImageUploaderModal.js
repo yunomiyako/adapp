@@ -93,6 +93,7 @@ class AdImageUploaderModal extends React.Component {
 		this.setState({loading : true})
 		const id_user = get_id_user()
 		Promise.all(imageUploadUserWithRandomName(this.state.pictures , id_user)).then((values) => {
+			
 			const keys = values.map(v => v.key)
 			this.props.onChangePictures(keys)
 			this.props.onClickOk(keys)

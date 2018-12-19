@@ -9,6 +9,7 @@ export const imageUpload = function(path , file) {
 		})
 	}).catch(e => {
 		//TODO 呼ばれるか確認
+		console.log(e)
 	})
 }
 
@@ -31,8 +32,10 @@ export const imagesUploadUser = function(path , files , username) {
 } 
 
 export const imageUploadUserWithRandomName = function(files , username) {
+
 	if(files.length === 0) {return new Error("画像がないよ")}
 	return files.map(file => {
+
 		const uuid = btoa(crypto.getRandomValues(new Uint8Array(16)))
 		return imageUploadUser(uuid , file , username)
 	})

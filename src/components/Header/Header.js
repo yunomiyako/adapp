@@ -21,10 +21,10 @@ class Header extends Component {
 	renderLink() {
 		const user_detail = get_userdetail()
 		const icon_url = user_detail ? user_detail.profile_image_url : undefined
-
+		const link3 = new ContentLink("使い方" , "/explanation" , undefined)
 		const link2 = new ContentLink("宣伝作成" , "/ad_create" , undefined)
 		const link5 = new ContentLink("ユーザページ" , "/userpage" , icon_url )
-		const contentLink = [ link5]
+		const contentLink = [ link3 , link5]
 
 		return (contentLink.map(link => {
 			return (
@@ -44,7 +44,7 @@ class Header extends Component {
 						<div className="ui container">
 							<Link push="true" to="/" className="header item">
 								<Icon name="bullhorn" color="orange"></Icon>
-								adApp(あどあっぷ)
+								あどあっぷ
 							</Link>
 							{this.renderLink()}
 						</div>

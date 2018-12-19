@@ -4,7 +4,7 @@ import {  Dimmer , Loader , Button } from "semantic-ui-react"
 import fetchCampaignDetail from "../../api/fetchCampaignDetail";
 
 
-class StatsPage extends Component {
+class CampaignPage extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -45,8 +45,8 @@ class StatsPage extends Component {
 			)
 		}
 		return (
-			<div className={style.StatsPage}>
-				<div className={style.StatsPageContainer}>
+			<div className={style.CampaignPagePage}>
+				<div className={style.CampaignPagePageContainer}>
 					{this.renderList()}
 				</div>
 			</div>
@@ -54,4 +54,4 @@ class StatsPage extends Component {
 	}
 }
 
-export default StatsPage
+export default CampaignPage

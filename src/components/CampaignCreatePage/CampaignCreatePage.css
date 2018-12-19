@@ -1,0 +1,67 @@
+:local .CampaignCreatePage {
+  position: relative;
+  height: auto;
+  min-height: 100vh;
+  padding: 80px 20px;
+}
+
+:local .CampaignCreatePageContainer {
+    text-align: center;
+    max-width: 900px;
+    margin: auto;
+    left : 0;
+    right : 0;
+}
+
+:local .CamapignCreateSecondPage {
+  max-width : 600px;
+  margin: auto;
+  left : 0;
+  right : 0;
+  margin-top:40px;
+}
+
+:local .formCell {
+  display : flex ; 
+  justify-content: center;
+  align-items : flex-end;
+}
+
+:local .CamapignCreateFirstPage {
+  margin-top: 40px;
+}
+
+:local .RewardMessageSetUpComponentContainer {
+  margin-top:40px;
+}
+
+:local .cellImage {
+  max-height : 150px ; 
+  max-width : 150px ; 
+}
+
+:local .centerlize {
+  display: flex ;
+  align-items : center ; 
+  flex-direction:column ; 
+}
+
+:local .FormComponent {
+  text-align : left ; 
+}
+
+:local .CampaignDetailComponent {
+  text-align : left ; 
+}
+
+:local .OkButtonFrame {
+  position:relative;
+  height : 50px;
+}
+
+:local .doneResultFrame {
+}
+
+:local .doneResultInner {
+  margin : 40px 00px; 
+}
