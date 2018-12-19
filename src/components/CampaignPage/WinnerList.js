@@ -55,9 +55,10 @@ class WinnerList extends Component {
 	render() {
 		return (
 			<div className={style.NaiyouComponent}>
-				<div className={style.aaaa}><h2>{this.props.headerLabel}</h2></div>
-				{this.renderUserList(this.props.applicants)}
-				{this.renderSadMessage()}
+				<div className = {style.winners}>
+					{this.renderUserList(this.props.applicants)}
+					{this.renderSadMessage()}
+				</div>
 			</div>
 		)
 	}

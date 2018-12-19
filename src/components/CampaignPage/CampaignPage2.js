@@ -3,8 +3,8 @@ import style from "./CampaignPage.css"
 import {  Dimmer , Loader } from "semantic-ui-react"
 import fetchCampaignDetail from "../../api/fetchCampaignDetail";
 import WinnerListContaienr from "./WinnerListContainer";
+import WinnerStatus from "./WinnerStatus";
 import QueryString from "../../Utils/QueryString";
-
 
 class CampaignPage2 extends Component {
 	constructor(props) {
@@ -48,12 +48,13 @@ class CampaignPage2 extends Component {
 			)
 		}
 
+		console.log(this.state.campaign);
+		console.log(this.state.applicants);
+
 		return (
 			<div className={style.CampaignPagePage}>
 				<div className={style.CampaignPageContainer}>
-
 					<br/><br/><br/><br/><br/>
-				
 					<h1>賞品と当選者一覧</h1>
 					<WinnerListContaienr
 						campaign = {this.state.campaign}
