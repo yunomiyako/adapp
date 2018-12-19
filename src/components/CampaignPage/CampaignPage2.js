@@ -5,6 +5,8 @@ import fetchCampaignDetail from "../../api/fetchCampaignDetail";
 import WinnerListContaienr from "./WinnerListContainer";
 import WinnerStatus from "./WinnerStatus";
 import QueryString from "../../Utils/QueryString";
+import Kiyaku from "./Kiyaku";
+import ErrorView from "../CommonSemanticUI/ErrorPage"
 
 class CampaignPage2 extends Component {
 	constructor(props) {
@@ -12,7 +14,10 @@ class CampaignPage2 extends Component {
 		this.state = {
 			campaign : undefined , 
 			applicants : [] , 
-			loading : false
+			loading : false , 
+			screen_name : "" , 
+			id_campaign : "" , 
+			fail_load : false
 		}
 	}
 	
@@ -26,43 +31,64 @@ class CampaignPage2 extends Component {
 		const token = this.props.match.params.token
 		
 		this.setState({loading : true})
-		const body = await fetchCampaignDetail(screen_name , id_campaign , token)
-		console.log(body.campaign)
-		console.log(body.applicants)
-		this.setState({loading : false})
-		this.setState(
-			{
-				campaign : body.campaign , 
-				applicants : body.applicants , 
-			}
-		)
+		fetchCampaignDetail(screen_name , id_campaign , token).then(body => {
+			console.log(body.campaign)
+			console.log(body.applicants)
+			this.setState({loading : false})
+			this.setState(
+				{
+					campaign : body.campaign , 
+					applicants : body.applicants , 
+				}
+			)
+		}).catch(e => {
+			this.setState(
+				{
+					fail_load : true , 
+					loading : false
+				}
+			)
+		})
+
 	}
 
 	render() {
-		console.log(this.state.loading)
-		if(this.state.loading) {
+		if(this.state.campaign) {
+
+			console.log(this.state.campaign)
 			return (
-				<Dimmer active>
-					<Loader size='massive'>Loading</Loader>
-				</Dimmer>
-			)
-		}
+				<div className={style.CampaignPagePage}>
+					<div className={style.CampaignPageContainer}>
+						<br/><br/><br/><br/><br/>
+						<h1>賞品と当選者一覧</h1>
+						<WinnerListContaienr
+							campaign = {this.state.campaign}
+							applicants={this.state.applicants}
+						/>
 
-		console.log(this.state.campaign);
-		console.log(this.state.applicants);
-
-		return (
-			<div className={style.CampaignPagePage}>
-				<div className={style.CampaignPageContainer}>
-					<br/><br/><br/><br/><br/>
-					<h1>賞品と当選者一覧</h1>
-					<WinnerListContaienr
-						campaign = {this.state.campaign}
-						applicants={this.state.applicants}
-					/>
+						<Kiyaku
+						screenName={this.state.campaign.id_user}
+						idTweet={this.state.campaign.id_campaign}
+						endTime={this.state.campaign.end_time}
+						startTime={this.state.campaign.start_time}
+						/>
+					</div>
 				</div>
-			</div>
-		)
+			)
+		} else {
+			if(this.state.loading) {
+				return (
+					<Dimmer active>
+						<Loader size='massive'>Loading</Loader>
+					</Dimmer>
+				)
+			} else if(this.state.fail_load) {
+				return (
+					ErrorView("キャンペーンが見つかりませんでした")
+				)
+			}
+			return ""
+		}
 	}
 }
 
