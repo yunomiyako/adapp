@@ -3,7 +3,7 @@ import style from "./CommonSemanticUI.css"
 
 //semantic UI
 import { Card , List   } from "semantic-ui-react"
-class UserCard extends Component {
+class NormalView extends Component {
 	renderList(ls) {
 		return ls.map(_item => {
 			return (
@@ -17,8 +17,8 @@ class UserCard extends Component {
 	}
 
 	render() {
-		const title = "どんな人に使ってもらいたい？"
-		const ls = [
+		const title = this.props.title || "どんな人に使ってもらいたい？"
+		const ls = this.props.ls || [
 			{key: 1 , text : "宣伝したいことがある"} , 
 			{key: 2 , text : "お金をかけずにTwitterで宣伝したい"} , 
 			{key: 3 , text : "「クラウドアドバタイジング」を試してみたい"} , 
@@ -46,4 +46,4 @@ class UserCard extends Component {
 	}
 }
 
-export default UserCard
+export default NormalView

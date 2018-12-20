@@ -16,6 +16,7 @@ class CampaignCreateDataStructure {
 		this.email = data.email || ""
 		this.notes = data.notes || ""
 		this.tweetObject = data.tweetObject || new TweetObjectDataStructure({})
+		this.twitterId = data.twitterId || ""
 	}
 }
 

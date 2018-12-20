@@ -1,14 +1,128 @@
 :local .CampaignPage {
-  position: relative;
-  height: auto;
-  min-height: 100vh;
-  padding: 50px 20px;
+	position: relative;
+	height: auto;
+	min-height: 100vh;
+	padding: 80px 20px;
+	overflow:hidden;
 }
 
 :local .CampaignPageContainer {
-    text-align: center;
-    max-width: 600px;
-    margin: auto;
-    left : 0;
-    right : 0;
+	text-align: center;
+	max-width: 95%;
+	margin: auto;
+	left : 0;
+	right : 0;
+	overflow:hidden;
+}
+
+:local .CreateSimpleMessage {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+:local .TextArea {
+
+}
+
+:local .NaiyouComponent {
+	/*margin-top: 50px;*/
+	text-align: left;
+	overflow:hidden;
+}
+
+:local .prize{
+	position:relative;
+	border: solid 5px #94CCAE;
+	background-color:#FFFFFF;
+	border-radius:10px;
+	min-width:600px;
+	min-height:150px;
+	margin:10px 10px 30px 10px;
+	display:inline-block;
+	animation: fadeIn 1s ease 0s forwards;
+	vertical-align: middle;
+}
+
+:local .prize_name {
+	position:relative;
+	top:10px; left:0; width:100%; height:30px;
+	font-size:40px;
+	font-weight:bold;
+	text-align: left;
+}
+
+:local .prize_name span{
+	position:relative;
+	top:-20px;
+	left:-5px;
+	background-color:#FFFFFF;
+	vertical-align: middle;
+	border-radius:10px;
+	border: solid 5px #94CCAE;
+	padding:3px;
+}
+
+:local .setColorWhite{
+	/*color:#FFF;*/
+}
+
+:local .winners{
+}
+
+:local ul{
+	list-style: none;
+	padding:0px;
+}
+
+:local li{
+}
+
+:local .probability{
+	position:relative;
+	left:0; height:60px; width:100%;
+	padding:20px 20px 0px 20px;
+	text-align:right;
+	margin-top:10px;
+	font-size:25px;
+	background: #d6ebff;
+	border: solid 0.5px #F2F2F2;
+}
+
+:local .winnerList{
+	position:relative;
+	left:0; width:100%;
+}
+
+:local .winners{
+}
+
+:local .item_status{
+	position:relative;
+	left:0; width:100%; height:30px;
+	margin:10px 0px;
+	text-align:center;
+	vertical-align: middle;
+	font-size:20px;
+	background-color: #ffeaea;
+	padding:5px 0px;
+	border: solid 2px #F2F2F2;
+}
+
+:local .emphasise{
+	font-weight:bold;
+	font-size:40px;
+}
+
+:local .sad_text{
+	text-align:center;
+	margin:10px;
+}
+
+@keyframes fadeIn{
+	0% { opacity : 0 }
+	100% { opacity : 1 }
 }

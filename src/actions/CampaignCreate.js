@@ -101,3 +101,11 @@ export function onSubmitCampaignCreate(payload , callback) {
 		callback
 	}
 }
+
+export const ON_CHANGE_TWITTER_ID  = prefix + "ON_CHANGE_TWITTER_ID"
+export function onChangeTwitterId(twitterId) {
+	return {
+		type: ON_CHANGE_TWITTER_ID ,
+		twitterId
+	}
+}

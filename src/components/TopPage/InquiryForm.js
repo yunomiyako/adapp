@@ -18,12 +18,14 @@ class InquiryForm extends Component {
     }
 
     onClickButton = () => {
-        const text = "名前 : " + this.state.name + ", email : " + this.state.email + ", 内容 : " + this.state.notes
-        postInquiry(text)
-        this.setState({
-            disable : true , 
-            buttonText : "送信済み"
-        })
+        if(this.state.name || this.state.email || this.state.notes) {
+            const text = "名前 : " + this.state.name + ", email : " + this.state.email + ", 内容 : " + this.state.notes
+            postInquiry(text)
+            this.setState({
+                disable : true , 
+                buttonText : "送信済み"
+            })
+        }
     }
     onChangeName(text) {
         this.setState(

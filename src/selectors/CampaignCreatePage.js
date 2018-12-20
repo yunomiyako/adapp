@@ -60,3 +60,9 @@ export const getTweetObject = createSelector(
 	[getTweetObjectFromState] , 
 	(tweetObject) => tweetObject
 )
+
+const getTwitterIdFromState = (state) => state.twitterId
+export const getTwitterId = createSelector(
+	[getTwitterIdFromState] , 
+	(twitterId) => twitterId
+)

@@ -47,6 +47,7 @@ class CamapignCreateFirstPage extends Component {
 	}
 
 	onClickOk() {
+		
 		this.props.onClickOk()
 	}
 

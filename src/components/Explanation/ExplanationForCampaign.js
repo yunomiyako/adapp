@@ -74,13 +74,13 @@ class ExplanationForCampaign extends Component {
 						</h3>
 					</div>
 
-					<div className={style.container3}>
+					{/* <div className={style.container3}>
 						<img className={style.fig3} src={this.state.fig3} />
 						<h3 className={style.secondText1}>
 							<p>お支払いも簡単クレジットカード決済</p>
 							<p><font size="5" >アマゾンギフト券ならすぐに景品に設定できます！</font></p>
 						</h3>
-					</div>
+					</div> */}
 
 					<div className={style.container4}>
 						<img className={style.fig4} src={this.state.fig4} />

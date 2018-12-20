@@ -26,7 +26,7 @@ class ButtonMenuComponent extends Component {
 	}
     
 	renderButtons() {
-		const menus = [
+		const menus = this.props.menus || [
 			{
 				id : 0 , 
 				name : "宣伝を作る" , 

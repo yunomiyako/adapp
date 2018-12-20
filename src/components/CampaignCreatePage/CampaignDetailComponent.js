@@ -12,6 +12,10 @@ class CampaignDetailComponent extends Component {
 	onChangeCampaignInterval = (event , data) => {
 		this.props.onChangeCampaignInterval(data.value)
 	}
+
+	onChangeTwitterId = (event) => {
+		this.props.onChangeTwitterId(event.target.value)
+	}
     
 	render() {
 		const tweetObject = this.props.tweetObject
@@ -24,6 +28,10 @@ class CampaignDetailComponent extends Component {
 		return (
 			<div className={style.CampaignDetailComponent}>
 				<Form>
+				<Form.Input 
+				value = {this.props.twitterId}
+				onChange = {this.onChangeTwitterId}
+				fluid label='開催したいTwitterアカウントID' placeholder='@adapp999' />
 					<Form.Group widths='equal'>
 						<Form.Select 
 							value = {this.props.campaignInterval}

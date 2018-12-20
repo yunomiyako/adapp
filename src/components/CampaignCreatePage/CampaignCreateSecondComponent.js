@@ -34,6 +34,10 @@ class CamapignCreateSecondPage extends Component {
 		this.props.onChangeTweetObject(newObj)
 	}
 
+	onChangeTwitterId = (twitterId) => {
+		this.props.onChangeTwitterId(twitterId)
+	}
+
 	onClickOk() {
 		this.props.onClickOk()
 	}
@@ -56,9 +60,11 @@ class CamapignCreateSecondPage extends Component {
 					<CampaignDetailComponent
 					campaignInterval = {this.props.campaignInterval}
 					tweetObject = {this.props.tweetObject}
+					twitterId = {this.props.twitterId}
 					onChangeText = {this.onChangeText}
 					onChangeImages = {this.onChangeImages}
 					onChangeCampaignInterval={this.onChangeCampaignInterval}
+					onChangeTwitterId={this.onChangeTwitterId}
 					/>
 				</div>
 

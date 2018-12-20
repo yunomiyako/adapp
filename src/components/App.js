@@ -16,9 +16,9 @@ import PrivacyPolicyPage from "./PrivacyPolicyPage/PrivacyPolicyPage"
 import TermsOfServicePage from "./PrivacyPolicyPage/TermsOfService"
 import WebhookLoginPage from "./WebhookLoginPage/WebhookLoginPage"
 import WebhookRedirectPage from "./WebhookLoginPage/WebhookRedirectPage"
-import CampaignPage from "./CampaignPage/CampaignPage"
 import CampaignCreatePage from "../containers/CampaignCreatePage/CampaignCreatePage"
 import IconBattle from "./IconBattle/IconBattle"
+import CreateSimpleMessage from "./CampaignPage/CreateSimpleMessage"
 
 
 import { Route, BrowserRouter } from "react-router-dom"
@@ -34,6 +34,9 @@ import redirectByQueryString from "./Redirect/redirectByQueryString"
 
 import { Snackbar } from "react-redux-snackbar"
 import ExperimentalPage from "./ExperimentalPage/ExperimentalPage"
+import CampaignHobbyPage from "./CampaignHobbyPage/CampaignHobbyPage"
+import CampaignPage2 from "./CampaignPage/CampaignPage2"
+import CampaignDescription from "./CampaignDescription/CampaignDescription"
 
 Amplify.configure(conf)
 
@@ -82,8 +85,12 @@ class App extends Component {
 						<Route path="/iconbattle" component = {IconBattle} />
 						<Route path="/webhook" component = {WebhookLoginPage} />
 						<Route path="/webhook/redirect" component = {WebhookRedirectPage} />
-						<Route path="/campaign/:screen_name/:id_campaign" component = {CampaignPage} />
+						<Route exact={true} path="/campaign/:screen_name/:id_campaign" component = {CampaignPage2} />
+						<Route exact={true} path="/campaign/2/:screen_name/:token" component = {CampaignPage2} />
 						<Route path="/campaign_create" component = {CampaignCreatePage} />
+						<Route path="/campaign_hobby" component = {CampaignHobbyPage} />
+						<Route path="/campaign_message" component = {CreateSimpleMessage} />
+						<Route path="/campaign_description" component = {CampaignDescription} />
 
 
 						<Route path="/test" component = {ExperimentalPage} />
