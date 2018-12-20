@@ -7,6 +7,7 @@ import ScrollAnimation from "react-animate-on-scroll"
 import Footer from "../Footer/Footer"
 import {Button} from "semantic-ui-react"
 import { Link } from "react-router-dom"
+import ExplanationForCampaign from "./ExplanationForCampaign"
 
 
 // class Explanation extends Component {

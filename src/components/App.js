@@ -4,7 +4,6 @@ import "./App.css"
 import TopPage from "./TopPage/TopPage"
 import AdPage from "../containers/AdPage/AdPage_new"
 import AllAd from "./AllAd/AllAd"
-import Explanation from "./Explanation/Explanation"
 import AdCreatePage from "../containers/AdCreatePage/AdCreatePage"
 import UserPage from "./UserPage/UserPage"
 import UserAdListPage from "./UserPage/UserAdListPage"
@@ -37,6 +36,7 @@ import ExperimentalPage from "./ExperimentalPage/ExperimentalPage"
 import CampaignHobbyPage from "./CampaignHobbyPage/CampaignHobbyPage"
 import CampaignPage2 from "./CampaignPage/CampaignPage2"
 import CampaignDescription from "./CampaignDescription/CampaignDescription"
+import ExplanationForCampaign from "./Explanation/ExplanationForCampaign"
 
 Amplify.configure(conf)
 
@@ -72,7 +72,7 @@ class App extends Component {
 					<div className="App-Component">
 						<Route exact={true} path="/" component={TopPage}/>
 						<Route exact={true} path="/all_ad" component={AllAd}/>
-						<Route exact={true} path="/explanation" component={Explanation}/>
+						<Route exact={true} path="/explanation" component={ExplanationForCampaign}/>
 						<Route path="/ad_page/:id_user/:id_ad" component={AdPage}/>
 						<Route exact path="/ad_page/:id_user/" component={UserAdListPage}/>
 						<Route path="/ad_create" component={AdCreatePage}/>
