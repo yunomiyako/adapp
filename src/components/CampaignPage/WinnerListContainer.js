@@ -76,7 +76,7 @@ class WinnerListContaienr extends Component {
 				<div className={style.prize_name}><span>{obj.headerLabel}</span></div>
 				<div className={style.probability}>この賞品の当選確率は<span className={style.emphasise}>{obj.prob}%!!</span></div>
 				{this.ItemStatus(obj.item_num , obj.remain_num)}
-				<div className={style.winnerListTitle}>当選者</div>
+				<div className={style.winnerListTitle}>当選者一覧</div>
 				<div className={style.winnerList}>
 				<WinnerList applicants={obj.applicants} />
 				</div>
