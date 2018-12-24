@@ -1,5 +1,4 @@
 import React , {Component}  from "react"
-
 //css
 import style from "./CampaignPage.css"
 //semantic UI
@@ -7,7 +6,7 @@ import { List , Image} from "semantic-ui-react"
 import { ApplicationAutoScaling } from "aws-sdk/clients/all"
 import WinnerList from "./WinnerList"
 
-class WinnerListContaienr extends Component {
+class WinnerListContainer extends Component {
 
 	ItemStatus( item_num , remain_num ){
 		const item_num_style={
@@ -109,6 +108,7 @@ class WinnerListContaienr extends Component {
 		return (
 			<div>
 			<ul>
+
 			{this.renderWinnerLists(this.props.campaign , this.props.applicants)}
 			{this.renderMissList(this.props.campaign , this.props.applicants)}
 			</ul>
@@ -117,4 +117,4 @@ class WinnerListContaienr extends Component {
 	}
 }
 
-export default WinnerListContaienr
+export default WinnerListContainer

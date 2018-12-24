@@ -43,7 +43,6 @@
 	min-height:150px;
 	margin:10px 10px 30px 10px;
 	display:inline-block;
-	animation: fadeIn 1s ease 0s forwards;
 	vertical-align: middle;
 }
 
@@ -130,12 +129,17 @@
 	margin:10px;
 }
 
-@keyframes fadeIn{
-	0% { opacity : 0 }
-	100% { opacity : 1 }
-}
 
 
 :local .KiyakuFrame {
 	text-align: left;
+}
+
+.example-appear {
+  opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
 }
