@@ -24,6 +24,10 @@
 	flex-direction: column;
 }
 
+:local .WinnerListContainer {
+	position: relative;
+}
+
 :local .TextArea {
 
 }
@@ -35,17 +39,25 @@
 }
 
 :local .prize{
+	flex-basis: 100%;
 	position:relative;
 	border: solid 5px #94CCAE;
 	background-color:#FFFFFF;
 	border-radius:10px;
 	min-height:150px;
-	min-width : 450px;
-	margin:10px 10px 30px 10px;
-	display:inline-block;
+	min-width : 300px;
+	max-width : 600px;
+	margin:10px auto 30px auto;
+	/* display:inline-block; */
 	animation-name:"fadeIn" , "moveUp";
 	animation-duration:3s;
 	vertical-align: middle;
+	right: 0px;
+	left: 0px;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
 }
 
 :local .prize_name {
@@ -68,6 +80,8 @@
 	border-radius:10px;
 	border: solid 5px #94CCAE;
 	padding:3px;
+	white-space: nowrap; 
+	text-overflow: ellipsis;
 }
 
 :local .setColorWhite{
@@ -92,13 +106,23 @@
 	text-align:left;
 	margin-top:10px;
 	font-size:16px;
-	background: #d6ebff;
-	border: solid 0.5px #F2F2F2;
+	background: #94CCAE;
 }
 
 :local .winnerList{
 	position:relative;
 	left:0; width:100%;
+}
+
+:local .winnerListTitle{
+	position:relative;
+	left:0; width:100%;
+	font-size:20px;
+	font-weight:bold;
+	padding:5px;
+	text-align: left ; 
+	margin-bottom:5px;
+	background-color:#94CCAE;
 }
 
 :local .winners{
@@ -111,9 +135,8 @@
 	text-align:center;
 	vertical-align: middle;
 	font-size:20px;
-	background-color: #ffeaea;
+	background-color: #94CCAE;
 	padding:5px 0px;
-	border: solid 2px #F2F2F2;
 }
 
 :local .emphasise{
@@ -126,10 +149,13 @@
 	margin:10px;
 }
 
+<<<<<<< HEAD
 @keyframes fadeIn{
 	0% { opacity : 0  }
 	100% { opacity : 1 }
 }
+=======
+>>>>>>> remotes/origin/edit_campaign_page
 
 @keyframes moveUp{
 	0% { transform:translateY(100%)  }
@@ -138,4 +164,13 @@
 
 :local .KiyakuFrame {
 	text-align: left;
+}
+
+.example-appear {
+  opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
 }

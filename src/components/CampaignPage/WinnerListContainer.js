@@ -1,5 +1,4 @@
 import React , {Component}  from "react"
-
 //css
 import style from "./CampaignPage.css"
 //semantic UI
@@ -7,7 +6,7 @@ import { List , Image} from "semantic-ui-react"
 import { ApplicationAutoScaling } from "aws-sdk/clients/all"
 import WinnerList from "./WinnerList"
 
-class WinnerListContaienr extends Component {
+class WinnerListContainer extends Component {
 
 	ItemStatus( item_num , remain_num ){
 		const item_num_style={
@@ -44,12 +43,15 @@ class WinnerListContaienr extends Component {
 	renderWinnerLists(campaign , applicants) {
 		const objects = []
 		if(!campaign) return 
+		console.log(campaign)
 
 		for(const key in campaign.campaign) {
 			const winners = applicants.filter(applicant => {
 				return applicant.result == key
 			})
 			const prize = campaign.campaign[key]
+			console.log(prize)
+			
 			const headerLabel = prize.title
 			let prob = Number(prize.probability).toFixed(3)*100
 			prob = prob.toFixed(1)
@@ -73,6 +75,7 @@ class WinnerListContaienr extends Component {
 					<div className={style.prize_name}><span>{obj.headerLabel}</span></div>
 					<div className={style.probability}>当選確率 : <span className={style.emphasise}>{obj.prob}%</span></div>
 					{this.ItemStatus(obj.item_num , obj.remain_num)}
+					<div className={style.winnerListTitle}>当選者一覧(タップでTwitterへ飛ぶ)</div>
 					<div className={style.winnerList}>
 						<WinnerList applicants={obj.applicants} />
 					</div>
@@ -80,15 +83,38 @@ class WinnerListContaienr extends Component {
 		})
 	}
 
+	renderMissList( campaign , applicants){
+		const winners = applicants.filter(applicant => {
+			return applicant.result == "外れ"
+		})
+		const headerLabel = "外れ"
+		const object = {
+			"applicants" : winners ,
+			"headerLabel" : headerLabel,
+		}
+
+		if(winners.length > 0){
+			return(
+				<React.Fragment>
+					<h2>外れてしまった人々の声</h2>
+					<div key={object.headerLabel} className={style.prize}>
+						<div className={style.prize_name}><span>外れ</span></div>
+						<div className={style.winnerList}>
+							<WinnerList applicants={object.applicants} /></div>
+					</div>
+				</React.Fragment>
+			)
+		}
+	}
+
 	render() {
 		return (
-			<div>
-				<ul>
-					{this.renderWinnerLists(this.props.campaign , this.props.applicants)}
-				</ul>
+			<div className={style.WinnerListContainer}>
+				{this.renderWinnerLists(this.props.campaign , this.props.applicants)}
+				{this.renderMissList(this.props.campaign , this.props.applicants)}
 			</div>
 		)
 	}
 }
 
-export default WinnerListContaienr
+export default WinnerListContainer
