@@ -13,6 +13,9 @@ class WinnerList extends Component {
 			var content = undefined
 			if(applicant.simpleMessage) {
 				content = "当選メッセージ : " + applicant.simpleMessage
+				if(applicant.result == "外れ") {
+					content = "悲しみのメッセージ : " + applicant.simpleMessage
+				}
 			}
 			const user = {}
 			user.id_user = applicant.user.screen_name
