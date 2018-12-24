@@ -24,7 +24,7 @@ class Header extends Component {
 		const link3 = new ContentLink("使い方" , "/explanation" , undefined)
 		const link2 = new ContentLink("宣伝作成" , "/ad_create" , undefined)
 		const link5 = new ContentLink("ユーザページ" , "/userpage" , icon_url )
-		const contentLink = [ link3 , link5]
+		const contentLink = [ link3]
 
 		return (contentLink.map(link => {
 			return (

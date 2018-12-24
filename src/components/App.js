@@ -70,7 +70,7 @@ class App extends Component {
 						<Route path="/" component={Header}/>
 					</div>
 					<div className="App-Component">
-						<Route exact={true} path="/" component={TopPage}/>
+						<Route exact={true} path="/" component={CampaignDescription}/>
 						<Route exact={true} path="/all_ad" component={AllAd}/>
 						<Route exact={true} path="/explanation" component={ExplanationForCampaign}/>
 						<Route path="/ad_page/:id_user/:id_ad" component={AdPage}/>
