@@ -43,7 +43,8 @@
 	min-height:150px;
 	margin:10px 10px 30px 10px;
 	display:inline-block;
-	animation: fadeIn 1s ease 0s forwards;
+	animation-name:"fadeIn" , "moveUp";
+	animation-duration:3s;
 	vertical-align: middle;
 }
 
@@ -53,6 +54,9 @@
 	font-size:40px;
 	font-weight:bold;
 	text-align: left;
+	animation-name: "fadeIn";
+	animation-duration: 3s;
+	animation-fill-mode:forwards;
 }
 
 :local .prize_name span{
@@ -123,10 +127,14 @@
 }
 
 @keyframes fadeIn{
-	0% { opacity : 0 }
+	0% { opacity : 0  }
 	100% { opacity : 1 }
 }
 
+@keyframes moveUp{
+	0% { transform:translateY(100%)  }
+	100% { transform:translateY(0%)  }
+}
 
 :local .KiyakuFrame {
 	text-align: left;
