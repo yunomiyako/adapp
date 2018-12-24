@@ -14,7 +14,7 @@ class WinnerListContaienr extends Component {
 			fontSize:"20px",
 			fontWeight:"bold"
 		}
-		if( remain_num == 0 ){
+		if( remain_num <= 0 ){
 			return(
 				<div className={style.item_status}>
 				この賞品はなくなりました
@@ -71,7 +71,7 @@ class WinnerListContaienr extends Component {
 			return (
 				<div key={obj.headerLabel} className={style.prize}>
 					<div className={style.prize_name}><span>{obj.headerLabel}</span></div>
-					<div className={style.probability}>この賞品の当選確率は......<span className={style.emphasise}>{obj.prob}%!!</span></div>
+					<div className={style.probability}>当選確率 : <span className={style.emphasise}>{obj.prob}%</span></div>
 					{this.ItemStatus(obj.item_num , obj.remain_num)}
 					<div className={style.winnerList}>
 						<WinnerList applicants={obj.applicants} />
