@@ -79,7 +79,7 @@ class CampaignPage2 extends Component {
 				)
 			} else if(this.state.fail_load) {
 				return (
-					ErrorView("キャンペーンが見つかりませんでした")
+					ErrorView("キャンペーンが見つかりませんでした。\n更新すると表示される可能性があります。")
 				)
 			}
 			return ""

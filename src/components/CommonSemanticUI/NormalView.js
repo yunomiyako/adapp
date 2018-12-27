@@ -35,7 +35,7 @@ class NormalView extends Component {
 					</Card.Content>
 					<Card.Content >
 						<div className={style.NormalViewContent} >
-							<List bulleted relaxed>
+							<List bulleted relaxed="very">
 								{this.renderList(ls)}
 							</List>
 						</div>
