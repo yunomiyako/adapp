@@ -14,8 +14,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows:  1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: undefined;
-  background: linear-gradient(-45deg,rgba(5, 172, 175, 0.9), rgba(0, 28, 187, 0.9)),
-  url(../../images/141117-twitter.png);
+  background: linear-gradient(-45deg,rgba(5, 172, 175, 0.9), rgba(0, 28, 187, 0.9)) ;
   background-size: 100vw 100vh; 
   grid-template-areas: ". . . . . . ." ". . . . . . ." ". . Title Title Title . ." ". . Text Text Text . ." ". . Text Text Text . ."  ". Button Button . Button2 Button2 ." ;
 }
@@ -37,8 +36,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows:  1fr 1fr 1fr 1fr 1fr;
   grid-gap: undefined;
-  background: linear-gradient(-45deg,rgba(6, 217, 221, 0.9), rgba(0, 72, 187, 0.9)),
-  url(../../images/141117-twitter.png);
+  background: linear-gradient(-45deg,rgba(6, 217, 221, 0.9), rgba(0, 72, 187, 0.9));
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
