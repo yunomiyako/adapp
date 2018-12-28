@@ -20,10 +20,8 @@ class CreateSimpleMessage extends Component {
             redirectTo : "" , 
             result : ""
         }
-    }
-    componentDidMount() {
-        //urlをみて当選者か確かめる
-        console.log("getSimpleMessage")
+        console.log("constructor")
+
         getSimpleMessage(QueryString).then(res => {
             console.log("getSimpleMessage success")
             this.setState({
@@ -39,6 +37,26 @@ class CreateSimpleMessage extends Component {
                 loading : false
             })
         })
+    }
+
+    componentDidMount() {
+        //urlをみて当選者か確かめる
+        console.log("getSimpleMessage")
+        // getSimpleMessage(QueryString).then(res => {
+        //     console.log("getSimpleMessage success")
+        //     this.setState({
+        //         success : true , 
+        //         loading : false , 
+        //         message : res.message , 
+        //         result : res.result
+        //     })
+        // }).catch(e => {
+        //     console.log("getSimpleMessage fail")
+        //     this.setState({
+        //         success : false , 
+        //         loading : false
+        //     })
+        // })
     }
 
 	//フィールドの長さはAdCreatePage-TitleCreateComponentで定義
