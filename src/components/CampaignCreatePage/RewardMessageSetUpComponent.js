@@ -38,11 +38,15 @@ class RewardMessageSetUpComponent extends Component {
 	}
 
 	onHandleImageUpload(e , index) {
+		console.log("onHandleImageUpload")
 		// ①イベントからfileの配列を受け取る
 		var files = e.target.files
 		
+		console.log("get_id_user")
 		const id_user = get_id_user()
+		console.log(id_user)
 		Promise.all(imageUploadUserWithRandomName( [files[0]] , id_user)).then((values) => {
+			console.log("success image upload")
 			const keys = values.map(v => v.key)
 			const key = keys[0]
 			this.props.onChangeCampaignImage( index , key)

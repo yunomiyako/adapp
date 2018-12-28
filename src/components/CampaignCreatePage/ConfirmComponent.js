@@ -51,6 +51,7 @@ class ConfirmComponent extends Component {
 	}
 
 	onClickOk = () => {
+		console.log("onClickOk")
 		this.setState({loading : true})
 		//送信処理
 		const callback = (response) => {

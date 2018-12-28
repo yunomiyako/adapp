@@ -194,11 +194,13 @@ function *onFetchTweetDetail(action) {
 }
 
 function *onSubmitCampaignCreate(action) {
+	console.log("onSubmitCampaignCreate")
 	try {
 		const result = yield call(submitCampaignCreateInfo , action.payload)
 		result.status = "OK"
 		action.callback(result)
 	} catch (e) {
+		console.log(e)
 		const result = {}
 		result.status = "NG"
 		result.errorMessage = e //????
