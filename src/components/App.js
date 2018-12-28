@@ -42,11 +42,11 @@ Amplify.configure(conf)
 
 class App extends Component {
 	componentDidMount() {
-		this.tmpAuth()
+		//this.tmpAuth()
 	}
 
 	componentDidUpdate() {
-		this.tmpAuth()
+		//this.tmpAuth()
 	}
 
 	tmpAuth() {
