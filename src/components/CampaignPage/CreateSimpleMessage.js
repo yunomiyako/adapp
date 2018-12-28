@@ -141,6 +141,7 @@ class CreateSimpleMessage extends Component {
                 </div>
             )
         } else {
+            
             return (
                 ErrorView("読み込みできませんでした。更新すると表示されるかもしれません。")
             )
