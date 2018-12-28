@@ -32,6 +32,7 @@ class CreateSimpleMessage extends Component {
             })
         }).catch(e => {
             console.log("getSimpleMessage fail")
+            console.log(e)
             this.setState({
                 success : false , 
                 loading : false
