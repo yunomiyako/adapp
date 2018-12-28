@@ -13,7 +13,8 @@ export function getSimpleMessage(payload) {
 			id_tweet : payload.id_tweet , 
 			actionType : payload.actionType , 
 			token : payload.token
-		}
+		},
+		response: true 
 	}
 
 	// return AuthentificatedCallWrapper(apiName , path , init , "get").then((res) => {
@@ -38,7 +39,8 @@ export function postSimpleMessage(payload) {
 			actionType : payload.actionType , 
 			message : payload.message, 
 			token : payload.token
-		}
+		},
+		response: true 
 	}
 
 	// return AuthentificatedCallWrapper(apiName , path , init , "post").then((res) => {
