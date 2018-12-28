@@ -23,12 +23,9 @@ class CreateSimpleMessage extends Component {
     }
     componentDidMount() {
         //urlをみて当選者か確かめる
-        // const id_user = QueryString.id_iser 
-        // const creator_id = QueryString.creator_id
-        // const id_tweet = QueryString.id_tweet
-        // const actionType = QueryString.actionType
-        // const token = QueryString.token
+        console.log("getSimpleMessage")
         getSimpleMessage(QueryString).then(res => {
+            console.log("getSimpleMessage success")
             this.setState({
                 success : true , 
                 loading : false , 
@@ -36,6 +33,7 @@ class CreateSimpleMessage extends Component {
                 result : res.result
             })
         }).catch(e => {
+            console.log("getSimpleMessage fail")
             this.setState({
                 success : false , 
                 loading : false
@@ -109,17 +107,20 @@ class CreateSimpleMessage extends Component {
 
 	render() {
         if(this.state.redirectTo) {
+            console.log("render redirect to")
             return redirectTo(this.state.redirectTo)
         }
 
         if(this.state.loading) {
+            console.log("render loading")
 			return (
 				<Dimmer active>
 					<Loader size='massive'>Loading</Loader>
 				</Dimmer>
 			)
         }
-        if(this.state.success) {        
+        if(this.state.success) {    
+            console.log("render textArea")    
             return (
                 <div className={style.CreateSimpleMessage}>
                     {this.renderDescription(this.state.result)}
@@ -129,6 +130,7 @@ class CreateSimpleMessage extends Component {
                 </div>
             )
         } else {
+            console.log("render errorview")
             return (
                 ErrorView("読み込みできませんでした。")
             )
