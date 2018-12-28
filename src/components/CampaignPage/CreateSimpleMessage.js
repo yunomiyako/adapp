@@ -22,22 +22,22 @@ class CreateSimpleMessage extends Component {
         }
         console.log("constructor")
 
-        getSimpleMessage(QueryString).then(res => {
-            console.log("getSimpleMessage success")
-            this.setState({
-                success : true , 
-                loading : false , 
-                message : res.message , 
-                result : res.result
-            })
-        }).catch(e => {
-            console.log("getSimpleMessage fail")
-            console.log(e)
-            this.setState({
-                success : false , 
-                loading : false
-            })
-        })
+        // getSimpleMessage(QueryString).then(res => {
+        //     console.log("getSimpleMessage success")
+        //     this.setState({
+        //         success : true , 
+        //         loading : false , 
+        //         message : res.message , 
+        //         result : res.result
+        //     })
+        // }).catch(e => {
+        //     console.log("getSimpleMessage fail")
+        //     console.log(e)
+        //     this.setState({
+        //         success : false , 
+        //         loading : false
+        //     })
+        // })
     }
 
     componentDidMount() {
