@@ -63,7 +63,6 @@ class CreateSimpleMessage extends Component {
 
         const creator_id = QueryString.creator_id
         const id_tweet = QueryString.id_tweet
-        console.log("creator_id = " + creator_id)
 
         const payload = {...QueryString , message : this.state.message}
         this.setState({
@@ -71,7 +70,6 @@ class CreateSimpleMessage extends Component {
         })
         postSimpleMessage(payload).then(res => {
             const url = "campaign/" + creator_id + "/" + id_tweet
-            console.log(url)
             this.setState({
                 sending : false , 
                 redirectTo : url

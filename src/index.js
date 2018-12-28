@@ -16,7 +16,7 @@ import "./index.css"
 import MyApp from "./components/App"
 import registerServiceWorker from "./registerServiceWorker"
 
-import {StripeProvider} from "react-stripe-elements"
+//import {StripeProvider} from "react-stripe-elements"
 
 const sagaMiddleware = createSagaMiddleware()
 // Be sure to ONLY add this middleware in development
@@ -34,9 +34,7 @@ sagaMiddleware.run(mySaga)
 
 ReactDOM.render(
 	<Provider store = {store}>
-		<StripeProvider apiKey="pk_test_12345">
-			<MyApp />
-		</StripeProvider>
+		<MyApp />
 	</Provider>  ,
 	document.getElementById("root")
 )

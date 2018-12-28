@@ -31,8 +31,6 @@ class CampaignPage2 extends Component {
 
 		this.setState({loading : true})
 		fetchCampaignDetail(screen_name , id_campaign , token).then(bdy => {
-			console.log(bdy.campaign)
-			console.log(bdy.applicants)
 			this.setState({loading : false })
 			this.setState(
 				{
@@ -53,8 +51,6 @@ class CampaignPage2 extends Component {
 
 	render() {
 		if(this.state.campaign) {
-			console.log(this.state.campaign)
-			console.log(this.state.applicants)
 			return (
 				<div className={style.CampaignPagePage}>
 				<div className={style.CampaignPageContainer}>

@@ -43,20 +43,17 @@ class WinnerListContainer extends Component {
 	renderWinnerLists(campaign , applicants) {
 		const objects = []
 		if(!campaign) return 
-		console.log(campaign)
 
 		for(const key in campaign.campaign) {
 			const winners = applicants.filter(applicant => {
 				return applicant.result == key
 			})
 			const prize = campaign.campaign[key]
-			console.log(prize)
 			
 			const headerLabel = prize.title
 			let prob = Number(prize.probability).toFixed(3)*100
 			prob = prob.toFixed(1)
 			const remain = prize.people - winners.length
-			console.log(remain)
 			const object = {
 				"applicants" : winners ,
 				"headerLabel" : headerLabel,
@@ -67,8 +64,6 @@ class WinnerListContainer extends Component {
 
 			objects.push(object)
 		}
-
-		console.log(objects)
 		return objects.map(obj => {
 			return (
 				<div key={obj.headerLabel} className={style.prize}>

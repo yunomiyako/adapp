@@ -12,12 +12,11 @@ class WinnerStatus extends Component {
 	renderStatus(campaign , applicants){
 		if(!campaign) return 
 
-		const objects = [];
+		const objects = []
 		for(const key in campaign.campaign) {
 			const winners = applicants.filter(applicant => {
 				return applicant.result == key
 			})
-			console.log(winners.length)
 			const prize = campaign.campaign[key]
 			const headerLabel = prize.title + "は、残り" + (prize.people - winners.length) + "個"
 			const object = {
@@ -35,10 +34,9 @@ class WinnerStatus extends Component {
 	}
 
 	render() {
-		console.log(this.campaign);
 		return (
 			<div>
-			{this.renderStatus(this.props.campaign , this.props.applicants)}
+				{this.renderStatus(this.props.campaign , this.props.applicants)}
 			</div>
 		)
 	}
