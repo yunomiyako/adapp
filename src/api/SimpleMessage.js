@@ -1,4 +1,6 @@
 import AuthentificatedCallWrapper from "./AuthentificatedCallWrapper"
+import {API } from "aws-amplify"
+
 
 export function getSimpleMessage(payload) {
 	const apiName = "adApp"
@@ -14,9 +16,13 @@ export function getSimpleMessage(payload) {
 		}
 	}
 
-	return AuthentificatedCallWrapper(apiName , path , init , "get").then((res) => {
-		const body = res.data
-		return body
+	// return AuthentificatedCallWrapper(apiName , path , init , "get").then((res) => {
+	// 	const body = res.data
+	// 	return body
+	// })
+    
+	return API.get(apiName, path, init).then(res => {
+		return res.data
 	})
 }
 
@@ -35,8 +41,12 @@ export function postSimpleMessage(payload) {
 		}
 	}
 
-	return AuthentificatedCallWrapper(apiName , path , init , "post").then((res) => {
-		const body = res.data
-		return body
+	// return AuthentificatedCallWrapper(apiName , path , init , "post").then((res) => {
+	// 	const body = res.data
+	// 	return body
+	// })
+
+	return API.post(apiName, path, init).then(res => {
+		return res.data
 	})
 }
