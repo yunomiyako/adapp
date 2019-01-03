@@ -13,6 +13,20 @@ class CampaignDescription extends Component {
 		}
 	}
 
+	renderWhatIs() {
+		const title = "何ができるの？"
+		const ls = [
+			{key: 1 , text : "RTしたらすぐに結果が届く(本当にすぐです！）"} , 
+			{key: 2 , text : "Amazonギフト券の送付まで全部自動！"} , 
+			{key: 3 , text : "当選者、外れた人の一覧が見れて安心！（一言メッセージもつけられる！）"} , 
+			{key: 4 , text : "不正なアカウントの排除(捨て垢判定機能)"} , 
+		]
+
+		return <NormalView
+			title = {title}
+			ls = {ls} />
+	}
+
 	renderMerit() {
 		const title = "キャンペーンに参加する人のメリットは？"
 		const ls = [
@@ -84,14 +98,19 @@ class CampaignDescription extends Component {
 			<div className={style.CampaignDescriptionPage}>
 				<div className={style.CampaignDescriptionPageContainer}>
 					<h1>プレセントキャンペーンを開きませんか？</h1>
+
 					<div className={style.NormalViewFrame}>
-						{this.renderMerit()}
+						{this.renderWhatIs()}
 					</div>
 
 					<div className={style.NormalViewFrame}>
 						{this.renderMerit2()}
 					</div>
 
+					<div className={style.NormalViewFrame}>
+						{this.renderMerit()}
+					</div>
+					
 					<div>
 						{this.renderButtonMenu()}
 					</div>
