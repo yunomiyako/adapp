@@ -22,6 +22,7 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	opacity:0.8;
 }
 
 :local .WinnerListContainer {
@@ -149,19 +150,85 @@
 	margin:10px;
 }
 
+:local .BlackOut{
+	position:absolute;
+	top:2.85714286em; height:100%;
+	left:0; width:100%;
+	background-color:black;
+	/*opacity:0.8;*/
+}
+
+:local .BackRect{
+	position:absolute;
+	top:40px;
+	left:calc( 50% - 30% ); width:60%;
+	padding: 10px 20px;
+	border-radius:20px;
+	background-color:white;
+	border-color:10px;
+	opacity:1;
+	transform:translateY(0);
+	animation-name: "fadeIn" , "moveUpWin";
+	animation-duration: 3s;
+	animation-fill-mode:forwards;
+}
+
+:local .EraseButton{
+	position:absolute;
+	top:-30px; height:60px;
+	left:calc(100% - 30px); width:60px;
+}
+
+:local .EraseButton input{
+	position:absolute;
+	top:0; height:100%;
+	left:0; width:100%;
+	border-radius:60px;
+	border-width:3px;
+	border-color:red;
+	background-color:white;
+}
+
+:local .EraseButton div{
+	position:absolute;
+	display:block;
+	top:45%; height:10%;
+	left:10%; width:80%;
+	background-color:red;
+}
+
+:local .EraseButton .Line1{
+	transform:rotate(45deg);
+}
+
+:local .EraseButton .Line2{
+	transform:rotate(135deg);
+}
+
+:local .WinImage{
+	position:relative;
+	max-width:60%;
+}
+
+
+@keyframes moveUp{
+	0% { transform:translateY(50%)  }
+	100% { transform:translateY(0%)  }
+}
+
+@keyframes moveUpWin{
+	0% { transform:translateY(30%)  }
+	100% { transform:translateY(0%)  }
+}
+
 <<<<<<< HEAD
 @keyframes fadeIn{
 	0% { opacity : 0  }
+	70% {opacity : 0.5}
 	100% { opacity : 1 }
 }
 =======
 >>>>>>> remotes/origin/edit_campaign_page
-
-@keyframes moveUp{
-	0% { transform:translateY(100%)  }
-	100% { transform:translateY(0%)  }
-}
-
 :local .KiyakuFrame {
 	text-align: left;
 }
