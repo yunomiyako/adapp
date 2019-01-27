@@ -5,7 +5,6 @@ import style from "./Header.css"
 import { Link } from "react-router-dom"
 import { get_userdetail } from "../../localStorage/user_detail"
 import {  Image , Icon } from "semantic-ui-react"
-import { fileDownloadPrivate } from "../../api/fileDownload"
 
 
 class ContentLink {
@@ -17,6 +16,8 @@ class ContentLink {
 }
 
 class Header extends Component {
+
+	
 	renderLink() {
 		const user_detail = get_userdetail()
 		const icon_url = user_detail ? user_detail.profile_image_url : undefined
