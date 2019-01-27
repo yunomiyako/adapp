@@ -22,7 +22,6 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	opacity:0.8;
 }
 
 :local .WinnerListContainer {
@@ -152,10 +151,11 @@
 
 :local .BlackOut{
 	position:absolute;
-	top:2.85714286em; height:100%;
+	top:2.85714286em;
+	height:fill;
 	left:0; width:100%;
 	background-color:black;
-	/*opacity:0.8;*/
+	opacity:0.8;
 }
 
 :local .BackRect{
