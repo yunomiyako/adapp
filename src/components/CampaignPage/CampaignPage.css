@@ -175,17 +175,24 @@
 
 :local .EraseButton{
 	position:absolute;
-	top:-30px; height:60px;
-	left:calc(100% - 30px); width:60px;
+	top:-10px; height:40px;
+	left:calc(100% - 30px); 
+	width:40px;
 }
 
-:local .EraseButton input{
+#EraseLabel{
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	outline: none;
+	padding: 0;
+	appearance: none;
+
 	position:absolute;
 	top:0; height:100%;
 	left:0; width:100%;
 	border-radius:60px;
-	border-width:3px;
-	border-color:red;
+	border : solid 3px #d63031;
 	background-color:white;
 }
 
@@ -194,7 +201,7 @@
 	display:block;
 	top:45%; height:10%;
 	left:10%; width:80%;
-	background-color:red;
+	background-color: #d63031;
 }
 
 :local .EraseButton .Line1{
@@ -221,14 +228,12 @@
 	100% { transform:translateY(0%)  }
 }
 
-<<<<<<< HEAD
 @keyframes fadeIn{
 	0% { opacity : 0  }
 	70% {opacity : 0.5}
 	100% { opacity : 1 }
 }
-=======
->>>>>>> remotes/origin/edit_campaign_page
+
 :local .KiyakuFrame {
 	text-align: left;
 }

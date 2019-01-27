@@ -23,22 +23,23 @@ class CreateSimpleMessage extends Component {
 
 		getSimpleMessage(QueryString).then(res => {
 			this.setState({
-				success : false , 
-				loading : true, 
+				success : true , 
+				loading : false, 
 				message : res.message , 
 				result : res.result ,
 				present_detail : res.present_detail
 			})
 			
-			const pro = fileDownloadPrivate(this.state.present_detail.image, '')
-			pro.then( url => {
-				this.setState({
-					success : true,
-					loading : false,
-					imageUrl : url
+			if(this.state.present_detail) {
+				const pro = fileDownloadPrivate(this.state.present_detail.image, '')
+				pro.then( url => {
+					this.setState({
+						imageUrl : url
+					})
 				})
-			})
+			}
 		}).catch(e => {
+			console.log(e)
 			this.setState({
 				success : false , 
 				loading : false
@@ -168,7 +169,7 @@ class CreateSimpleMessage extends Component {
 				<div className={style.BlackOut}>
 				<div className={style.BackRect}>
 				<div className={style.EraseButton} onClick={()=>this.onClickEraseButton()} >
-				<input type="button" id="EraseLabel"/>
+				<input id="EraseLabel"/>
 				<div className={style.Line1}></div>
 				<div className={style.Line2}></div>
 				</div>
@@ -181,6 +182,8 @@ class CreateSimpleMessage extends Component {
 				</div>
 			)
 		} else {
+			console.log("why")
+			console.log(this.state)
 			return (
 				ErrorView("読み込みできませんでした。更新すると表示されるかもしれません。")
 			)
