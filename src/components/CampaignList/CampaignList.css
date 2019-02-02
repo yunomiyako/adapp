@@ -1,0 +1,10 @@
+:local .FeedView {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0px;
+    align-content: center;
+  }
+
+  .content-space {
+      padding-top: 70px;
+  }

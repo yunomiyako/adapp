@@ -42,7 +42,7 @@ class WinnerList extends Component {
 
 	onClickListItem(screen_name) {
 		const url = "https://www.twitter.com/" + screen_name
-		window.location.href = url
+		window.open(url, "_blank")
 	}
     
 	renderSadMessage() {

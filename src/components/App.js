@@ -37,6 +37,7 @@ import CampaignHobbyPage from "./CampaignHobbyPage/CampaignHobbyPage"
 import CampaignPage2 from "./CampaignPage/CampaignPage2"
 import CampaignDescription from "./CampaignDescription/CampaignDescription"
 import ExplanationForCampaign from "./Explanation/ExplanationForCampaign"
+import CampaignList from "./CampaignList/CampaignList"
 
 Amplify.configure(conf)
 
@@ -91,6 +92,7 @@ class App extends Component {
 						<Route path="/campaign_hobby" component = {CampaignHobbyPage} />
 						<Route path="/campaign_message" component = {CreateSimpleMessage} />
 						<Route path="/campaign_description" component = {CampaignDescription} />
+						<Route path="/campaign_list" component = {CampaignList} />
 
 
 						<Route path="/test" component = {ExperimentalPage} />
