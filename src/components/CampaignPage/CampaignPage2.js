@@ -50,8 +50,8 @@ class CampaignPage2 extends Component {
 	}
 
 	onClickTweetButton() {
-		const screen_name = this.props.match.params.screen_name
-		const id_campaign = this.props.match.params.id_campaign
+		const screen_name = this.state.campaign.id_user
+		const id_campaign = this.state.campaign.id_campaign
 		const tweetUrl = "https://twitter.com/" + screen_name + "/status/" + id_campaign
 		window.open(tweetUrl);
 	}
