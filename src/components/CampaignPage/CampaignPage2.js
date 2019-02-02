@@ -1,6 +1,6 @@
 import React , {Component}  from "react"
 import style from "./CampaignPage.css"
-import {  Dimmer , Loader } from "semantic-ui-react"
+import {  Dimmer , Loader , Button , Icon } from "semantic-ui-react"
 import fetchCampaignDetail from "../../api/fetchCampaignDetail";
 import WinnerListContainer from "./WinnerListContainer";
 import WinnerStatus from "./WinnerStatus";
@@ -49,6 +49,13 @@ class CampaignPage2 extends Component {
 
 	}
 
+	onClickTweetButton() {
+		const screen_name = this.props.match.params.screen_name
+		const id_campaign = this.props.match.params.id_campaign
+		const tweetUrl = "https://twitter.com/" + screen_name + "/status/" + id_campaign
+		window.open(tweetUrl);
+	}
+
 	render() {
 		if(this.state.campaign) {
 			return (
@@ -57,6 +64,15 @@ class CampaignPage2 extends Component {
 				<br/><br/><br/><br/><br/>
 				<h1>賞品と当選者一覧</h1>
 				<WinnerListContainer campaign={this.state.campaign} applicants={this.state.applicants}/>
+				<div>
+						<Button 
+						color="twitter"
+						size="massive"
+						onClick={() => this.onClickTweetButton()}>
+						<Icon name="twitter"/>
+						応募しにいく
+						</Button>
+					</div>
 				<Kiyaku
 				screenName={this.state.campaign.id_user}
 				idTweet={this.state.campaign.id_campaign}
