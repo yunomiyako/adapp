@@ -23,3 +23,15 @@ export const fileDownloadPrivate = function(path , prefix = "test/") {
 		return undefined
 	}
 }
+
+export const fileDownloadPrivate2 = function(path , prefix = "test/") {
+	if(path) {
+		/* return Storage.vault.get(prefix + path ,{
+			bucket : "adapp-image-folder-private"
+		}) */
+		const baseUrl = "https://s3-ap-northeast-1.amazonaws.com/adapp-image-folder-private/"
+		return baseUrl + prefix + path
+	} else {
+		return undefined
+	}
+}

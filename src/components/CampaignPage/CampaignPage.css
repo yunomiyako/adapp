@@ -258,3 +258,7 @@ img {
   opacity: 1;
   transition: opacity .5s ease-in;
 }
+
+:local .adBottom {
+	padding-top: 20px;
+}
