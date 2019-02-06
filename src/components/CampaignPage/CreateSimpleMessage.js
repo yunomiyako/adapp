@@ -176,10 +176,19 @@ class CreateSimpleMessage extends Component {
 				{this.renderDescription(this.state.result , this.state.present_detail , this.state.imageUrl)}
 				<div className={style.TextArea}>
 				{this.renderTextArea()}
+				<div className={style.adBottom}>
+				<a href="https://px.a8.net/svt/ejp?a8mat=358P23+C7ZCTU+50+2HNNZL" target="_blank" rel="nofollow">
+					<img border="0" width="130" height="150" alt="" src="https://www23.a8.net/svt/bgt?aid=190202331739&wid=001&eno=01&mid=s00000000018015059000&mc=1"></img>
+					</a>
+					<img border="0" width="1" height="1" src="https://www19.a8.net/0.gif?a8mat=358P23+C7ZCTU+50+2HNNZL" alt=""></img>
 				</div>
 				</div>
 				</div>
 				</div>
+				</div>
+				
+
+				
 			)
 		} else {
 			console.log("why")

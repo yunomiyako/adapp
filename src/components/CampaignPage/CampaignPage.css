@@ -15,6 +15,16 @@
 	overflow:hidden;
 }
 
+:local .adTop {
+	
+
+}
+
+img {
+	width:100%;
+	max-width: 318px;
+}
+
 :local .CreateSimpleMessage {
 	width: 100vw;
 	height: 100vh;
