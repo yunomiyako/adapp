@@ -66,7 +66,6 @@ class App extends Component {
 				<div className="App">
 
 					<Snackbar />
-
 					{redirectByQueryString(QueryString)}
 					<div className="App-Header">
 						<Route path="/" component={Header}/>
