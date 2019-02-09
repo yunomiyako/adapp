@@ -91,7 +91,7 @@ class WinnerListContainer extends Component {
 		if(winners.length > 0){
 			return(
 				<React.Fragment>
-					<h2>外れてしまった人々の声</h2>
+					<h2 className={style.heading}>外れてしまった人々の声</h2>
 					<div key={object.headerLabel} className={style.prize}>
 						<div className={style.prize_name}><span>外れ</span></div>
 						<div className={style.winnerList}>

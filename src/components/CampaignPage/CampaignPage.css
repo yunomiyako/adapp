@@ -70,6 +70,11 @@ img {
 	right: 0;
 }
 
+:local .heading{
+	animation-name:"fadeIn";
+	animation-duration:3s;
+}
+
 :local .prize_name {
 	position:relative;
 	top:10px; left:0; width:100%; height:30px;

@@ -74,7 +74,7 @@ class CampaignPage2 extends Component {
 						<img border="0" width="1" height="1" src="https://www19.a8.net/0.gif?a8mat=358P23+C9681E+40Q+1ZPVJ5" alt=""></img>
 				</div> */}
 
-				<h1>賞品と当選者一覧</h1>
+				<h1 className={style.heading}>賞品と当選者一覧</h1>
 				<WinnerListContainer campaign={this.state.campaign} applicants={this.state.applicants}/>
 				
 				<div>
