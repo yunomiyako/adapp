@@ -247,6 +247,11 @@ img {
 :local .WinImage{
 	position:relative;
 	max-width:60%;
+	transition:transform 0.5s;
+}
+
+:local .WinImage:hover{
+	transform:scale(1.2);
 }
 
 
