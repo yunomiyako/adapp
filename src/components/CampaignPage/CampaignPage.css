@@ -191,6 +191,12 @@ img {
 	top:-10px; height:40px;
 	left:calc(100% - 30px); 
 	width:40px;
+
+	transition: transform 0.5s;
+}
+
+:local .EraseButton:hover{
+	transform:scale(1.3);
 }
 
 #EraseLabel{
@@ -214,6 +220,7 @@ img {
 	animation-fill-mode:forwards;
 }
 
+
 :local .EraseButton div{
 	position:absolute;
 	display:block;
@@ -221,7 +228,6 @@ img {
 	left:10%; width:80%;
 	background-color: #d63031;
 	animation-fill-mode:forwards;
-
 }
 
 :local .EraseButton .Line1{
@@ -267,7 +273,7 @@ img {
 
 @keyframes rotateLine2{
 	0% {transform:rotate(45deg)}
-	100% {transform:rotate(1835deg)}
+	100% {transform:rotate(1845deg)}
 }
 
 @keyframes Swell{
