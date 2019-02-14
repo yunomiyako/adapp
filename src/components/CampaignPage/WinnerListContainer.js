@@ -20,7 +20,7 @@ class WinnerListContainer extends Component {
 				</div>
 			)
 		}
-		else if(remain_num <= 3){
+		else if(remain_num <= 1){
 			return(
 				<div className={style.item_status}>
 					残り賞品数は
@@ -51,8 +51,7 @@ class WinnerListContainer extends Component {
 			const prize = campaign.campaign[key]
 			
 			const headerLabel = prize.title
-			let prob = Number(prize.probability).toFixed(3)*100
-			prob = prob.toFixed(1)
+			let prob = Number(prize.probability) * 100
 			const remain = prize.people - winners.length
 			const object = {
 				"applicants" : winners ,
